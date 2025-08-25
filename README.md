@@ -25,6 +25,10 @@ tajal-restaurante/
 │       ├── background.jpg (Imagen de fondo del header)
 ├── README.md¡Claro! Vamos a estructurar el proyecto, explicar cómo mejorarlo y cómo agregar imágenes.
 
+[Ver publicación en Imgur](https://imgur.com/r3blkVA)
+
+![Imagen de Imgur](https://i.imgur.com/r3blkVA.jpg)
+
 **Estructura de Ficheros Propuesta**
 
 ```
@@ -64,7 +68,7 @@ tajal-restaurante/
     *   `script.js`:  Contendrá tu JavaScript personalizado, como la lógica para la navegación sticky, la detección de la sección activa, y cualquier otra interacción que quieras agregar.
 *   **`img/`**:
     *   `logo.png`:  El logo de tu restaurante en formato PNG (ideal para transparencia).
-    *   Directorios de categorías (`desayunos/`, `entradas/`, `bebidas/`, `otros/`):  Almacenarán las imágenes de los platos y bebidas correspondientes.  Utiliza nombres descriptivos para los archivos de imagen (ej., `chilaquiles.jpg`).
+    *   Directorios de categorías (`desayunos/`, `entradas/`, `bebidas/`, `otros/`):  Almacenarán las imágenes de los platos y bebidas correspondientes.  Utiliza nombres descriptivos para los archivos.
 *   **`README.md`**:  Un archivo de texto en formato Markdown que describe tu proyecto.  Puedes incluir información sobre cómo ejecutarlo, dependencias, etc.
 
 **Implementación Paso a Paso**
@@ -72,8 +76,8 @@ tajal-restaurante/
 1.  **Crear la Estructura de Ficheros:**  Crea los directorios y archivos vacíos en tu sistema local.
 2.  **Mover Contenido:**  Copia el contenido de tu `index.html` actual al nuevo `index.html` en la estructura de ficheros.
 3.  **Crear `style.css`:**  Crea el archivo `css/style.css` y mueve los estilos CSS que tienes dentro de `<style>` en tu `index.html` a este archivo.  Enlaza este archivo en tu `index.html` con `<link rel="stylesheet" href="css/style.css">`.
-4.  **Extraer JavaScript:**  Crea el archivo `js/script.js` y mueve el código JavaScript que tienes dentro de `<script>` en tu `index.html` a este archivo.  Enlaza este archivo en tu `index.html` justo antes del cierre del `</body>` con `<script src="js/script.js"></script>`.
-5.  **Organizar Imágenes:**  Consigue o crea las imágenes para tus platos y bebidas.  Guárdalas en los directorios correspondientes dentro de `img/`.  Considera optimizar las imágenes para web (tamaño y resolución).
+4.  **Extraer JavaScript:**  Crea el archivo `js/script.js` y mueve el código JavaScript que tienes dentro de `<script>` en tu `index.html` a este archivo.  Enlaza este archivo en tu `index.html` con `<script src="js/script.js"></script>`.
+5.  **Organizar Imágenes:**  Consigue o crea las imágenes para tus platos y bebidas.  Guárdalas en los directorios correspondientes dentro de `img/`.  Considera optimizar las imágenes para web.
 6.  **Actualizar `index.html`:**
     *   **Logo:**  Reemplaza el texto de tu logo con una etiqueta `<img>`:
         ```html
@@ -86,7 +90,7 @@ tajal-restaurante/
             ...
         }
         ```
-    *   **Imágenes de Platillos y Cocteles:** Dentro de cada sección del menú, agrega etiquetas `<img>` para mostrar las imágenes de los platos. Puedes hacerlo dentro de cada `.menu-item`. Aquí tienes un ejemplo para los Chilaquiles en la sección de Desayunos:
+    *   **Imágenes de Platillos y Cocteles:** Dentro de cada sección del menú, agrega etiquetas `<img>` para mostrar las imágenes de los platos. Puedes hacerlo dentro de cada `.menu-item`. Aquí te dejo un ejemplo:
         ```html
         <div class="menu-item p-4">
             <img src="img/desayunos/chilaquiles.jpg" alt="Chilaquiles" class="w-full h-48 object-cover mb-2 rounded-md">
@@ -97,7 +101,7 @@ tajal-restaurante/
             <p class="menu-item-price">$130.00</p>
         </div>
         ```
-        Ajusta las clases de Tailwind (`w-full`, `h-48`, `object-cover`, `mb-2`, `rounded-md`) según tus necesidades.  `object-cover` asegura que la imagen cubra el espacio asignado sin deformarse, recortando si es necesario.
+        Ajusta las clases de Tailwind (`w-full`, `h-48`, `object-cover`, `mb-2`, `rounded-md`) según tus necesidades.  `object-cover` asegura que la imagen cubra el espacio asignado sin deformar la imagen.
 
 **Mejoras Adicionales**
 
@@ -215,7 +219,7 @@ Aquí tienes un ejemplo de cómo quedaría tu `index.html` con la estructura de 
     <script src="js/script.js"></script> <!-- Enlace al archivo script.js -->
 </body>
 </html>
-```
+``` 
 
 Recuerda ajustar las rutas de las imágenes y los enlaces a tus archivos CSS y JavaScript según la estructura de tu proyecto.
 
