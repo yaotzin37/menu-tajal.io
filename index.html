@@ -3,138 +3,1437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante & Mixología TAJAL - Carta Digital</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Menú Tajal - Restaurante & Mixología</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark-bg: #121212;
+            --light-text: #f5f5f5;
+            --medium-text: #ccc;
+            --section-bg: rgba(30, 30, 30, 0.7);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230a0a0a"/><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="%231a1a1a" stroke-width="0.5" fill="none"/></svg>');
+            background-size: cover;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--medium-text);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .intro {
+            max-width: 800px;
+            margin: 30px auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--medium-text);
+            font-style: italic;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section {
+            background-color: var(--section-bg);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 5px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+
+        .item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .item-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .item-price {
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+
+        .item-desc {
+            color: var(--medium-text);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .note {
+            font-size: 0.9rem;
+            color: var(--medium-text);
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        .subcategory {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(212, 175, 55, 0.3);
+        }
+
+        .subcategory:first-child {
+            margin-top: 15px;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .subcategory-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--medium-text);
+            font-size: 0.9rem;
+        }
+
+        .contact-info {
+            margin: 15px 0;
+        }
+
+        .contact-info a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilos específicos para bebidas */
+        .drink-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .drink-name {
+            flex: 1;
+        }
+
+        .drink-price {
+            color: var(--gold);
+            text-align: right;
+            min-width: 120px;
+        }
+
+        .drink-prices {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .drink-price-option {
+            font-size: 0.9rem;
+            color: var(--medium-text);
+        }
+    </style>
 </head>
 <body>
-    <!-- Botones flotantes WhatsApp y Facebook -->
-    <a href="https://wa.me/5213321611233" class="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg z-50 flex items-center justify-center" target="_blank" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp fa-lg"></i>
-    </a>
-    <a href="https://www.facebook.com/profile.php?id=61576866300432" class="fixed bottom-20 right-4 bg-blue-600 text-white p-3 rounded-full shadow-lg z-50 flex items-center justify-center" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook-f fa-lg"></i>
-    </a>
-    <!-- Header -->
-    <header class="restaurant-header py-16 px-4">
-        <div class="container mx-auto text-center">
-            <!-- Video de portada agregado -->
-            <div class="mb-6">
-                <video autoplay loop muted playsinline class="w-full max-w-xl mx-auto rounded-lg shadow-lg">
-                    <source src="assets/video/video_optimized.webm" type="video/webm">
-                    <source src="assets/video/video_optimized.mp4" type="video/mp4">
-                    Tu navegador no soporta el video.
-                </video>
-            </div>
-            <img src="assets/images/logo-tajal.png" alt="Logo Tajal" class="mx-auto mb-4" style="max-width: 160px; height: auto;">
-            <h1 class="restaurant-logo mb-4" style="display:none;">TAJAL</h1>
-            <p class="text-xl mb-6">RESTAURANTE & MIXOLOGÍA</p>
-            <p class="italic text-gray-300">Sabores mexicanos con un toque de elegancia</p>
-        </div>
-    </header>
+    <div class="container">
+        <header>
+            <div class="logo">T<span>A</span>JAL</div>
+            <div class="tagline">RESTAURANTE & MIXOLOGÍA</div>
+            <div class="tagline">Sabores mexicanos con un toque de elegancia</div>
+        </header>
 
-    <!-- Navigation -->
-    <nav class="category-nav sticky top-0 z-50 py-3 px-4 shadow-md">
-        <div class="container mx-auto flex justify-start items-center space-x-6">
-            <a href="alimentos.html" class="nav-link text-white px-2 py-1">Alimentos</a>
-            <a href="bebidas.html" class="nav-link text-white px-2 py-1">Bebidas</a>
+        <div class="intro">
+            Disfruta de nuestra selección de platillos preparados con los mejores ingredientes y técnicas culinarias, fusionando sabores tradicionales con toques contemporáneos.
         </div>
-    </nav>
-    <div class="container mx-auto py-8 px-4">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl mb-4">Nuestra Carta</h2>
-            <div class="w-24 h-1 bg-yellow-700 mx-auto mb-6"></div>
-            <p class="max-w-xl mx-auto text-gray-600">
-                Disfruta de nuestra selección de platillos y bebidas preparados con los mejores ingredientes y técnicas culinarias.
-            </p>
-        </div>
-        <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12">
-            <a href="alimentos.html" class="bg-yellow-700 text-white px-6 py-4 rounded-lg shadow-lg text-xl font-bold hover:bg-yellow-800 transition">Ver Alimentos</a>
-            <a href="bebidas.html" class="bg-blue-700 text-white px-6 py-4 rounded-lg shadow-lg text-xl font-bold hover:bg-blue-800 transition">Ver Bebidas</a>
-        </div>
-    </div>
 
-        </div>
-    </section>
-    <!-- Footer actualizado -->
-    <footer class="footer py-8 px-4">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0 flex flex-col items-center md:items-start">
-                    <img src="assets/images/logo-tajal.png" alt="Logo Tajal" class="mb-3" style="max-width: 110px; height: auto;">
-                    <h2 class="text-2xl font-bold mb-2">Restaurante & Mixología TAJAL</h2>
-                    <p class="text-gray-400">Sabores mexicanos con un toque de elegancia</p>
+        <div class="menu-grid">
+            <!-- Desayunos -->
+            <div class="section">
+                <h2 class="section-title">Desayunos</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Chilaquiles</div>
+                        <div class="item-price">$130.00</div>
+                    </div>
+                    <div class="item-desc">Rojos o verdes, acompañados de frijoles, queso, crema y cebolla</div>
                 </div>
-                <div class="flex flex-col items-center md:items-end">
-                    <p class="text-center md:text-right text-gray-400 mb-2">
-                        <i class="fas fa-map-marker-alt mr-2"></i>
-                        <a href="https://maps.app.goo.gl/wqyY69dMJNZv8xQT7" target="_blank" rel="noopener" class="text-yellow-400 hover:text-yellow-300 underline">CMV9+PP, 45670 Fraccionamiento Playas de Cajititlán, Jal.</a>
-                    </p>
-                    <p class="text-center md:text-right text-gray-400 mb-2">
-                        <i class="fab fa-whatsapp mr-2"></i>
-                        <a href="https://wa.me/5213321611233" target="_blank" rel="noopener" class="text-green-400 hover:text-green-300 underline">+52 1 332 161 1233</a>
-                    </p>
-                    <p class="text-center md:text-right text-gray-400 mb-2">
-                        <i class="fab fa-facebook-f mr-2"></i>
-                        <a href="https://www.facebook.com/profile.php?id=61576866300432" target="_blank" rel="noopener" class="text-blue-400 hover:text-blue-300 underline">/tajalrestaurante</a>
-                    </p>
-                    <p class="text-center md:text-right text-gray-400">
-                        <i class="fas fa-envelope mr-2"></i>
-                        <a href="mailto:contacto@tajal.com" class="text-yellow-400 hover:text-yellow-300 underline">contacto@tajal.com</a>
-                    </p>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Huevos al gusto</div>
+                        <div class="item-price">$120.00</div>
+                    </div>
+                    <div class="item-desc">Mexicana, Revueltos, Con jamón, Estrellados, Omelette con salchicha o jamón</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Hot-cakes</div>
+                        <div class="item-price">$115.00</div>
+                    </div>
+                    <div class="item-desc">3 piezas con mantequilla, miel de maple y tocino</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Plato de fruta</div>
+                        <div class="item-price">$120.00</div>
+                    </div>
+                    <div class="item-desc">Papaya, melón, fresas, con miel de abeja y granola; elegir: queso cottage o yogurt natural</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Molletes salados</div>
+                        <div class="item-price">$90.00</div>
+                    </div>
+                    <div class="item-desc">2 molletes: frijol con queso, frijol con queso y chorizo</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Molletes Dulces</div>
+                        <div class="item-price">$95.00</div>
+                    </div>
+                    <div class="item-desc">2 molletes: sencillo o combinado con cajeta, mermelada de fresa, lechera, Nutella, azúcar y canela, miel</div>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-                <p class="text-gray-500 text-sm">
-                    © 2025 Restaurante TAJAL. Todos los derechos reservados. 
-                    <a href="politica-privacidad.html" class="text-yellow-500 hover:text-yellow-400 ml-2">Política de privacidad</a>
-                </p>
-            </div>
-        </div>
-    </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            function toggleActiveLink() {
-                let scrollPosition = window.scrollY;
+            <!-- Entradas -->
+            <div class="section">
+                <h2 class="section-title">Entradas</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Guacamole con picaña</div>
+                        <div class="item-price">$250.00</div>
+                    </div>
+                    <div class="item-desc">Guacamole tradicional con puntas de picaña al carbón</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Panela asada</div>
+                        <div class="item-price">$120.00</div>
+                    </div>
+                    <div class="item-desc">Panela asada al carbón marinada con chimichurri</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Chistorra asada</div>
+                        <div class="item-price">$130.00</div>
+                    </div>
+                    <div class="item-desc">Porción de chistorra asada al carbón marinada con chimichurri</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Tiradito de atún</div>
+                        <div class="item-price">$230.00</div>
+                    </div>
+                    <div class="item-desc">Láminas de atún sobre ruedas de pepino, chile serrano y salsa sweet ponzu</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Cecina</div>
+                        <div class="item-price">$240.00</div>
+                    </div>
+                    <div class="item-desc">150g horneada con guacamole tradicional</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Tostadas de atún</div>
+                        <div class="item-price">$120.00</div>
+                    </div>
+                    <div class="item-desc">1 tostada de atún marinado en salsa negra con flor de aguacate</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Sopa Azteca</div>
+                        <div class="item-price">$95.00</div>
+                    </div>
+                    <div class="item-desc">Sopa de tortilla con aguacate, queso manchego y crema</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Torre Tajal de atún</div>
+                        <div class="item-price">$280.00</div>
+                    </div>
+                    <div class="item-desc">Atún rojo en trozos sobre aguacate</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Queso fundido</div>
+                        <div class="item-price">$160.00</div>
+                    </div>
+                    <div class="item-desc">Con chorizo, champiñones o natural</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Papa gratinada con arrachera</div>
+                        <div class="item-price">$180.00</div>
+                    </div>
+                    <div class="item-desc">Papa con queso gratinado y fajitas de arrachera</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Papas a la francesa</div>
+                        <div class="item-price">$80.00</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Guacamole</div>
+                        <div class="item-price">$70.00</div>
+                    </div>
+                    <div class="item-desc">Dip con totopos</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Tuétanos Tajal</div>
+                        <div class="item-price">$270.00</div>
+                    </div>
+                    <div class="item-desc">3 piezas al grill con esquites y salsa de la casa</div>
+                </div>
+            </div>
+
+            <!-- Ensaladas -->
+            <div class="section">
+                <h2 class="section-title">Ensaladas</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Ensalada César</div>
+                        <div class="item-price">$180.00</div>
+                    </div>
+                    <div class="item-desc">Mix de lechugas, crotones, queso parmesano, aderezo César y pollo</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Ensalada Premium</div>
+                        <div class="item-price">$200.00</div>
+                    </div>
+                    <div class="item-desc">Mix de lechuga, espinaca, queso de cabra, nuez garapiñada y pollo con aderezo de miel mostaza</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Ensalada Tajal</div>
+                        <div class="item-price">$200.00</div>
+                    </div>
+                    <div class="item-desc">Mix de lechuga con pollo, espinaca, arándano, panela, fresa, frutos rojos y vinagreta</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Ensalada Texmex</div>
+                        <div class="item-price">$200.00</div>
+                    </div>
+                    <div class="item-desc">Mix de lechuga, jitomate, elote, aguacate, cebolla morada, chips y arrachera con aderezo de chipotle</div>
+                </div>
+            </div>
+
+            <!-- Pastas -->
+            <div class="section">
+                <h2 class="section-title">Pastas</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Alfredo</div>
+                        <div class="item-price">$135.00</div>
+                    </div>
+                    <div class="item-desc">Pasta con crema Alfredo, mantequilla y queso parmesano</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Amatriciana</div>
+                        <div class="item-price">$150.00</div>
+                    </div>
+                    <div class="item-desc">Pasta en salsa amatriciana, guanciale y queso</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Alfredo con camarón</div>
+                        <div class="item-price">$190.00</div>
+                    </div>
+                    <div class="item-desc">Pasta Alfredo con camarón al vino blanco y queso parmesano</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Especial del chef</div>
+                        <div class="item-price">$160.00</div>
+                    </div>
+                    <div class="item-desc">Pasta fusilli con salsa casera estilo italiano</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Especial Tajal</div>
+                        <div class="item-price">$145.00</div>
+                    </div>
+                    <div class="item-desc">Pasta fusilli salteada con mantequilla y vegetales al dente</div>
+                </div>
+            </div>
+
+            <!-- Hamburguesas -->
+            <div class="section">
+                <h2 class="section-title">Hamburguesas</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Hamburguesa tradicional</div>
+                        <div class="item-price">$175.00</div>
+                    </div>
+                    <div class="item-desc">Carne de res, queso Americano y tocino</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">La Consentida Tajal</div>
+                        <div class="item-price">$220.00</div>
+                    </div>
+                    <div class="item-desc">Rib eye 200g, receta especial</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Hamburguesa de camarón</div>
+                        <div class="item-price">$215.00</div>
+                    </div>
+                    <div class="item-desc">Camarones a la plancha con queso manchego</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Hamburguesa de pollo</div>
+                        <div class="item-price">$175.00</div>
+                    </div>
+                    <div class="item-desc">Pechuga de pollo y queso americano</div>
+                </div>
+                <div class="note">Todas incluyen 150g de papas, jitomate, cebolla y lechuga</div>
+            </div>
+
+            <!-- Cortes -->
+            <div class="section">
+                <h2 class="section-title">Cortes</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Arrachera 350g</div>
+                        <div class="item-price">$330.00</div>
+                    </div>
+                    <div class="item-desc">Con frijoles y guacamole</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Rib-eye 350g</div>
+                        <div class="item-price">$370.00</div>
+                    </div>
+                    <div class="item-desc">Con papa al gratin y ensalada</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Picaña 350g</div>
+                        <div class="item-price">$300.00</div>
+                    </div>
+                    <div class="item-desc">Con frijoles y guacamole</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">T-bone 350g</div>
+                        <div class="item-price">$370.00</div>
+                    </div>
+                    <div class="item-desc">Con champiñones al ajillo y elote amarillo</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Cowboy 400g</div>
+                        <div class="item-price">$470.00</div>
+                    </div>
+                    <div class="item-desc">Con ensalada fresca y papítas al limon</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Tomahawk (1kg–1.2kg)</div>
+                        <div class="item-price">$1,200.00</div>
+                    </div>
+                    <div class="item-desc">Con una ensalada especial de la casa</div>
+                </div>
+            </div>
+
+            <!-- Del Mar -->
+            <div class="section">
+                <h2 class="section-title">Del Mar</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Aguachile negro de camarón (150g)</div>
+                        <div class="item-price">$205.00</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Aguachile rojo de camarón (150g)</div>
+                        <div class="item-price">$205.00</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Tacos gobernador</div>
+                        <div class="item-price">$250.00</div>
+                    </div>
+                    <div class="item-desc">3 tacos de camarón gratinados con aguacate</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Salmón a las brasas</div>
+                        <div class="item-price">$255.00</div>
+                    </div>
+                    <div class="item-desc">Medallón de salmón con vegetales salteados</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Atún sellado</div>
+                        <div class="item-price">$245.00</div>
+                    </div>
+                    <div class="item-desc">Con costra de ajonjolí y ensalada fresca</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Camarones al gusto</div>
+                        <div class="item-price">$250.00</div>
+                    </div>
+                    <div class="item-desc">Con arroz y ensalada: a la mantequilla, a la diabla, al mojo de ajo</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Pulpo estilo Tajal</div>
+                        <div class="item-price">$420.00</div>
+                    </div>
+                    <div class="item-desc">Pulpo a las brasas con puré de papa y ensalada</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Especial Tajal</div>
+                        <div class="item-price">$230.00</div>
+                    </div>
+                    <div class="item-desc">Camarones empanizados de la casa</div>
+                </div>
+            </div>
+
+            <!-- Menú Infantil -->
+            <div class="section">
+                <h2 class="section-title">Menú Infantil</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Nuggets de pollo</div>
+                        <div class="item-price">$130.00</div>
+                    </div>
+                    <div class="item-desc">Con papas a la francesa</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Hot dogs</div>
+                        <div class="item-price">$80.00</div>
+                    </div>
+                    <div class="item-desc">1 pieza con papas a la francesa</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Hamburguesa infantil</div>
+                        <div class="item-price">$150.00</div>
+                    </div>
+                    <div class="item-desc">Con papas a la francesa</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Sopa de fideo con tocino</div>
+                        <div class="item-price">$90.00</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extras -->
+            <div class="section">
+                <h2 class="section-title">Extras</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Arrachera 150g</div>
+                        <div class="item-price">$80.00</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Pollo 150g</div>
+                        <div class="item-price">$50.00</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Camarón 100g</div>
+                        <div class="item-price">$80.00</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Guacamole 150g</div>
+                        <div class="item-price">$50.00</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Frijoles 150g</div>
+                        <div class="item-price">$40.00</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Elotes (3 rebanadas)</div>
+                        <div class="item-price">$50.00</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">Panela 150g</div>
+                        <div class="item-price">$50.00</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Postres -->
+            <div class="section">
+                <h2 class="section-title">Postres</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">• Tarta de chocolate</div>
+                        <div class="item-price">$135.00</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">• Chesscake de fresa</div>
+                        <div class="item-price">$135.00</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">• Pastel blueberry</div>
+                        <div class="item-price">$135.00</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-name">• Crees cake de sarzamora</div>
+                        <div class="item-price">$135.00</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bebidas -->
+            <div class="section">
+                <h2 class="section-title">Bebidas</h2>
                 
-                document.querySelectorAll('section[id]').forEach(section => {
-                    let sectionTop = section.offsetTop - 100;
-                    let sectionHeight = section.offsetHeight;
-                    let sectionId = section.getAttribute('id');
+                <div class="subcategory">
+                    <h3 class="subcategory-title">Coctelería</h3>
+                    <div class="drink-item">
+                        <div class="drink-name">Aperol Spritz</div>
+                        <div class="drink-price">$150.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Bloody Mary</div>
+                        <div class="drink-price">$95.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Canija</div>
+                        <div class="drink-price">$120.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Carajillo</div>
+                        <div class="drink-price">$150.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Clericot</div>
+                        <div class="drink-price">$150.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Hierbabuena</div>
+                        <div class="drink-price">$95.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Margarita</div>
+                        <div class="drink-price">$95.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Michelada clara</div>
+                        <div class="drink-price">$90.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Michelada obscura</div>
+                        <div class="drink-price">$100.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Michelada con Camarón</div>
+                        <div class="drink-price">$130.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Mimosa</div>
+                        <div class="drink-price">$100.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Mojito</div>
+                        <div class="drink-price">$85.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Piña Colada</div>
+                        <div class="drink-price">$80.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Perla Negra</div>
+                        <div class="drink-price">$165.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Ruso Blanco</div>
+                        <div class="drink-price">$100.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Sangría</div>
+                        <div class="drink-price">$75.00</div>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3 class="subcategory-title">Cervezas</h3>
+                    <h4 style="color:#aaa; margin: 10px 0 5px;">Normales</h4>
+                    <div class="drink-item">
+                        <div class="drink-name">Corona</div>
+                        <div class="drink-price">$45.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Corona Light</div>
+                        <div class="drink-price">$45.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Modelo Especial</div>
+                        <div class="drink-price">$55.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Negra Modelo</div>
+                        <div class="drink-price">$55.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Pacifico</div>
+                        <div class="drink-price">$45.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Ultra</div>
+                        <div class="drink-price">$55.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Victoria</div>
+                        <div class="drink-price">$45.00</div>
+                    </div>
                     
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === '#' + sectionId) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', toggleActiveLink);
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    let targetId = this.getAttribute('href');
-                    let targetElement = document.querySelector(targetId);
+                    <h4 style="color:#aaa; margin: 15px 0 5px;">Artesanales</h4>
+                    <div class="drink-item">
+                        <div class="drink-name">Colimitas</div>
+                        <div class="drink-price">$95.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Colimita Lager</div>
+                        <div class="drink-price">$95.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Paromo</div>
+                        <div class="drink-price">$95.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Piedra Lisa</div>
+                        <div class="drink-price">$95.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Ticus</div>
+                        <div class="drink-price">$95.00</div>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3 class="subcategory-title">Licores</h3>
+                    <!-- Tequila -->
+                    <div class="subcategory">
+                        <h4 style="color:#aaa; margin: 10px 0 5px;">Tequila</h4>
+                        <div class="drink-item">
+                            <div class="drink-name">30-30 Blanco</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $75.00</div>
+                                <div class="drink-price-option">Botella $980.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">30-30 Cristalino</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $120.00</div>
+                                <div class="drink-price-option">Botella $1,575.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">30-30 Reposado</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $75.00</div>
+                                <div class="drink-price-option">Botella $900.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">1800 Blanco</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $125.00</div>
+                                <div class="drink-price-option">Botella $1,445.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">1800 Cristalino</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $130.00</div>
+                                <div class="drink-price-option">Botella $1,655.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">1800 Reposado</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $130.00</div>
+                                <div class="drink-price-option">Botella $1,500.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">7 Lenguas Blanco</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $130.00</div>
+                                <div class="drink-price-option">Botella $1,450.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">7 Lenguas Reposado</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $125.00</div>
+                                <div class="drink-price-option">Botella $1,400.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Antiguo Plata</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $110.00</div>
+                                <div class="drink-price-option">Botella $1,200.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Cascahuin Blanco</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $130.00</div>
+                                <div class="drink-price-option">Botella $1,650.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Centenario Plata</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $75.00</div>
+                                <div class="drink-price-option">Botella $1,000.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Centenario Reposado</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $75.00</div>
+                                <div class="drink-price-option">Botella $1,000.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Dobel Diamante</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $145.00</div>
+                                <div class="drink-price-option">Botella $1,885.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Don Julio 70</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $200.00</div>
+                                <div class="drink-price-option">Botella $2,150.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Don Julio Blanco</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $130.00</div>
+                                <div class="drink-price-option">Botella $1,650.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Don Julio Reposado</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $165.00</div>
+                                <div class="drink-price-option">Botella $1,935.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Herradura Blanco</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $115.00</div>
+                                <div class="drink-price-option">Botella $1,300.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Herradura Plata</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $130.00</div>
+                                <div class="drink-price-option">Botella $1,600.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Herradura Reposado</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $115.00</div>
+                                <div class="drink-price-option">Botella $1,300.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Herradura Ultra</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $150.00</div>
+                                <div class="drink-price-option">Botella $1,850.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">San Matias Cristalino</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $200.00</div>
+                                <div class="drink-price-option">Botella $2,100.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Tradicional Plata</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $85.00</div>
+                                <div class="drink-price-option">Botella $955.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Tradicional Reposado</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $85.00</div>
+                                <div class="drink-price-option">Botella $955.00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cognac -->
+                    <div class="subcategory">
+                        <h4 style="color:#aaa; margin: 15px 0 5px;">Cognac</h4>
+                        <div class="drink-item">
+                            <div class="drink-name">Martell V.S.O.P.</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $220.00</div>
+                                <div class="drink-price-option">Botella $2,650.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Hennessy V.S.O.P.</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $265.00</div>
+                                <div class="drink-price-option">Botella $3,200.00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brandy -->
+                    <div class="subcategory">
+                        <h4 style="color:#aaa; margin: 15px 0 5px;">Brandy</h4>
+                        <div class="drink-item">
+                            <div class="drink-name">Torres 10</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $70.00</div>
+                                <div class="drink-price-option">Botella $845.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Alta Luz</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $125.00</div>
+                                <div class="drink-price-option">Botella $1,500.00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ron -->
+                    <div class="subcategory">
+                        <h4 style="color:#aaa; margin: 15px 0 5px;">Ron</h4>
+                        <div class="drink-item">
+                            <div class="drink-name">Bacardi 8</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $210.00</div>
+                                <div class="drink-price-option">Botella $2,200.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Bacardi Añejo</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $60.00</div>
+                                <div class="drink-price-option">Botella $800.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Bacardi Blanco</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $60.00</div>
+                                <div class="drink-price-option">Botella $800.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Bacardi Mango</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $50.00</div>
+                                <div class="drink-price-option">Botella $700.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Flor de Caña 12</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $190.00</div>
+                                <div class="drink-price-option">Botella $1,650.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Habana 7</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $100.00</div>
+                                <div class="drink-price-option">Botella $1,350.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Malibu</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $65.00</div>
+                                <div class="drink-price-option">Botella $850.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Zacapa 23</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $210.00</div>
+                                <div class="drink-price-option">Botella $2,650.00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Whisky -->
+                    <div class="subcategory">
+                        <h4 style="color:#aaa; margin: 15px 0 5px;">Whisky</h4>
+                        <div class="drink-item">
+                            <div class="drink-name">Black Label</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $220.00</div>
+                                <div class="drink-price-option">Botella $2,255.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Buchanas 12</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $225.00</div>
+                                <div class="drink-price-option">Botella $2,400.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Buchanas Two Souls</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $225.00</div>
+                                <div class="drink-price-option">Botella $2,450.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Chivas 12</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $210.00</div>
+                                <div class="drink-price-option">Botella $2,150.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Old Par</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $200.00</div>
+                                <div class="drink-price-option">Botella $2,100.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Red Label</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $95.00</div>
+                                <div class="drink-price-option">Botella $1,250.00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vodka -->
+                    <div class="subcategory">
+                        <h4 style="color:#aaa; margin: 15px 0 5px;">Vodka</h4>
+                        <div class="drink-item">
+                            <div class="drink-name">Absolut Azul</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $65.00</div>
+                                <div class="drink-price-option">Botella $1,000.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Absolut Citron</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $65.00</div>
+                                <div class="drink-price-option">Botella $1,000.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Absolut Mandarina</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $65.00</div>
+                                <div class="drink-price-option">Botella $1,000.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Absolut Rasberri</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $65.00</div>
+                                <div class="drink-price-option">Botella $1,000.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Grey Goose</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $145.00</div>
+                                <div class="drink-price-option">Botella $1,950.00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ginebra -->
+                    <div class="subcategory">
+                        <h4 style="color:#aaa; margin: 15px 0 5px;">Ginebra</h4>
+                        <div class="drink-item">
+                            <div class="drink-name">Beefeater</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $120.00</div>
+                                <div class="drink-price-option">Botella $1,500.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Bombay</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $110.00</div>
+                                <div class="drink-price-option">Botella $1,550.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Hendricks</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $200.00</div>
+                                <div class="drink-price-option">Botella $2,000.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">London N.1</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $215.00</div>
+                                <div class="drink-price-option">Botella $2,400.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Tanqueray</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $130.00</div>
+                                <div class="drink-price-option">Botella $1,750.00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mezcal -->
+                    <div class="subcategory">
+                        <h4 style="color:#aaa; margin: 15px 0 5px;">Mezcal</h4>
+                        <div class="drink-item">
+                            <div class="drink-name">400 Conejos (Joven)</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $115.00</div>
+                                <div class="drink-price-option">Botella $1,400.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Agua Maldita</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $115.00</div>
+                                <div class="drink-price-option">Botella $1,450.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Apaluz</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $115.00</div>
+                                <div class="drink-price-option">Botella $1,555.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Monte Lobos Joven</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $185.00</div>
+                                <div class="drink-price-option">Botella $1,955.00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Licores -->
+                    <div class="subcategory">
+                        <h4 style="color:#aaa; margin: 15px 0 5px;">Licores</h4>
+                        <div class="drink-item">
+                            <div class="drink-name">Baileys</div>
+                            <div class="drink-price">$90.00</div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Chambord</div>
+                            <div class="drink-price">$135.00</div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Frangelico</div>
+                            <div class="drink-price">$95.00</div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Hipnotic</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $140.00</div>
+                                <div class="drink-price-option">Botella $1,750.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Jagermeister</div>
+                            <div class="drink-prices">
+                                <div class="drink-price">Copeo $100.00</div>
+                                <div class="drink-price-option">Botella $1,500.00</div>
+                            </div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Kahlúa</div>
+                            <div class="drink-price">$55.00</div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Licor 43</div>
+                            <div class="drink-price">$100.00</div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Vacari Blanco</div>
+                            <div class="drink-price">$85.00</div>
+                        </div>
+                        <div class="drink-item">
+                            <div class="drink-name">Vacari Negro</div>
+                            <div class="drink-price">$85.00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3 class="subcategory-title">Vinos</h3>
+                    <h4 style="color:#aaa; margin: 10px 0 5px;">Tintos</h4>
+                    <div class="drink-item">
+                        <div class="drink-name">31.8</div>
+                        <div class="drink-prices">
+                            <div class="drink-price">Copeo $180.00</div>
+                            <div class="drink-price-option">Botella $900.00</div>
+                        </div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">3V</div>
+                        <div class="drink-price">Botella $1,350.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Casa Madero Gran Reserva</div>
+                        <div class="drink-prices">
+                            <div class="drink-price">Copeo $230.00</div>
+                            <div class="drink-price-option">Botella $1,450.00</div>
+                        </div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Portillo</div>
+                        <div class="drink-prices">
+                            <div class="drink-price">Copeo $120.00</div>
+                            <div class="drink-price-option">Botella $1,450.00</div>
+                        </div>
+                    </div>
                     
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
+                    <h4 style="color:#aaa; margin: 15px 0 5px;">Blancos</h4>
+                    <div class="drink-item">
+                        <div class="drink-name">31.8</div>
+                        <div class="drink-prices">
+                            <div class="drink-price">Copeo $150.00</div>
+                            <div class="drink-price-option">Botella $1,000.00</div>
+                        </div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">2V</div>
+                        <div class="drink-price">Botella $1,200.00</div>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3 class="subcategory-title">Bebidas sin Alcohol</h3>
+                    <div class="drink-item">
+                        <div class="drink-name">Agua Mineral Hethe</div>
+                        <div class="drink-price">$90.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Botella de Agua</div>
+                        <div class="drink-price">$30.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Café Americano</div>
+                        <div class="drink-price">$55.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Café Capuchino</div>
+                        <div class="drink-price">$65.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Café Expresso</div>
+                        <div class="drink-price">$65.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Chocomilk</div>
+                        <div class="drink-price">$45.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Jugo de Naranja</div>
+                        <div class="drink-price">$45.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Limonada</div>
+                        <div class="drink-price">$75.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Limonada $75.00 $140.00 1L $190.00 Jarra</div>
+                        <div class="drink-price"></div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Naranjada</div>
+                        <div class="drink-price">$75.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Naranjada de Maracuyá</div>
+                        <div class="drink-price">$80.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Piñada</div>
+                        <div class="drink-price">$90.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Soda Italiana</div>
+                        <div class="drink-price">$90.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Red Bull</div>
+                        <div class="drink-price">$100.00</div>
+                    </div>
+                </div>
+
+                <div class="subcategory">
+                    <h3 class="subcategory-title">Tisanas</h3>
+                    <div class="drink-item">
+                        <div class="drink-name">Cítrica</div>
+                        <div class="drink-price">$65.00</div>
+                    </div>
+                    <div class="drink-item">
+                        <div class="drink-name">Frutos Rojos</div>
+                        <div class="drink-price">$75.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="contact-info">
+                Fraccionamiento Playas de Cajititlán, Jal. 45670<br>
+                +52 1 332 161 1233<br>
+                <a href="/tajalrestaurante">/tajalrestaurante</a><br>
+                <a href="mailto:contacto@tajal.com">contacto@tajal.com</a>
+            </div>
+            <div>
+                © 2025 Restaurante TAJAL. Todos los derechos reservados. Política de privacidad
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
