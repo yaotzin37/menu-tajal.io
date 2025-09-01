@@ -37,13 +37,26 @@ function renderMenu(menuData) {
         let sectionContent = '';
         // Manejar secciones con categorías anidadas (ej. Bebidas)
         if (section.categories) {
-            sectionContent = section.categories.map(category => `
-                <div class="menu-category">
-                    <h3 class="category-title">${category.title}</h3>
-                    ${renderItems(category.items)}
-                </div>
-            `).join('');
-        } 
+            sectionContent = section.categories.map(category => {
+                let categoryHTML = `<div class="menu-category">`;
+                categoryHTML += `<h3 class="category-title">${category.title}</h3>`;
+
+                // Check for subcategories
+                if (category.subcategories) {
+                    categoryHTML += category.subcategories.map(subcategory => `
+                        <div class="menu-subcategory">
+                            <h4 class="subcategory-title">${subcategory.title}</h4>
+                            ${renderItems(subcategory.items)}
+                        </div>
+                    `).join('');
+                } else {
+                    // Render items directly if no subcategories
+                    categoryHTML += renderItems(category.items);
+                }
+                categoryHTML += `</div>`;
+                return categoryHTML;
+            }).join('');
+        }
         // Manejar secciones con una lista simple de items
         else if (section.items) {
             sectionContent = `<div class="menu-category">${renderItems(section.items)}</div>`;
