@@ -31,4 +31,3 @@ Para actualizar el menú:
 1. Edita el archivo `data/menu.json`
 2. Ajusta los estilos en la carpeta `styles/`
 3. Modifica la información de contacto en `index.html`
-4. 

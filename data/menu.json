@@ -1,0 +1,202 @@
+{
+  "sections": [
+    {
+      "id": "desayunos",
+      "title": "Desayunos",
+      "items": [
+        { "name": "Chilaquiles", "price": "130.00", "description": "Rojos o verdes, acompañados de frijoles, queso, crema y cebolla" },
+        { "name": "Huevos al gusto", "price": "120.00", "description": "Mexicana, Revueltos, Con jamón, Estrellados, Omelette con salchicha o jamón" },
+        { "name": "Hot-cakes", "price": "115.00", "description": "3 piezas con mantequilla, miel de maple y tocino" },
+        { "name": "Plato de fruta", "price": "120.00", "description": "Papaya, melón, fresas, con miel de abeja y granola; elegir: queso cottage o yogurt natural" },
+        { "name": "Molletes salados", "price": "90.00", "description": "2 molletes: frijol con queso, frijol con queso y chorizo" },
+        { "name": "Molletes Dulces", "price": "95.00", "description": "2 molletes: sencillo o combinado con cajeta, mermelada de fresa, lechera, Nutella, azúcar y canela, miel" }
+      ]
+    },
+    {
+      "id": "entradas",
+      "title": "Entradas",
+      "items": [
+        { "name": "Guacamole con picaña", "price": "250.00", "description": "Guacamole tradicional con puntas de picaña al carbón" },
+        { "name": "Panela asada", "price": "120.00", "description": "Panela asada al carbón marinada con chimichurri" },
+        { "name": "Chistorra asada", "price": "130.00", "description": "Porción de chistorra asada al carbón marinada con chimichurri" },
+        { "name": "Tiradito de atún", "price": "230.00", "description": "Láminas de atún sobre ruedas de pepino, chile serrano y salsa sweet ponzu" },
+        { "name": "Cecina", "price": "240.00", "description": "150g horneada con guacamole tradicional" },
+        { "name": "Tostadas de atún", "price": "120.00", "description": "1 tostada de atún marinado en salsa negra con flor de aguacate" },
+        { "name": "Sopa Azteca", "price": "95.00", "description": "Sopa de tortilla con aguacate, queso manchego y crema" },
+        { "name": "Torre Tajal de atún", "price": "280.00", "description": "Atún rojo en trozos sobre aguacate" },
+        { "name": "Queso fundido", "price": "160.00", "description": "Con chorizo, champiñones o natural" },
+        { "name": "Papa gratinada con arrachera", "price": "180.00", "description": "Papa con queso gratinado y fajitas de arrachera" },
+        { "name": "Papas a la francesa", "price": "80.00", "description": "" },
+        { "name": "Guacamole", "price": "70.00", "description": "Dip con totopos" },
+        { "name": "Tuétanos Tajal", "price": "270.00", "description": "3 piezas al grill con esquites y salsa de la casa" }
+      ]
+    },
+    {
+      "id": "ensaladas",
+      "title": "Ensaladas",
+      "items": [
+        { "name": "Ensalada César", "price": "180.00", "description": "Mix de lechugas, crotones, queso parmesano, aderezo César y pollo" },
+        { "name": "Ensalada Premium", "price": "200.00", "description": "Mix de lechuga, espinaca, queso de cabra, nuez garapiñada y pollo con aderezo de miel mostaza" },
+        { "name": "Ensalada Tajal", "price": "200.00", "description": "Mix de lechuga con pollo, espinaca, arándano, panela, fresa, frutos rojos y vinagreta" },
+        { "name": "Ensalada Texmex", "price": "200.00", "description": "Mix de lechuga, jitomate, elote, aguacate, cebolla morada, chips y arrachera con aderezo de chipotle" }
+      ]
+    },
+    {
+      "id": "pastas",
+      "title": "Pastas",
+      "items": [
+        { "name": "Alfredo", "price": "135.00", "description": "Pasta con crema Alfredo, mantequilla y queso parmesano" },
+        { "name": "Amatriciana", "price": "150.00", "description": "Pasta en salsa amatriciana, guanciale y queso" },
+        { "name": "Alfredo con camarón", "price": "190.00", "description": "Pasta Alfredo con camarón al vino blanco y queso parmesano" },
+        { "name": "Especial del chef", "price": "160.00", "description": "Pasta fusilli con salsa casera estilo italiano" },
+        { "name": "Especial Tajal", "price": "145.00", "description": "Pasta fusilli salteada con mantequilla y vegetales al dente" }
+      ]
+    },
+    {
+      "id": "hamburguesas",
+      "title": "Hamburguesas",
+      "items": [
+        { "name": "Hamburguesa tradicional", "price": "175.00", "description": "Carne de res, queso Americano y tocino" },
+        { "name": "La Consentida Tajal", "price": "220.00", "description": "Rib eye 200g, receta especial" },
+        { "name": "Hamburguesa de camarón", "price": "215.00", "description": "Camarones a la plancha con queso manchego" },
+        { "name": "Hamburguesa de pollo", "price": "175.00", "description": "Pechuga de pollo y queso americano" }
+      ],
+      "footer": "Todas incluyen 150g de papas, jitomate, cebolla y lechuga"
+    },
+    {
+      "id": "cortes",
+      "title": "Cortes",
+      "items": [
+        { "name": "Arrachera 350g", "price": "295.00", "description": "Con frijoles y guacamole" },
+        { "name": "Rib-eye 350g", "price": "370.00", "description": "Con papa al gratin y ensalada" },
+        { "name": "Picaña 350g", "price": "300.00", "description": "Con frijoles y guacamole" },
+        { "name": "T-bone 350g", "price": "370.00", "description": "Con champiñones al ajillo y elote amarillo" },
+        { "name": "Cowboy 400g", "price": "470.00", "description": "Con ensalada fresca y papítas al limon" },
+        { "name": "Tomahawk (1kg–1.2kg)", "price": "1,200.00", "description": "Con una ensalada especial de la casa" }
+      ]
+    },
+    {
+      "id": "delmar",
+      "title": "Del Mar",
+      "items": [
+        { "name": "Aguachile negro de camarón (150g)", "price": "205.00", "description": "" },
+        { "name": "Aguachile rojo de camarón (150g)", "price": "205.00", "description": "" },
+        { "name": "Tacos gobernador", "price": "250.00", "description": "3 tacos de camarón gratinados con aguacate" },
+        { "name": "Salmón a las brasas", "price": "255.00", "description": "Medallón de salmón con vegetales salteados" },
+        { "name": "Atún sellado", "price": "245.00", "description": "Con costra de ajonjolí y ensalada fresca" },
+        { "name": "Camarones al gusto", "price": "250.00", "description": "Con arroz y ensalada: a la mantequilla, a la diabla, al mojo de ajo" },
+        { "name": "Pulpo estilo Tajal", "price": "350.00", "description": "Pulpo a las brasas con puré de papa y ensalada" },
+        { "name": "Especial Tajal", "price": "230.00", "description": "Camarones empanizados de la casa" }
+      ]
+    },
+    {
+      "id": "infantil",
+      "title": "Mundo Infantil",
+      "items": [
+        { "name": "Nuggets de pollo", "price": "130.00", "description": "Con papas a la francesa" },
+        { "name": "Hot dogs", "price": "80.00", "description": "1 pieza con papas a la francesa" },
+        { "name": "Hamburguesa infantil", "price": "150.00", "description": "Con papas a la francesa" },
+        { "name": "Sopa de fideo con tocino", "price": "90.00", "description": "" }
+      ]
+    },
+    {
+      "id": "extras",
+      "title": "Extras",
+      "items": [
+        { "name": "Arrachera 150g", "price": "80.00", "description": "" },
+        { "name": "Pollo 150g", "price": "50.00", "description": "" },
+        { "name": "Camarón 100g", "price": "50.00", "description": "" },
+        { "name": "Guacamole 150g", "price": "50.00", "description": "" },
+        { "name": "Frijoles 150g", "price": "40.00", "description": "" },
+        { "name": "Elotes (3 rebanadas)", "price": "20.00", "description": "" },
+        { "name": "Panela 150g", "price": "50.00", "description": "" }
+      ]
+    },
+    {
+      "id": "postres",
+      "title": "Postres",
+      "items": [
+        { "name": "Pan de elote con helado", "price": "125.00", "description": "" },
+        { "name": "Cheesecake Frambuesa", "price": "125.00", "description": "" },
+        { "name": "Brownie con helado de vainilla", "price": "125.00", "description": "" },
+        { "name": "Copa de helado", "price": "90.00", "description": "" }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "title": "Bebidas",
+      "categories": [
+        {
+          "title": "Coctelería",
+          "items": [
+            { "name": "Aperol Spritz", "price": "100.00" },
+            { "name": "Bloody Mary", "price": "95.00" },
+            { "name": "Canija", "price": "120.00" },
+            { "name": "Carajillo", "price": "150.00" },
+            { "name": "Clericot", "price": "85.00" },
+            { "name": "Hierbabuena", "price": "95.00" },
+            { "name": "Margarita", "price": "95.00" },
+            { "name": "Michelada", "price": "75.00" },
+            { "name": "Michelada con Camarón", "price": "115.00" },
+            { "name": "Mimosa", "price": "100.00" },
+            { "name": "Mojito", "price": "85.00" },
+            { "name": "Piña Colada", "price": "80.00" },
+            { "name": "Perla Negra", "price": "165.00" },
+            { "name": "Ruso Blanco", "price": "100.00" },
+            { "name": "Sangría", "price": "75.00" }
+          ]
+        },
+        {
+          "title": "Cervezas",
+          "items": [
+            { "name": "Corona", "price": "45.00" },
+            { "name": "Corona Light", "price": "45.00" },
+            { "name": "Modelo Especial", "price": "55.00" },
+            { "name": "Negra Modelo", "price": "55.00" },
+            { "name": "Pacifico", "price": "45.00" },
+            { "name": "Ultra", "price": "55.00" },
+            { "name": "Victoria", "price": "45.00" }
+          ]
+        },
+        {
+            "title": "Cervezas Artesanales",
+            "items": [
+              { "name": "Colimitas", "price": "95.00" },
+              { "name": "Colimita Lager", "price": "95.00" },
+              { "name": "Paromo", "price": "95.00" },
+              { "name": "Piedra Lisa", "price": "95.00" },
+              { "name": "Ticus", "price": "95.00" }
+            ]
+        },
+        {
+          "title": "Tequila",
+          "items": [
+            { "name": "30-30 Blanco", "price": "75.00 / 980.00" },
+            { "name": "30-30 Cristalino", "price": "120.00 / 1,575.00" },
+            { "name": "30-30 Reposado", "price": "75.00 / 900.00" },
+            { "name": "1800 Blanco", "price": "125.00 / 1,445.00" },
+            { "name": "1800 Cristalino", "price": "130.00 / 1,655.00" },
+            { "name": "1800 Reposado", "price": "130.00 / 1,500.00" },
+            { "name": "7 Lenguas Blanco", "price": "130.00 / 1,450.00" },
+            { "name": "7 Lenguas Reposado", "price": "125.00 / 1,400.00" },
+            { "name": "Antiguo Plata", "price": "110.00 / 1,200.00" },
+            { "name": "Cascahuin Blanco", "price": "130.00 / 1,650.00" },
+            { "name": "Centenario Plata", "price": "75.00 / 1,000.00" },
+            { "name": "Centenario Reposado", "price": "75.00 / 1,000.00" },
+            { "name": "Dobel Diamante", "price": "145.00 / 1,885.00" },
+            { "name": "Don Julio 70", "price": "200.00 / 2,150.00" },
+            { "name": "Don Julio Blanco", "price": "130.00 / 1,650.00" },
+            { "name": "Don Julio Reposado", "price": "165.00 / 1,935.00" },
+            { "name": "Herradura Blanco", "price": "115.00 / 1,300.00" },
+            { "name": "Herradura Plata", "price": "130.00 / 1,600.00" },
+            { "name": "Herradura Reposado", "price": "115.00 / 1,300.00" },
+            { "name": "Herradura Ultra", "price": "150.00 / 1,850.00" },
+            { "name": "San Matias Cristalino", "price": "200.00 / 2,100.00" },
+            { "name": "Tradicional Plata", "price": "85.00 / 955.00" },
+            { "name": "Tradicional Reposado", "price": "85.00 / 955.00" }
+          ]
+        }
+      ]
+    }
+  ]
+}
