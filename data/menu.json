@@ -148,197 +148,182 @@
           ]
         },
         {
-          "title": "Cervezas",
-          "subcategories": [
-            {
-              "title": "Normales",
-              "items": [
-                { "name": "Corona", "price": "45.00" },
-                { "name": "Corona Light", "price": "45.00" },
-                { "name": "Modelo Especial", "price": "55.00" },
-                { "name": "Negra Modelo", "price": "55.00" },
-                { "name": "Pacifico", "price": "45.00" },
-                { "name": "Ultra", "price": "55.00" },
-                { "name": "Victoria", "price": "45.00" }
-              ]
-            },
-            {
-              "title": "Artesanales",
-              "items": [
-                { "name": "Colimitas", "price": "95.00" },
-                { "name": "Colimita Lager", "price": "95.00" },
-                { "name": "Paromo", "price": "95.00" },
-                { "name": "Piedra Lisa", "price": "95.00" },
-                { "name": "Ticus", "price": "95.00" }
-              ]
-            }
+          "title": "Cervezas Normales",
+          "items": [
+            { "name": "Corona", "price": "45.00" },
+            { "name": "Corona Light", "price": "45.00" },
+            { "name": "Modelo Especial", "price": "55.00" },
+            { "name": "Negra Modelo", "price": "55.00" },
+            { "name": "Pacifico", "price": "45.00" },
+            { "name": "Ultra", "price": "55.00" },
+            { "name": "Victoria", "price": "45.00" }
           ]
         },
         {
-          "title": "Licores y Destilados",
-          "subcategories": [
-            {
-              "title": "Tequila",
-              "items": [
-                { "name": "30-30 Blanco", "price": "Copeo $75.00 / Botella $980.00" },
-                { "name": "30-30 Cristalino", "price": "Copeo $120.00 / Botella $1,575.00" },
-                { "name": "30-30 Reposado", "price": "Copeo $75.00 / Botella $900.00" },
-                { "name": "1800 Blanco", "price": "Copeo $125.00 / Botella $1,445.00" },
-                { "name": "1800 Cristalino", "price": "Copeo $130.00 / Botella $1,655.00" },
-                { "name": "1800 Reposado", "price": "Copeo $130.00 / Botella $1,500.00" },
-                { "name": "7 Leguas Blanco", "price": "Copeo $130.00 / Botella $1,450.00" },
-                { "name": "7 Leguas Reposado", "price": "Copeo $125.00 / Botella $1,400.00" },
-                { "name": "Antiguo Plata", "price": "Copeo $110.00 / Botella $1,200.00" },
-                { "name": "Cascahuin Blanco", "price": "Copeo $130.00 / Botella $1,650.00" },
-                { "name": "Centenario Plata", "price": "Copeo $75.00 / Botella $1,000.00" },
-                { "name": "Centenario Reposado", "price": "Copeo $75.00 / Botella $1,000.00" },
-                { "name": "Dobel Diamante", "price": "145.00 / 1,885.00" },
-                { "name": "Don Julio 70", "price": "200.00 / 2,150.00" },
-                { "name": "Don Julio Blanco", "price": "130.00 / 1,650.00" },
-                { "name": "Don Julio Reposado", "price": "165.00 / 1,935.00" },
-                { "name": "Herradura Blanco", "price": "115.00 / 1,300.00" },
-                { "name": "Herradura Plata", "price": "130.00 / 1,600.00" },
-                { "name": "Herradura Reposado", "price": "115.00 / 1,300.00" },
-                { "name": "Herradura Ultra", "price": "150.00 / 1,850.00" },
-                { "name": "San Matias Cristalino", "price": "200.00 / 2,100.00" },
-                { "name": "Tradicional Plata", "price": "85.00 / 955.00" },
-                { "name": "Tradicional Reposado", "price": "85.00 / 955.00" }
-              ]
-            },
-            {
-              "title": "Cognac",
-              "items": [
-                { "name": "Martell V.S.O.P.", "price": "Copeo $220.00 / Botella $2,650.00" },
-                { "name": "Hennessy V.S.O.P.", "price": "Copeo $265.00 / Botella $3,200.00" }
-              ]
-            },
-            {
-              "title": "Brandy",
-              "items": [
-                { "name": "Torres 10", "price": "Copeo $70.00 / Botella $845.00" },
-                { "name": "Alta Luz", "price": "Copeo $125.00 / Botella $1,500.00" }
-              ]
-            },
-            {
-              "title": "Ron",
-              "items": [
-                { "name": "Bacardi 8", "price": "Copeo $210.00 / Botella $2,200.00" },
-                { "name": "Bacardi Añejo", "price": "Copeo $60.00 / Botella $800.00" },
-                { "name": "Bacardi Blanco", "price": "Copeo $60.00 / Botella $800.00" },
-                { "name": "Bacardi Mango", "price": "Copeo $50.00 / Botella $700.00" },
-                { "name": "Flor de Caña 12", "price": "Copeo $190.00 / Botella $1,650.00" },
-                { "name": "Habana 7", "price": "Copeo $100.00 / Botella $1,350.00" },
-                { "name": "Malibu", "price": "Copeo $65.00 / Botella $850.00" },
-                { "name": "Zacapa 23", "price": "Copeo $210.00 / Botella $2,650.00" }
-              ]
-            },
-            {
-              "title": "Whisky",
-              "items": [
-                { "name": "Black Label", "price": "Copeo $220.00 / Botella $2,255.00" },
-                { "name": "Buchanas 12", "price": "Copeo $225.00 / Botella $2,400.00" },
-                { "name": "Buchanas Two Souls", "price": "Copeo $225.00 / Botella $2,450.00" },
-                { "name": "Chivas 12", "price": "Copeo $210.00 / Botella $2,150.00" },
-                { "name": "Old Par", "price": "Copeo $200.00 / Botella $2,100.00" },
-                { "name": "Red Label", "price": "Copeo $95.00 / Botella $1,250.00" }
-              ]
-            },
-            {
-              "title": "Vodka",
-              "items": [
-                { "name": "Absolut Azul", "price": "Copeo $65.00 / Botella $1,000.00" },
-                { "name": "Absolut Citron", "price": "Copeo $65.00 / Botella $1,000.00" },
-                { "name": "Absolut Mandarina", "price": "Copeo $65.00 / Botella $1,000.00" },
-                { "name": "Absolut Rasberri", "price": "Copeo $65.00 / Botella $1,000.00" },
-                { "name": "Grey Goose", "price": "Copeo $145.00 / Botella $1,950.00" }
-              ]
-            },
-            {
-              "title": "Ginebra",
-              "items": [
-                { "name": "Beefeater", "price": "Copeo $120.00 / Botella $1,500.00" },
-                { "name": "Bombay", "price": "Copeo $110.00 / Botella $1,550.00" },
-                { "name": "Hendricks", "price": "Copeo $200.00 / Botella $2,000.00" },
-                { "name": "London N.1", "price": "Copeo $215.00 / Botella $2,400.00" },
-                { "name": "Tanqueray", "price": "Copeo $130.00 / Botella $1,750.00" }
-              ]
-            },
-            {
-              "title": "Mezcal",
-              "items": [
-                { "name": "400 Conejos (Joven)", "price": "Copeo $115.00 / Botella $1,400.00" },
-                { "name": "Agua Maldita", "price": "Copeo $115.00 / Botella $1,450.00" },
-                { "name": "Apaluz", "price": "Copeo $115.00 / Botella $1,555.00" },
-                { "name": "Monte Lobos Joven", "price": "Copeo $185.00 / Botella $1,955.00" }
-              ]
-            },
-            {
-              "title": "Licores",
-              "items": [
-                { "name": "Baileys", "price": "90.00" },
-                { "name": "Chambord", "price": "135.00" },
-                { "name": "Frangelico", "price": "95.00" },
-                { "name": "Hipnotic", "price": "Copeo $140.00 / Botella $1,750.00" },
-                { "name": "Jagermeister", "price": "Copeo $100.00 / Botella $1,500.00" },
-                { "name": "Kahlúa", "price": "55.00" },
-                { "name": "Licor 43", "price": "100.00" },
-                { "name": "Vacari Blanco", "price": "85.00" },
-                { "name": "Vacari Negro", "price": "85.00" }
-              ]
-            }
+          "title": "Cervezas Artesanales",
+          "items": [
+            { "name": "Colimitas", "price": "95.00" },
+            { "name": "Colimita Lager", "price": "95.00" },
+            { "name": "Paromo", "price": "95.00" },
+            { "name": "Piedra Lisa", "price": "95.00" },
+            { "name": "Ticus", "price": "95.00" }
           ]
         },
         {
-          "title": "Vinos",
-          "subcategories": [
-            {
-              "title": "Tintos",
-              "items": [
-                { "name": "31.8", "price": "Copeo $180.00 / Botella $900.00" },
-                { "name": "3V", "price": "Botella $1,350.00" },
-                { "name": "Casa Madero Gran Reserva", "price": "Copeo $230.00 / Botella $1,450.00" },
-                { "name": "Portillo", "price": "Copeo $120.00 / Botella $1,450.00" }
-              ]
-            },
-            {
-              "title": "Blancos",
-              "items": [
-                { "name": "31.8", "price": "Copeo $150.00 / Botella $1,000.00" },
-                { "name": "2V", "price": "Botella $1,200.00" }
-              ]
-            }
+          "title": "Tequila",
+          "items": [
+            { "name": "30-30 Blanco", "price": "Copeo $75.00 / Botella $980.00" },
+            { "name": "30-30 Cristalino", "price": "Copeo $120.00 / Botella $1,575.00" },
+            { "name": "30-30 Reposado", "price": "Copeo $75.00 / Botella $900.00" },
+            { "name": "1800 Blanco", "price": "Copeo $125.00 / Botella $1,445.00" },
+            { "name": "1800 Cristalino", "price": "Copeo $130.00 / Botella $1,655.00" },
+            { "name": "1800 Reposado", "price": "Copeo $130.00 / Botella $1,500.00" },
+            { "name": "7 Leguas Blanco", "price": "Copeo $130.00 / Botella $1,450.00" },
+            { "name": "7 Leguas Reposado", "price": "Copeo $125.00 / Botella $1,400.00" },
+            { "name": "Antiguo Plata", "price": "Copeo $110.00 / Botella $1,200.00" },
+            { "name": "Cascahuin Blanco", "price": "Copeo $130.00 / Botella $1,650.00" },
+            { "name": "Centenario Plata", "price": "Copeo $75.00 / Botella $1,000.00" },
+            { "name": "Centenario Reposado", "price": "Copeo $75.00 / Botella $1,000.00" },
+            { "name": "Dobel Diamante", "price": "145.00 / 1,885.00" },
+            { "name": "Don Julio 70", "price": "200.00 / 2,150.00" },
+            { "name": "Don Julio Blanco", "price": "130.00 / 1,650.00" },
+            { "name": "Don Julio Reposado", "price": "165.00 / 1,935.00" },
+            { "name": "Herradura Blanco", "price": "115.00 / 1,300.00" },
+            { "name": "Herradura Plata", "price": "130.00 / 1,600.00" },
+            { "name": "Herradura Reposado", "price": "115.00 / 1,300.00" },
+            { "name": "Herradura Ultra", "price": "150.00 / 1,850.00" },
+            { "name": "San Matias Cristalino", "price": "200.00 / 2,100.00" },
+            { "name": "Tradicional Plata", "price": "85.00 / 955.00" },
+            { "name": "Tradicional Reposado", "price": "85.00 / 955.00" }
           ]
         },
         {
-            "title": "Bebidas sin Alcohol",
-            "items": [
-                { "name": "Agua Mineral Hethe", "price": "90.00" },
-                { "name": "Botella de Agua", "price": "30.00" },
-                { "name": "Café Americano", "price": "95.00" },
-                { "name": "Café Capuchino", "price": "65.00" },
-                { "name": "Café Expresso", "price": "95.00" },
-                { "name": "Chocomilk", "price": "45.00" },
-                { "name": "Jugo de Naranja", "price": "45.00" },
-                { "name": "Limonada de frutos rojos", "price": "75.00" },
-                { "name": "Limonada", "price": "75.00" },
-                { "name": "Limonada 1L", "price": "140.00" },
-                { "name": "Jarra de limpnada", "price": "190.00" },
-                { "name": "Naranjada", "price": "75.00" },
-                { "name": "Naranjada 1L", "price": "140.00" },
-                { "name": "Jarra de Naranjada", "price": "190.00" },
-                { "name": "Naranjada de Maracuyá", "price": "80.00" },
-                { "name": "Piñada", "price": "90.00" },
-                { "name": "Soda Italiana", "price": "90.00" },
-                { "name": "Red Bull", "price": "100.00" },
-                { "name": "Refresco 355ml", "price": "45.00", "description": "coca, squirt, agua mineral" }
-            ]
+          "title": "Cognac",
+          "items": [
+            { "name": "Martell V.S.O.P.", "price": "Copeo $220.00 / Botella $2,650.00" },
+            { "name": "Hennessy V.S.O.P.", "price": "Copeo $265.00 / Botella $3,200.00" }
+          ]
         },
         {
-            "title": "Tisana",
-            "items": [
-                { "name": "Cítrica", "price": "65.00" },
-                { "name": "Frutos Rojos", "price": "75.00" }
-            ]
+          "title": "Brandy",
+          "items": [
+            { "name": "Torres 10", "price": "Copeo $70.00 / Botella $845.00" },
+            { "name": "Alta Luz", "price": "Copeo $125.00 / Botella $1,500.00" }
+          ]
+        },
+        {
+          "title": "Ron",
+          "items": [
+            { "name": "Bacardi 8", "price": "Copeo $210.00 / Botella $2,200.00" },
+            { "name": "Bacardi Añejo", "price": "Copeo $60.00 / Botella $800.00" },
+            { "name": "Bacardi Blanco", "price": "Copeo $60.00 / Botella $800.00" },
+            { "name": "Bacardi Mango", "price": "Copeo $50.00 / Botella $700.00" },
+            { "name": "Flor de Caña 12", "price": "Copeo $190.00 / Botella $1,650.00" },
+            { "name": "Habana 7", "price": "Copeo $100.00 / Botella $1,350.00" },
+            { "name": "Malibu", "price": "Copeo $65.00 / Botella $850.00" },
+            { "name": "Zacapa 23", "price": "Copeo $210.00 / Botella $2,650.00" }
+          ]
+        },
+        {
+          "title": "Whisky",
+          "items": [
+            { "name": "Black Label", "price": "Copeo $220.00 / Botella $2,255.00" },
+            { "name": "Buchanas 12", "price": "Copeo $225.00 / Botella $2,400.00" },
+            { "name": "Buchanas Two Souls", "price": "Copeo $225.00 / Botella $2,450.00" },
+            { "name": "Chivas 12", "price": "Copeo $210.00 / Botella $2,150.00" },
+            { "name": "Old Par", "price": "Copeo $200.00 / Botella $2,100.00" },
+            { "name": "Red Label", "price": "95.00" }
+          ]
+        },
+        {
+          "title": "Vodka",
+          "items": [
+            { "name": "Absolut Azul", "price": "Copeo $65.00 / Botella $1,000.00" },
+            { "name": "Absolut Citron", "price": "Copeo $65.00 / Botella $1,000.00" },
+            { "name": "Absolut Mandarina", "price": "Copeo $65.00 / Botella $1,000.00" },
+            { "name": "Absolut Rasberri", "price": "Copeo $65.00 / Botella $1,000.00" },
+            { "name": "Grey Goose", "price": "Copeo $145.00 / Botella $1,950.00" }
+          ]
+        },
+        {
+          "title": "Ginebra",
+          "items": [
+            { "name": "Beefeater", "price": "Copeo $120.00 / Botella $1,500.00" },
+            { "name": "Bombay", "price": "Copeo $110.00 / Botella $1,550.00" },
+            { "name": "Hendricks", "price": "Copeo $200.00 / Botella $2,000.00" },
+            { "name": "London N.1", "price": "Copeo $215.00 / Botella $2,400.00" },
+            { "name": "Tanqueray", "price": "Copeo $130.00 / Botella $1,750.00" }
+          ]
+        },
+        {
+          "title": "Mezcal",
+          "items": [
+            { "name": "400 Conejos (Joven)", "price": "Copeo $115.00 / Botella $1,400.00" },
+            { "name": "Agua Maldita", "price": "Copeo $115.00 / Botella $1,450.00" },
+            { "name": "Apaluz", "price": "Copeo $115.00 / Botella $1,555.00" },
+            { "name": "Monte Lobos Joven", "price": "Copeo $185.00 / Botella $1,955.00" }
+          ]
+        },
+        {
+          "title": "Licores",
+          "items": [
+            { "name": "Baileys", "price": "90.00" },
+            { "name": "Chambord", "price": "135.00" },
+            { "name": "Frangelico", "price": "95.00" },
+            { "name": "Hipnotic", "price": "Copeo $140.00 / Botella $1,750.00" },
+            { "name": "Jagermeister", "price": "Copeo $100.00 / Botella $1,500.00" },
+            { "name": "Kahlúa", "price": "55.00" },
+            { "name": "Licor 43", "price": "100.00" },
+            { "name": "Vacari Blanco", "price": "85.00" },
+            { "name": "Vacari Negro", "price": "85.00" }
+          ]
+        },
+        {
+          "title": "Vinos Tintos",
+          "items": [
+            { "name": "31.8", "price": "Copeo $180.00 / Botella $900.00" },
+            { "name": "3V", "price": "Botella $1,350.00" },
+            { "name": "Casa Madero Gran Reserva", "price": "Copeo $230.00 / Botella $1,450.00" },
+            { "name": "Portillo", "price": "Copeo $120.00 / Botella $1,450.00" }
+          ]
+        },
+        {
+          "title": "Vinos Blancos",
+          "items": [
+            { "name": "31.8", "price": "Copeo $150.00 / Botella $1,000.00" },
+            { "name": "2V", "price": "Botella $1,200.00" }
+          ]
+        },
+        {
+          "title": "Bebidas sin Alcohol",
+          "items": [
+            { "name": "Agua Mineral Hethe", "price": "90.00" },
+            { "name": "Botella de Agua", "price": "30.00" },
+            { "name": "Café Americano", "price": "95.00" },
+            { "name": "Café Capuchino", "price": "65.00" },
+            { "name": "Café Expresso", "price": "95.00" },
+            { "name": "Chocomilk", "price": "45.00" },
+            { "name": "Jugo de Naranja", "price": "45.00" },
+            { "name": "Limonada de frutos rojos", "price": "75.00" },
+            { "name": "Limonada", "price": "75.00" },
+            { "name": "Limonada 1L", "price": "140.00" },
+            { "name": "Jarra de limpnada", "price": "190.00" },
+            { "name": "Naranjada", "price": "75.00" },
+            { "name": "Naranjada 1L", "price": "140.00" },
+            { "name": "Jarra de Naranjada", "price": "190.00" },
+            { "name": "Naranjada de Maracuyá", "price": "80.00" },
+            { "name": "Piñada", "price": "90.00" },
+            { "name": "Soda Italiana", "price": "90.00" },
+            { "name": "Red Bull", "price": "100.00" },
+            { "name": "Refresco 355ml", "price": "45.00", "description": "coca, squirt, agua mineral" }
+          ]
+        },
+        {
+          "title": "Tisana",
+          "items": [
+            { "name": "Cítrica", "price": "65.00" },
+            { "name": "Frutos Rojos", "price": "75.00" }
+          ]
         }
       ]
     }
