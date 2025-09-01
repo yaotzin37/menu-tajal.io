@@ -65,9 +65,4 @@ function renderMenu(menuData) {
 
 
 
-// Marcadores de posición para las funciones de inicialización
 
-function initScrollToTop() { 
-    // Lógica para el botón de volver arriba
-    console.log("ScrollToTop Initialized (Placeholder)");
-}
