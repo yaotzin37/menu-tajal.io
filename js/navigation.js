@@ -25,6 +25,9 @@ function initNavigation(menuData) {
             showSection(sectionId);
         }
     });
+
+    // Initialize scroll hide/show functionality
+    initScrollHideShow();
 }
 
 function showSection(sectionId) {
@@ -49,4 +52,23 @@ function showSection(sectionId) {
     if (buttonToActivate) {
         buttonToActivate.classList.add('active');
     }
+}
+
+let lastScrollTop = 0;
+function initScrollHideShow() {
+    const navigationContainer = document.querySelector('.navigation-container');
+    if (!navigationContainer) return;
+
+    window.addEventListener('scroll', () => {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScrollTop > lastScrollTop && currentScrollTop > navigationContainer.offsetHeight) {
+            // Scrolling down and past the navigation height
+            navigationContainer.classList.add('hidden');
+        } else if (currentScrollTop < lastScrollTop) {
+            // Scrolling up
+            navigationContainer.classList.remove('hidden');
+        }
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // For Mobile or negative scrolling
+    });
 }

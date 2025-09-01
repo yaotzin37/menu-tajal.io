@@ -8,6 +8,11 @@
     padding: 10px 0;
     margin-bottom: 30px;
     border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    transition: transform 0.3s ease-in-out; /* Added for smooth transition */
+}
+
+.navigation-container.hidden {
+    transform: translateY(-100%); /* Hide the navigation */
 }
 
 .navigation {
