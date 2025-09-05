@@ -115,7 +115,7 @@
             transition: transform 0.3s ease-in-out;
         }
         
-        header.hide + #mobile-menu {
+        header.hide ~ #mobile-menu {
             transform: translateY(-100%);
         }
         
@@ -273,22 +273,9 @@
     <!-- Hero Section con Video -->
     <section id="home" class="hero-section">
         <video autoplay muted loop playsinline class="hero-video">
-            <source src="videos/hero-background.mp4" type="video/mp4">
+            <source src="videos/video_hero.mp4" type="video/mp4">
             Tu navegador no soporta el elemento de video.
         </video>
-        <div class="hero-overlay"></div>
-        <div class="container mx-auto px-4 flex flex-col items-center justify-center text-center h-full hero-content">
-            <h2 class="text-4xl md:text-6xl font-bold mb-6 heading-font text-white">Sabores mexicanos con un toque de elegancia</h2>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl text-white">Disfruta de nuestra selección de platillos preparados con los mejores ingredientes y técnicas culinarias, fusionando sabores tradicionales con toques contemporáneos.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#menu" class="bg-brown-primary hover:bg-brown-dark text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
-                    <i class="fas fa-utensils mr-2"></i> Ver Menú
-                </a>
-                <a href="#reservations" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
-                    <i class="far fa-calendar-alt mr-2"></i> Reservar
-                </a>
-            </div>
-        </div>
     </section>
 
     <!-- Menu Section -->
@@ -325,7 +312,7 @@
                     <div class="space-y-6">
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/chilaquiles.jpg" alt="Chilaquiles" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/chilaquiles.jpg" alt="Chilaquiles" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -339,7 +326,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/huevos-al-gusto.jpg" alt="Huevos al gusto" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/huevos-al-gusto.jpg" alt="Huevos al gusto" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -353,7 +340,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/hot-cakes.jpg" alt="Hot-cakes" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/hot-cakes.jpg" alt="Hot-cakes" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -367,7 +354,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/plato-de-fruta.jpg" alt="Plato de fruta" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/plato-de-fruta.jpg" alt="Plato de fruta" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -381,7 +368,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/molletes-salados.jpg" alt="Molletes salados" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/molletes-salados.jpg" alt="Molletes salados" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -395,7 +382,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/molletes-dulces.jpg" alt="Molletes Dulces" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/molletes-dulces.jpg" alt="Molletes Dulces" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -416,7 +403,7 @@
                     <div class="space-y-6">
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/guacamole-picania.jpg" alt="Guacamole con picaña" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/guacamole-picania.jpg" alt="Guacamole con picaña" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -430,7 +417,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/panela-asada.jpg" alt="Panela asada" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/panela-asada.jpg" alt="Panela asada" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -444,7 +431,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/chistorra-asada.jpg" alt="Chistorra asada" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/chistorra-asada.jpg" alt="Chistorra asada" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -458,7 +445,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/tiradito-atun.jpg" alt="Tiradito de atún" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/tiradito-atun.jpg" alt="Tiradito de atún" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -472,7 +459,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/cecina.jpg" alt="Cecina" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/cecina.jpg" alt="Cecina" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -486,7 +473,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/tostadas-de-atun.jpg" alt="Tostadas de atún" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/tostadas-de-atun.jpg" alt="Tostadas de atún" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -500,7 +487,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/sopa-azteca.jpg" alt="Sopa Azteca" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/sopa-azteca.jpg" alt="Sopa Azteca" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -514,7 +501,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/torre-tajal-de-atun.jpg" alt="Torre Tajal de atún" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/torre-tajal-de-atun.jpg" alt="Torre Tajal de atún" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -528,7 +515,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/queso-fundido.jpg" alt="Queso fundido" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/queso-fundido.jpg" alt="Queso fundido" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -542,7 +529,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/papa-gratinada-con-arrachera.jpg" alt="Papa gratinada con arrachera" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/papa-gratinada-con-arrachera.jpg" alt="Papa gratinada con arrachera" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -556,7 +543,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/papas-a-la-francesa.jpg" alt="Papas a la francesa" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/papas-a-la-francesa.jpg" alt="Papas a la francesa" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -569,7 +556,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/guacamole.jpg" alt="Guacamole" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/guacamole.jpg" alt="Guacamole" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -583,7 +570,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/tuetanos-tajal.jpg" alt="Tuétanos Tajal" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/tuetanos-tajal.jpg" alt="Tuétanos Tajal" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -604,7 +591,7 @@
                     <div class="space-y-6">
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/ensalada-cesar.jpg" alt="Ensalada César" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/ensalada-cesar.jpg" alt="Ensalada César" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -618,7 +605,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/ensalada-premium.jpg" alt="Ensalada Premium" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/ensalada-premium.jpg" alt="Ensalada Premium" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -632,7 +619,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/ensalada-tajal.jpg" alt="Ensalada Tajal" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/ensalada-tajal.jpg" alt="Ensalada Tajal" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -646,7 +633,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/ensalada-texmex.jpg" alt="Ensalada Texmex" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/ensalada-texmex.jpg" alt="Ensalada Texmex" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -667,7 +654,7 @@
                     <div class="space-y-6">
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/pasta-alfredo.jpg" alt="Alfredo" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/pasta-alfredo.jpg" alt="Alfredo" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -681,7 +668,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/pasta-amatriciana.jpg" alt="Amatriciana" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/pasta-amatriciana.jpg" alt="Amatriciana" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -695,7 +682,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/pasta-alfredo-con-camaron.jpg" alt="Alfredo con camarón" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/pasta-alfredo-con-camaron.jpg" alt="Alfredo con camarón" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -709,7 +696,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/pasta-especial-del-chef.jpg" alt="Especial del chef" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/pasta-especial-del-chef.jpg" alt="Especial del chef" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -723,7 +710,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/pasta-especial-tajal.jpg" alt="Especial Tajal" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/pasta-especial-tajal.jpg" alt="Especial Tajal" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -744,7 +731,7 @@
                     <div class="space-y-6">
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/hamburguesa-tradicional.jpg" alt="Hamburguesa tradicional" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/hamburguesa-tradicional.jpg" alt="Hamburguesa tradicional" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -758,7 +745,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/la-consentida-tajal.jpg" alt="La Consentida Tajal" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/la-consentida-tajal.jpg" alt="La Consentida Tajal" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -772,7 +759,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/hamburguesa-de-camaron.jpg" alt="Hamburguesa de camarón" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/hamburguesa-de-camaron.jpg" alt="Hamburguesa de camarón" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -786,7 +773,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/hamburguesa-de-pollo.jpg" alt="Hamburguesa de pollo" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/hamburguesa-de-pollo.jpg" alt="Hamburguesa de pollo" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -808,7 +795,7 @@
                     <div class="space-y-6">
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/arrachera.jpg" alt="Arrachera 350g" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/arrachera.jpg" alt="Arrachera 350g" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -822,7 +809,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/rib-eye.jpg" alt="Rib-eye 350g" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/rib-eye.jpg" alt="Rib-eye 350g" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -836,7 +823,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/picania.jpg" alt="Picaña 350g" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/picania.jpg" alt="Picaña 350g" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -850,7 +837,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/t-bone.jpg" alt="T-bone 350g" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/t-bone.jpg" alt="T-bone 350g" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -864,7 +851,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/cowboy.jpg" alt="Cowboy 400g" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/cowboy.jpg" alt="Cowboy 400g" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -878,7 +865,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/tomahawk.jpg" alt="Tomahawk (1kg–1.2kg)" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/tomahawk.jpg" alt="Tomahawk (1kg–1.2kg)" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -899,7 +886,7 @@
                     <div class="space-y-6">
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/aguachile-negro.jpg" alt="Aguachile negro de camarón (150g)" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/aguachile-negro.jpg" alt="Aguachile negro de camarón (150g)" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -912,7 +899,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/aguachile-rojo.jpg" alt="Aguachile rojo de camarón (150g)" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/aguachile-rojo.jpg" alt="Aguachile rojo de camarón (150g)" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -925,7 +912,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/tacos-gobernador.jpg" alt="Tacos gobernador" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/tacos-gobernador.jpg" alt="Tacos gobernador" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -939,7 +926,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/salmon-a-las-brasas.jpg" alt="Salmón a las brasas" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/salmon-a-las-brasas.jpg" alt="Salmón a las brasas" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -953,7 +940,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/atun-sellado.jpg" alt="Atún sellado" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/atun-sellado.jpg" alt="Atún sellado" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -967,7 +954,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/camarones-al-gusto.jpg" alt="Camarones al gusto" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/camarones-al-gusto.jpg" alt="Camarones al gusto" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -981,7 +968,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/pulpo-estilo-tajal.jpg" alt="Pulpo estilo Tajal" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/pulpo-estilo-tajal.jpg" alt="Pulpo estilo Tajal" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -995,7 +982,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/especial-tajal-camarones.jpg" alt="Especial Tajal" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/especial-tajal-camarones.jpg" alt="Especial Tajal" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -1016,7 +1003,7 @@
                     <div class="space-y-6">
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/nuggets-de-pollo.jpg" alt="Nuggets de pollo" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/nuggets-de-pollo.jpg" alt="Nuggets de pollo" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -1030,7 +1017,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/hot-dogs.jpg" alt="Hot dogs" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/hot-dogs.jpg" alt="Hot dogs" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -1044,7 +1031,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/hamburguesa-infantil.jpg" alt="Hamburguesa infantil" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/hamburguesa-infantil.jpg" alt="Hamburguesa infantil" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -1058,7 +1045,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/sopa-de-fideo.jpg" alt="Sopa de fideo con tocino" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/sopa-de-fideo.jpg" alt="Sopa de fideo con tocino" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -1078,7 +1065,7 @@
                     <div class="space-y-6">
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/tarta-de-chocolate.jpg" alt="Tarta de chocolate" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/tarta-de-chocolate.jpg" alt="Tarta de chocolate" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -1091,7 +1078,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/cheesecake-de-fresa.jpg" alt="Chesscake de fresa" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/cheesecake-de-fresa.jpg" alt="Chesscake de fresa" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -1104,7 +1091,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/pastel-blueberry.jpg" alt="Pastel blueberry" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/pastel-blueberry.jpg" alt="Pastel blueberry" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -1117,7 +1104,7 @@
                         </div>
                         <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
                             <div class="dish-image">
-                                <img src="images/platos/crees-cake-de-sarzamora.jpg" alt="Crees cake de sarzamora" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                                <img src="images/platos/crees-cake-de-sarzamora.jpg" alt="Crees cake de sarzamora" class="w-full h-48 object-cover cursor-pointer" >
                             </div>
                             <div class="p-6">
                                 <div class="flex justify-between items-start">
@@ -1664,90 +1651,111 @@
     </div>
 
     <script>
-        // Variables para controlar el scroll
-        let lastScrollTop = 0;
-        const header = document.querySelector('header');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const headerHeight = header.offsetHeight;
-        
-        // Ajustar el padding del body para el header fijo
-        document.body.style.paddingTop = headerHeight + 'px';
-        
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Variables para controlar el scroll
+            let lastScrollTop = 0;
+            const header = document.querySelector('header');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (!header) return;
+
+            const headerHeight = header.offsetHeight;
             
-            // Si el menú móvil se está mostrando, asegurarse de que el header esté visible
-            if (!mobileMenu.classList.contains('hidden')) {
-                header.classList.remove('hide');
-            }
-        });
-        
-        // Cerrar menú móvil al hacer clic en un enlace
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-        
-        // Ocultar/mostrar header y menú móvil al hacer scroll
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            // Ajustar el padding del body para el header fijo
+            document.body.style.paddingTop = headerHeight + 'px';
             
-            // Para dispositivos móviles, ocultar el header y menú móvil al hacer scroll hacia abajo
-            if (window.innerWidth < 768) {
-                if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
-                    // Scroll hacia abajo - ocultar
-                    header.classList.add('hide');
-                    mobileMenu.classList.add('hidden'); // También ocultar el menú móvil si está abierto
-                } else {
-                    // Scroll hacia arriba - mostrar
+            // Mobile menu toggle
+            document.getElementById('menu-toggle').addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                // Si el menú móvil se está mostrando, asegurarse de que el header esté visible
+                if (!mobileMenu.classList.contains('hidden')) {
                     header.classList.remove('hide');
                 }
-            }
-            
-            lastScrollTop = scrollTop;
-            
-            // Update active nav link on scroll
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollTop >= (sectionTop - 100)) {
-                    current = section.getAttribute('id');
-                }
             });
             
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+            // Cerrar menú móvil al hacer clic en un enlace
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
             });
-        });
+            
+            // Ocultar/mostrar header al hacer scroll
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+                    // Scroll hacia abajo -> ocultar header
+                    header.classList.add('hide');
+                } else {
+                    // Scroll hacia arriba -> mostrar header
+                    header.classList.remove('hide');
+                }
 
-        // Modal functionality for dish images
-        function openModal(img) {
+                // Si el menú móvil está abierto, forzar que se muestre el header
+                if (!mobileMenu.classList.contains('hidden')) {
+                    header.classList.remove('hide');
+                }
+                
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+                
+                // Update active nav link on scroll
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.nav-link');
+                
+                let current = 'home';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollTop >= (sectionTop - headerHeight - 20)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // --- Modal functionality for dish images ---
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImage");
-            modal.style.display = "block";
-            modalImg.src = img.src;
-        }
+            const closeBtn = document.querySelector(".close");
 
-        function closeModal() {
-            document.getElementById("imageModal").style.display = "none";
-        }
-
-        // Close modal when clicking outside of image
-        window.onclick = function(event) {
-            const modal = document.getElementById("imageModal");
-            if (event.target == modal) {
-                closeModal();
+            function openModal(imgElement) {
+                if (modal && modalImg) {
+                    modal.style.display = "block";
+                    modalImg.src = imgElement.src;
+                }
             }
-        }
+
+            function closeModal() {
+                if (modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            // Add click listeners to all dish images
+            document.querySelectorAll('.dish-image img').forEach(img => {
+                img.addEventListener('click', () => openModal(img));
+            });
+
+            // Add click listener to close button
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeModal);
+            }
+
+            // Close modal when clicking outside of image
+            if (modal) {
+                modal.addEventListener('click', function(event) {
+                    if (event.target === modal) {
+                        closeModal();
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
