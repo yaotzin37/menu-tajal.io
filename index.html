@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tajal Restaurante & Mixología</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-brown: #78350f;
+            --dark-brown: #5f270b;
+            --light-brown: #fef3c7;
+            --accent-brown: #fef08a;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            padding-top: 80px;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .script-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .menu-category {
+            scroll-margin-top: 100px;
+        }
+        
+        .dish-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .dish-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dish-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .dish-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .dish-card:hover .dish-image img {
+            transform: scale(1.05);
+        }
+        
+        .nav-link.active {
+            color: var(--primary-brown);
+            border-bottom: 2px solid var(--primary-brown);
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: 0;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        
+        header {
+            transform: translateY(0);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+        }
+        
+        header.hide {
+            transform: translateY(-100%);
+        }
+        
+        #mobile-menu {
+            transform: translateY(0);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        header.hide + #mobile-menu {
+            transform: translateY(-100%);
+        }
+        
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+        }
+        
+        .facebook-btn {
+            background-color: #1877F2;
+        }
+        
+        .instagram-btn {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+        
+        .collaboration-banner {
+            background: linear-gradient(135deg, var(--primary-brown), var(--dark-brown));
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .collaboration-banner a {
+            color: var(--light-brown);
+            text-decoration: underline;
+        }
+        
+        .collaboration-banner a:hover {
+            color: white;
+        }
+        
+        .bg-brown-light { background-color: var(--light-brown); }
+        .bg-brown-accent { background-color: var(--accent-brown); }
+        .bg-brown-primary { background-color: var(--primary-brown); }
+        .bg-brown-dark { background-color: var(--dark-brown); }
+        .text-brown-primary { color: var(--primary-brown); }
+        .border-brown-primary { border-color: var(--primary-brown); }
+        .hover\:bg-brown-primary:hover { background-color: var(--primary-brown); }
+        .hover\:bg-brown-dark:hover { background-color: var(--dark-brown); }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            max-height: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="font-sans scroll-smooth">
+    <!-- Collaboration Banner -->
+    <div class="collaboration-banner">
+        <p>En colaboración con <a href="https://www.facebook.com/profile.php?id=61551080633176" target="_blank">Cabaña Tour Resort</a> - ¡Disfruta de una experiencia completa!</p>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold text-brown-primary heading-font">TAJAL</h1>
+                <span class="ml-2 text-sm italic text-gray-600 hidden md:block">Restaurante & Mixología</span>
+            </div>
+            
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="nav-link active text-gray-800 hover:text-brown-primary font-medium transition">Inicio</a></li>
+                    <li><a href="#menu" class="nav-link text-gray-800 hover:text-brown-primary font-medium transition">Menú</a></li>
+                    <li><a href="#reservations" class="nav-link text-gray-800 hover:text-brown-primary font-medium transition">Reservas</a></li>
+                    <li><a href="#contact" class="nav-link text-gray-800 hover:text-brown-primary font-medium transition">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed hidden md:hidden bg-white w-full shadow-lg z-50">
+        <ul class="flex flex-col space-y-3 px-4 py-4">
+            <li><a href="#home" class="block py-2 text-gray-800 hover:text-brown-primary font-medium transition mobile-nav-link">Inicio</a></li>
+            <li><a href="#menu" class="block py-2 text-gray-800 hover:text-brown-primary font-medium transition mobile-nav-link">Menú</a></li>
+            <li><a href="#reservations" class="block py-2 text-gray-800 hover:text-brown-primary font-medium transition mobile-nav-link">Reservas</a></li>
+            <li><a href="#contact" class="block py-2 text-gray-800 hover:text-brown-primary font-medium transition mobile-nav-link">Contacto</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section con Video -->
+    <section id="home" class="hero-section">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="videos/hero-background.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="container mx-auto px-4 flex flex-col items-center justify-center text-center h-full hero-content">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 heading-font text-white">Sabores mexicanos con un toque de elegancia</h2>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl text-white">Disfruta de nuestra selección de platillos preparados con los mejores ingredientes y técnicas culinarias, fusionando sabores tradicionales con toques contemporáneos.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#menu" class="bg-brown-primary hover:bg-brown-dark text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-utensils mr-2"></i> Ver Menú
+                </a>
+                <a href="#reservations" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    <i class="far fa-calendar-alt mr-2"></i> Reservar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 heading-font">Nuestro Menú</h2>
+                <div class="w-20 h-1 bg-brown-primary mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Disfruta de nuestra selección de platillos preparados con los mejores ingredientes y técnicas culinarias, fusionando sabores tradicionales con toques contemporáneos.</p>
+            </div>
+            
+            <!-- Menu Navigation -->
+            <div class="sticky top-20 bg-white shadow-sm py-4 z-10 mb-8 overflow-x-auto">
+                <div class="flex space-x-4 px-4 md:justify-center">
+                    <a href="#desayunos" class="whitespace-nowrap px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full text-sm font-medium transition">Desayunos</a>
+                    <a href="#entradas" class="whitespace-nowrap px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full text-sm font-medium transition">Entradas</a>
+                    <a href="#ensaladas" class="whitespace-nowrap px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full text-sm font-medium transition">Ensaladas</a>
+                    <a href="#pastas" class="whitespace-nowrap px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full text-sm font-medium transition">Pastas</a>
+                    <a href="#hamburguesas" class="whitespace-nowrap px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full text-sm font-medium transition">Hamburguesas</a>
+                    <a href="#cortes" class="whitespace-nowrap px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full text-sm font-medium transition">Cortes</a>
+                    <a href="#del-mar" class="whitespace-nowrap px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full text-sm font-medium transition">Del Mar</a>
+                    <a href="#infantil" class="whitespace-nowrap px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full text-sm font-medium transition">Infantil</a>
+                    <a href="#postres" class="whitespace-nowrap px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full text-sm font-medium transition">Postres</a>
+                    <a href="#bebidas" class="whitespace-nowrap px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full text-sm font-medium transition">Bebidas</a>
+                    <a href="#extras" class="whitespace-nowrap px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-full text-sm font-medium transition">Extras</a>
+                </div>
+            </div>
+            
+            <!-- Menu Items -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Desayunos -->
+                <div id="desayunos" class="menu-category">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Desayunos</h3>
+                    <div class="space-y-6">
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/chilaquiles.jpg" alt="Chilaquiles" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Chilaquiles</h4>
+                                        <p class="text-gray-600 mt-1">Rojos o verdes, acompañados de frijoles, queso, crema y cebolla</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$130.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/huevos-al-gusto.jpg" alt="Huevos al gusto" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Huevos al gusto</h4>
+                                        <p class="text-gray-600 mt-1">Mexicana, Revueltos, Con jamón, Estrellados, Omelette con salchicha o jamón</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$120.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/hot-cakes.jpg" alt="Hot-cakes" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Hot-cakes</h4>
+                                        <p class="text-gray-600 mt-1">3 piezas con mantequilla, miel de maple y tocino</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$115.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/plato-de-fruta.jpg" alt="Plato de fruta" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Plato de fruta</h4>
+                                        <p class="text-gray-600 mt-1">Papaya, melón, fresas, con miel de abeja y granola; elegir: queso cottage o yogurt natural</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$120.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/molletes-salados.jpg" alt="Molletes salados" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Molletes salados</h4>
+                                        <p class="text-gray-600 mt-1">2 molletes: frijol con queso, frijol con queso y chorizo</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$90.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/molletes-dulces.jpg" alt="Molletes Dulces" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Molletes Dulces</h4>
+                                        <p class="text-gray-600 mt-1">2 molletes: sencillo o combinado con cajeta, mermelada de fresa, lechera, Nutella, azúcar y canela, miel</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$95.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Entradas -->
+                <div id="entradas" class="menu-category">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Entradas</h3>
+                    <div class="space-y-6">
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/guacamole-picania.jpg" alt="Guacamole con picaña" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Guacamole con picaña</h4>
+                                        <p class="text-gray-600 mt-1">Guacamole tradicional con puntas de picaña al carbón</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$250.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/panela-asada.jpg" alt="Panela asada" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Panela asada</h4>
+                                        <p class="text-gray-600 mt-1">Panela asada al carbón marinada con chimichurri</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$120.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/chistorra-asada.jpg" alt="Chistorra asada" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Chistorra asada</h4>
+                                        <p class="text-gray-600 mt-1">Porción de chistorra asada al carbón marinada con chimichurri</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$130.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/tiradito-atun.jpg" alt="Tiradito de atún" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Tiradito de atún</h4>
+                                        <p class="text-gray-600 mt-1">Láminas de atún sobre ruedas de pepino, chile serrano y salsa sweet ponzu</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$230.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/cecina.jpg" alt="Cecina" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Cecina</h4>
+                                        <p class="text-gray-600 mt-1">150g horneada con guacamole tradicional</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$240.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/tostadas-de-atun.jpg" alt="Tostadas de atún" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Tostadas de atún</h4>
+                                        <p class="text-gray-600 mt-1">1 tostada de atún marinado en salsa negra con flor de aguacate</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$120.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/sopa-azteca.jpg" alt="Sopa Azteca" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Sopa Azteca</h4>
+                                        <p class="text-gray-600 mt-1">Sopa de tortilla con aguacate, queso manchego y crema</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$95.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/torre-tajal-de-atun.jpg" alt="Torre Tajal de atún" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Torre Tajal de atún</h4>
+                                        <p class="text-gray-600 mt-1">Atún rojo en trozos sobre aguacate</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$280.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/queso-fundido.jpg" alt="Queso fundido" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Queso fundido</h4>
+                                        <p class="text-gray-600 mt-1">Con chorizo, champiñones o natural</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$160.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/papa-gratinada-con-arrachera.jpg" alt="Papa gratinada con arrachera" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Papa gratinada con arrachera</h4>
+                                        <p class="text-gray-600 mt-1">Papa con queso gratinado y fajitas de arrachera</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$180.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/papas-a-la-francesa.jpg" alt="Papas a la francesa" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Papas a la francesa</h4>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$80.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/guacamole.jpg" alt="Guacamole" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Guacamole</h4>
+                                        <p class="text-gray-600 mt-1">Dip con totopos</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$70.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/tuetanos-tajal.jpg" alt="Tuétanos Tajal" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Tuétanos Tajal</h4>
+                                        <p class="text-gray-600 mt-1">3 piezas al grill con esquites y salsa de la casa</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$270.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ensaladas -->
+                <div id="ensaladas" class="menu-category">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Ensaladas</h3>
+                    <div class="space-y-6">
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/ensalada-cesar.jpg" alt="Ensalada César" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Ensalada César</h4>
+                                        <p class="text-gray-600 mt-1">Mix de lechugas, crotones, queso parmesano, aderezo César y pollo</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$180.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/ensalada-premium.jpg" alt="Ensalada Premium" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Ensalada Premium</h4>
+                                        <p class="text-gray-600 mt-1">Mix de lechuga, espinaca, queso de cabra, nuez garapiñada y pollo con aderezo de miel mostaza</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$200.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/ensalada-tajal.jpg" alt="Ensalada Tajal" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Ensalada Tajal</h4>
+                                        <p class="text-gray-600 mt-1">Mix de lechuga con pollo, espinaca, arándano, panela, fresa, frutos rojos y vinagreta</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$200.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/ensalada-texmex.jpg" alt="Ensalada Texmex" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Ensalada Texmex</h4>
+                                        <p class="text-gray-600 mt-1">Mix de lechuga, jitomate, elote, aguacate, cebolla morada, chips y arrachera con aderezo de chipotle</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$200.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pastas -->
+                <div id="pastas" class="menu-category">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Pastas</h3>
+                    <div class="space-y-6">
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/pasta-alfredo.jpg" alt="Alfredo" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Alfredo</h4>
+                                        <p class="text-gray-600 mt-1">Pasta con crema Alfredo, mantequilla y queso parmesano</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$135.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/pasta-amatriciana.jpg" alt="Amatriciana" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Amatriciana</h4>
+                                        <p class="text-gray-600 mt-1">Pasta en salsa amatriciana, guanciale y queso</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$150.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/pasta-alfredo-con-camaron.jpg" alt="Alfredo con camarón" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Alfredo con camarón</h4>
+                                        <p class="text-gray-600 mt-1">Pasta Alfredo con camarón al vino blanco y queso parmesano</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$190.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/pasta-especial-del-chef.jpg" alt="Especial del chef" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Especial del chef</h4>
+                                        <p class="text-gray-600 mt-1">Pasta fusilli con salsa casera estilo italiano</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$160.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/pasta-especial-tajal.jpg" alt="Especial Tajal" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Especial Tajal</h4>
+                                        <p class="text-gray-600 mt-1">Pasta fusilli salteada con mantequilla y vegetales al dente</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$145.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hamburguesas -->
+                <div id="hamburguesas" class="menu-category">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Hamburguesas</h3>
+                    <div class="space-y-6">
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/hamburguesa-tradicional.jpg" alt="Hamburguesa tradicional" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Hamburguesa tradicional</h4>
+                                        <p class="text-gray-600 mt-1">Carne de res, queso Americano y tocino</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$175.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/la-consentida-tajal.jpg" alt="La Consentida Tajal" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">La Consentida Tajal</h4>
+                                        <p class="text-gray-600 mt-1">Rib eye 200g, receta especial</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$220.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/hamburguesa-de-camaron.jpg" alt="Hamburguesa de camarón" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Hamburguesa de camarón</h4>
+                                        <p class="text-gray-600 mt-1">Camarones a la plancha con queso manchego</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$215.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/hamburguesa-de-pollo.jpg" alt="Hamburguesa de pollo" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Hamburguesa de pollo</h4>
+                                        <p class="text-gray-600 mt-1">Pechuga de pollo y queso americano</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$175.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center text-gray-600 mt-4">Todas incluyen 150g de papas, jitomate, cebolla y lechuga</p>
+                    </div>
+                </div>
+                
+                <!-- Cortes -->
+                <div id="cortes" class="menu-category">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Cortes</h3>
+                    <div class="space-y-6">
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/arrachera.jpg" alt="Arrachera 350g" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Arrachera 350g</h4>
+                                        <p class="text-gray-600 mt-1">Con frijoles y guacamole</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$330.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/rib-eye.jpg" alt="Rib-eye 350g" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Rib-eye 350g</h4>
+                                        <p class="text-gray-600 mt-1">Con papa al gratin y ensalada</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$370.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/picania.jpg" alt="Picaña 350g" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Picaña 350g</h4>
+                                        <p class="text-gray-600 mt-1">Con frijoles y guacamole</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$300.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/t-bone.jpg" alt="T-bone 350g" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">T-bone 350g</h4>
+                                        <p class="text-gray-600 mt-1">Con champiñones al ajillo y elote amarillo</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$370.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/cowboy.jpg" alt="Cowboy 400g" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Cowboy 400g</h4>
+                                        <p class="text-gray-600 mt-1">Con ensalada fresca y papítas al limon</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$470.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/tomahawk.jpg" alt="Tomahawk (1kg–1.2kg)" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Tomahawk (1kg–1.2kg)</h4>
+                                        <p class="text-gray-600 mt-1">Con una ensalada especial de la casa</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$1,200.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Del Mar -->
+                <div id="del-mar" class="menu-category">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Del Mar</h3>
+                    <div class="space-y-6">
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/aguachile-negro.jpg" alt="Aguachile negro de camarón (150g)" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Aguachile negro de camarón (150g)</h4>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$205.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/aguachile-rojo.jpg" alt="Aguachile rojo de camarón (150g)" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Aguachile rojo de camarón (150g)</h4>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$205.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/tacos-gobernador.jpg" alt="Tacos gobernador" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Tacos gobernador</h4>
+                                        <p class="text-gray-600 mt-1">3 tacos de camarón gratinados con aguacate</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$250.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/salmon-a-las-brasas.jpg" alt="Salmón a las brasas" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Salmón a las brasas</h4>
+                                        <p class="text-gray-600 mt-1">Medallón de salmón con vegetales salteados</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$255.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/atun-sellado.jpg" alt="Atún sellado" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Atún sellado</h4>
+                                        <p class="text-gray-600 mt-1">Con costra de ajonjolí y ensalada fresca</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$245.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/camarones-al-gusto.jpg" alt="Camarones al gusto" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Camarones al gusto</h4>
+                                        <p class="text-gray-600 mt-1">Con arroz y ensalada: a la mantequilla, a la diabla, al mojo de ajo</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$250.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/pulpo-estilo-tajal.jpg" alt="Pulpo estilo Tajal" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Pulpo estilo Tajal</h4>
+                                        <p class="text-gray-600 mt-1">Pulpo a las brasas con puré de papa y ensalada</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$420.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/especial-tajal-camarones.jpg" alt="Especial Tajal" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Especial Tajal</h4>
+                                        <p class="text-gray-600 mt-1">Camarones empanizados de la casa</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$230.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menú Infantil -->
+                <div id="infantil" class="menu-category">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Menú Infantil</h3>
+                    <div class="space-y-6">
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/nuggets-de-pollo.jpg" alt="Nuggets de pollo" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Nuggets de pollo</h4>
+                                        <p class="text-gray-600 mt-1">Con papas a la francesa</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$130.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/hot-dogs.jpg" alt="Hot dogs" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Hot dogs</h4>
+                                        <p class="text-gray-600 mt-1">1 pieza con papas a la francesa</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$80.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/hamburguesa-infantil.jpg" alt="Hamburguesa infantil" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Hamburguesa infantil</h4>
+                                        <p class="text-gray-600 mt-1">Con papas a la francesa</p>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$150.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/sopa-de-fideo.jpg" alt="Sopa de fideo con tocino" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Sopa de fideo con tocino</h4>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$90.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Postres -->
+                <div id="postres" class="menu-category">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Postres</h3>
+                    <div class="space-y-6">
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/tarta-de-chocolate.jpg" alt="Tarta de chocolate" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Tarta de chocolate</h4>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$135.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/cheesecake-de-fresa.jpg" alt="Chesscake de fresa" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Chesscake de fresa</h4>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$135.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/pastel-blueberry.jpg" alt="Pastel blueberry" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Pastel blueberry</h4>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$135.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300">
+                            <div class="dish-image">
+                                <img src="images/platos/crees-cake-de-sarzamora.jpg" alt="Crees cake de sarzamora" class="w-full h-48 object-cover cursor-pointer" onclick="openModal(this)">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Crees cake de sarzamora</h4>
+                                    </div>
+                                    <span class="text-brown-primary font-bold">$135.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bebidas -->
+                <div id="bebidas" class="menu-category md:col-span-2 lg:col-span-3">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Bebidas</h3>
+                    
+                    <h4 class="text-xl font-semibold text-gray-700 mt-8 mb-4">Coctelería</h4>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Apperol Spritz</h5>
+                            <span class="text-brown-primary font-bold">$150.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Bloody Mary</h5>
+                            <span class="text-brown-primary font-bold">$95.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Canija</h5>
+                            <span class="text-brown-primary font-bold">$120.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Carajillo</h5>
+                            <span class="text-brown-primary font-bold">$150.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Clericot</h5>
+                            <span class="text-brown-primary font-bold">$150.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Hierbabuena</h5>
+                            <span class="text-brown-primary font-bold">$95.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Margarita</h5>
+                            <span class="text-brown-primary font-bold">$95.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Michelada clara</h5>
+                            <span class="text-brown-primary font-bold">$90.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Michelada obscura</h5>
+                            <span class="text-brown-primary font-bold">$100.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Michelada con Camarón</h5>
+                            <span class="text-brown-primary font-bold">$130.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Mimosa</h5>
+                            <span class="text-brown-primary font-bold">$100.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md transition duration-300 p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Mojito</h5>
+                            <span class="text-brown-primary font-bold">$85.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Piña Colada</h5>
+                            <span class="text-brown-primary font-bold">$80.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Perla Negra</h5>
+                            <span class="text-brown-primary font-bold">$165.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Ruso Blanco</h5>
+                            <span class="text-brown-primary font-bold">$100.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Sangría</h5>
+                            <span class="text-brown-primary font-bold">$100.00</span>
+                        </div>
+                    </div>
+
+                    <h4 class="text-xl font-semibold text-gray-700 mt-8 mb-4">Cervezas</h4>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h5 class="text-lg font-semibold text-gray-600 mb-3">Normales</h5>
+                            <div class="space-y-2">
+                                <div class="bg-white rounded-lg shadow-sm p-3 flex justify-between items-center">
+                                    <p>Corona</p><span class="font-semibold text-gray-800">$45.00</span>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3 flex justify-between items-center">
+                                    <p>Corona Light</p><span class="font-semibold text-gray-800">$45.00</span>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3 flex justify-between items-center">
+                                    <p>Modelo Especial</p><span class="font-semibold text-gray-800">$55.00</span>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3 flex justify-between items-center">
+                                    <p>Negra Modelo</p><span class="font-semibold text-gray-800">$55.00</span>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3 flex justify-between items-center">
+                                    <p>Pacifico</p><span class="font-semibold text-gray-800">$45.00</span>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3 flex justify-between items-center">
+                                    <p>Ultra</p><span class="font-semibold text-gray-800">$55.00</span>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3 flex justify-between items-center">
+                                    <p>Victoria</p><span class="font-semibold text-gray-800">$45.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="text-lg font-semibold text-gray-600 mb-3">Artesanales</h5>
+                            <div class="space-y-2">
+                                <div class="bg-white rounded-lg shadow-sm p-3 flex justify-between items-center">
+                                    <p>Colimitas</p><span class="font-semibold text-gray-800">$95.00</span>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3 flex justify-between items-center">
+                                    <p>Colimita Lager</p><span class="font-semibold text-gray-800">$95.00</span>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3 flex justify-between items-center">
+                                    <p>Paromo</p><span class="font-semibold text-gray-800">$95.00</span>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3 flex justify-between items-center">
+                                    <p>Piedra Lisa</p><span class="font-semibold text-gray-800">$95.00</span>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3 flex justify-between items-center">
+                                    <p>Ticus</p><span class="font-semibold text-gray-800">$95.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="text-xl font-semibold text-gray-700 mt-8 mb-4">Licores y Vinos</h4>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Tequila -->
+                        <div>
+                            <h5 class="text-lg font-bold text-gray-600 mb-3">Tequila</h5>
+                            <div class="space-y-3">
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">30-30 Blanco</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$75.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$980.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">30-30 Cristalino</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$120.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,575.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">30-30 Reposado</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$75.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$900.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">1800 Blanco</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$125.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,445.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">1800 Cristalino</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$130.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,655.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">1800 Reposado</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$130.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,500.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">7 Leguas Blanco</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$130.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,450.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">7 Leguas Reposado</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$125.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,400.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Antiguo Plata</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$110.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,200.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Cascahuin Blanco</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$130.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,650.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Centenario Plata</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$75.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,000.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Centenario Reposado</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$75.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,000.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Dobel Diamante</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$145.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,885.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Don Julio 70</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$200.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$2,150.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Don Julio Blanco</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$130.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,650.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Don Julio Reposado</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$165.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,935.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Herradura Blanco</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$115.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,300.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Herradura Plata</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$130.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,600.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Herradura Reposado</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$115.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,300.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Herradura Ultra</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$150.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,850.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">San Matias Cristalino</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$200.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$2,100.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Tradicional Plata</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$85.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$955.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Tradicional Reposado</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$85.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$955.00</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Ron -->
+                        <div>
+                            <h5 class="text-lg font-bold text-gray-600 mb-3">Ron</h5>
+                            <div class="space-y-3">
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Bacardi 8</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$210.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$2,200.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Bacardi Añejo</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$60.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$800.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Bacardi Blanco</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$60.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$800.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Bacardi Mango</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$50.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$700.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Flor de Caña 12</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$190.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,650.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Habana 7</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$100.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,350.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Malibu</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$65.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$850.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Zacapa 23</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$210.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$2,650.00</span></div>
+                                </div>
+                            </div>
+                            <h5 class="text-lg font-bold text-gray-600 mt-6 mb-3">Whisky</h5>
+                            <div class="space-y-3">
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Black Label</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$220.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$2,255.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Buchanas 12</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$225.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$2,400.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Buchanas Two Souls</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$225.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$2,450.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Chivas 12</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$210.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$2,150.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Old Par</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$200.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$2,100.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Red Label</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$95.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,250.00</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Otros Licores -->
+                        <div>
+                            <h5 class="text-lg font-bold text-gray-600 mb-3">Ginebra</h5>
+                            <div class="space-y-3">
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Beefeater</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$120.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,500.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Bombay</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$110.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,550.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Hendricks</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$200.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$2,000.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">London N.1</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$215.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$2,400.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Tanqueray</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$130.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,750.00</span></div>
+                                </div>
+                            </div>
+                            <h5 class="text-lg font-bold text-gray-600 mt-6 mb-3">Mezcal</h5>
+                            <div class="space-y-3">
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">400 Conejos (Joven)</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$115.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,400.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Agua Maldita</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$115.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,450.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Apaluz</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$115.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,555.00</span></div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-sm p-3">
+                                    <h6 class="font-semibold text-gray-800">Monte Lobos Joven</h6>
+                                    <div class="flex justify-between text-sm"><p>Copeo</p><span>$185.00</span></div>
+                                    <div class="flex justify-between text-sm"><p>Botella</p><span>$1,955.00</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="text-xl font-semibold text-gray-700 mt-8 mb-4">Bebidas sin Alcohol</h4>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Agua Mineral Hethe</h5>
+                            <span class="text-brown-primary font-bold">$90.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Botella de Agua</h5>
+                            <span class="text-brown-primary font-bold">$30.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Café Americano</h5>
+                            <span class="text-brown-primary font-bold">$65.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Café Capuchino</h5>
+                            <span class="text-brown-primary font-bold">$65.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Café Expresso</h5>
+                            <span class="text-brown-primary font-bold">$65.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Chocomilk</h5>
+                            <span class="text-brown-primary font-bold">$45.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Jugo de Naranja</h5>
+                            <span class="text-brown-primary font-bold">$45.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Limonada de frutos rojos</h5>
+                            <span class="text-brown-primary font-bold">$75.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Limonada</h5>
+                            <span class="text-brown-primary font-bold">$75.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Limonada 1L</h5>
+                            <span class="text-brown-primary font-bold">$140.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Jarra de limonada</h5>
+                            <span class="text-brown-primary font-bold">$190.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Naranjada</h5>
+                            <span class="text-brown-primary font-bold">$75.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Naranjada 1L</h5>
+                            <span class="text-brown-primary font-bold">$140.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Jarra de Naranjada</h5>
+                            <span class="text-brown-primary font-bold">$190.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Naranjada de Maracuyá</h5>
+                            <span class="text-brown-primary font-bold">$80.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Piñada</h5>
+                            <span class="text-brown-primary font-bold">$90.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Soda Italiana</h5>
+                            <span class="text-brown-primary font-bold">$90.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Red Bull</h5>
+                            <span class="text-brown-primary font-bold">$100.00</span>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">Refresco 355ml</h5>
+                            <span class="text-brown-primary font-bold">$45.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Extras -->
+                <div id="extras" class="menu-category">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200">Extras</h3>
+                    <div class="space-y-6">
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300 p-6">
+                            <div class="flex justify-between items-center">
+                                <h4 class="text-lg font-semibold text-gray-800">Arrachera 150g</h4>
+                                <span class="text-brown-primary font-bold">$80.00</span>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300 p-6">
+                            <div class="flex justify-between items-center">
+                                <h4 class="text-lg font-semibold text-gray-800">Pollo 150g</h4>
+                                <span class="text-brown-primary font-bold">$50.00</span>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300 p-6">
+                            <div class="flex justify-between items-center">
+                                <h4 class="text-lg font-semibold text-gray-800">Camarón 100g</h4>
+                                <span class="text-brown-primary font-bold">$80.00</span>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300 p-6">
+                            <div class="flex justify-between items-center">
+                                <h4 class="text-lg font-semibold text-gray-800">Guacamole 150g</h4>
+                                <span class="text-brown-primary font-bold">$50.00</span>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300 p-6">
+                            <div class="flex justify-between items-center">
+                                <h4 class="text-lg font-semibold text-gray-800">Frijoles 150g</h4>
+                                <span class="text-brown-primary font-bold">$40.00</span>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300 p-6">
+                            <div class="flex justify-between items-center">
+                                <h4 class="text-lg font-semibold text-gray-800">Elotes (3 rebanadas)</h4>
+                                <span class="text-brown-primary font-bold">$50.00</span>
+                            </div>
+                        </div>
+                        <div class="dish-card bg-white rounded-lg shadow-md transition duration-300 p-6">
+                            <div class="flex justify-between items-center">
+                                <h4 class="text-lg font-semibold text-gray-800">Panela 150g</h4>
+                                <span class="text-brown-primary font-bold">$50.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para imágenes -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/523321611233" target="_blank" class="floating-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61576866300432" target="_blank" class="floating-btn facebook-btn">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/tajal.mx/" target="_blank" class="floating-btn instagram-btn">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <script>
+        // Variables para controlar el scroll
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const headerHeight = header.offsetHeight;
+        
+        // Ajustar el padding del body para el header fijo
+        document.body.style.paddingTop = headerHeight + 'px';
+        
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            
+            // Si el menú móvil se está mostrando, asegurarse de que el header esté visible
+            if (!mobileMenu.classList.contains('hidden')) {
+                header.classList.remove('hide');
+            }
+        });
+        
+        // Cerrar menú móvil al hacer clic en un enlace
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Ocultar/mostrar header y menú móvil al hacer scroll
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Para dispositivos móviles, ocultar el header y menú móvil al hacer scroll hacia abajo
+            if (window.innerWidth < 768) {
+                if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+                    // Scroll hacia abajo - ocultar
+                    header.classList.add('hide');
+                    mobileMenu.classList.add('hidden'); // También ocultar el menú móvil si está abierto
+                } else {
+                    // Scroll hacia arriba - mostrar
+                    header.classList.remove('hide');
+                }
+            }
+            
+            lastScrollTop = scrollTop;
+            
+            // Update active nav link on scroll
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollTop >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Modal functionality for dish images
+        function openModal(img) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        // Close modal when clicking outside of image
+        window.onclick = function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
