@@ -1,33 +1,69 @@
-# TAJAL - Menú Digital
+# React + TypeScript + Vite
 
-Menú digital oficial para TAJAL Restaurante & Mixología.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Estructura del Proyecto
+Currently, two official plugins are available:
 
-- `index.html` - Página principal
-- `styles/` - Archivos CSS organizados por componentes
-- `js/` - Funcionalidad JavaScript modular
-- `images/` - Assets visuales
-- `data/` - Datos del menú en formato JSON
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Características
+## Expanding the ESLint configuration
 
-- Diseño responsivo
-- Navegación por secciones
-- Búsqueda en tiempo real
-- Modo de impresión optimizado
-- Animaciones y transiciones suaves
-- Carga eficiente de recursos
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Instalación
+```js
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-1. Clona o descarga el proyecto
-2. Abre `index.html` en un navegador web
-3. Para desarrollo, utiliza un servidor local para cargar los datos JSON
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-## Personalización
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-Para actualizar el menú:
-1. Edita el archivo `data/menu.json`
-2. Ajusta los estilos en la carpeta `styles/`
-3. Modifica la información de contacto en `index.html`
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
