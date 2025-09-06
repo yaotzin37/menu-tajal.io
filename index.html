@@ -227,6 +227,83 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        /* New Item Popup Styles */
+        .new-item-popup {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 3000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .new-item-popup-content {
+            background-color: var(--light-brown);
+            margin: auto;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            max-width: 500px;
+            animation: fadeIn 0.5s;
+        }
+
+        .new-item-popup-content h2 {
+            color: var(--primary-brown);
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .new-item-popup-content h3 {
+            color: var(--dark-brown);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .new-item-popup-content p {
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .new-item-popup-content .price {
+            color: var(--primary-brown);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .new-item-popup-close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: var(--primary-brown);
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .new-item-popup-close:hover,
+        .new-item-popup-close:focus {
+            color: var(--dark-brown);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="font-sans scroll-smooth">
@@ -1188,6 +1265,10 @@
                             <h5 class="text-md font-semibold text-gray-800">Sangría</h5>
                             <span class="text-brown-primary font-bold">$100.00</span>
                         </div>
+                        <div class="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
+                            <h5 class="text-md font-semibold text-gray-800">El Rey Abel</h5>
+                            <span class="text-brown-primary font-bold">$170.00</span>
+                        </div>
                     </div>
 
                     <h4 class="text-xl font-semibold text-gray-700 mt-8 mb-4">Cervezas</h4>
@@ -1650,6 +1731,17 @@
         </a>
     </div>
 
+    <!-- New Item Popup -->
+    <div id="newItemPopup" class="new-item-popup">
+        <div class="new-item-popup-content">
+            <span class="new-item-popup-close">&times;</span>
+            <h2 class="heading-font">¡Nuevo en el Menú!</h2>
+            <h3>El Rey Abel</h3>
+            <p>Un cóctel especial de la casa a base de jugo de piña, crema de coco, Baileys, leche condensada y Malibu.</p>
+            <p class="price">$170.00</p>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Variables para controlar el scroll
@@ -1681,20 +1773,29 @@
             });
             
             // Ocultar/mostrar header al hacer scroll
+            let isHeaderHidden = false;
             window.addEventListener('scroll', function() {
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 
-                if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
-                    // Scroll hacia abajo -> ocultar header
-                    header.classList.add('hide');
+                // Determinar la dirección del scroll
+                if (scrollTop > lastScrollTop) {
+                    // Scrolling down
+                    if (scrollTop > headerHeight && !isHeaderHidden) {
+                        header.classList.add('hide');
+                        isHeaderHidden = true;
+                    }
                 } else {
-                    // Scroll hacia arriba -> mostrar header
-                    header.classList.remove('hide');
+                    // Scrolling up
+                    if (isHeaderHidden) {
+                        header.classList.remove('hide');
+                        isHeaderHidden = false;
+                    }
                 }
 
                 // Si el menú móvil está abierto, forzar que se muestre el header
                 if (!mobileMenu.classList.contains('hidden')) {
                     header.classList.remove('hide');
+                    isHeaderHidden = false; // Reset state if mobile menu forces visibility
                 }
                 
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -1755,6 +1856,30 @@
                     }
                 });
             }
+
+            // --- New Item Popup functionality ---
+            const newItemPopup = document.getElementById('newItemPopup');
+            const newItemPopupClose = document.querySelector('.new-item-popup-close');
+            const hasSeenPopup = localStorage.getItem('hasSeenNewItemPopup');
+
+            if (!hasSeenPopup) {
+                setTimeout(() => {
+                    newItemPopup.style.display = 'flex';
+                }, 1000); // Show after 1 second
+            }
+
+            newItemPopupClose.addEventListener('click', () => {
+                newItemPopup.style.display = 'none';
+                localStorage.setItem('hasSeenNewItemPopup', 'true');
+            });
+
+            // Close if clicked outside content
+            newItemPopup.addEventListener('click', (event) => {
+                if (event.target === newItemPopup) {
+                    newItemPopup.style.display = 'none';
+                    localStorage.setItem('hasSeenNewItemPopup', 'true');
+                }
+            });
         });
     </script>
 </body>
