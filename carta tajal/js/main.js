@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const showImage = (index) => {
             const numImages = imageItems.length / 2; // Usamos la mitad porque están duplicados
-            const actualIndex = index % numImages;
+            const actualIndex = (index + numImages) % numImages;
 
             if (actualIndex < 0 || actualIndex >= numImages) return;
 
