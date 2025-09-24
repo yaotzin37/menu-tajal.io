@@ -18,16 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeBtns = document.querySelectorAll('.lightbox-close');
         const prevBtn = document.getElementById('lightbox-prev');
         const nextBtn = document.getElementById('lightbox-next');
-        
+
         const imageItems = Array.from(document.querySelectorAll('.gallery-item')).filter(item => item.querySelector('img') && !item.hasAttribute('data-video-src'));
         let currentIndex;
 
         const showImage = (index) => {
             const numImages = imageItems.length / 2; // Usamos la mitad porque están duplicados
             const actualIndex = index % numImages;
-            
+
             if (actualIndex < 0 || actualIndex >= numImages) return;
-            
+
             currentIndex = actualIndex;
             lightboxImg.src = imageItems[currentIndex].querySelector('img').src;
             lightbox.style.display = 'block';
@@ -76,27 +76,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Lógica para el botón "Volver Arriba" (si está en la página) ---
-    const backToTopBtn = document.getElementById("back-to-top-btn");
-    if (backToTopBtn) {
-        window.onscroll = () => {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                backToTopBtn.style.display = "block";
-            } else {
-                backToTopBtn.style.display = "none";
-            }
-        };
-        backToTopBtn.onclick = (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
-    }
+    // --- Lógica para el botón "Volver Arriba" ---
+    const backToTopBtn = document.createElement('a');
+    backToTopBtn.setAttribute('id', 'back-to-top-btn');
+    backToTopBtn.setAttribute('href', '#');
+    backToTopBtn.classList.add('back-to-top-btn');
+    backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    document.body.appendChild(backToTopBtn);
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
+            backToTopBtn.style.display = 'block';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+
+    backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 
     // --- Lógica para Transición de Página ---
     document.querySelectorAll('a[href]').forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href && href.endsWith('.html') && !this.getAttribute('target')) {
-                e.preventDefault();
+            // Solo aplica a enlaces internos (no a redes sociales o anclas)
+            if (href && (href.endsWith('.html')) && !this.getAttribute('target')) {
+                e.preventDefault(); // Previene la navegación inmediata
                 document.body.classList.add('fade-out');
-                setTimeout(() => { window.location.href = href; }, 500);
+
+                // Espera a que termine la animación para cambiar de página
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500); // Debe coincidir con la duración de la animación
             }
         });
     });

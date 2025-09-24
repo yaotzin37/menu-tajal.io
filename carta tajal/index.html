@@ -37,7 +37,7 @@
             <div class="gallery-container">
                 <!-- Elemento de Video -->
                 <div class="gallery-item" data-video-src="assets/gallery/video.mp4">
-                    <img src="assets/gallery/video-poster.jpg" alt="Video promocional de Tajal">
+                    <img src="https://via.placeholder.com/300x300.png?text=Video+Poster" alt="Video promocional de Tajal">
                     <div class="play-icon"><i class="fas fa-play"></i></div>
                 </div>
                 <!-- Imágenes -->
@@ -45,8 +45,8 @@
                 <div class="gallery-item"><img src="assets/gallery/coctel-1.jpg" alt="Coctel artesanal de mixología"></div>
                 <div class="gallery-item"><img src="assets/gallery/ambiente-1.jpg" alt="Ambiente interior del restaurante Tajal"></div>
                 <div class="gallery-item"><img src="assets/gallery/platillo-2.jpg" alt="Platillo de mariscos frescos"></div>
-                <div class="gallery-item"><img src="assets/gallery/coctel-2.jpg" alt="Variedad de cocteles en la barra"></div>
-                <div class="gallery-item"><img src="assets/gallery/ambiente-2.jpg" alt="Terraza del restaurante Tajal"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/300" alt="Variedad de cocteles en la barra"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/300" alt="Terraza del restaurante Tajal"></div>
             </div>
         </div>
     </section>
@@ -102,28 +102,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-</body>
-</html>
-        document.addEventListener('DOMContentLoaded', () => {
-            const links = document.querySelectorAll('a[href]');
-
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-
-                    // Solo aplica a enlaces internos (no a redes sociales o anclas)
-                    if (href && (href.endsWith('.html'))) {
-                        e.preventDefault(); // Previene la navegación inmediata
-                        document.body.classList.add('fade-out');
-                        
-                        // Espera a que termine la animación para cambiar de página
-                        setTimeout(() => {
-                            window.location.href = href;
-                        }, 500); // Debe coincidir con la duración de la animación
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>

@@ -1,7 +1,24 @@
+:root {
+    --color-background: #000000;
+    --color-background-secondary: #0a0a0a;
+    --color-background-footer: #0c0c0c;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #c0c0c0;
+    --color-text-light: #d3d3d3;
+    --color-text-footer: #a0a0a0;
+    --color-text-footer-bottom: #888;
+    --color-accent: #ffd700;
+    --color-accent-shadow: rgba(255, 215, 0, 0.5);
+    --color-accent-bg-light: rgba(255, 215, 0, 0.1);
+    --color-accent-bg-medium: rgba(255, 215, 0, 0.15);
+    --font-primary: 'Lato', sans-serif;
+    --font-display: 'Dancing Script', cursive;
+}
+
 body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: 'Lato', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -12,8 +29,8 @@ body {
 /* Estilos para las páginas de menú */
 body.menu-page {
     background-image: url("../assets/images/image2vector.svg");
-    background-size: 200px;
-    background-color: #000000;
+    background-size: 200px; /* Se mantiene por si es un valor específico */
+    background-color: var(--color-background);
     padding: 20px;
     line-height: 1.6;
 }
@@ -22,9 +39,9 @@ body.menu-page {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    border: 2px solid #ffd700;
+    border: 2px solid var(--color-accent);
     border-radius: 10px;
-    background: rgba(255, 215, 0, 0.1);
+    background: var(--color-accent-bg-light);
 }
 
 /* --- Hero Section (Página de Inicio) --- */
@@ -67,14 +84,14 @@ body.menu-page {
 }
 
 .hero h1 {
-    color: #ffd700;
+    color: var(--color-accent);
     font-size: 3em;
     margin-bottom: 20px;
 }
 .hero p {
     font-size: 1.5em;
     margin-bottom: 40px;
-    color: #d3d3d3;
+    color: var(--color-text-light);
 }
 .buttons {
     display: flex;
@@ -82,15 +99,15 @@ body.menu-page {
     gap: 20px;
 }
 .btn {
-    background: #2a2a2a; /* Color de fondo más discreto */
-    color: #c0c0c0; /* Color de texto plateado */
+    background: #2a2a2a; /* Mantenido por ser específico del botón */
+    color: var(--color-text-secondary);
     padding: 15px 30px;
     text-decoration: none;
     font-weight: 700;
     border-radius: 5px;
     transition: all 0.15s ease-in-out;
     border: none;
-    border-bottom: 4px solid #1a1a1a; /* Sombra inferior para efecto 3D */
+    border-bottom: 4px solid #1a1a1a; /* Mantenido por ser específico del botón */
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
@@ -98,7 +115,7 @@ body.menu-page {
 .btn:hover {
     transform: translateY(-2px); /* Eleva el botón */
     border-bottom-width: 6px; /* Aumenta la sombra */
-    color: #ffd700; /* Resalta el texto en dorado */
+    color: var(--color-accent); /* Resalta el texto en dorado */
 }
 .btn:active {
     transform: translateY(1px); /* Hunde el botón un poco menos */
@@ -115,17 +132,17 @@ body.menu-page {
 /* --- Estilos de Menú --- */
 .menu-page h1 {
     text-align: center;
-    color: #ffd700;
-    font-family: 'Dancing Script', cursive;
+    color: var(--color-accent);
+    font-family: var(--font-display);
     font-size: 3.5em;
     margin-bottom: 10px;
 }
 .menu-page h2 {
-    color: #c0c0c0;
-    border-bottom: 1px solid #ffd700;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-accent);
     padding-bottom: 10px;
     margin-top: 40px;
-    font-family: 'Dancing Script', cursive;
+    font-family: var(--font-display);
     font-size: 2.8em;
     font-weight: 700;
 }
@@ -133,10 +150,10 @@ body.menu-page {
     margin-right: 15px;
     font-size: 0.8em;
     vertical-align: middle;
-    color: #ffd700;
+    color: var(--color-accent);
 }
 .menu-page h3 {
-    color: #c0c0c0;
+    color: var(--color-text-secondary);
     margin-top: 25px;
     margin-bottom: 10px;
     font-size: 1.5em;
@@ -162,26 +179,26 @@ body.menu-page {
 }
 .item-desc {
     flex: 2;
-    color: #d3d3d3;
+    color: var(--color-text-light);
     margin-left: 10px;
 }
 .item-price {
     font-weight: bold;
-    color: #ffd700;
+    color: var(--color-accent);
     text-align: right;
     min-width: 100px;
     font-size: 1.1em;
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    text-shadow: 0 0 5px var(--color-accent-shadow);
 }
 .chef-recommendation {
-    border-left: 4px solid #ffd700;
-    background: rgba(255, 215, 0, 0.15);
+    border-left: 4px solid var(--color-accent);
+    background: var(--color-accent-bg-medium);
 }
 .chef-recommendation .item-name::before {
     content: "\f005";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
-    color: #ffd700;
+    color: var(--color-accent);
     margin-right: 10px;
     font-size: 0.9em;
     vertical-align: middle;
@@ -196,18 +213,18 @@ body.menu-page {
 }
 .logo img:hover {
     transform: scale(1.05);
-    filter: drop-shadow(0 0 8px #ffd700);
+    filter: drop-shadow(0 0 8px var(--color-accent));
 }
 .distinctive {
     text-align: center;
     font-size: 1.2em;
-    color: #ffd700;
+    color: var(--color-accent);
     margin-bottom: 20px;
 }
 .distinctive::after {
     display: block;
     font-size: 0.8em;
-    color: #c0c0c0;
+    color: var(--color-text-secondary);
 }
 .menu-platillos .distinctive::after { content: "🍴 Carta de Platillos"; }
 .menu-mixologia .distinctive::after { content: "🍸 Servicios de Mixología"; }
@@ -221,13 +238,13 @@ body.menu-page {
 /* --- Galería de Fotos --- */
 .photo-gallery {
     padding: 80px 20px;
-    background-color: #0a0a0a;
+    background-color: var(--color-background-secondary);
     text-align: center;
 }
 .photo-gallery h2 {
-    font-family: 'Dancing Script', cursive;
+    font-family: var(--font-display);
     font-size: 3.5em;
-    color: #ffd700;
+    color: var(--color-accent);
     margin-bottom: 50px;
 }
 .gallery-wrapper {
@@ -301,14 +318,14 @@ body.menu-page {
     position: absolute;
     top: 15px;
     right: 35px;
-    color: #f1f1f1;
+    color: #f1f1f1; /* Color específico para alta visibilidad */
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
     cursor: pointer;
 }
 .lightbox-close:hover {
-    color: #bbb;
+    color: #bbb; /* Color específico para alta visibilidad */
 }
 .lightbox-nav {
     position: absolute;
@@ -321,12 +338,12 @@ body.menu-page {
     box-sizing: border-box;
 }
 .lightbox-nav a {
-    color: white;
+    color: var(--color-text-primary);
     font-size: 3em;
     text-decoration: none;
     transition: 0.3s;
 }
-.lightbox-nav a:hover { color: #bbb; }
+.lightbox-nav a:hover { color: #bbb; /* Color específico para alta visibilidad */ }
 .lightbox .video-container {
     margin: auto;
     display: block;
@@ -342,8 +359,8 @@ body.menu-page {
     bottom: 30px;
     right: 30px;
     display: none;
-    background-color: #ffd700;
-    color: #000;
+    background-color: var(--color-accent);
+    color: var(--color-background);
     border: none;
     border-radius: 50%;
     width: 50px;
@@ -359,10 +376,10 @@ body.menu-page {
 
 /* --- Pie de Página --- */
 .site-footer {
-    background-color: #0c0c0c;
-    color: #c0c0c0;
+    background-color: var(--color-background-footer);
+    color: var(--color-text-secondary);
     padding: 60px 20px;
-    border-top: 2px solid #ffd700;
+    border-top: 2px solid var(--color-accent);
 }
 .footer-container {
     display: flex;
@@ -377,8 +394,8 @@ body.menu-page {
     min-width: 250px;
 }
 .footer-column h4 {
-    color: #ffd700;
-    font-family: 'Dancing Script', cursive;
+    color: var(--color-accent);
+    font-family: var(--font-display);
     font-size: 1.8em;
     margin-bottom: 20px;
     border-bottom: 1px solid rgba(255, 215, 0, 0.2);
@@ -387,10 +404,10 @@ body.menu-page {
 .footer-column p, .footer-links li {
     font-size: 0.95em;
     line-height: 1.8;
-    color: #a0a0a0;
+    color: var(--color-text-footer);
 }
 .footer-column p i {
-    color: #ffd700;
+    color: var(--color-accent);
     margin-right: 10px;
     width: 20px;
     text-align: center;
@@ -400,15 +417,15 @@ body.menu-page {
     padding: 0;
 }
 .footer-links li a {
-    color: #a0a0a0;
+    color: var(--color-text-footer);
     text-decoration: none;
     transition: color 0.3s;
 }
 .footer-links li a:hover {
-    color: #ffffff;
+    color: var(--color-text-primary);
 }
 .social-links a {
-    color: #ffd700;
+    color: var(--color-accent);
     text-decoration: none;
     margin: 0 15px;
     font-size: 1.5em;
@@ -417,7 +434,7 @@ body.menu-page {
 }
 .social-links a:first-child { margin-left: 0; }
 .social-links a:hover {
-    color: #ffffff;
+    color: var(--color-text-primary);
 }
 .footer-bottom {
     text-align: center;
@@ -425,7 +442,7 @@ body.menu-page {
     padding-top: 20px;
     border-top: 1px solid #222;
     font-size: 0.9em;
-    color: #888;
+    color: var(--color-text-footer-bottom);
 }
 
 /* --- Animaciones --- */
