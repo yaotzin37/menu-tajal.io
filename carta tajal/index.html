@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tajal - Restaurante & Mixología</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="hero">
+        <video class="hero-video-desktop" autoplay loop muted playsinline>
+            <source src="assets/video/hero-video-desktop.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+        </video>
+        <video class="hero-video-mobile" autoplay loop muted playsinline>
+            <source src="assets/video/hero-video-mobile.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+        </video>
+    
+        <div class="overlay"></div>
+        <div class="content">
+            
+            <div class="buttons">
+                <a href="menu-platillos.html" class="btn"><i class="fas fa-utensils"></i> Ver Carta de Platillos</a>
+                <a href="menu-mixologia.html" class="btn"><i class="fas fa-martini-glass-citrus"></i> Ver Servicios de Mixología</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="photo-gallery">
+        <h2>Nuestra Galería</h2>
+        <div class="gallery-wrapper">
+            <div class="gallery-container">
+                <!-- Elemento de Video -->
+                <div class="gallery-item" data-video-src="assets/gallery/video.mp4">
+                    <img src="assets/gallery/video-poster.jpg" alt="Video promocional de Tajal">
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                </div>
+                <!-- Imágenes -->
+                <div class="gallery-item"><img src="assets/gallery/platillo-1.jpg" alt="Corte de carne servido en Tajal"></div>
+                <div class="gallery-item"><img src="assets/gallery/coctel-1.jpg" alt="Coctel artesanal de mixología"></div>
+                <div class="gallery-item"><img src="assets/gallery/ambiente-1.jpg" alt="Ambiente interior del restaurante Tajal"></div>
+                <div class="gallery-item"><img src="assets/gallery/platillo-2.jpg" alt="Platillo de mariscos frescos"></div>
+                <div class="gallery-item"><img src="assets/gallery/coctel-2.jpg" alt="Variedad de cocteles en la barra"></div>
+                <div class="gallery-item"><img src="assets/gallery/ambiente-2.jpg" alt="Terraza del restaurante Tajal"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- La estructura de la Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <!-- Flechas de Navegación -->
+        <div class="lightbox-nav">
+            <a href="#" id="lightbox-prev">&lsaquo;</a>
+            <a href="#" id="lightbox-next">&rsaquo;</a>
+        </div>
+    </div>
+
+    <!-- Lightbox para Video -->
+    <div id="video-lightbox" class="lightbox">
+        <span class="lightbox-close video-close">&times;</span>
+        <div class="video-container">
+            <video id="lightbox-video" src="" controls></video>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Tajal</h4>
+                <p>Una experiencia culinaria que fusiona tradición y vanguardia. Disfruta de nuestros cortes de carne, mariscos frescos y mixología de autor.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Enlaces Rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="menu-platillos.html">Carta de Platillos</a></li>
+                    <li><a href="menu-mixologia.html">Servicios de Mixología</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-map-marker-alt"></i> CMV9+PP, Fracc. Playas de Cajititlán, Jal.</p>
+                <p><i class="fas fa-phone"></i> +52 332 161 1233</p>
+                <p><i class="fas fa-envelope"></i> info@tajalrestaurante.com</p>
+                <div class="social-links">
+                    <a href="https://wa.me/523321611233" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61576866300432" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tajal - Restaurante & Mixología. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('a[href]');
+
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+
+                    // Solo aplica a enlaces internos (no a redes sociales o anclas)
+                    if (href && (href.endsWith('.html'))) {
+                        e.preventDefault(); // Previene la navegación inmediata
+                        document.body.classList.add('fade-out');
+                        
+                        // Espera a que termine la animación para cambiar de página
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 500); // Debe coincidir con la duración de la animación
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

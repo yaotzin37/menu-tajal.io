@@ -1,0 +1,103 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Lógica para la Galería y Lightbox (si está en la página) ---
+    const galleryContainer = document.querySelector('.gallery-container');
+    if (galleryContainer) {
+        // Duplicar elementos para el carrusel infinito
+        const originalItems = galleryContainer.querySelectorAll('.gallery-item');
+        originalItems.forEach(item => {
+            const clone = item.cloneNode(true);
+            galleryContainer.appendChild(clone);
+        });
+
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const videoLightbox = document.getElementById('video-lightbox');
+        const lightboxVideo = document.getElementById('lightbox-video');
+        const closeBtns = document.querySelectorAll('.lightbox-close');
+        const prevBtn = document.getElementById('lightbox-prev');
+        const nextBtn = document.getElementById('lightbox-next');
+        
+        const imageItems = Array.from(document.querySelectorAll('.gallery-item')).filter(item => item.querySelector('img') && !item.hasAttribute('data-video-src'));
+        let currentIndex;
+
+        const showImage = (index) => {
+            const numImages = imageItems.length / 2; // Usamos la mitad porque están duplicados
+            const actualIndex = index % numImages;
+            
+            if (actualIndex < 0 || actualIndex >= numImages) return;
+            
+            currentIndex = actualIndex;
+            lightboxImg.src = imageItems[currentIndex].querySelector('img').src;
+            lightbox.style.display = 'block';
+        };
+
+        galleryItems.forEach(item => {
+            item.style.cursor = 'pointer';
+            if (item.hasAttribute('data-video-src')) {
+                item.addEventListener('click', () => {
+                    const videoSrc = item.getAttribute('data-video-src');
+                    lightboxVideo.src = videoSrc;
+                    videoLightbox.style.display = 'block';
+                    lightboxVideo.play();
+                });
+            } else {
+                item.addEventListener('click', () => {
+                    const imageIndex = imageItems.indexOf(item);
+                    showImage(imageIndex);
+                });
+            }
+        });
+
+        const closeLightbox = () => {
+            lightbox.style.display = 'none';
+            videoLightbox.style.display = 'none';
+            lightboxVideo.pause();
+            lightboxVideo.currentTime = 0;
+        };
+
+        const showNext = (e) => { e.preventDefault(); e.stopPropagation(); showImage(currentIndex + 1); };
+        const showPrev = (e) => { e.preventDefault(); e.stopPropagation(); showImage(currentIndex - 1 + (imageItems.length / 2)); };
+
+        closeBtns.forEach(btn => btn.addEventListener('click', closeLightbox));
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+        videoLightbox.addEventListener('click', (e) => { if (e.target === videoLightbox) closeLightbox(); });
+
+        nextBtn.addEventListener('click', showNext);
+        prevBtn.addEventListener('click', showPrev);
+
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'block') {
+                if (e.key === 'ArrowRight') showNext(e);
+                else if (e.key === 'ArrowLeft') showPrev(e);
+                else if (e.key === 'Escape') closeLightbox();
+            }
+        });
+    }
+
+    // --- Lógica para el botón "Volver Arriba" (si está en la página) ---
+    const backToTopBtn = document.getElementById("back-to-top-btn");
+    if (backToTopBtn) {
+        window.onscroll = () => {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+        backToTopBtn.onclick = (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+    }
+
+    // --- Lógica para Transición de Página ---
+    document.querySelectorAll('a[href]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.endsWith('.html') && !this.getAttribute('target')) {
+                e.preventDefault();
+                document.body.classList.add('fade-out');
+                setTimeout(() => { window.location.href = href; }, 500);
+            }
+        });
+    });
+});
