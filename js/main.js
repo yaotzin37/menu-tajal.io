@@ -40,7 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     const videoSrc = item.getAttribute('data-video-src');
                     lightboxVideo.src = videoSrc;
                     videoLightbox.style.display = 'block';
-                    lightboxVideo.play();
+                    const playPromise = lightboxVideo.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            console.error("Error al intentar reproducir el video:", error);
+                        });
+                    }
                 });
             } else {
                 item.addEventListener('click', () => {
