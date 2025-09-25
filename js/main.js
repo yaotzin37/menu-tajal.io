@@ -41,12 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     lightboxVideo.src = videoSrc;
                     lightboxVideo.load();
                     videoLightbox.style.display = 'block';
-                    const playPromise = lightboxVideo.play();
-                    if (playPromise !== undefined) {
-                        playPromise.catch(error => {
-                            console.error("Error al intentar reproducir el video:", error);
-                        });
-                    }
+                    
+                    setTimeout(() => {
+                        const playPromise = lightboxVideo.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(error => {
+                                console.error("Error al intentar reproducir el video:", error);
+                            });
+                        }
+                    }, 100); // 100ms de retraso
                 });
             } else {
                 item.addEventListener('click', () => {
