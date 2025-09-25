@@ -500,4 +500,128 @@ body.fade-out {
     .menu-page li { flex-direction: column; align-items: flex-start; gap: 5px; }
     .menu-page .item-desc { margin-left: 0; }
     .menu-page .item-price { text-align: left; min-width: auto; }
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos de la lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    
+    // Elementos de la video lightbox
+    const videoLightbox = document.getElementById('video-lightbox');
+    const lightboxVideo = document.getElementById('lightbox-video');
+    const videoClose = document.querySelector('.video-close');
+    
+    // Elementos de navegación
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+    
+    // Galería items
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    let currentIndex = 0;
+
+    // Función para abrir lightbox de imagen
+    function openImageLightbox(index) {
+        const imgSrc = galleryItems[index].querySelector('img').src;
+        lightboxImg.src = imgSrc;
+        lightbox.classList.add('active');
+        currentIndex = index;
+    }
+
+    // Función para abrir lightbox de video
+    function openVideoLightbox() {
+        const videoSrc = galleryItems[0].getAttribute('data-video-src');
+        lightboxVideo.src = videoSrc;
+        videoLightbox.classList.add('active');
+        
+        // Reproducir automáticamente
+        lightboxVideo.play().catch(e => {
+            console.log('Autoplay prevented:', e);
+        });
+    }
+
+    // Cerrar lightboxes
+    function closeLightboxes() {
+        lightbox.classList.remove('active');
+        videoLightbox.classList.remove('active');
+        lightboxVideo.pause();
+        lightboxVideo.currentTime = 0;
+    }
+
+    // Navegación
+    function showNext() {
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+        if (currentIndex === 0) {
+            closeLightboxes();
+            openVideoLightbox();
+        } else {
+            openImageLightbox(currentIndex);
+        }
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        if (currentIndex === 0) {
+            closeLightboxes();
+            openVideoLightbox();
+        } else {
+            openImageLightbox(currentIndex);
+        }
+    }
+
+    // Event listeners para los items de la galería
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+            if (index === 0) {
+                // Es el video
+                openVideoLightbox();
+            } else {
+                // Es una imagen
+                openImageLightbox(index);
+            }
+        });
+    });
+
+    // Event listeners para cerrar
+    lightboxClose.addEventListener('click', closeLightboxes);
+    videoClose.addEventListener('click', closeLightboxes);
+
+    // Cerrar al hacer clic fuera del contenido
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+            closeLightboxes();
+        }
+    });
+
+    videoLightbox.addEventListener('click', function(e) {
+        if (e.target === videoLightbox) {
+            closeLightboxes();
+        }
+    });
+
+    // Navegación con flechas
+    lightboxNext.addEventListener('click', function(e) {
+        e.preventDefault();
+        showNext();
+    });
+
+    lightboxPrev.addEventListener('click', function(e) {
+        e.preventDefault();
+        showPrev();
+    });
+
+    // Navegación con teclado
+    document.addEventListener('keydown', function(e) {
+        if (lightbox.classList.contains('active') || videoLightbox.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                closeLightboxes();
+            } else if (e.key === 'ArrowRight') {
+                showNext();
+            } else if (e.key === 'ArrowLeft') {
+                showPrev();
+            }
+        }
+    });
+});
+</script>
 }
