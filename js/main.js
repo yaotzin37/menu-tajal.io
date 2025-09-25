@@ -38,19 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (item.hasAttribute('data-video-src')) {
                 item.addEventListener('click', () => {
                     const videoSrc = item.getAttribute('data-video-src');
-                    
-                    // Limpiar fuentes anteriores
-                    while (lightboxVideo.firstChild) {
-                        lightboxVideo.removeChild(lightboxVideo.firstChild);
-                    }
-
-                    // Crear y añadir el nuevo elemento source
-                    const source = document.createElement('source');
-                    source.setAttribute('src', videoSrc);
-                    source.setAttribute('type', 'video/mp4');
-                    lightboxVideo.appendChild(source);
-
-                    // Cargar el nuevo video y reproducir
+                    lightboxVideo.src = videoSrc;
                     lightboxVideo.load();
                     videoLightbox.style.display = 'block';
                     const playPromise = lightboxVideo.play();
