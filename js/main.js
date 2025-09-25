@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const videoLightbox = document.getElementById('video-lightbox');
-        const lightboxVideo = document.getElementById('lightbox-video');
+        const videoContainer = videoLightbox.querySelector('.video-container'); // Get the container
         const closeBtns = document.querySelectorAll('.lightbox-close');
         const prevBtn = document.getElementById('lightbox-prev');
         const nextBtn = document.getElementById('lightbox-next');
@@ -38,18 +38,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (item.hasAttribute('data-video-src')) {
                 item.addEventListener('click', () => {
                     const videoSrc = item.getAttribute('data-video-src');
-                    lightboxVideo.src = videoSrc;
-                    lightboxVideo.load();
+                    
+                    // Limpiar contenedor
+                    videoContainer.innerHTML = '';
+
+                    // Crear video
+                    const newVideo = document.createElement('video');
+                    newVideo.setAttribute('src', videoSrc);
+                    newVideo.setAttribute('controls', '');
+                    newVideo.style.width = '100%'; // Asegurar que ocupe el contenedor
+
+                    videoContainer.appendChild(newVideo);
+
                     videoLightbox.style.display = 'block';
                     
-                    setTimeout(() => {
-                        const playPromise = lightboxVideo.play();
-                        if (playPromise !== undefined) {
-                            playPromise.catch(error => {
-                                console.error("Error al intentar reproducir el video:", error);
-                            });
-                        }
-                    }, 100); // 100ms de retraso
+                    const playPromise = newVideo.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            console.error("Error al intentar reproducir el video:", error);
+                        });
+                    }
                 });
             } else {
                 item.addEventListener('click', () => {
@@ -62,8 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeLightbox = () => {
             lightbox.style.display = 'none';
             videoLightbox.style.display = 'none';
-            lightboxVideo.pause();
-            lightboxVideo.currentTime = 0;
+            // Limpiar el contenedor para detener el video y eliminar el elemento
+            videoContainer.innerHTML = '';
         };
 
         const showNext = (e) => { e.preventDefault(); e.stopPropagation(); showImage(currentIndex + 1); };
