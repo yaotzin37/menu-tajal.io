@@ -117,6 +117,84 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Lógica para Modal de Platillos ---
+    const dishModal = document.getElementById('dish-modal');
+    if (dishModal) {
+        const dishModalClose = document.querySelector('.dish-modal-close');
+        const dishModalImg = document.getElementById('dish-modal-img');
+        const dishModalTitle = document.getElementById('dish-modal-title');
+        const dishModalDesc = document.getElementById('dish-modal-desc');
+        const dishModalPrice = document.getElementById('dish-modal-price');
+        
+        // Crear botón para alternar ajuste de imagen (contain/cover)
+        const fitToggleBtn = document.createElement('button');
+        fitToggleBtn.className = 'dish-modal-toggle';
+        const setToggleLabel = () => {
+            const isCover = dishModalImg.classList.contains('fit-cover');
+            fitToggleBtn.innerHTML = `${isCover ? '<i class="fas fa-compress-arrows-alt"></i> Contener' : '<i class="fas fa-expand"></i> Cubrir'}`;
+        };
+        setToggleLabel();
+        dishModal.appendChild(fitToggleBtn);
+        fitToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dishModalImg.classList.toggle('fit-cover');
+            setToggleLabel();
+        });
+        // Permitir alternar tocando la imagen
+        dishModalImg.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dishModalImg.classList.toggle('fit-cover');
+            setToggleLabel();
+        });
+        
+        // Añadir event listeners a platillos con imágenes
+        document.querySelectorAll('.has-image').forEach(dishItem => {
+            dishItem.addEventListener('click', function() {
+                // Obtener datos del platillo
+                const imageSrc = this.getAttribute('data-image');
+                const dishName = this.querySelector('.item-name').textContent.replace(/\s*\s*/, '').trim(); // Remover el ícono de cámara
+                const dishDescription = this.querySelector('.item-desc').textContent;
+                const dishPrice = this.querySelector('.item-price').textContent;
+                
+                // Llenar el modal con la información
+                dishModalImg.src = imageSrc;
+                dishModalImg.alt = dishName;
+                dishModalTitle.textContent = dishName;
+                dishModalDesc.textContent = dishDescription;
+                dishModalPrice.textContent = dishPrice;
+                // Establecer modo de ajuste a 'cover' por defecto
+                dishModalImg.classList.add('fit-cover');
+                setToggleLabel();
+                
+                // Mostrar el modal
+                dishModal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevenir scroll mientras está abierto
+            });
+        });
+        
+        // Cerrar modal al hacer clic en la X
+        dishModalClose.addEventListener('click', function() {
+            dishModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Cerrar modal al hacer clic fuera del contenido
+        dishModal.addEventListener('click', function(e) {
+            if (e.target === dishModal) {
+                dishModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Cerrar modal con la tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && dishModal.style.display === 'block') {
+                dishModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
     // --- Lógica para Transición de Página ---
     document.querySelectorAll('a[href]').forEach(link => {
         link.addEventListener('click', function(e) {
