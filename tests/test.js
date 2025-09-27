@@ -1,20 +1,33 @@
 const { JSDOM } = require('jsdom');
 
-// Create a JSDOM instance
-const dom = new JSDOM(`
+// HTML structure that mirrors index.html's gallery
+const html = `
   <!DOCTYPE html>
-  <div class="gallery-container">
-    <div class="gallery-item"><img src="image1.jpg"></div>
-    <div class="gallery-item"><img src="image2.jpg"></div>
-    <div class="gallery-item"><img src="image3.jpg"></div>
-  </div>
-  <div id="lightbox" style="display: none;">
-    <img id="lightbox-img" src="">
-  </div>
-`);
+  <html>
+    <body>
+      <div class="gallery-container">
+        <!-- Original Items -->
+        <div class="gallery-item" data-video-src="assets/video/Video.mp4">
+          <img src="placeholder.png" alt="Video">
+        </div>
+        <div class="gallery-item"><img src="assets/galeria-platillos/cortes/rib_eye.jpeg" alt="Rib-eye"></div>
+        <div class="gallery-item"><img src="assets/galeria-platillos/cocteles/coctel-1.jpg" alt="Coctel"></div>
+        <div class="gallery-item"><img src="assets/galeria-platillos/ambiente/ambiente-1.jpg" alt="Ambiente"></div>
+        <div class="gallery-item"><img src="assets/galeria-platillos/cortes/tomahawk.jpg" alt="Tomahawk"></div>
+      </div>
+      <div id="lightbox" style="display: none;">
+        <img id="lightbox-img" src="">
+      </div>
+    </body>
+  </html>
+`;
 
-// Expose the DOM globals
+// Create a JSDOM instance
+const dom = new JSDOM(html);
+
+// Expose the DOM globals for the testing environment
 global.document = dom.window.document;
+global.window = dom.window;
 
 // Simple assertion function for testing
 function assert(condition, message) {
@@ -35,7 +48,10 @@ function test(name, fn) {
   }
 }
 
-// Your gallery logic from main.js, adapted for testing
+// --- Gallery Logic (copied from main.js for testing) ---
+// This logic should ideally be imported, but for now, we keep it here
+// to test its behavior against the updated DOM structure.
+
 let imageItems, currentIndex;
 
 function setupGallery() {
@@ -56,7 +72,15 @@ function showImage(index) {
   document.getElementById('lightbox').style.display = 'block';
 }
 
-// Test Cases
+// --- Test Cases ---
+
+test('Gallery should initialize correctly and duplicate items', () => {
+  setupGallery();
+  const totalItems = document.querySelectorAll('.gallery-item').length;
+  assert(totalItems === 10, `Expected 10 items after duplication, but found ${totalItems}`);
+  assert(imageItems.length === 8, `Expected 8 image items (4 originals + 4 clones), but found ${imageItems.length}`);
+});
+
 test('Gallery should wrap from the first image to the last on "previous"', () => {
   setupGallery();
 
@@ -65,10 +89,10 @@ test('Gallery should wrap from the first image to the last on "previous"', () =>
   assert(currentIndex === 0, 'Should start at index 0');
 
   // Simulate clicking "previous"
+  const numImages = imageItems.length / 2;
   showImage(currentIndex - 1);
 
   // Check if it wrapped to the last image
-  const numImages = imageItems.length / 2;
   assert(currentIndex === numImages - 1, `Expected to be at last image (index ${numImages - 1}), but was at ${currentIndex}`);
 });
 

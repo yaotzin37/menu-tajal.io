@@ -485,82 +485,18 @@ body.fade-out {
     to { opacity: 0; }
 }
 
-/* --- Media Queries (Responsividad) --- */
-@media (max-width: 768px) {
-    .hero-video-desktop { display: none; }
-    .hero-video-mobile { display: block; }
-    .buttons { flex-direction: column; align-items: center; gap: 15px; }
-    .photo-gallery { padding: 60px 15px; }
-    .photo-gallery h2 { font-size: 2.8em; }
-
-    body.menu-page { padding: 10px; }
-    .menu-page .container { padding: 15px; border: none; background: none; }
-    .menu-page h1 { font-size: 2.5em; }
-    .menu-page h2 { font-size: 2.2em; }
-    .menu-page li { flex-direction: column; align-items: flex-start; gap: 5px; }
-    .menu-page .item-desc { margin-left: 0; }
-    .menu-page .item-price { text-align: left; min-width: auto; }
-}
-
-/* --- Estilos para platillos con imágenes --- */
-.has-image {
-    cursor: pointer;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.has-image:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
-    background: var(--color-accent-bg-medium) !important;
-}
-
-.has-image .fas.fa-camera {
-    color: var(--color-accent);
-    font-size: 0.9em;
-    margin-left: 8px;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-}
-
-.has-image:hover .fas.fa-camera {
-    opacity: 1;
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
-/* --- Modal para mostrar platillos --- */
+/* --- Modal de Platillos --- */
 .dish-modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.95);
     animation: fadeIn 0.3s ease;
-}
-
-.dish-modal-close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: var(--color-text-primary);
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 1001;
-    transition: color 0.3s ease;
-}
-
-.dish-modal-close:hover {
-    color: var(--color-accent);
 }
 
 .dish-modal-content {
@@ -569,12 +505,134 @@ body.fade-out {
     margin: 5% auto;
     padding: 0;
     border: 2px solid var(--color-accent);
-    border-radius: 15px;
+    border-radius: 10px;
     width: 90%;
     max-width: 800px;
-    display: flex;
+    max-height: 80vh;
     overflow: hidden;
-    animation: slideIn 0.3s ease;
+    animation: slideIn 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.dish-modal-image {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.dish-modal-image img {
+    max-width: 100%;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.dish-modal-info {
+    padding: 20px;
+    background: var(--color-accent-bg-light);
+}
+
+.dish-modal-info h3 {
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-size: 2.2em;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.dish-modal-info p {
+    color: var(--color-text-light);
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.dish-modal-info span {
+    display: block;
+    color: var(--color-accent);
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 5px var(--color-accent-shadow);
+}
+
+.dish-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: var(--color-text-primary);
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2001;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.dish-modal-close:hover {
+    color: var(--color-accent);
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+/* Botón para alternar ajuste de imagen (contain/cover) */
+.dish-modal-toggle {
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    color: var(--color-text-primary);
+    background: rgba(0,0,0,0.7);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.dish-modal-toggle:hover { color: var(--color-accent); background: rgba(0,0,0,0.9); }
+.dish-modal-toggle i { pointer-events: none; }
+
+/* Modo cover conmutable para cuando el usuario lo solicite */
+.dish-modal-image img.fit-cover {
+    width: 100%;
+    height: 60vh;
+    max-height: 60vh;
+    object-fit: cover;
+}
+
+/* Estilos para elementos con imagen */
+.has-image {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.has-image:hover {
+    background: var(--color-accent-bg-medium) !important;
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+.has-image .item-name i {
+    color: var(--color-accent);
+    margin-left: 8px;
+    font-size: 0.9em;
+    opacity: 0.8;
 }
 
 @keyframes fadeIn {
@@ -593,86 +651,19 @@ body.fade-out {
     }
 }
 
-.dish-modal-image {
-    flex: 1;
-    min-height: 300px;
-}
-
-.dish-modal-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 13px 0 0 13px;
-}
-
-.dish-modal-info {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--color-background-secondary) 0%, var(--color-background) 100%);
-}
-
-.dish-modal-info h3 {
-    color: var(--color-accent);
-    font-family: var(--font-display);
-    font-size: 2.5em;
-    margin: 0 0 20px 0;
-    text-shadow: 0 0 10px var(--color-accent-shadow);
-}
-
-.dish-modal-info p {
-    color: var(--color-text-light);
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin: 0 0 25px 0;
-}
-
-.dish-modal-info span {
-    color: var(--color-accent);
-    font-size: 2em;
-    font-weight: bold;
-    text-shadow: 0 0 10px var(--color-accent-shadow);
-    align-self: flex-end;
-}
-
-/* --- Responsividad para el modal --- */
+/* --- Media Queries (Responsividad) --- */
 @media (max-width: 768px) {
-    .dish-modal-content {
-        flex-direction: column;
-        width: 95%;
-        margin: 10% auto;
-    }
-    
-    .dish-modal-image {
-        min-height: 250px;
-    }
-    
-    .dish-modal-image img {
-        border-radius: 13px 13px 0 0;
-    }
-    
-    .dish-modal-info {
-        padding: 25px;
-    }
-    
-    .dish-modal-info h3 {
-        font-size: 2em;
-    }
-    
-    .dish-modal-info p {
-        font-size: 1em;
-    }
-    
-    .dish-modal-info span {
-        font-size: 1.5em;
-        align-self: center;
-    }
-    
-    .dish-modal-close {
-        top: 15px;
-        right: 20px;
-        font-size: 30px;
-    }
+    .hero-video-desktop { display: none; }
+    .hero-video-mobile { display: block; }
+    .buttons { flex-direction: column; align-items: center; gap: 15px; }
+    .photo-gallery { padding: 60px 15px; }
+    .photo-gallery h2 { font-size: 2.8em; }
+
+    body.menu-page { padding: 10px; }
+    .menu-page .container { padding: 15px; border: none; background: none; }
+    .menu-page h1 { font-size: 2.5em; }
+    .menu-page h2 { font-size: 2.2em; }
+    .menu-page li { flex-direction: column; align-items: flex-start; gap: 5px; }
+    .menu-page .item-desc { margin-left: 0; }
+    .menu-page .item-price { text-align: left; min-width: auto; }
 }

@@ -126,12 +126,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const dishModalDesc = document.getElementById('dish-modal-desc');
         const dishModalPrice = document.getElementById('dish-modal-price');
         
+        // Crear botón para alternar ajuste de imagen (contain/cover)
+        const fitToggleBtn = document.createElement('button');
+        fitToggleBtn.className = 'dish-modal-toggle';
+        const setToggleLabel = () => {
+            const isCover = dishModalImg.classList.contains('fit-cover');
+            fitToggleBtn.innerHTML = `${isCover ? '<i class="fas fa-compress-arrows-alt"></i> Contener' : '<i class="fas fa-expand"></i> Cubrir'}`;
+        };
+        setToggleLabel();
+        dishModal.appendChild(fitToggleBtn);
+        fitToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dishModalImg.classList.toggle('fit-cover');
+            setToggleLabel();
+        });
+        // Permitir alternar tocando la imagen
+        dishModalImg.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dishModalImg.classList.toggle('fit-cover');
+            setToggleLabel();
+        });
         // Añadir event listeners a platillos con imágenes
         document.querySelectorAll('.has-image').forEach(dishItem => {
             dishItem.addEventListener('click', function() {
                 // Obtener datos del platillo
                 const imageSrc = this.getAttribute('data-image');
-                const dishName = this.querySelector('.item-name').textContent.replace(' 📷', ''); // Remover el ícono de cámara
+                // Eliminar ícono de cámara y espacios sobrantes
+                const dishName = this.querySelector('.item-name').textContent.replace(/\s*\u{f030}|\s*📷/u, '').trim();
                 const dishDescription = this.querySelector('.item-desc').textContent;
                 const dishPrice = this.querySelector('.item-price').textContent;
                 
@@ -141,6 +162,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 dishModalTitle.textContent = dishName;
                 dishModalDesc.textContent = dishDescription;
                 dishModalPrice.textContent = dishPrice;
+                // Establecer modo de ajuste a 'cover' por defecto
+                dishModalImg.classList.add('fit-cover');
+                setToggleLabel();
                 
                 // Mostrar el modal
                 dishModal.style.display = 'block';
