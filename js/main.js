@@ -117,11 +117,65 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Lógica para Modal de Platillos ---
+    const dishModal = document.getElementById('dish-modal');
+    if (dishModal) {
+        const dishModalClose = document.querySelector('.dish-modal-close');
+        const dishModalImg = document.getElementById('dish-modal-img');
+        const dishModalTitle = document.getElementById('dish-modal-title');
+        const dishModalDesc = document.getElementById('dish-modal-desc');
+        const dishModalPrice = document.getElementById('dish-modal-price');
+        
+        // Añadir event listeners a platillos con imágenes
+        document.querySelectorAll('.has-image').forEach(dishItem => {
+            dishItem.addEventListener('click', function() {
+                // Obtener datos del platillo
+                const imageSrc = this.getAttribute('data-image');
+                const dishName = this.querySelector('.item-name').textContent.replace(' 📷', ''); // Remover el ícono de cámara
+                const dishDescription = this.querySelector('.item-desc').textContent;
+                const dishPrice = this.querySelector('.item-price').textContent;
+                
+                // Llenar el modal con la información
+                dishModalImg.src = imageSrc;
+                dishModalImg.alt = dishName;
+                dishModalTitle.textContent = dishName;
+                dishModalDesc.textContent = dishDescription;
+                dishModalPrice.textContent = dishPrice;
+                
+                // Mostrar el modal
+                dishModal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevenir scroll mientras está abierto
+            });
+        });
+        
+        // Cerrar modal al hacer clic en la X
+        dishModalClose.addEventListener('click', function() {
+            dishModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Cerrar modal al hacer clic fuera del contenido
+        dishModal.addEventListener('click', function(e) {
+            if (e.target === dishModal) {
+                dishModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Cerrar modal con la tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && dishModal.style.display === 'block') {
+                dishModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
     // --- Lógica para Transición de Página ---
     document.querySelectorAll('a[href]').forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            // Solo aplica a enlaces internos (no a redes sociales o anclas)
+            // Sólo aplica a enlaces internos (no a redes sociales o anclas)
             if (href && (href.endsWith('.html')) && !this.getAttribute('target')) {
                 e.preventDefault(); // Previene la navegación inmediata
                 document.body.classList.add('fade-out');

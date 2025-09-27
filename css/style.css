@@ -501,3 +501,178 @@ body.fade-out {
     .menu-page .item-desc { margin-left: 0; }
     .menu-page .item-price { text-align: left; min-width: auto; }
 }
+
+/* --- Estilos para platillos con imágenes --- */
+.has-image {
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.has-image:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+    background: var(--color-accent-bg-medium) !important;
+}
+
+.has-image .fas.fa-camera {
+    color: var(--color-accent);
+    font-size: 0.9em;
+    margin-left: 8px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.has-image:hover .fas.fa-camera {
+    opacity: 1;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* --- Modal para mostrar platillos --- */
+.dish-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+.dish-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: var(--color-text-primary);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.3s ease;
+}
+
+.dish-modal-close:hover {
+    color: var(--color-accent);
+}
+
+.dish-modal-content {
+    position: relative;
+    background-color: var(--color-background-secondary);
+    margin: 5% auto;
+    padding: 0;
+    border: 2px solid var(--color-accent);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    overflow: hidden;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.dish-modal-image {
+    flex: 1;
+    min-height: 300px;
+}
+
+.dish-modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 13px 0 0 13px;
+}
+
+.dish-modal-info {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-background-secondary) 0%, var(--color-background) 100%);
+}
+
+.dish-modal-info h3 {
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-size: 2.5em;
+    margin: 0 0 20px 0;
+    text-shadow: 0 0 10px var(--color-accent-shadow);
+}
+
+.dish-modal-info p {
+    color: var(--color-text-light);
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 0 0 25px 0;
+}
+
+.dish-modal-info span {
+    color: var(--color-accent);
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--color-accent-shadow);
+    align-self: flex-end;
+}
+
+/* --- Responsividad para el modal --- */
+@media (max-width: 768px) {
+    .dish-modal-content {
+        flex-direction: column;
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    .dish-modal-image {
+        min-height: 250px;
+    }
+    
+    .dish-modal-image img {
+        border-radius: 13px 13px 0 0;
+    }
+    
+    .dish-modal-info {
+        padding: 25px;
+    }
+    
+    .dish-modal-info h3 {
+        font-size: 2em;
+    }
+    
+    .dish-modal-info p {
+        font-size: 1em;
+    }
+    
+    .dish-modal-info span {
+        font-size: 1.5em;
+        align-self: center;
+    }
+    
+    .dish-modal-close {
+        top: 15px;
+        right: 20px;
+        font-size: 30px;
+    }
+}
