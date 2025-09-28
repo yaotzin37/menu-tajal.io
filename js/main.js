@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 dishModalDesc.textContent = dishDescription;
                 dishModalPrice.textContent = dishPrice;
                 // Establecer modo de ajuste a 'cover' por defecto
-                dishModalImg.classList.add('fit-cover');
+                
                 setToggleLabel();
                 
                 // Mostrar el modal
