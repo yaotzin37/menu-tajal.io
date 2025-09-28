@@ -1,0 +1,38 @@
+# Ignore files and directories that should not be committed to Git.
+#
+# For more information, see https://git-scm.com/docs/gitignore
+
+# Dependencies
+/node_modules
+/bower_components
+
+# Build output
+/dist
+/build
+/out
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE/Editor directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+.tmp/
