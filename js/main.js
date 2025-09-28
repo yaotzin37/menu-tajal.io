@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.has-image').forEach(dishItem => {
             dishItem.addEventListener('click', function() {
                 // Obtener datos del platillo
-                const imageSrc = this.getAttribute('data-image');
+                const imageSrc = this.getAttribute('data-image') + '?t=' + new Date().getTime();
                 console.log('Loading image:', imageSrc); // Debugging line
                 // Eliminar ícono de cámara y espacios sobrantes
                 const dishName = this.querySelector('.item-name').textContent.replace(/\s*\u{f030}|\s*📷/u, '').trim();
