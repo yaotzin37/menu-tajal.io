@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dishItem.addEventListener('click', function() {
                 // Obtener datos del platillo
                 const imageSrc = this.getAttribute('data-image');
+                console.log('Loading image:', imageSrc); // Debugging line
                 // Eliminar ícono de cámara y espacios sobrantes
                 const dishName = this.querySelector('.item-name').textContent.replace(/\s*\u{f030}|\s*📷/u, '').trim();
                 const dishDescription = this.querySelector('.item-desc').textContent;
