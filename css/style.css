@@ -3,10 +3,10 @@
     --color-background-secondary: #0a0a0a;
     --color-background-footer: #0c0c0c;
     --color-text-primary: #ffffff;
-    --color-text-secondary: #cccccc; /* Increased contrast */
+    --color-text-secondary: #dddddd; /* Increased contrast */
     --color-text-light: #dddddd; /* Increased contrast */
-    --color-text-footer: #b0b0b0; /* Increased contrast */
-    --color-text-footer-bottom: #999999; /* Increased contrast */
+    --color-text-footer: #dddddd; /* Increased contrast */
+    --color-text-footer-bottom: #dddddd; /* Increased contrast */
     --color-accent: #ffd700;
     --color-accent-shadow: rgba(255, 215, 0, 0.5);
     --color-accent-bg-light: rgba(255, 215, 0, 0.1);
