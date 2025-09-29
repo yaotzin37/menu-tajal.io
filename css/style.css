@@ -30,15 +30,52 @@
     --color-accent-bg-medium: rgba(194, 166, 0, 0.15);
 }
 
+/**
+ * Estilos generales para la página
+ *
+ * Se establece el color de fondo, texto, familia de fuentes y márgenes
+ * para la página.
+ */
 body {
+    /**
+     * Color de fondo para la página
+     */
     background-color: var(--color-background);
+
+    /**
+     * Color del texto para la página
+     */
     color: var(--color-text-primary);
+
+    /**
+     * Familia de fuentes para la página
+     */
     font-family: var(--font-primary);
+
+    /**
+     * Se eliminan las márgenes de la página
+     */
     margin: 0;
+
+    /**
+     * Se eliminan los rellenos de la página
+     */
     padding: 0;
+
+    /**
+     * Se oculta el eje horizontal de la página
+     */
     overflow-x: hidden;
+
+    /**
+     * Se establece la transición de color de fondo y texto
+     * para la página
+     */
     transition: background-color 0.3s ease, color 0.3s ease;
-    /* Para la transición de página */
+
+    /**
+     * Animación para la página al cambiarla
+     */
     animation: fadeInPage 0.5s ease-in-out forwards;
 }
 
