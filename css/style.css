@@ -36,8 +36,8 @@ body.menu-page {
 }
 
 body.menu-mixologia {
-    background-image: url("../assets/images/menu-mixologia-vector.svg");
-    background-size: 200px;
+    background-image: url("../assets/images/fondo-mixologia.svg");
+    background-size: cover;
     background-attachment: scroll;
 }
 
