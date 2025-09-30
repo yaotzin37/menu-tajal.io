@@ -1,5 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Tema claro/oscuro con persistencia ---
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'light') {
+        document.body.classList.add('light-mode');
+    }
+    const applyThemeIcon = () => {
+        if (!themeToggleBtn) return;
+        const isLight = document.body.classList.contains('light-mode');
+        themeToggleBtn.innerHTML = `<i class="fas ${isLight ? 'fa-moon' : 'fa-sun'}"></i>`;
+        themeToggleBtn.setAttribute('aria-label', isLight ? 'Activar modo oscuro' : 'Activar modo claro');
+    };
+    applyThemeIcon();
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            applyThemeIcon();
+        });
+    }
+
     // --- Lógica para la Galería Aleatoria ---
     const galleryImage = document.getElementById('random-gallery-image');
     if (galleryImage) {
@@ -39,7 +61,17 @@ document.addEventListener('DOMContentLoaded', () => {
             "assets/galeria-platillos/ensaladas/ensalada_texmex.jpeg"
         ];
 
+        // Pre-carga de imágenes para evitar parpadeos
+        const preloaded = [];
+        images.forEach(src => { const img = new Image(); img.src = src; preloaded.push(img); });
+
         let currentIndex = 0;
+
+        const altFromPath = (path) => {
+            const file = path.split('/').pop() || '';
+            const name = file.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ');
+            return name;
+        };
 
         function showRandomImage() {
             // Fade out
@@ -48,7 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 // Change image
                 const randomIndex = Math.floor(Math.random() * images.length);
-                galleryImage.src = images[randomIndex];
+                currentIndex = randomIndex;
+                const nextSrc = images[randomIndex];
+                galleryImage.src = nextSrc;
+                const desc = altFromPath(nextSrc);
+                galleryImage.alt = desc;
+                galleryImage.title = desc;
+                galleryImage.setAttribute('aria-label', desc);
                 
                 // Fade in
                 galleryImage.style.opacity = 1;
@@ -58,17 +96,58 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initial image
         showRandomImage();
 
-        // Change image every 2 seconds
-        setInterval(showRandomImage, 2000);
+        // Change image every 6 seconds (respeta preferencias de movimiento)
+        const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced) {
+            setInterval(showRandomImage, 6000);
+        }
+
+        // --- Lightbox básico para la portada ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.querySelector('#lightbox .lightbox-close');
+        const prevBtn = document.getElementById('lightbox-prev');
+        const nextBtn = document.getElementById('lightbox-next');
+        if (lightbox && lightboxImg && lightboxClose && prevBtn && nextBtn) {
+            const openLightboxAt = (idx) => {
+                currentIndex = (idx + images.length) % images.length;
+                const src = images[currentIndex];
+                lightboxImg.src = src;
+                lightboxImg.alt = altFromPath(src);
+                lightbox.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            };
+            galleryImage.addEventListener('click', () => openLightboxAt(currentIndex));
+            lightboxClose.addEventListener('click', () => { lightbox.style.display = 'none'; document.body.style.overflow = 'auto'; });
+            lightbox.addEventListener('click', (e) => { if (e.target === lightbox) { lightbox.style.display = 'none'; document.body.style.overflow = 'auto'; } });
+            prevBtn.addEventListener('click', (e) => { e.preventDefault(); openLightboxAt(currentIndex - 1); });
+            nextBtn.addEventListener('click', (e) => { e.preventDefault(); openLightboxAt(currentIndex + 1); });
+            document.addEventListener('keydown', (e) => {
+                if (lightbox.style.display === 'block') {
+                    if (e.key === 'Escape') { lightbox.style.display = 'none'; document.body.style.overflow = 'auto'; }
+                    if (e.key === 'ArrowLeft') { openLightboxAt(currentIndex - 1); }
+                    if (e.key === 'ArrowRight') { openLightboxAt(currentIndex + 1); }
+                }
+            });
+        }
     }
 
     // --- Lógica para el botón "Volver Arriba" ---
-    const backToTopBtn = document.createElement('a');
-    backToTopBtn.setAttribute('id', 'back-to-top-btn');
-    backToTopBtn.setAttribute('href', '#');
-    backToTopBtn.classList.add('back-to-top-btn');
-    backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    document.body.appendChild(backToTopBtn);
+    let backToTopBtn = document.getElementById('back-to-top-btn');
+    if (!backToTopBtn) {
+        backToTopBtn = document.createElement('a');
+        backToTopBtn.setAttribute('id', 'back-to-top-btn');
+        backToTopBtn.setAttribute('href', '#');
+        backToTopBtn.setAttribute('aria-label', 'Volver arriba');
+        backToTopBtn.classList.add('back-to-top-btn');
+        backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        document.body.appendChild(backToTopBtn);
+    } else {
+        // Asegurar clase y atributos mínimos
+        backToTopBtn.classList.add('back-to-top-btn');
+        backToTopBtn.setAttribute('href', '#');
+        if (!backToTopBtn.getAttribute('aria-label')) backToTopBtn.setAttribute('aria-label', 'Volver arriba');
+    }
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 200) {

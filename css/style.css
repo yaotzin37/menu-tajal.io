@@ -3,16 +3,31 @@
     --color-background-secondary: #0a0a0a;
     --color-background-footer: #0c0c0c;
     --color-text-primary: #ffffff;
-    --color-text-secondary: #dddddd; /* Increased contrast */
-    --color-text-light: #dddddd; /* Increased contrast */
-    --color-text-footer: #dddddd; /* Increased contrast */
-    --color-text-footer-bottom: #dddddd; /* Increased contrast */
+    --color-text-secondary: #dddddd;
+    --color-text-light: #dddddd;
+    --color-text-footer: #dddddd;
+    --color-text-footer-bottom: #dddddd;
     --color-accent: #ffd700;
     --color-accent-shadow: rgba(255, 215, 0, 0.5);
     --color-accent-bg-light: rgba(255, 215, 0, 0.1);
     --color-accent-bg-medium: rgba(255, 215, 0, 0.15);
     --font-primary: 'Lato', sans-serif;
     --font-display: 'Dancing Script', cursive;
+}
+
+.light-mode {
+    --color-background: #ffffff;
+    --color-background-secondary: #f5f5f5;
+    --color-background-footer: #f0f0f0;
+    --color-text-primary: #000000;
+    --color-text-secondary: #333333;
+    --color-text-light: #555555;
+    --color-text-footer: #555555;
+    --color-text-footer-bottom: #555555;
+    --color-accent: #c2a600;
+    --color-accent-shadow: rgba(194, 166, 0, 0.5);
+    --color-accent-bg-light: rgba(194, 166, 0, 0.1);
+    --color-accent-bg-medium: rgba(194, 166, 0, 0.15);
 }
 
 body {
@@ -22,6 +37,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
     /* Para la transición de página */
     animation: fadeInPage 0.5s ease-in-out forwards;
 }

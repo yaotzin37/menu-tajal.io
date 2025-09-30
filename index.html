@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tajal: Restaurante & Mixología. Cortes, mariscos frescos, coctelería de autor y una experiencia gastronómica memorable en Playas de Cajititlán.">
+    <meta property="og:title" content="Tajal - Restaurante & Mixología">
+    <meta property="og:description" content="Disfruta de cortes, mariscos frescos y mixología de autor.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tajalrestaurante.com/">
+    <meta property="og:image" content="assets/images/logo.png">
     <title>Tajal - Restaurante & Mixología</title>
+    <link rel="icon" href="assets/images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -12,11 +19,11 @@
 </head>
 <body>
     <section class="hero">
-        <video class="hero-video-desktop" autoplay loop muted playsinline>
+        <video class="hero-video-desktop" autoplay loop muted playsinline poster="assets/images/logo.webp">
             <source src="assets/video/hero-video-desktop.mp4" type="video/mp4">
             Tu navegador no soporta el video.
         </video>
-        <video class="hero-video-mobile" autoplay loop muted playsinline>
+        <video class="hero-video-mobile" autoplay loop muted playsinline poster="assets/images/logo.webp">
             <source src="assets/video/hero-video-mobile.mp4" type="video/mp4">
             Tu navegador no soporta el video.
         </video>
@@ -77,13 +84,16 @@
                 <p><i class="fas fa-phone"></i> +52 332 161 1233</p>
                 <p><i class="fas fa-envelope"></i> info@tajalrestaurante.com</p>
                 <div class="social-links">
-                    <a href="https://wa.me/523321611233" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61576866300432" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/523321611233" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61576866300432" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
+            <div class="theme-switcher">
+                <button id="theme-toggle" class="btn" aria-label="Activar modo claro"><i class="fas fa-sun"></i></button>
+            </div>
             <p>&copy; 2024 Tajal - Restaurante & Mixología. Todos los derechos reservados.</p>
         </div>
     </footer>

@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servicios de Mixología de Tajal: coctelería, cervezas, licores, destilados y bebidas sin alcohol para acompañar tu experiencia gastronómica.">
+    <meta property="og:title" content="Servicios de Mixología | Tajal - Restaurante & Mixología">
+    <meta property="og:description" content="Explora nuestra carta de cocteles, cervezas y destilados.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tajalrestaurante.com/menu-mixologia.html">
+    <meta property="og:image" content="assets/images/logo.png">
+    <link rel="icon" href="assets/images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -14,7 +21,7 @@
     <div class="container">
         <a href="index.html" class="hero-back-link">
             <section class="hero-video">
-                <video autoplay muted loop playsinline>
+                <video autoplay muted loop playsinline poster="assets/images/logo.webp">
                     <source src="assets/video/hero-mixologia.mp4" type="video/mp4">
                     Tu navegador no soporta videos HTML5.
                 </video>
@@ -190,10 +197,11 @@
         </ul>
     </div>
     <div class="back-to-home">
+        <button id="theme-toggle" class="btn" aria-label="Activar modo claro"><i class="fas fa-sun"></i></button>
         <a href="index.html" class="btn"><i class="fas fa-home"></i> Volver al Inicio</a>
     </div>
 
-    <a id="back-to-top-btn" class="back-to-top-btn" title="Volver Arriba"><i class="fas fa-arrow-up"></i></a>
+    <a id="back-to-top-btn" class="back-to-top-btn" title="Volver Arriba" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></a>
 
     <script src="js/main.js"></script>
 </body>
