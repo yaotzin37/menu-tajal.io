@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Digital - TAJAL Restaurante</title>
+    <meta name="description" content="Menú digital interactivo de TAJAL Restaurante & Mixología - Cortes, mariscos y mixología de autor">
+    <meta property="og:title" content="Menú Digital - TAJAL">
+    <meta property="og:description" content="Explora nuestro menú digital con platillos exclusivos">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #b71c1c;
+            --accent-color: #ff9800;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/images/hero-bg.jpg') center/cover;
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .search-section {
+            padding: 30px;
+            background: var(--light-bg);
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 18px;
+            border: 3px solid #ddd;
+            border-radius: 50px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: var(--primary-color);
+        }
+
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--primary-color);
+            background: var(--white);
+            color: var(--primary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .menu-grid {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-item {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .menu-item-image {
+            height: 200px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: #999;
+        }
+
+        .menu-item-content {
+            padding: 20px;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .menu-item-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .menu-item-price {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .menu-item-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border: none;
+            padding: 12px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
+        }
+
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 15px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cart:hover {
+            transform: scale(1.1);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent-color);
+            color: var(--text-color);
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: var(--white);
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+
+            .category-filters {
+                justify-content: flex-start;
+            }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .error {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2em;
+            color: #dc3545;
+            background: #f8d7da;
+            border-radius: 10px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón del carrito -->
+    <div class="cart" onclick="showCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <h1>🍽️ Menú Digital</h1>
+                <p>TAJAL Restaurante & Mixología</p>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <input type="text" class="search-box" placeholder="🔍 Busca tu platillo favorito..." onkeyup="filterMenu()">
+        </div>
+
+        <!-- Category Filters -->
+        <div class="category-filters" id="category-filters">
+            <button class="category-btn active" onclick="filterByCategory('')">🍽️ Todas las Categorías</button>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="loading">
+            <i class="fas fa-spinner fa-spin"></i>
+            Cargando menú...
+        </div>
+
+        <!-- Error State -->
+        <div id="error" class="error" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            Error cargando el menú. Por favor, recarga la página.
+        </div>
+
+        <!-- Menu Grid -->
+        <div class="menu-grid" id="menu-container" style="display: none;">
+            <!-- Los items del menú se cargarán aquí -->
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>TAJAL Restaurante & Mixología</strong></p>
+            <p>📍 Carretera a Chapala #1234, Playas de Cajititlán</p>
+            <p>📞 (33) 1234-5678 | 🌐 tajalrestaurante.com</p>
+            <div class="social-links">
+                <a href="https://facebook.com/tajalrestaurante" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com/tajalrestaurante" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="tel:+523312345678"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrito Modal (oculto por defecto) -->
+    <div id="cart-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 20px; max-width: 500px; width: 90%;">
+            <h2 style="margin-bottom: 20px; color: var(--primary-color);">🛒 Tu Pedido</h2>
+            <div id="cart-items"></div>
+            <div style="border-top: 2px solid #eee; padding-top: 20px; margin-top: 20px;">
+                <div style="display: flex; justify-content: space-between; font-size: 1.3em; font-weight: bold; color: var(--primary-color);">
+                    <span>Total:</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+            </div>
+            <div style="margin-top: 20px; text-align: center;">
+                <button onclick="closeCart()" style="background: #6c757d; color: white; border: none; padding: 10px 30px; border-radius: 25px; margin: 5px; cursor: pointer;">Continuar Comprando</button>
+                <button onclick="confirmOrder()" style="background: var(--primary-color); color: white; border: none; padding: 10px 30px; border-radius: 25px; margin: 5px; cursor: pointer;">📞 Realizar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let menuData = [];
+        let cart = [];
+        let filteredMenu = [];
+
+        // Cargar menú desde el servidor local
+        async function loadMenu() {
+            try {
+                // Intentar cargar desde el servidor local primero
+                const response = await fetch('http://localhost:8000/api/menu-data');
+                menuData = await response.json();
+                filteredMenu = [...menuData];
+                displayMenu(filteredMenu);
+                updateCategories();
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('menu-container').style.display = 'block';
+            } catch (error) {
+                console.error('Error cargando menú local:', error);
+
+                // Si falla el servidor local, mostrar menú de respaldo
+                showFallbackMenu();
+            }
+        }
+
+        // Mostrar menú de respaldo (datos quemados)
+        function showFallbackMenu() {
+            menuData = [
+                {
+                    id: "cortes_1",
+                    nombre: "Rib Eye 300g",
+                    descripcion: "Corte premium acompañado de guarnición",
+                    precio: 450.00,
+                    categoria: "Cortes",
+                    disponible: true
+                },
+                {
+                    id: "mariscos_1",
+                    nombre: "Ceviche de Camarón",
+                    descripcion: "Camarones frescos con limón y especias",
+                    precio: 180.00,
+                    categoria: "Del Mar",
+                    disponible: true
+                },
+                {
+                    id: "postres_1",
+                    nombre: "Pastel de Chocolate",
+                    descripcion: "Delicioso postre hecho en casa",
+                    precio: 85.00,
+                    categoria: "Postres",
+                    disponible: true
+                }
+            ];
+
+            filteredMenu = [...menuData];
+            displayMenu(filteredMenu);
+            updateCategories();
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('menu-container').style.display = 'block';
+        }
+
+        function displayMenu(items) {
+            const container = document.getElementById('menu-container');
+
+            if (items.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 50px; color: #666;">
+                        <i class="fas fa-search" style="font-size: 3em; margin-bottom: 20px;"></i>
+                        <h3>No se encontraron platillos</h3>
+                        <p>Intenta con otros términos de búsqueda</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = '';
+
+            items.forEach(item => {
+                if (!item.disponible) return;
+
+                const itemElement = document.createElement('div');
+                itemElement.className = 'menu-item';
+                itemElement.innerHTML = `
+                    <div class="menu-item-image">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">${item.nombre}</span>
+                            <span class="menu-item-price">$${item.precio.toFixed(2)}</span>
+                        </div>
+                        <div class="menu-item-description">${item.descripcion || 'Delicioso platillo'}</div>
+                        <button class="add-to-cart" onclick="addToCart('${item.id}', '${item.nombre}', ${item.precio})">
+                            <i class="fas fa-cart-plus"></i> Agregar
+                        </button>
+                    </div>
+                `;
+                container.appendChild(itemElement);
+            });
+        }
+
+        function updateCategories() {
+            const categories = [...new Set(menuData.map(item => item.categoria))];
+            const container = document.getElementById('category-filters');
+
+            // Limpiar filtros existentes (excepto "Todas")
+            while (container.children.length > 1) {
+                container.removeChild(container.lastChild);
+            }
+
+            categories.forEach(category => {
+                const button = document.createElement('button');
+                button.className = 'category-btn';
+                button.innerHTML = getCategoryIcon(category) + ' ' + category;
+                button.onclick = () => filterByCategory(category);
+                container.appendChild(button);
+            });
+        }
+
+        function getCategoryIcon(category) {
+            const icons = {
+                'Desayunos': '☕',
+                'Entradas': '🥗',
+                'Ensaladas': '🥬',
+                'Pastas': '🍝',
+                'Hamburguesas': '🍔',
+                'Cortes': '🥩',
+                'Del Mar': '🐟',
+                'Infantil': '🧸',
+                'Postres': '🍰',
+                'Bebidas': '🥤',
+                'Extras': '➕'
+            };
+            return icons[category] || '🍽️';
+        }
+
+        function filterMenu() {
+            const searchTerm = document.querySelector('.search-box').value.toLowerCase();
+            filteredMenu = menuData.filter(item =>
+                item.nombre.toLowerCase().includes(searchTerm) ||
+                (item.descripcion && item.descripcion.toLowerCase().includes(searchTerm))
+            );
+            displayMenu(filteredMenu);
+        }
+
+        function filterByCategory(category) {
+            // Update active button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Filter items
+            if (category === '') {
+                filteredMenu = [...menuData];
+            } else {
+                filteredMenu = menuData.filter(item => item.categoria === category);
+            }
+            displayMenu(filteredMenu);
+        }
+
+        function addToCart(id, name, price) {
+            const existingItem = cart.find(item => item.id === id);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    id,
+                    name,
+                    price,
+                    quantity: 1
+                });
+            }
+
+            updateCartCount();
+            showAddedNotification(name);
+        }
+
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalItems;
+        }
+
+        function showAddedNotification(name) {
+            // Crear notificación flotante
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: #28a745;
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                z-index: 3000;
+                transform: translateX(400px);
+                transition: transform 0.3s ease;
+            `;
+            notification.innerHTML = `<i class="fas fa-check-circle"></i> ${name} agregado al carrito`;
+
+            document.body.appendChild(notification);
+
+            // Animar entrada
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            // Remover después de 3 segundos
+            setTimeout(() => {
+                notification.style.transform = 'translateX(400px)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        function showCart() {
+            if (cart.length === 0) {
+                alert('🛒 Tu carrito está vacío\n¡Agrega algunos platillos primero!');
+                return;
+            }
+
+            const modal = document.getElementById('cart-modal');
+            const itemsContainer = document.getElementById('cart-items');
+            const totalElement = document.getElementById('cart-total');
+
+            // Mostrar items del carrito
+            itemsContainer.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                const itemElement = document.createElement('div');
+                itemElement.style.cssText = `
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 0;
+                    border-bottom: 1px solid #eee;
+                `;
+                itemElement.innerHTML = `
+                    <div>
+                        <strong>${item.name}</strong><br>
+                        <small>Cantidad: ${item.quantity} × $${item.price.toFixed(2)}</small>
+                    </div>
+                    <div style="text-align: right;">
+                        <div><strong>$${itemTotal.toFixed(2)}</strong></div>
+                        <button onclick="removeFromCart('${item.id}')" style="background: #dc3545; color: white; border: none; padding: 2px 8px; border-radius: 50%; cursor: pointer; font-size: 0.8em;">×</button>
+                    </div>
+                `;
+                itemsContainer.appendChild(itemElement);
+            });
+
+            totalElement.textContent = `$${total.toFixed(2)}`;
+            modal.style.display = 'block';
+        }
+
+        function closeCart() {
+            document.getElementById('cart-modal').style.display = 'none';
+        }
+
+        function removeFromCart(id) {
+            const itemIndex = cart.findIndex(item => item.id === id);
+
+            if (itemIndex > -1) {
+                if (cart[itemIndex].quantity > 1) {
+                    cart[itemIndex].quantity--;
+                } else {
+                    cart.splice(itemIndex, 1);
+                }
+                updateCartCount();
+                showCart(); // Recargar el modal
+            }
+        }
+
+        function confirmOrder() {
+            if (cart.length === 0) return;
+
+            let orderText = '🍽️ PEDIDO TAJAL\n\n';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                orderText += `${index + 1}. ${item.name}\n`;
+                orderText += `   Cantidad: ${item.quantity} × $${item.price.toFixed(2)} = $${itemTotal.toFixed(2)}\n\n`;
+            });
+
+            orderText += `💰 TOTAL: $${total.toFixed(2)}\n\n`;
+            orderText += '¿Confirmas tu pedido?\n\n';
+            orderText += '📞 Te contactaremos para confirmar detalles';
+
+            if (confirm(orderText)) {
+                // Aquí podrías integrar con WhatsApp, teléfono, etc.
+                const phoneNumber = '523312345678';
+                const message = encodeURIComponent(`¡Hola! Me gustaría realizar el siguiente pedido:\n\n${orderText}`);
+                window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+
+                // Limpiar carrito después del pedido
+                cart = [];
+                updateCartCount();
+                closeCart();
+
+                alert('✅ ¡Pedido enviado!\n\nTe contactaremos pronto para confirmar los detalles.');
+            }
+        }
+
+        // Cargar menú al iniciar
+        document.addEventListener('DOMContentLoaded', function() {
+            loadMenu();
+        });
+
+        // Cerrar modal al hacer clic fuera de él
+        document.getElementById('cart-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCart();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "Menú Digital TAJAL",
+  "short_name": "Menú TAJAL",
+  "description": "Menú digital interactivo para TAJAL Restaurante",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#d32f2f",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/imagenes/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/imagenes/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/imagenes/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

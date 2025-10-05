@@ -1,0 +1,133 @@
+<?xml version = "1.0" encoding="Windows-1252" standalone="yes"?>
+<VFPData>
+	<xsd:schema id="VFPData" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="VFPData" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="curtemp" minOccurs="0" maxOccurs="unbounded">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="clave">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="5"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="descripcion">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="40"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="tipo">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="1"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="autorizacion" type="xsd:boolean"/>
+								<xsd:element name="visible" type="xsd:boolean"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+				<xsd:anyAttribute namespace="http://www.w3.org/XML/1998/namespace" processContents="lax"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<curtemp>
+		<clave>EPC</clave>
+		<descripcion>ENTRADA POR COMPRA</descripcion>
+		<tipo>1</tipo>
+		<autorizacion>false</autorizacion>
+		<visible>true</visible>
+	</curtemp>
+	<curtemp>
+		<clave>SPV</clave>
+		<descripcion>SALIDA POR VENTA</descripcion>
+		<tipo>2</tipo>
+		<autorizacion>false</autorizacion>
+		<visible>true</visible>
+	</curtemp>
+	<curtemp>
+		<clave>STA</clave>
+		<descripcion>SALIDA POR TRASPASO DE ALMACEN</descripcion>
+		<tipo>2</tipo>
+		<autorizacion>false</autorizacion>
+		<visible>true</visible>
+	</curtemp>
+	<curtemp>
+		<clave>ETA</clave>
+		<descripcion>ENTRADA POR TRASPASO DE ALMACEN</descripcion>
+		<tipo>1</tipo>
+		<autorizacion>false</autorizacion>
+		<visible>true</visible>
+	</curtemp>
+	<curtemp>
+		<clave>EPA</clave>
+		<descripcion>ENTRADA POR AJUSTE</descripcion>
+		<tipo>1</tipo>
+		<autorizacion>false</autorizacion>
+		<visible>true</visible>
+	</curtemp>
+	<curtemp>
+		<clave>SPA</clave>
+		<descripcion>SALIDA POR AJUSTE</descripcion>
+		<tipo>2</tipo>
+		<autorizacion>false</autorizacion>
+		<visible>true</visible>
+	</curtemp>
+	<curtemp>
+		<clave>SALM</clave>
+		<descripcion>SALIDA DE ALMACEN</descripcion>
+		<tipo>2</tipo>
+		<autorizacion>false</autorizacion>
+		<visible>true</visible>
+	</curtemp>
+	<curtemp>
+		<clave>EDA</clave>
+		<descripcion>ENTRADA ALMACEN</descripcion>
+		<tipo>1</tipo>
+		<autorizacion>false</autorizacion>
+		<visible>true</visible>
+	</curtemp>
+	<curtemp>
+		<clave>SPP</clave>
+		<descripcion>SALIDA POR PRODUCCION</descripcion>
+		<tipo>2</tipo>
+		<autorizacion>false</autorizacion>
+		<visible>true</visible>
+	</curtemp>
+	<curtemp>
+		<clave>EPP</clave>
+		<descripcion>ENTRADA POR PRODUCCION</descripcion>
+		<tipo>1</tipo>
+		<autorizacion>false</autorizacion>
+		<visible>true</visible>
+	</curtemp>
+	<curtemp>
+		<clave>SPM</clave>
+		<descripcion>SALIDA POR MERMA</descripcion>
+		<tipo>2</tipo>
+		<autorizacion>false</autorizacion>
+		<visible>true</visible>
+	</curtemp>
+	<curtemp>
+		<clave>SPD</clave>
+		<descripcion>SALIDA POR DESPERDICIO</descripcion>
+		<tipo>2</tipo>
+		<autorizacion>false</autorizacion>
+		<visible>true</visible>
+	</curtemp>
+	<curtemp>
+		<clave>ECA</clave>
+		<descripcion>ENTRADA POR CANCELACION</descripcion>
+		<tipo>1</tipo>
+		<autorizacion>false</autorizacion>
+		<visible>true</visible>
+	</curtemp>
+</VFPData>

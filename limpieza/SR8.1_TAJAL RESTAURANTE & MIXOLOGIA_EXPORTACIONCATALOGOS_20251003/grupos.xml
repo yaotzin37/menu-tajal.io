@@ -1,0 +1,315 @@
+<?xml version = "1.0" encoding="Windows-1252" standalone="yes"?>
+<VFPData>
+	<xsd:schema id="VFPData" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="VFPData" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="curtemp" minOccurs="0" maxOccurs="unbounded">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="clave">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="5"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="descripcion">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="30"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="clasificacion">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="1"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="prioridad">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="4"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="color">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="10"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="colorletra">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="10"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="prioridadimpresion">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="4"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="cambiacolorcuenta" type="xsd:boolean"/>
+								<xsd:element name="colorcuenta">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="10"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="colorletracuenta">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="10"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="solicitaautorizacion" type="xsd:boolean"/>
+								<xsd:element name="imagenmenuelectronico">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="2147483647"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="porcentajepropina">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="4"/>
+											<xsd:fractionDigits value="2"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+				<xsd:anyAttribute namespace="http://www.w3.org/XML/1998/namespace" processContents="lax"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<curtemp>
+		<clave>01</clave>
+		<descripcion>DESAYUNOS</descripcion>
+		<clasificacion>2</clasificacion>
+		<prioridad>0</prioridad>
+		<color>8454143</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico>c:\users\yaotzin\appdata\local\temp\resized_resized_desayunos_tajal.jpeg</imagenmenuelectronico>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+	<curtemp>
+		<clave>02</clave>
+		<descripcion>ENTRADAS</descripcion>
+		<clasificacion>2</clasificacion>
+		<prioridad>0</prioridad>
+		<color>8421631</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico/>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+	<curtemp>
+		<clave>03</clave>
+		<descripcion>ENSALADAS</descripcion>
+		<clasificacion>2</clasificacion>
+		<prioridad>0</prioridad>
+		<color>8454016</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico/>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+	<curtemp>
+		<clave>04</clave>
+		<descripcion>PASTAS</descripcion>
+		<clasificacion>2</clasificacion>
+		<prioridad>0</prioridad>
+		<color>6205183</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico/>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+	<curtemp>
+		<clave>05</clave>
+		<descripcion>HAMBURGUEZAS</descripcion>
+		<clasificacion>2</clasificacion>
+		<prioridad>0</prioridad>
+		<color>4227327</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico/>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+	<curtemp>
+		<clave>06</clave>
+		<descripcion>CORTES</descripcion>
+		<clasificacion>2</clasificacion>
+		<prioridad>0</prioridad>
+		<color>4194432</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico/>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+	<curtemp>
+		<clave>07</clave>
+		<descripcion>DEL MAR</descripcion>
+		<clasificacion>2</clasificacion>
+		<prioridad>0</prioridad>
+		<color>6205183</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico/>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+	<curtemp>
+		<clave>08</clave>
+		<descripcion>INFANTIL</descripcion>
+		<clasificacion>2</clasificacion>
+		<prioridad>0</prioridad>
+		<color>6205183</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico/>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+	<curtemp>
+		<clave>09</clave>
+		<descripcion>POSTRES</descripcion>
+		<clasificacion>2</clasificacion>
+		<prioridad>0</prioridad>
+		<color>6205183</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico/>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+	<curtemp>
+		<clave>10</clave>
+		<descripcion>EXTRAS</descripcion>
+		<clasificacion>2</clasificacion>
+		<prioridad>0</prioridad>
+		<color>6205183</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico/>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+	<curtemp>
+		<clave>11</clave>
+		<descripcion>COCTELERIA</descripcion>
+		<clasificacion>1</clasificacion>
+		<prioridad>0</prioridad>
+		<color>16711808</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico/>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+	<curtemp>
+		<clave>12</clave>
+		<descripcion>CERVEZAS</descripcion>
+		<clasificacion>1</clasificacion>
+		<prioridad>0</prioridad>
+		<color>6205183</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico/>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+	<curtemp>
+		<clave>13</clave>
+		<descripcion>LICORES Y DESTILADOS</descripcion>
+		<clasificacion>1</clasificacion>
+		<prioridad>0</prioridad>
+		<color>6205183</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico/>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+	<curtemp>
+		<clave>14</clave>
+		<descripcion>BEBIDAS SIN ALCOHOL</descripcion>
+		<clasificacion>1</clasificacion>
+		<prioridad>0</prioridad>
+		<color>6205183</color>
+		<colorletra>0</colorletra>
+		<prioridadimpresion>0</prioridadimpresion>
+		<cambiacolorcuenta>false</cambiacolorcuenta>
+		<colorcuenta>13160660</colorcuenta>
+		<colorletracuenta>0</colorletracuenta>
+		<solicitaautorizacion>false</solicitaautorizacion>
+		<imagenmenuelectronico/>
+		<porcentajepropina>0</porcentajepropina>
+	</curtemp>
+</VFPData>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Digital - TAJAL Restaurante & Mixología</title>
+    <meta name="description" content="Menú digital interactivo de TAJAL - Cortes, mariscos frescos, coctelería de autor. Realiza tu pedido en línea.">
+    <meta property="og:title" content="Menú Digital TAJAL">
+    <meta property="og:description" content="Explora nuestro menú digital con platillos exclusivos">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-color: #d32f2f; --secondary-color: #b71c1c; --text-color: #333; --light-bg: #f8f9fa; --white: #ffffff; }
+        body { font-family: 'Lato', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; background: var(--white); border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; margin: 20px; }
+        .header { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: var(--white); padding: 40px 30px; text-align: center; }
+        .header h1 { font-family: 'Dancing Script', cursive; font-size: 3.5em; margin-bottom: 10px; }
+        .search-section { padding: 30px; background: var(--light-bg); }
+        .search-box { width: 100%; padding: 15px 20px; font-size: 18px; border: 3px solid #ddd; border-radius: 50px; outline: none; }
+        .search-box:focus { border-color: var(--primary-color); }
+        .category-filters { display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0; justify-content: center; }
+        .category-btn { padding: 10px 20px; border: 2px solid var(--primary-color); background: var(--white); color: var(--primary-color); border-radius: 25px; cursor: pointer; }
+        .category-btn:hover, .category-btn.active { background: var(--primary-color); color: var(--white); }
+        .menu-grid { padding: 30px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
+        .menu-item { background: var(--white); border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); overflow: hidden; transition: all 0.3s ease; }
+        .menu-item:hover { transform: translateY(-8px); }
+        .menu-item-content { padding: 20px; }
+        .menu-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .menu-item-name { font-size: 1.3em; font-weight: bold; }
+        .menu-item-price { font-size: 1.4em; font-weight: bold; color: var(--primary-color); }
+        .add-to-cart { width: 100%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: var(--white); border: none; padding: 12px; border-radius: 25px; cursor: pointer; }
+        .cart { position: fixed; top: 20px; right: 20px; background: var(--primary-color); color: var(--white); padding: 15px 20px; border-radius: 50%; cursor: pointer; z-index: 1000; }
+        .footer { background: #2c3e50; color: var(--white); text-align: center; padding: 30px; margin-top: 40px; }
+        @media (max-width: 768px) { .header h1 { font-size: 2.5em; } .menu-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="cart" onclick="showCart()">🛒 <span id="cart-count">0</span></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🍽️ Menú Digital</h1>
+            <p>TAJAL Restaurante & Mixología</p>
+        </div>
+
+        <div class="search-section">
+            <input type="text" class="search-box" placeholder="🔍 Busca tu platillo..." onkeyup="filterMenu()">
+        </div>
+
+        <div class="category-filters" id="category-filters">
+            <button class="category-btn active" onclick="filterByCategory('')">Todas</button>
+        </div>
+
+        <div class="menu-grid" id="menu-container"></div>
+
+        <div class="footer">
+            <p><strong>TAJAL Restaurante & Mixología</strong></p>
+            <p>📍 Carretera a Chapala #1234, Playas de Cajititlán</p>
+            <p>📞 (33) 1234-5678</p>
+        </div>
+    </div>
+
+    <script>
+        // Datos del menú TAJAL (quemados para funcionamiento independiente)
+        const menuData = [
+            { id: "cortes_1", nombre: "Rib Eye 300g", descripcion: "Corte premium con guarnición", precio: 450.00, categoria: "Cortes" },
+            { id: "mariscos_1", nombre: "Ceviche de Camarón", descripcion: "Camarones frescos tradicionales", precio: 180.00, categoria: "Del Mar" },
+            { id: "pastas_1", nombre: "Pasta del Chef", descripcion: "Pasta artesanal con salsa especial", precio: 220.00, categoria: "Pastas" },
+            { id: "hamburguesas_1", nombre: "Hamburguesa TAJAL", descripcion: "Hamburguesa con carne premium", precio: 190.00, categoria: "Hamburguesas" },
+            { id: "postres_1", nombre: "Pastel de Chocolate", descripcion: "Postre casero delicioso", precio: 85.00, categoria: "Postres" },
+            { id: "bebidas_1", nombre: "Margarita TAJAL", descripcion: "Coctelería de autor", precio: 120.00, categoria: "Bebidas" }
+        ];
+
+        let cart = [];
+
+        function displayMenu(items) {
+            const container = document.getElementById('menu-container');
+            container.innerHTML = '';
+
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'menu-item';
+                div.innerHTML = `
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">${item.nombre}</span>
+                            <span class="menu-item-price">$${item.precio.toFixed(2)}</span>
+                        </div>
+                        <button class="add-to-cart" onclick="addToCart('${item.id}', '${item.nombre}', ${item.precio})">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function addToCart(id, name, price) {
+            cart.push({ id, name, price });
+            document.getElementById('cart-count').textContent = cart.length;
+        }
+
+        function showCart() {
+            if (cart.length === 0) {
+                alert('Carrito vacío');
+                return;
+            }
+
+            let text = '🛒 TU PEDIDO:\n\n';
+            let total = 0;
+            cart.forEach((item, i) => {
+                total += item.price;
+                text += `${i + 1}. ${item.name} - $${item.price.toFixed(2)}\n`;
+            });
+            text += `\n💰 TOTAL: $${total.toFixed(2)}`;
+
+            if (confirm(text + '\n\n¿Confirmar pedido?')) {
+                window.open(`https://wa.me/523312345678?text=${encodeURIComponent('Pedido TAJAL: ' + text)}`);
+                cart = [];
+                document.getElementById('cart-count').textContent = '0';
+            }
+        }
+
+        // Inicializar
+        displayMenu(menuData);
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.onclick = () => filterByCategory('');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<?xml version = "1.0" encoding="Windows-1252" standalone="yes"?>
+<VFPData>
+	<xsd:schema id="VFPData" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="VFPData" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="curtemp" minOccurs="0" maxOccurs="unbounded">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="idproducto">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="15"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="idarearestaurant">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="5"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="activo" type="xsd:boolean"/>
+								<xsd:element name="lunesaplica" type="xsd:boolean"/>
+								<xsd:element name="lunesinicio">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="lunesfin">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="lunesdiasalida">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="1"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="martesaplica" type="xsd:boolean"/>
+								<xsd:element name="martesinicio">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="martesfin">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="martesdiasalida">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="1"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="miercolesaplica" type="xsd:boolean"/>
+								<xsd:element name="miercolesinicio">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="miercolesfin">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="miercolesdiasalida">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="1"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="juevesaplica" type="xsd:boolean"/>
+								<xsd:element name="juevesinicio">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="juevesfin">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="juevesdiasalida">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="1"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="viernesaplica" type="xsd:boolean"/>
+								<xsd:element name="viernesinicio">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="viernesfin">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="viernesdiasalida">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="1"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="sabadoaplica" type="xsd:boolean"/>
+								<xsd:element name="sabadoinicio">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="sabadofin">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="sabadodiasalida">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="1"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="domingoaplica" type="xsd:boolean"/>
+								<xsd:element name="domingoinicio">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="domingofin">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="11"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="domingodiasalida">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="1"/>
+											<xsd:fractionDigits value="0"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="porcentaje">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="4"/>
+											<xsd:fractionDigits value="2"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="multiplo">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="19"/>
+											<xsd:fractionDigits value="4"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="puntosmultiplo">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:decimal">
+											<xsd:totalDigits value="19"/>
+											<xsd:fractionDigits value="4"/>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+				<xsd:anyAttribute namespace="http://www.w3.org/XML/1998/namespace" processContents="lax"/>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<curtemp>
+		<idproducto>0101</idproducto>
+		<idarearestaurant>1</idarearestaurant>
+		<activo>false</activo>
+		<lunesaplica>false</lunesaplica>
+		<lunesinicio>12:00:00 AM</lunesinicio>
+		<lunesfin>12:00:00 AM</lunesfin>
+		<lunesdiasalida>1</lunesdiasalida>
+		<martesaplica>false</martesaplica>
+		<martesinicio>12:00:00 AM</martesinicio>
+		<martesfin>12:00:00 AM</martesfin>
+		<martesdiasalida>1</martesdiasalida>
+		<miercolesaplica>false</miercolesaplica>
+		<miercolesinicio>12:00:00 AM</miercolesinicio>
+		<miercolesfin>12:00:00 AM</miercolesfin>
+		<miercolesdiasalida>1</miercolesdiasalida>
+		<juevesaplica>false</juevesaplica>
+		<juevesinicio>12:00:00 AM</juevesinicio>
+		<juevesfin>12:00:00 AM</juevesfin>
+		<juevesdiasalida>1</juevesdiasalida>
+		<viernesaplica>false</viernesaplica>
+		<viernesinicio>12:00:00 AM</viernesinicio>
+		<viernesfin>12:00:00 AM</viernesfin>
+		<viernesdiasalida>1</viernesdiasalida>
+		<sabadoaplica>false</sabadoaplica>
+		<sabadoinicio>12:00:00 AM</sabadoinicio>
+		<sabadofin>12:00:00 AM</sabadofin>
+		<sabadodiasalida>1</sabadodiasalida>
+		<domingoaplica>false</domingoaplica>
+		<domingoinicio>12:00:00 AM</domingoinicio>
+		<domingofin>12:00:00 AM</domingofin>
+		<domingodiasalida>1</domingodiasalida>
+		<porcentaje>0.00</porcentaje>
+		<multiplo>0.0000</multiplo>
+		<puntosmultiplo>0.0000</puntosmultiplo>
+	</curtemp>
+	<curtemp>
+		<idproducto>0101</idproducto>
+		<idarearestaurant>2</idarearestaurant>
+		<activo>false</activo>
+		<lunesaplica>false</lunesaplica>
+		<lunesinicio>12:00:00 AM</lunesinicio>
+		<lunesfin>12:00:00 AM</lunesfin>
+		<lunesdiasalida>1</lunesdiasalida>
+		<martesaplica>false</martesaplica>
+		<martesinicio>12:00:00 AM</martesinicio>
+		<martesfin>12:00:00 AM</martesfin>
+		<martesdiasalida>1</martesdiasalida>
+		<miercolesaplica>false</miercolesaplica>
+		<miercolesinicio>12:00:00 AM</miercolesinicio>
+		<miercolesfin>12:00:00 AM</miercolesfin>
+		<miercolesdiasalida>1</miercolesdiasalida>
+		<juevesaplica>false</juevesaplica>
+		<juevesinicio>12:00:00 AM</juevesinicio>
+		<juevesfin>12:00:00 AM</juevesfin>
+		<juevesdiasalida>1</juevesdiasalida>
+		<viernesaplica>false</viernesaplica>
+		<viernesinicio>12:00:00 AM</viernesinicio>
+		<viernesfin>12:00:00 AM</viernesfin>
+		<viernesdiasalida>1</viernesdiasalida>
+		<sabadoaplica>false</sabadoaplica>
+		<sabadoinicio>12:00:00 AM</sabadoinicio>
+		<sabadofin>12:00:00 AM</sabadofin>
+		<sabadodiasalida>1</sabadodiasalida>
+		<domingoaplica>false</domingoaplica>
+		<domingoinicio>12:00:00 AM</domingoinicio>
+		<domingofin>12:00:00 AM</domingofin>
+		<domingodiasalida>1</domingodiasalida>
+		<porcentaje>0.00</porcentaje>
+		<multiplo>0.0000</multiplo>
+		<puntosmultiplo>0.0000</puntosmultiplo>
+	</curtemp>
+	<curtemp>
+		<idproducto>0101</idproducto>
+		<idarearestaurant>3</idarearestaurant>
+		<activo>false</activo>
+		<lunesaplica>false</lunesaplica>
+		<lunesinicio>12:00:00 AM</lunesinicio>
+		<lunesfin>12:00:00 AM</lunesfin>
+		<lunesdiasalida>1</lunesdiasalida>
+		<martesaplica>false</martesaplica>
+		<martesinicio>12:00:00 AM</martesinicio>
+		<martesfin>12:00:00 AM</martesfin>
+		<martesdiasalida>1</martesdiasalida>
+		<miercolesaplica>false</miercolesaplica>
+		<miercolesinicio>12:00:00 AM</miercolesinicio>
+		<miercolesfin>12:00:00 AM</miercolesfin>
+		<miercolesdiasalida>1</miercolesdiasalida>
+		<juevesaplica>false</juevesaplica>
+		<juevesinicio>12:00:00 AM</juevesinicio>
+		<juevesfin>12:00:00 AM</juevesfin>
+		<juevesdiasalida>1</juevesdiasalida>
+		<viernesaplica>false</viernesaplica>
+		<viernesinicio>12:00:00 AM</viernesinicio>
+		<viernesfin>12:00:00 AM</viernesfin>
+		<viernesdiasalida>1</viernesdiasalida>
+		<sabadoaplica>false</sabadoaplica>
+		<sabadoinicio>12:00:00 AM</sabadoinicio>
+		<sabadofin>12:00:00 AM</sabadofin>
+		<sabadodiasalida>1</sabadodiasalida>
+		<domingoaplica>false</domingoaplica>
+		<domingoinicio>12:00:00 AM</domingoinicio>
+		<domingofin>12:00:00 AM</domingofin>
+		<domingodiasalida>1</domingodiasalida>
+		<porcentaje>0.00</porcentaje>
+		<multiplo>0.0000</multiplo>
+		<puntosmultiplo>0.0000</puntosmultiplo>
+	</curtemp>
+</VFPData>
