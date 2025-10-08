@@ -382,25 +382,54 @@ body.menu-page {
 }
 .lightbox .video-container video { width: 100%; }
 
-/* --- Botón Volver Arriba --- */
-.back-to-top-btn {
+/* --- Botones flotantes de navegación --- */
+.floating-nav {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    display: none;
-    background-color: var(--color-accent);
-    color: var(--color-background);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    text-align: center;
-    line-height: 50px;
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     z-index: 1000;
-    transition: opacity 0.3s, transform 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.floating-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.floating-btn:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    background: #fff;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.floating-btn.active {
+    background: #fff;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+}
+
+.floating-btn i {
+    transition: transform 0.3s ease;
+}
+
+.floating-btn:hover i {
+    transform: scale(1.2);
 }
 
 .hero-back-link {
@@ -758,4 +787,17 @@ body.fade-out {
     .menu-page li { flex-direction: column; align-items: center; gap: 5px; text-align: center; }
     .menu-page .item-desc { margin-left: 0; }
     .menu-page .item-price { text-align: center; min-width: auto; }
+
+    /* Botones flotantes en móviles */
+    .floating-nav {
+        bottom: 20px;
+        right: 20px;
+        gap: 12px;
+    }
+
+    .floating-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2em;
+    }
 }
