@@ -38,29 +38,47 @@
         </div>
     </section>
 
-    <section class="photo-gallery">
-        <h2>Nuestra Galería</h2>
-        <div class="random-gallery-container">
-            <img id="random-gallery-image" src="" alt="Galería de platillos y ambiente de Tajal">
+    <section class="search-section">
+        <h2><i class="fas fa-search"></i> Buscador de Menú</h2>
+        <p class="search-subtitle">Encuentra platillos, bebidas y productos de nuestra carta</p>
+
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <input type="text" id="search-input" placeholder="Buscar por nombre, categoría o descripción... (ej: hamburguesa, margarita, entrada)" class="search-input">
+                <button id="search-btn" class="search-button">
+                    <i class="fas fa-search"></i> Buscar
+                </button>
+            </div>
+
+            <div class="search-filters">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="platillo">Platillos</button>
+                <button class="filter-btn" data-filter="bebida">Bebidas</button>
+            </div>
+
+            <div class="search-stats" id="search-stats"></div>
+
+            <div class="search-results" id="search-results">
+                <!-- Los resultados aparecerán aquí -->
+            </div>
         </div>
     </section>
 
-    <!-- La estructura de la Lightbox -->
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
-        <!-- Flechas de Navegación -->
-        <div class="lightbox-nav">
-            <a href="#" id="lightbox-prev">&lsaquo;</a>
-            <a href="#" id="lightbox-next">&rsaquo;</a>
-        </div>
-    </div>
-
-    <!-- Lightbox para Video -->
-    <div id="video-lightbox" class="lightbox">
-        <span class="lightbox-close video-close">&times;</span>
-        <div class="video-container">
-            <!-- El video se insertará aquí dinámicamente -->
+    <!-- Modal para mostrar detalles -->
+    <div id="search-modal" class="search-modal">
+        <div class="search-modal-content">
+            <span class="search-modal-close">&times;</span>
+            <div class="search-modal-image">
+                <img id="search-modal-img" src="" alt="">
+            </div>
+            <div class="search-modal-info">
+                <h3 id="search-modal-title"></h3>
+                <p id="search-modal-desc"></p>
+                <div class="search-modal-meta">
+                    <span id="search-modal-category" class="search-modal-category"></span>
+                    <span id="search-modal-price" class="search-modal-price"></span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -98,6 +116,7 @@
         </div>
     </footer>
 
+    <script src="js/search.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
