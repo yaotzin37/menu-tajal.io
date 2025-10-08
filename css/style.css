@@ -15,34 +15,48 @@
     --font-display: 'Dancing Script', cursive;
 }
 
-.light-mode {
-    --color-background: #ffffff;
-    --color-background-secondary: #f5f5f5;
-    --color-background-footer: #f0f0f0;
-    --color-text-primary: #000000;
-    --color-text-secondary: #333333;
-    --color-text-light: #555555;
-    --color-text-footer: #555555;
-    --color-text-footer-bottom: #555555;
-    --color-accent: #c2a600;
-    --color-accent-shadow: rgba(194, 166, 0, 0.5);
-    --color-accent-bg-light: rgba(194, 166, 0, 0.1);
-    --color-accent-bg-medium: rgba(194, 166, 0, 0.15);
+.light-mode .menu-page li {
+    background: rgba(0, 0, 0, 0.05);
 }
 
-.light-mode {
-    --color-background: #ffffff;
-    --color-background-secondary: #f5f5f5;
-    --color-background-footer: #f0f0f0;
-    --color-text-primary: #000000;
-    --color-text-secondary: #333333;
-    --color-text-light: #555555;
-    --color-text-footer: #555555;
-    --color-text-footer-bottom: #555555;
-    --color-accent: #c2a600;
-    --color-accent-shadow: rgba(194, 166, 0, 0.5);
-    --color-accent-bg-light: rgba(194, 166, 0, 0.1);
-    --color-accent-bg-medium: rgba(194, 166, 0, 0.15);
+.light-mode .btn {
+    background: #f0f0f0;
+    color: #333333;
+    border-bottom: 4px solid #ddd;
+}
+
+.light-mode .btn:hover {
+    background: #e0e0e0;
+    color: #c2a600;
+    border-bottom-color: #ccc;
+}
+
+.light-mode .search-item {
+    background: #f0f0f0;
+    border-color: #ddd;
+}
+
+.light-mode .search-item:hover {
+    background: #e8e8e8;
+    border-color: #c2a600;
+}
+
+.light-mode .floating-btn {
+    background: #c2a600;
+    color: #ffffff;
+    border-color: #c2a600;
+}
+
+.light-mode .floating-btn.active {
+    background: #ffffff;
+    color: #c2a600;
+    border-color: #c2a600;
+}
+
+.light-mode .floating-btn:hover {
+    background: #e8e8e8;
+    color: #c2a600;
+    border-color: #c2a600;
 }
 
 /**
