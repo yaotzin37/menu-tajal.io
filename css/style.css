@@ -87,18 +87,13 @@ body {
 
 /* Estilos para las páginas de menú */
 body.menu-page {
-    background-image: url("../assets/images/image2vector.svg");
-    background-size: 200px; /* Se mantiene por si es un valor específico */
+    /* background-image: url("../assets/images/image2vector.svg"); */
+    /* background-size: 200px; Se mantiene por si es un valor específico */
     background-color: var(--color-background);
     padding: 20px;
     line-height: 1.6;
 }
 
-body.menu-mixologia {
-    background-image: url("../assets/images/fondo-mixologia.svg");
-    background-size: 400px;
-    background-attachment: scroll;
-}
 
 .container {
     max-width: 1200px;
