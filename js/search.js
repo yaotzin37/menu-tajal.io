@@ -336,7 +336,7 @@ const menuData = [
     {
         nombre: "Salmón a las brasas",
         descripcion: "Medallón de salmón con vegetales salteados",
-        precio: "$255.00",
+        precio: "$320.00",
         categoria: "Del Mar",
         imagen: "assets/galeria-platillos/mariscos/salmon_a_las_brasas.jpeg",
         tipo: "platillo"
