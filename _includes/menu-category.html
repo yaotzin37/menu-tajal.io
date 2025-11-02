@@ -1,0 +1,52 @@
+<!-- 
+  Include reutilizable para mostrar una categoría de menú
+  
+  Parámetros requeridos:
+  - include.category_name: Nombre de la categoría (ej: "Entradas", "Platos Fuertes")
+  - include.dishes: Array de platillos con las propiedades: name, description, image, price
+  
+  Ejemplo de uso:
+  {% include menu-category.html 
+     category_name="Entradas" 
+     dishes=site.data.entradas 
+  %}
+  
+  Para personalizar:
+  - Modifica las clases CSS para cambiar el diseño
+  - Añade más campos como 'allergens' o 'spicy_level'
+  - Cambia la estructura HTML según tu tema
+-->
+
+<section class="menu-category" itemscope itemtype="https://schema.org/MenuSection">
+  <h2 class="category-title" itemprop="name">{{ include.category_name }}</h2>
+  
+  <div class="dishes-container">
+    {% for dish in include.dishes %}
+      <article class="dish-card" itemscope itemtype="https://schema.org/MenuItem">
+        
+        <!-- Imagen del platillo (opcional) -->
+        {% if dish.image %}
+          <div class="dish-image">
+            <img src="{{ dish.image }}" alt="{{ dish.name }}" itemprop="image" loading="lazy">
+          </div>
+        {% endif %}
+        
+        <!-- Información del platillo -->
+        <div class="dish-info">
+          <h3 class="dish-name" itemprop="name">{{ dish.name }}</h3>
+          
+          {% if dish.description %}
+            <p class="dish-description" itemprop="description">{{ dish.description }}</p>
+          {% endif %}
+          
+          <!-- Precio -->
+          <div class="dish-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <meta itemprop="priceCurrency" content="MXN">
+            <span itemprop="price">{{ dish.price }}</span>
+          </div>
+        </div>
+        
+      </article>
+    {% endfor %}
+  </div>
+</section>
