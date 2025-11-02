@@ -1,0 +1,67 @@
+# ============================================
+# CONFIGURACIÓN JEKYLL - BUENAS PRÁCTICAS
+# ============================================
+# Este archivo centraliza toda la configuración del sitio.
+# Comparación: En el proyecto original, la configuración está dispersa en archivos HTML.
+# Buena práctica: Usar _config.yml para mantener todo centralizado y reutilizable.
+
+# Información básica del sitio
+title: "Menú Tajal"
+description: "Restaurante de comida tradicional - Menú digital interactivo"
+baseurl: "" # Subpath del sitio, ej: /blog
+url: "https://yaotzin37.github.io" # URL base del sitio
+
+# SEO y metadatos (Buena práctica: facilita el SEO y compartir en redes sociales)
+author:
+  name: "Tajal Restaurant"
+  email: "contacto@tajal.com"
+  twitter: "@tajal" # Para Twitter Cards
+
+# Configuración de construcción
+markdown: kramdown
+theme: null # Sin tema, usaremos layouts personalizados
+plugins:
+  - jekyll-seo-tag  # Genera meta tags SEO automáticamente
+  - jekyll-sitemap  # Genera sitemap.xml automático
+
+# Colecciones para contenido estructurado
+# Buena práctica: Usar colecciones en lugar de hardcodear datos en HTML
+collections:
+  menu_items:
+    output: false
+    
+  categorias:
+    output: false
+
+# Configuración de assets
+sass:
+  sass_dir: _sass
+  style: compressed # CSS minificado en producción
+
+# Excluir archivos del build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Incluir archivos específicos
+include:
+  - _pages
+
+# Variables personalizadas reutilizables
+# Buena práctica: Centralizar colores, fuentes, etc.
+brand:
+  primary_color: "#D4A574"
+  secondary_color: "#2C1810"
+  font_family: "'Playfair Display', serif"
+  
+contact:
+  phone: "+52 999 123 4567"
+  address: "Calle Principal #123, Ciudad"
+  hours: "Lun-Dom: 12:00 - 22:00"
+
+# Configuración de idioma y localización
+lang: es-MX
+timezone: America/Mexico_City
