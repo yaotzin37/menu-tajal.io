@@ -1,0 +1,90 @@
+---
+layout: default
+---
+
+<!-- 
+  ============================================
+  LAYOUT MIXOLOGIA - PLANTILLA PARA SECCIÓN DE MIXOLOGÍA
+  ============================================
+  
+  Este layout extiende el layout default y está especializado para
+  mostrar la carta de coctelería y bebidas del restaurante.
+  
+  CARACTERÍSTICAS:
+  - Hereda toda la estructura de default.html
+  - Agrega clases CSS específicas para mixología
+  - Integra includes modulares para tarjetas de bebidas
+  - Grid layout optimizado para mostrar cócteles
+  - Facilita la personalización futura
+  
+  USO:
+  En mixologia.md, especificar:
+  ---
+  layout: mixologia
+  ---
+-->
+
+<div class="mixologia-page">
+  <!-- Hero Section de Mixología -->
+  <section class="mixologia-hero" aria-label="Banner de mixología">
+    <div class="mixologia-hero-content">
+      <h1 class="mixologia-title">{{ page.title | default: 'Mixología de Autor' }}</h1>
+      {% if page.subtitle %}
+        <p class="mixologia-subtitle">{{ page.subtitle }}</p>
+      {% endif %}
+      {% if page.description %}
+        <p class="mixologia-description">{{ page.description }}</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- Contenido de Mixología -->
+  <section class="mixologia-content" aria-label="Carta de coctelería">
+    <div class="container">
+      {{ content }}
+      
+      <!-- 
+        Aquí se renderiza el contenido de mixologia.md
+        que incluye las bebidas usando {% include %}
+      -->
+    </div>
+  </section>
+
+  <!-- Sección de Nota/Información Adicional -->
+  {% if page.note %}
+  <aside class="mixologia-note" role="note">
+    <div class="container">
+      <p>{{ page.note }}</p>
+    </div>
+  </aside>
+  {% endif %}
+  
+  <!-- Sección de Advertencia de Consumo Responsable -->
+  <aside class="responsible-drinking" role="complementary">
+    <div class="container">
+      <p>
+        <strong>Consumo Responsable:</strong> 
+        {{ page.responsible_message | default: 'El exceso de alcohol es perjudicial para la salud. Prohibida su venta a menores de edad.' }}
+      </p>
+    </div>
+  </aside>
+</div>
+
+<!-- 
+  EJEMPLO DE USO EN mixologia.md:
+  
+  ---
+  layout: mixologia
+  title: "Mixología de Autor"
+  subtitle: "Cócteles Artesanales con Mezcal"
+  description: "Descubre nuestras creaciones únicas"
+  note: "Todos nuestros cócteles son preparados al momento"
+  responsible_message: "Disfruta con moderación. +18 años"
+  ---
+  
+  ## Cócteles Clásicos
+  {% include mixologia/drink-card.html drink="margarita" %}
+  
+  ## Cócteles de Autor
+  {% include mixologia/drink-card.html drink="oaxaca-old-fashioned" %}
+-->
