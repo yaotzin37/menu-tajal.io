@@ -1,48 +1,62 @@
 # Menú de Tajal - Estructura Completa
 # Documentación: Este archivo contiene todas las categorías del menú
-# Campos disponibles: nombre, descripcion, precio, imagen, extras, tags, opciones
-
+# Campos disponibles por platillo: nombre, descripcion, precio, imagen, extras, tags, opciones
+# Uso del campo imagen:
+# - Debe ser una ruta relativa al sitio.
+# - Para platillos usar assets/galeria-platillos/archivo.jpg
+# - Nombre de archivo en kebab-case sin espacios.
+# - Alt/title se toman del nombre y descripcion en la galería.
 categorias:
   - nombre: "Entradas"
+    # Para cada platillo agrega imagen: assets/galeria-platillos/<archivo>
     platillos:
       - nombre: "Ceviche de Pescado"
         descripcion: "Pescado fresco marinado en limón con chile serrano y cilantro"
         precio: 185
+        imagen: assets/galeria-platillos/ceviche-de-pescado.jpg
         tags: ["picante", "fresco"]
       - nombre: "Tostadas de Atún"
         descripcion: "Atún sellado sobre tostada con aguacate y salsa de soya"
         precio: 165
+        imagen: assets/galeria-platillos/tostadas-de-atun.jpg
         tags: ["fresco"]
       - nombre: "Guacamole Tradicional"
         descripcion: "Aguacate fresco con jitomate, cebolla y chile"
         precio: 135
+        imagen: assets/galeria-platillos/guacamole-tradicional.jpg
         tags: ["vegetariano", "picante"]
       - nombre: "Alitas BBQ"
         descripcion: "10 alitas de pollo con salsa BBQ casera"
         precio: 155
+        imagen: assets/galeria-platillos/alitas-bbq.jpg
         extras: ["Ranch", "Aderezo Blue Cheese"]
       - nombre: "Nachos Tajal"
         descripcion: "Totopos con queso fundido, frijoles, jalapeños y crema"
         precio: 145
+        imagen: assets/galeria-platillos/nachos-tajal.jpg
         opciones: ["Con carne", "Con pollo", "Vegetarianos"]
       - nombre: "Dedos de Queso"
         descripcion: "6 piezas de queso mozzarella empanizado"
         precio: 125
+        imagen: assets/galeria-platillos/dedos-de-queso.jpg
 
   - nombre: "Ensaladas"
     platillos:
       - nombre: "Ensalada César"
         descripcion: "Lechuga romana, crutones, queso parmesano y aderezo césar"
         precio: 165
+        imagen: assets/galeria-platillos/ensalada-cesar.jpg
         opciones: ["Con pollo", "Con camarones"]
         tags: ["saludable"]
       - nombre: "Ensalada Griega"
         descripcion: "Pepino, jitomate, aceitunas, queso feta y vinagreta"
         precio: 155
+        imagen: assets/galeria-platillos/ensalada-griega.jpg
         tags: ["vegetariano", "saludable"]
       - nombre: "Ensalada de Arúgula"
         descripcion: "Arúgula, pera caramelizada, nuez y vinagreta balsámica"
         precio: 175
+        imagen: assets/galeria-platillos/ensalada-arugula.jpg
         tags: ["vegetariano", "gourmet"]
 
   - nombre: "Pastas"
@@ -50,54 +64,66 @@ categorias:
       - nombre: "Fettuccine Alfredo"
         descripcion: "Pasta en salsa cremosa de queso parmesano"
         precio: 195
+        imagen: assets/galeria-platillos/fettuccine-alfredo.jpg
         opciones: ["Con pollo", "Con camarones"]
       - nombre: "Espagueti Boloñesa"
         descripcion: "Pasta con salsa de carne molida y especias italianas"
         precio: 185
+        imagen: assets/galeria-platillos/espagueti-bolonesa.jpg
       - nombre: "Penne Arrabbiata"
         descripcion: "Pasta con salsa de jitomate picante y albahaca"
         precio: 175
+        imagen: assets/galeria-platillos/penne-arrabbiata.jpg
         tags: ["picante", "vegetariano"]
       - nombre: "Lasagna de Carne"
         descripcion: "Capas de pasta con carne, bechamel y queso gratinado"
         precio: 215
+        imagen: assets/galeria-platillos/lasagna-de-carne.jpg
 
   - nombre: "Hamburguesas"
     platillos:
       - nombre: "Hamburguesa Clásica"
         descripcion: "Carne de res 180g, lechuga, jitomate, cebolla y pepinillos"
         precio: 175
+        imagen: assets/galeria-platillos/hamburguesa-clasica.jpg
         extras: ["Queso", "Tocino", "Aguacate"]
       - nombre: "Hamburguesa BBQ"
         descripcion: "Carne de res, aros de cebolla, tocino y salsa BBQ"
         precio: 195
+        imagen: assets/galeria-platillos/hamburguesa-bbq.jpg
       - nombre: "Hamburguesa Tajal"
         descripcion: "Doble carne, queso manchego, aguacate y chile toreado"
         precio: 225
+        imagen: assets/galeria-platillos/hamburguesa-tajal.jpg
         tags: ["recomendado", "picante"]
       - nombre: "Hamburguesa de Pollo"
         descripcion: "Pechuga de pollo empanizada con lechuga y mayonesa chipotle"
         precio: 165
+        imagen: assets/galeria-platillos/hamburguesa-de-pollo.jpg
 
   - nombre: "Cortes"
     platillos:
       - nombre: "Rib Eye 350g"
         descripcion: "Corte de res premium con mantequilla de hierbas"
         precio: 445
+        imagen: assets/galeria-platillos/rib-eye-350g.jpg
         opciones: ["Término: Rojo, Medio, Bien cocido"]
         tags: ["premium"]
       - nombre: "New York 300g"
         descripcion: "Corte suave y jugoso con sal de mar"
         precio: 425
+        imagen: assets/galeria-platillos/new-york-300g.jpg
         opciones: ["Término: Rojo, Medio, Bien cocido"]
         tags: ["premium"]
       - nombre: "Arrachera 250g"
         descripcion: "Corte marinado con especias mexicanas"
         precio: 295
+        imagen: assets/galeria-platillos/arrachera-250g.jpg
         opciones: ["Término: Rojo, Medio, Bien cocido"]
       - nombre: "T-Bone 400g"
         descripcion: "Corte con hueso para máximo sabor"
         precio: 485
+        imagen: assets/galeria-platillos/t-bone-400g.jpg
         opciones: ["Término: Rojo, Medio, Bien cocido"]
         tags: ["premium"]
 
@@ -106,16 +132,20 @@ categorias:
       - nombre: "Tacos de Rib Eye"
         descripcion: "Tres tacos de rib eye con cebolla caramelizada y queso fundido"
         precio: 285
+        imagen: assets/galeria-platillos/tacos-de-rib-eye.jpg
       - nombre: "Camarones al Mojo de Ajo"
         descripcion: "Camarones salteados en mantequilla con ajo y especias"
         precio: 295
+        imagen: assets/galeria-platillos/camarones-al-mojo-de-ajo.jpg
       - nombre: "Enchiladas Verdes"
         descripcion: "Enchiladas bañadas en salsa verde con pollo y crema"
         precio: 225
+        imagen: assets/galeria-platillos/enchiladas-verdes.jpg
         opciones: ["Con pollo", "Con carne", "Con queso"]
       - nombre: "Molcajete Mixto"
         descripcion: "Arrachera, pollo, camarones, queso y nopales en molcajete"
         precio: 385
+        imagen: assets/galeria-platillos/molcajete-mixto.jpg
         tags: ["para compartir", "recomendado"]
 
   - nombre: "Del Mar"
@@ -123,81 +153,75 @@ categorias:
       - nombre: "Filete de Pescado a la Veracruzana"
         descripcion: "Filete en salsa de jitomate con aceitunas y alcaparras"
         precio: 285
+        imagen: assets/galeria-platillos/filete-veracruzana.jpg
       - nombre: "Camarones a la Diabla"
         descripcion: "Camarones en salsa picante de chile de árbol"
         precio: 305
+        imagen: assets/galeria-platillos/camarones-a-la-diabla.jpg
         tags: ["picante"]
       - nombre: "Pescado Zarandeado"
         descripcion: "Pescado entero asado con especias y chile"
         precio: 325
+        imagen: assets/galeria-platillos/pescado-zarandeado.jpg
         tags: ["recomendado"]
       - nombre: "Pulpo al Grill"
         descripcion: "Pulpo asado con papas cambray y alioli"
         precio: 345
+        imagen: assets/galeria-platillos/pulpo-al-grill.jpg
         tags: ["gourmet"]
       - nombre: "Tacos de Pescado Estilo Ensenada"
         descripcion: "Tres tacos de pescado empanizado con col y chipotle"
         precio: 195
+        imagen: assets/galeria-platillos/tacos-de-pescado-ensenada.jpg
 
   - nombre: "Menú Infantil"
     platillos:
       - nombre: "Dedos de Pollo"
         descripcion: "4 piezas de pollo empanizado con papas fritas"
         precio: 95
+        imagen: assets/galeria-platillos/dedos-de-pollo.jpg
         extras: ["Ketchup", "BBQ"]
       - nombre: "Mini Hamburguesa"
         descripcion: "Hamburguesa pequeña con queso y papas"
         precio: 105
+        imagen: assets/galeria-platillos/mini-hamburguesa.jpg
       - nombre: "Quesadillas de Queso"
         descripcion: "Tres quesadillas con queso y frijoles"
         precio: 85
+        imagen: assets/galeria-platillos/quesadillas-de-queso.jpg
       - nombre: "Espagueti con Mantequilla"
         descripcion: "Pasta simple con mantequilla y queso parmesano"
         precio: 85
+        imagen: assets/galeria-platillos/espagueti-con-mantequilla.jpg
       - nombre: "Mini Hot Dogs"
         descripcion: "Dos hot dogs pequeños con papas"
         precio: 95
+        imagen: assets/galeria-platillos/mini-hot-dogs.jpg
 
   - nombre: "Postres"
     platillos:
       - nombre: "Flan Napolitano"
         descripcion: "Flan casero con caramelo y vainilla"
         precio: 95
+        imagen: assets/galeria-platillos/flan-napolitano.jpg
       - nombre: "Pastel de Chocolate"
         descripcion: "Pastel húmedo de chocolate con helado de vainilla"
         precio: 115
+        imagen: assets/galeria-platillos/pastel-de-chocolate.jpg
         extras: ["Helado extra"]
       - nombre: "Cheesecake de Frutos Rojos"
         descripcion: "Cheesecake cremoso con mermelada de frutos del bosque"
         precio: 125
+        imagen: assets/galeria-platillos/cheesecake-frutos-rojos.jpg
       - nombre: "Brownie con Helado"
         descripcion: "Brownie caliente con helado de vainilla y chocolate"
         precio: 105
+        imagen: assets/galeria-platillos/brownie-con-helado.jpg
       - nombre: "Crepas con Cajeta"
         descripcion: "Crepas dulces rellenas de cajeta y nuez"
         precio: 95
+        imagen: assets/galeria-platillos/crepas-con-cajeta.jpg
       - nombre: "Tres Leches"
         descripcion: "Pastel tradicional bañado en tres leches"
         precio: 100
-
-  - nombre: "Extras"
-    platillos:
-      - nombre: "Papas Fritas"
-        descripcion: "Porción de papas crujientes"
-        precio: 55
-      - nombre: "Arroz"
-        descripcion: "Arroz blanco o rojo"
-        precio: 45
-      - nombre: "Frijoles"
-        descripcion: "Frijoles refritos o charros"
-        precio: 45
-      - nombre: "Tortillas"
-        descripcion: "Orden de tortillas de maíz o harina"
-        precio: 25
-      - nombre: "Guacamole Extra"
-        descripcion: "Porción adicional de guacamole"
-        precio: 65
-      - nombre: "Queso Fundido"
-        descripcion: "Queso gratinado con chorizo opcional"
-        precio: 85
-        opciones: ["Sin chorizo", "Con chorizo"]
+        imagen: assets/galeria-platillos/pastel-tres-leches.jpg
