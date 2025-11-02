@@ -1,0 +1,137 @@
+<!-- 
+  ============================================
+  INCLUDE: DRINK-CARD
+  Ubicación: _includes/mixologia/drink-card.html
+  ============================================
+  
+  PROPÓSITO:
+  Renderiza una tarjeta individual de cóctel/bebida.
+  Componente reutilizable para mostrar bebidas con estilo consistente.
+  
+  PARÁMETROS:
+  - drink: ID/clave de la bebida (debe coincidir con la clave en _data/mixologia.yml)
+  
+  USO:
+  {% include mixologia/drink-card.html drink="margarita" %}
+  
+  ESTRUCTURA DE DATOS ESPERADA (_data/mixologia.yml):
+  margarita:
+    name: "Margarita Clásica"
+    description: "Cóctel refrescante con tequila y limón"
+    ingredients:
+      - "50ml Tequila"
+      - "25ml Triple Sec"
+      - "25ml Jugo de limón"
+    price: "$180"
+    image: "/assets/images/margarita.jpg" (opcional)
+    alcohol_content: "15%" (opcional)
+    preparation_time: "5 min" (opcional)
+-->
+
+{% assign drink_data = site.data.mixologia[include.drink] %}
+
+{% if drink_data %}
+<article class="drink-card" itemscope itemtype="https://schema.org/MenuItem">
+  <!-- Imagen de la Bebida -->
+  {% if drink_data.image %}
+    <div class="drink-card-image">
+      <img 
+        src="{{ drink_data.image | relative_url }}" 
+        alt="{{ drink_data.name }}"
+        loading="lazy"
+        itemprop="image"
+      />
+      
+      <!-- Badge de contenido alcohólico (opcional) -->
+      {% if drink_data.alcohol_content %}
+        <span class="alcohol-badge">{{ drink_data.alcohol_content }} alc.</span>
+      {% endif %}
+    </div>
+  {% endif %}
+  
+  <!-- Contenido de la Tarjeta -->
+  <div class="drink-card-content">
+    <!-- Nombre de la Bebida -->
+    <h3 class="drink-name" itemprop="name">{{ drink_data.name }}</h3>
+    
+    <!-- Descripción -->
+    {% if drink_data.description %}
+      <p class="drink-description" itemprop="description">
+        {{ drink_data.description }}
+      </p>
+    {% endif %}
+    
+    <!-- Ingredientes -->
+    {% if drink_data.ingredients %}
+      <div class="drink-ingredients">
+        <strong>Ingredientes:</strong>
+        <ul>
+          {% for ingredient in drink_data.ingredients %}
+            <li>{{ ingredient }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    
+    <!-- Información Adicional -->
+    <div class="drink-meta">
+      <!-- Tiempo de preparación (opcional) -->
+      {% if drink_data.preparation_time %}
+        <span class="prep-time">
+          ⏱️ {{ drink_data.preparation_time }}
+        </span>
+      {% endif %}
+      
+      <!-- Categoría/Tipo (opcional) -->
+      {% if drink_data.category %}
+        <span class="drink-category badge">
+          {{ drink_data.category }}
+        </span>
+      {% endif %}
+    </div>
+    
+    <!-- Precio -->
+    {% if drink_data.price %}
+      <p class="drink-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+        <span itemprop="price">{{ drink_data.price }}</span>
+      </p>
+    {% endif %}
+  </div>
+</article>
+{% else %}
+  <!-- Mensaje de error si la bebida no existe -->
+  <p class="error-message">
+    Error: La bebida "{{ include.drink }}" no existe en _data/mixologia.yml
+  </p>
+{% endif %}
+
+<!-- 
+  EJEMPLO DE DATOS (_data/mixologia.yml):
+  
+  margarita:
+    name: "Margarita Clásica"
+    description: "Tequila blanco, triple sec y limón fresco"
+    ingredients:
+      - "50ml Tequila Blanco"
+      - "25ml Triple Sec"
+      - "25ml Jugo de limón fresco"
+      - "Hielo"
+      - "Sal para el borde"
+    price: "$180"
+    image: "/assets/images/margarita.jpg"
+    alcohol_content: "15%"
+    preparation_time: "5 min"
+    category: "Clásicos"
+  
+  oaxaca-old-fashioned:
+    name: "Oaxaca Old Fashioned"
+    description: "Mezcal y tequila reposado con agave y bitter"
+    ingredients:
+      - "45ml Mezcal"
+      - "15ml Tequila Reposado"
+      - "10ml Jarabe de agave"
+      - "2 dashes Angostura bitters"
+    price: "$220"
+    alcohol_content: "30%"
+    category: "Autor"
+-->
