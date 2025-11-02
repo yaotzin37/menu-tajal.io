@@ -1,5 +1,4 @@
-<!-- 
-  ============================================
+<!--   ============================================
   INCLUDE: DRINK-CARD
   Ubicación: _includes/mixologia/drink-card.html
   ============================================
@@ -9,129 +8,156 @@
   Componente reutilizable para mostrar bebidas con estilo consistente.
   
   PARÁMETROS:
-  - drink: ID/clave de la bebida (debe coincidir con la clave en _data/mixologia.yml)
+  - drink: Objeto completo de la bebida con todos sus atributos
+  - categoria: Tipo de bebida ("cocteles", "cervezas", "bebidas_sin_alcohol")
   
   USO:
-  {% include mixologia/drink-card.html drink="margarita" %}
+  {% for coctel in site.data.mixologia.cocteles %}
+    {% include mixologia/drink-card.html drink=coctel categoria="cocteles" %}
+  {% endfor %}
   
   ESTRUCTURA DE DATOS ESPERADA (_data/mixologia.yml):
-  margarita:
-    name: "Margarita Clásica"
-    description: "Cóctel refrescante con tequila y limón"
-    ingredients:
-      - "50ml Tequila"
-      - "25ml Triple Sec"
-      - "25ml Jugo de limón"
-    price: "$180"
-    image: "/assets/images/margarita.jpg" (opcional)
-    alcohol_content: "15%" (opcional)
-    preparation_time: "5 min" (opcional)
+  cocteles:
+    - nombre: "Margarita Clásica"
+      descripcion: "Cóctel refrescante con tequila y limón"
+      ingredientes:
+        - "50ml Tequila"
+        - "25ml Triple Sec"
+      precio: 180
+      nivel_alcohol: "medio"
+      tipo: "clásico"
+      tags: ["tradicional", "cítrico"]
+      temperatura: "frío"
 -->
 
-{% assign drink_data = site.data.mixologia[include.drink] %}
-
-{% if drink_data %}
-<article class="drink-card" itemscope itemtype="https://schema.org/MenuItem">
-  <!-- Imagen de la Bebida -->
-  {% if drink_data.image %}
-    <div class="drink-card-image">
-      <img 
-        src="{{ drink_data.image | relative_url }}" 
-        alt="{{ drink_data.name }}"
-        loading="lazy"
-        itemprop="image"
-      />
-      
-      <!-- Badge de contenido alcohólico (opcional) -->
-      {% if drink_data.alcohol_content %}
-        <span class="alcohol-badge">{{ drink_data.alcohol_content }} alc.</span>
-      {% endif %}
-    </div>
-  {% endif %}
+{% if include.drink %}
+<article class="drink-card drink-card--{{ include.categoria }}" 
+         itemscope itemtype="https://schema.org/MenuItem"
+         data-categoria="{{ include.categoria }}"
+         data-nivel-alcohol="{{ include.drink.nivel_alcohol }}"
+         data-tipo="{{ include.drink.tipo }}"
+         data-temperatura="{{ include.drink.temperatura }}"
+         data-tags="{{ include.drink.tags | join: ' ' }}">
   
-  <!-- Contenido de la Tarjeta -->
-  <div class="drink-card-content">
-    <!-- Nombre de la Bebida -->
-    <h3 class="drink-name" itemprop="name">{{ drink_data.name }}</h3>
-    
-    <!-- Descripción -->
-    {% if drink_data.description %}
-      <p class="drink-description" itemprop="description">
-        {{ drink_data.description }}
-      </p>
-    {% endif %}
-    
-    <!-- Ingredientes -->
-    {% if drink_data.ingredients %}
-      <div class="drink-ingredients">
-        <strong>Ingredientes:</strong>
-        <ul>
-          {% for ingredient in drink_data.ingredients %}
-            <li>{{ ingredient }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
-    
-    <!-- Información Adicional -->
-    <div class="drink-meta">
-      <!-- Tiempo de preparación (opcional) -->
-      {% if drink_data.preparation_time %}
-        <span class="prep-time">
-          ⏱️ {{ drink_data.preparation_time }}
-        </span>
-      {% endif %}
-      
-      <!-- Categoría/Tipo (opcional) -->
-      {% if drink_data.category %}
-        <span class="drink-category badge">
-          {{ drink_data.category }}
-        </span>
-      {% endif %}
+  <!-- Imagen de la Bebida -->
+  {% if include.drink.imagen %}
+  <div class="drink-card__image">
+    <img src="{{ include.drink.imagen }}" 
+         alt="{{ include.drink.nombre }}" 
+         loading="lazy"
+         itemprop="image">
+    {% if include.drink.nivel_alcohol %}
+    <div class="alcohol-badge alcohol-badge--{{ include.drink.nivel_alcohol }}">
+      <span class="alcohol-level">{{ include.drink.nivel_alcohol }}</span>
     </div>
-    
-    <!-- Precio -->
-    {% if drink_data.price %}
-      <p class="drink-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-        <span itemprop="price">{{ drink_data.price }}</span>
-      </p>
     {% endif %}
   </div>
+  {% endif %}
+  
+  <!-- Contenido Principal -->
+  <div class="drink-card__content">
+    
+    <!-- Encabezado con nombre y precio -->
+    <header class="drink-card__header">
+      <h3 class="drink-name" itemprop="name">{{ include.drink.nombre }}</h3>
+      <span class="drink-price" itemprop="price">${{ include.drink.precio }}</span>
+    </header>
+    
+    <!-- Descripción -->
+    {% if include.drink.descripcion %}
+    <p class="drink-description" itemprop="description">{{ include.drink.descripcion }}</p>
+    {% endif %}
+    
+    <!-- Ingredientes (para cócteles) -->
+    {% if include.drink.ingredientes and include.drink.ingredientes.size > 0 %}
+    <div class="drink-ingredients">
+      <h4 class="ingredients-title">🍸 Ingredientes:</h4>
+      <ul class="ingredients-list">
+        {% for ingrediente in include.drink.ingredientes %}
+        <li class="ingredient-item">{{ ingrediente }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    
+    <!-- Información adicional para cervezas -->
+    {% if include.categoria == "cervezas" and include.drink.presentacion %}
+    <div class="drink-presentation">
+      <span class="presentation-info">🍺 {{ include.drink.presentacion }}</span>
+    </div>
+    {% endif %}
+    
+    <!-- Metadatos de la bebida -->
+    <div class="drink-metadata">
+      
+      <!-- Nivel de alcohol -->
+      {% if include.drink.nivel_alcohol %}
+      <div class="metadata-item alcohol-indicator">
+        <span class="metadata-label">Alcohol:</span>
+        <span class="metadata-value alcohol-{{ include.drink.nivel_alcohol }}">
+          {% case include.drink.nivel_alcohol %}
+            {% when 'bajo' %}⭐
+            {% when 'medio' %}⭐⭐
+            {% when 'alto' %}⭐⭐⭐
+            {% else %}{{ include.drink.nivel_alcohol }}
+          {% endcase %}
+        </span>
+      </div>
+      {% endif %}
+      
+      <!-- Temperatura -->
+      {% if include.drink.temperatura %}
+      <div class="metadata-item temperature-indicator">
+        <span class="metadata-label">Temperatura:</span>
+        <span class="metadata-value temp-{{ include.drink.temperatura | slugify }}">
+          {% case include.drink.temperatura %}
+            {% when 'frío' or 'fría' %}🧊
+            {% when 'caliente' %}☕
+            {% when 'natural' %}🌡️
+            {% when 'con hielo' %}❄️
+            {% else %}{{ include.drink.temperatura }}
+          {% endcase %}
+        </span>
+      </div>
+      {% endif %}
+      
+      <!-- Tipo de bebida -->
+      {% if include.drink.tipo %}
+      <div class="metadata-item type-indicator">
+        <span class="metadata-label">Tipo:</span>
+        <span class="metadata-value type-{{ include.drink.tipo | slugify }}">{{ include.drink.tipo }}</span>
+      </div>
+      {% endif %}
+      
+    </div>
+    
+    <!-- Tags/Etiquetas -->
+    {% if include.drink.tags and include.drink.tags.size > 0 %}
+    <div class="drink-tags">
+      {% for tag in include.drink.tags %}
+      <span class="drink-tag tag-{{ tag | slugify }}">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    
+  </div>
+  
+  <!-- Botón de acción (opcional) -->
+  <footer class="drink-card__footer">
+    <button class="drink-action-btn" 
+            data-drink="{{ include.drink.nombre | slugify }}"
+            data-precio="{{ include.drink.precio }}"
+            aria-label="Agregar {{ include.drink.nombre }} al pedido">
+      <span class="btn-icon">📋</span>
+      <span class="btn-text">Agregar</span>
+    </button>
+  </footer>
+  
 </article>
 {% else %}
-  <!-- Mensaje de error si la bebida no existe -->
-  <p class="error-message">
-    Error: La bebida "{{ include.drink }}" no existe en _data/mixologia.yml
-  </p>
+<!-- Mensaje de error si no se proporciona la bebida -->
+<div class="drink-card-error">
+  <p>❌ No se proporcionó información de la bebida.</p>
+  <p><small>Verifica que se esté pasando correctamente el parámetro 'drink'</small></p>
+</div>
 {% endif %}
-
-<!-- 
-  EJEMPLO DE DATOS (_data/mixologia.yml):
-  
-  margarita:
-    name: "Margarita Clásica"
-    description: "Tequila blanco, triple sec y limón fresco"
-    ingredients:
-      - "50ml Tequila Blanco"
-      - "25ml Triple Sec"
-      - "25ml Jugo de limón fresco"
-      - "Hielo"
-      - "Sal para el borde"
-    price: "$180"
-    image: "/assets/images/margarita.jpg"
-    alcohol_content: "15%"
-    preparation_time: "5 min"
-    category: "Clásicos"
-  
-  oaxaca-old-fashioned:
-    name: "Oaxaca Old Fashioned"
-    description: "Mezcal y tequila reposado con agave y bitter"
-    ingredients:
-      - "45ml Mezcal"
-      - "15ml Tequila Reposado"
-      - "10ml Jarabe de agave"
-      - "2 dashes Angostura bitters"
-    price: "$220"
-    alcohol_content: "30%"
-    category: "Autor"
--->
