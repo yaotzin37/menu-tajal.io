@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<!-- 
-  ============================================
+<html lang="es">
+<head>
+<!--   ============================================
   LAYOUT DEFAULT - PLANTILLA BASE
   ============================================
   
@@ -34,10 +35,9 @@
      - Variables de Liquid para contenido dinámico
      - Layouts anidables
 -->
-<html lang="{{ site.lang | default: 'es-MX' }}">
-<head>
+
   <!-- Meta básicos -->
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
@@ -66,12 +66,13 @@
   <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | relative_url }}">
   
   <!-- Estilos -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/menu-tarjetas.css' | relative_url }}">
   
   <!-- Preconnect a fuentes externas para mejor rendimiento -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   
   <!-- Jekyll SEO Tag Plugin (genera automáticamente tags adicionales) -->
   {% seo %}
@@ -94,7 +95,6 @@
   }
   </script>
 </head>
-
 <body>
   <!-- Skip to main content (accesibilidad) -->
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -111,12 +111,12 @@
         
         <!-- Navegación principal -->
         <nav class="main-nav" role="navigation" aria-label="Navegación principal">
-          <button class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
+          <button class="menu-toggle" aria-controls="menu-items" aria-expanded="false">
             <span class="sr-only">Menú</span>
             <span class="hamburger"></span>
           </button>
           
-          <ul id="menu-items" class="menu-items">
+          <ul class="menu-items" id="menu-items">
             <li><a href="{{ '/' | relative_url }}" aria-current="{% if page.url == '/' %}page{% endif %}">Inicio</a></li>
             <li><a href="#menu">Menú</a></li>
             <li><a href="#about">Nosotros</a></li>
@@ -128,7 +128,7 @@
   </header>
   
   <!-- Main Content -->
-  <main id="main-content" class="site-main" role="main">
+  <main class="site-main" id="main-content" role="main">
     <div class="container">
       <!-- El contenido de cada página se inserta aquí -->
       {{ content }}
@@ -141,17 +141,17 @@
       <div class="footer-content">
         <!-- Información de contacto -->
         <div class="footer-section contact-info">
-          <h2>Contacto</h2>
+          <h3>Contacto</h3>
           <address>
-            <p><strong>Teléfono:</strong> <a href="tel:{{ site.contact.phone }}">{{ site.contact.phone }}</a></p>
-            <p><strong>Dirección:</strong> {{ site.contact.address }}</p>
-            <p><strong>Horario:</strong> {{ site.contact.hours }}</p>
+            <p>Teléfono: <a href="tel:{{ site.contact.phone }}">{{ site.contact.phone }}</a></p>
+            <p>Dirección: {{ site.contact.address }}</p>
+            <p>Horario: {{ site.contact.hours }}</p>
           </address>
         </div>
         
         <!-- Enlaces útiles -->
         <div class="footer-section useful-links">
-          <h2>Enlaces</h2>
+          <h3>Enlaces</h3>
           <ul>
             <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
             <li><a href="#menu">Menú</a></li>
@@ -162,11 +162,11 @@
         
         <!-- Redes sociales -->
         <div class="footer-section social-media">
-          <h2>Síguenos</h2>
+          <h3>Síguenos</h3>
           <ul class="social-links" aria-label="Enlaces a redes sociales">
-            <li><a href="#" aria-label="Facebook" rel="noopener noreferrer" target="_blank">Facebook</a></li>
-            <li><a href="#" aria-label="Instagram" rel="noopener noreferrer" target="_blank">Instagram</a></li>
-            <li><a href="#" aria-label="Twitter" rel="noopener noreferrer" target="_blank">Twitter</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a></li>
+            <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter">Twitter</a></li>
           </ul>
         </div>
       </div>
@@ -174,7 +174,7 @@
       <!-- Copyright -->
       <div class="footer-bottom">
         <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. Todos los derechos reservados.</p>
-        <p class="credits">Sitio desarrollado con <a href="https://jekyllrb.com/" rel="noopener noreferrer" target="_blank">Jekyll</a></p>
+        <p class="credits">Sitio desarrollado con <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a></p>
       </div>
     </div>
   </footer>
