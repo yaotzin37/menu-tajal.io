@@ -1,0 +1,78 @@
+---
+layout: default
+---
+
+<!-- 
+  ============================================
+  LAYOUT MENU - PLANTILLA PARA SECCIÓN DE MENÚ
+  ============================================
+  
+  Este layout extiende el layout default y está especializado para
+  mostrar el menú de platillos del restaurante.
+  
+  CARACTERÍSTICAS:
+  - Hereda toda la estructura de default.html
+  - Agrega clases CSS específicas para menú
+  - Integra includes modulares para categorías de menú
+  - Facilita la personalización futura
+  
+  USO:
+  En menu.md, especificar:
+  ---
+  layout: menu
+  ---
+-->
+
+<div class="menu-page">
+  <!-- Hero Section del Menú -->
+  <section class="menu-hero" aria-label="Banner del menú">
+    <div class="menu-hero-content">
+      <h1 class="menu-title">{{ page.title | default: 'Nuestro Menú' }}</h1>
+      {% if page.subtitle %}
+        <p class="menu-subtitle">{{ page.subtitle }}</p>
+      {% endif %}
+      {% if page.description %}
+        <p class="menu-description">{{ page.description }}</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- Contenido del Menú -->
+  <section class="menu-content" aria-label="Categorías del menú">
+    <div class="container">
+      {{ content }}
+      
+      <!-- 
+        Aquí se renderiza el contenido de menu.md
+        que incluye las categorías usando {% include %}
+      -->
+    </div>
+  </section>
+
+  <!-- Sección de Nota/Información Adicional -->
+  {% if page.note %}
+  <aside class="menu-note" role="note">
+    <div class="container">
+      <p>{{ page.note }}</p>
+    </div>
+  </aside>
+  {% endif %}
+</div>
+
+<!-- 
+  EJEMPLO DE USO EN menu.md:
+  
+  ---
+  layout: menu
+  title: "Nuestro Menú"
+  subtitle: "Platillos Tradicionales Oaxaqueños"
+  description: "Descubre los sabores auténticos de Oaxaca"
+  note: "Los precios pueden variar sin previo aviso"
+  ---
+  
+  ## Entradas
+  {% include menu/menu-category.html category="entradas" %}
+  
+  ## Platos Fuertes
+  {% include menu/menu-category.html category="platos-fuertes" %}
+-->
