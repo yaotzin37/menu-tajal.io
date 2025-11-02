@@ -1,0 +1,37 @@
+# Menú de Tajal
+categorias:
+  - nombre: "Entradas"
+    platillos:
+      - nombre: "Ceviche de Pescado"
+        descripcion: "Pescado fresco marinado en limón con chile serrano y cilantro"
+        precio: 185
+      - nombre: "Tostadas de Atún"
+        descripcion: "Atún sellado sobre tostada con aguacate y salsa de soya"
+        precio: 165
+      - nombre: "Guacamole Tradicional"
+        descripcion: "Aguacate fresco con jitomate, cebolla y chile"
+        precio: 135
+
+  - nombre: "Platos Fuertes"
+    platillos:
+      - nombre: "Tacos de Rib Eye"
+        descripcion: "Tres tacos de rib eye con cebolla caramelizada y queso fundido"
+        precio: 285
+      - nombre: "Camarones al Mojo de Ajo"
+        descripcion: "Camarones salteados en mantequilla con ajo y especias"
+        precio: 295
+      - nombre: "Enchiladas Verdes"
+        descripcion: "Enchiladas bañadas en salsa verde con pollo y crema"
+        precio: 225
+
+  - nombre: "Postres"
+    platillos:
+      - nombre: "Flan Napolitano"
+        descripcion: "Flan casero con caramelo y vainilla"
+        precio: 95
+      - nombre: "Pastel de Chocolate"
+        descripcion: "Pastel húmedo de chocolate con helado de vainilla"
+        precio: 115
+      - nombre: "Cheesecake de Frutos Rojos"
+        descripcion: "Cheesecake cremoso con mermelada de frutos del bosque"
+        precio: 125
