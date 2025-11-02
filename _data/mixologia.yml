@@ -1,0 +1,64 @@
+# Mixología Tajal
+cocteles:
+  - nombre: "Margarita Tajal"
+    descripcion: "Tequila premium, limón fresco, triple sec y sal de gusano"
+    ingredientes:
+      - "Tequila blanco"
+      - "Triple sec"
+      - "Jugo de limón"
+      - "Jarabe natural"
+      - "Sal de gusano"
+    precio: 165
+    tipo: "clásico"
+
+  - nombre: "Paloma Picante"
+    descripcion: "Tequila reposado, toronja rosa, jalapeño y agua mineral"
+    ingredientes:
+      - "Tequila reposado"
+      - "Jugo de toronja rosa"
+      - "Jalapeño"
+      - "Agua mineral"
+      - "Sal y limón"
+    precio: 155
+    tipo: "refrescante"
+
+  - nombre: "Mezcalini"
+    descripcion: "Mezcal oaxaqueño, vermouth seco y aceituna ahumada"
+    ingredientes:
+      - "Mezcal espadín"
+      - "Vermouth seco"
+      - "Bitter de naranja"
+      - "Aceituna ahumada"
+    precio: 185
+    tipo: "sofisticado"
+
+  - nombre: "Mojito de Hierba Buena"
+    descripcion: "Ron blanco, hierba buena fresca, limón y soda"
+    ingredientes:
+      - "Ron blanco"
+      - "Hierba buena"
+      - "Jugo de limón"
+      - "Azúcar"
+      - "Agua mineral"
+    precio: 145
+    tipo: "refrescante"
+
+  - nombre: "Old Fashioned de Mezcal"
+    descripcion: "Mezcal añejo, bitter de chocolate y naranja confitada"
+    ingredientes:
+      - "Mezcal añejo"
+      - "Bitter de chocolate"
+      - "Jarabe de agave"
+      - "Cáscara de naranja"
+    precio: 195
+    tipo: "sofisticado"
+
+  - nombre: "Daiquiri de Mango"
+    descripcion: "Ron blanco, mango fresco, limón y jarabe natural"
+    ingredientes:
+      - "Ron blanco"
+      - "Mango fresco"
+      - "Jugo de limón"
+      - "Jarabe natural"
+    precio: 155
+    tipo: "frutal"
