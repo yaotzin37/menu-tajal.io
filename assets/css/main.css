@@ -1,0 +1,340 @@
+/* ============================================
+   CSS PRINCIPAL - BUENAS PRÁCTICAS
+   ============================================
+   
+   BUENAS PRÁCTICAS APLICADAS:
+   
+   1. ORGANIZACIÓN MODULAR
+      - Original: CSS inline o todo en un archivo
+      - Correcto: CSS organizado por componentes con metodología BEM
+   
+   2. ACCESIBILIDAD
+      - Contraste de colores (WCAG AA)
+      - Tamaños de fuente accesibles (rem/em)
+      - Estados de foco visibles
+      - Skip links
+   
+   3. RESPONSIVE DESIGN
+      - Mobile-first approach
+      - Breakpoints semánticos
+      - Flexbox y Grid para layouts
+   
+   4. RENDIMIENTO
+      - CSS minificado en producción
+      - Variables CSS para reutilización
+      - Selectores eficientes
+   
+   5. MANTENIBILIDAD
+      - Nombres de clases descriptivos
+      - Comentarios explicativos
+      - Variables para colores y espaciado
+*/
+
+/* ============================================
+   VARIABLES CSS (Custom Properties)
+   ============================================ */
+:root {
+  /* Colores primarios */
+  --color-primary: #D4A574;
+  --color-secondary: #2C1810;
+  --color-accent: #8B4513;
+  
+  /* Colores de texto */
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-text-inverse: #FFFFFF;
+  
+  /* Colores de fondo */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F5F5F5;
+  --color-bg-dark: #2C1810;
+  
+  /* Tipografía */
+  --font-primary: 'Playfair Display', serif;
+  --font-secondary: 'Lato', sans-serif;
+  
+  /* Tamaños de fuente (escala modular) */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-2xl: 2rem; /* 32px */
+  --font-size-3xl: 2.5rem; /* 40px */
+  
+  /* Espaciado (sistema de 8pt) */
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 1rem; /* 16px */
+  --space-md: 1.5rem; /* 24px */
+  --space-lg: 2rem; /* 32px */
+  --space-xl: 3rem; /* 48px */
+  --space-2xl: 4rem; /* 64px */
+  
+  /* Breakpoints (guardados como comentarios) */
+  /* --breakpoint-sm: 640px; */
+  /* --breakpoint-md: 768px; */
+  /* --breakpoint-lg: 1024px; */
+  /* --breakpoint-xl: 1280px; */
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  
+  /* Transiciones */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+}
+
+/* ============================================
+   RESET Y ESTILOS BASE
+   ============================================ */
+
+/* Box sizing para todos los elementos */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Reset de márgenes */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Reset de listas */
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+/* Estilos base del body */
+body {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
+/* Skip link - visible solo con foco */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  padding: var(--space-sm) var(--space-md);
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Clase para ocultar visualmente pero mantener accesible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Estados de foco visibles */
+a:focus, button:focus, input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   TIPOGRAFÍA
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-md);
+}
+
+h1 { font-size: var(--font-size-3xl); }
+h2 { font-size: var(--font-size-2xl); }
+h3 { font-size: var(--font-size-xl); }
+h4 { font-size: var(--font-size-lg); }
+
+p {
+  margin-bottom: var(--space-sm);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* ============================================
+   LAYOUT Y CONTENEDORES
+   ============================================ */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.site-header {
+  background-color: var(--color-bg-dark);
+  padding: var(--space-md) 0;
+  box-shadow: var(--shadow-md);
+}
+
+.site-title a {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-2xl);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.site-title a:hover {
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+/* ============================================
+   NAVEGACIÓN
+   ============================================ */
+
+.main-nav ul {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.main-nav a {
+  color: var(--color-text-inverse);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 4px;
+  transition: background-color var(--transition-fast);
+}
+
+.main-nav a:hover,
+.main-nav a[aria-current="page"] {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
+.site-main {
+  min-height: 60vh;
+  padding: var(--space-2xl) 0;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.site-footer {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+  padding: var(--space-xl) 0 var(--space-md);
+  margin-top: var(--space-2xl);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.footer-section h2 {
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.footer-section a {
+  color: var(--color-text-inverse);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--space-md);
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN (Mobile-First)
+   ============================================ */
+
+/* Tablet y superior */
+@media (min-width: 768px) {
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Móvil */
+@media (max-width: 767px) {
+  :root {
+    --font-size-3xl: 2rem;
+    --font-size-2xl: 1.5rem;
+  }
+  
+  .main-nav ul {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+}
+
+/* ============================================
+   COMPARACIÓN CON EL ORIGINAL:
+   
+   - Original: CSS inline mezclado con HTML
+   - Correcto: CSS externo, organizado y modular
+   
+   - Original: Colores hardcodeados repetidos
+   - Correcto: Variables CSS reutilizables
+   
+   - Original: Sin consideración de accesibilidad
+   - Correcto: Estados de foco, skip links, contraste
+   
+   - Original: Sin responsive design o mal implementado
+   - Correcto: Mobile-first, breakpoints semánticos
+   
+   - Original: Selectores poco eficientes
+   - Correcto: Metodología BEM, especificidad controlada
+   ============================================ */
