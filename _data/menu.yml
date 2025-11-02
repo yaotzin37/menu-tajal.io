@@ -1,16 +1,105 @@
-# Menú de Tajal
+# Menú de Tajal - Estructura Completa
+# Documentación: Este archivo contiene todas las categorías del menú
+# Campos disponibles: nombre, descripcion, precio, imagen, extras, tags, opciones
+
 categorias:
   - nombre: "Entradas"
     platillos:
       - nombre: "Ceviche de Pescado"
         descripcion: "Pescado fresco marinado en limón con chile serrano y cilantro"
         precio: 185
+        tags: ["picante", "fresco"]
       - nombre: "Tostadas de Atún"
         descripcion: "Atún sellado sobre tostada con aguacate y salsa de soya"
         precio: 165
+        tags: ["fresco"]
       - nombre: "Guacamole Tradicional"
         descripcion: "Aguacate fresco con jitomate, cebolla y chile"
         precio: 135
+        tags: ["vegetariano", "picante"]
+      - nombre: "Alitas BBQ"
+        descripcion: "10 alitas de pollo con salsa BBQ casera"
+        precio: 155
+        extras: ["Ranch", "Aderezo Blue Cheese"]
+      - nombre: "Nachos Tajal"
+        descripcion: "Totopos con queso fundido, frijoles, jalapeños y crema"
+        precio: 145
+        opciones: ["Con carne", "Con pollo", "Vegetarianos"]
+      - nombre: "Dedos de Queso"
+        descripcion: "6 piezas de queso mozzarella empanizado"
+        precio: 125
+
+  - nombre: "Ensaladas"
+    platillos:
+      - nombre: "Ensalada César"
+        descripcion: "Lechuga romana, crutones, queso parmesano y aderezo césar"
+        precio: 165
+        opciones: ["Con pollo", "Con camarones"]
+        tags: ["saludable"]
+      - nombre: "Ensalada Griega"
+        descripcion: "Pepino, jitomate, aceitunas, queso feta y vinagreta"
+        precio: 155
+        tags: ["vegetariano", "saludable"]
+      - nombre: "Ensalada de Arúgula"
+        descripcion: "Arúgula, pera caramelizada, nuez y vinagreta balsámica"
+        precio: 175
+        tags: ["vegetariano", "gourmet"]
+
+  - nombre: "Pastas"
+    platillos:
+      - nombre: "Fettuccine Alfredo"
+        descripcion: "Pasta en salsa cremosa de queso parmesano"
+        precio: 195
+        opciones: ["Con pollo", "Con camarones"]
+      - nombre: "Espagueti Boloñesa"
+        descripcion: "Pasta con salsa de carne molida y especias italianas"
+        precio: 185
+      - nombre: "Penne Arrabbiata"
+        descripcion: "Pasta con salsa de jitomate picante y albahaca"
+        precio: 175
+        tags: ["picante", "vegetariano"]
+      - nombre: "Lasagna de Carne"
+        descripcion: "Capas de pasta con carne, bechamel y queso gratinado"
+        precio: 215
+
+  - nombre: "Hamburguesas"
+    platillos:
+      - nombre: "Hamburguesa Clásica"
+        descripcion: "Carne de res 180g, lechuga, jitomate, cebolla y pepinillos"
+        precio: 175
+        extras: ["Queso", "Tocino", "Aguacate"]
+      - nombre: "Hamburguesa BBQ"
+        descripcion: "Carne de res, aros de cebolla, tocino y salsa BBQ"
+        precio: 195
+      - nombre: "Hamburguesa Tajal"
+        descripcion: "Doble carne, queso manchego, aguacate y chile toreado"
+        precio: 225
+        tags: ["recomendado", "picante"]
+      - nombre: "Hamburguesa de Pollo"
+        descripcion: "Pechuga de pollo empanizada con lechuga y mayonesa chipotle"
+        precio: 165
+
+  - nombre: "Cortes"
+    platillos:
+      - nombre: "Rib Eye 350g"
+        descripcion: "Corte de res premium con mantequilla de hierbas"
+        precio: 445
+        opciones: ["Término: Rojo, Medio, Bien cocido"]
+        tags: ["premium"]
+      - nombre: "New York 300g"
+        descripcion: "Corte suave y jugoso con sal de mar"
+        precio: 425
+        opciones: ["Término: Rojo, Medio, Bien cocido"]
+        tags: ["premium"]
+      - nombre: "Arrachera 250g"
+        descripcion: "Corte marinado con especias mexicanas"
+        precio: 295
+        opciones: ["Término: Rojo, Medio, Bien cocido"]
+      - nombre: "T-Bone 400g"
+        descripcion: "Corte con hueso para máximo sabor"
+        precio: 485
+        opciones: ["Término: Rojo, Medio, Bien cocido"]
+        tags: ["premium"]
 
   - nombre: "Platos Fuertes"
     platillos:
@@ -23,6 +112,51 @@ categorias:
       - nombre: "Enchiladas Verdes"
         descripcion: "Enchiladas bañadas en salsa verde con pollo y crema"
         precio: 225
+        opciones: ["Con pollo", "Con carne", "Con queso"]
+      - nombre: "Molcajete Mixto"
+        descripcion: "Arrachera, pollo, camarones, queso y nopales en molcajete"
+        precio: 385
+        tags: ["para compartir", "recomendado"]
+
+  - nombre: "Del Mar"
+    platillos:
+      - nombre: "Filete de Pescado a la Veracruzana"
+        descripcion: "Filete en salsa de jitomate con aceitunas y alcaparras"
+        precio: 285
+      - nombre: "Camarones a la Diabla"
+        descripcion: "Camarones en salsa picante de chile de árbol"
+        precio: 305
+        tags: ["picante"]
+      - nombre: "Pescado Zarandeado"
+        descripcion: "Pescado entero asado con especias y chile"
+        precio: 325
+        tags: ["recomendado"]
+      - nombre: "Pulpo al Grill"
+        descripcion: "Pulpo asado con papas cambray y alioli"
+        precio: 345
+        tags: ["gourmet"]
+      - nombre: "Tacos de Pescado Estilo Ensenada"
+        descripcion: "Tres tacos de pescado empanizado con col y chipotle"
+        precio: 195
+
+  - nombre: "Menú Infantil"
+    platillos:
+      - nombre: "Dedos de Pollo"
+        descripcion: "4 piezas de pollo empanizado con papas fritas"
+        precio: 95
+        extras: ["Ketchup", "BBQ"]
+      - nombre: "Mini Hamburguesa"
+        descripcion: "Hamburguesa pequeña con queso y papas"
+        precio: 105
+      - nombre: "Quesadillas de Queso"
+        descripcion: "Tres quesadillas con queso y frijoles"
+        precio: 85
+      - nombre: "Espagueti con Mantequilla"
+        descripcion: "Pasta simple con mantequilla y queso parmesano"
+        precio: 85
+      - nombre: "Mini Hot Dogs"
+        descripcion: "Dos hot dogs pequeños con papas"
+        precio: 95
 
   - nombre: "Postres"
     platillos:
@@ -32,6 +166,38 @@ categorias:
       - nombre: "Pastel de Chocolate"
         descripcion: "Pastel húmedo de chocolate con helado de vainilla"
         precio: 115
+        extras: ["Helado extra"]
       - nombre: "Cheesecake de Frutos Rojos"
         descripcion: "Cheesecake cremoso con mermelada de frutos del bosque"
         precio: 125
+      - nombre: "Brownie con Helado"
+        descripcion: "Brownie caliente con helado de vainilla y chocolate"
+        precio: 105
+      - nombre: "Crepas con Cajeta"
+        descripcion: "Crepas dulces rellenas de cajeta y nuez"
+        precio: 95
+      - nombre: "Tres Leches"
+        descripcion: "Pastel tradicional bañado en tres leches"
+        precio: 100
+
+  - nombre: "Extras"
+    platillos:
+      - nombre: "Papas Fritas"
+        descripcion: "Porción de papas crujientes"
+        precio: 55
+      - nombre: "Arroz"
+        descripcion: "Arroz blanco o rojo"
+        precio: 45
+      - nombre: "Frijoles"
+        descripcion: "Frijoles refritos o charros"
+        precio: 45
+      - nombre: "Tortillas"
+        descripcion: "Orden de tortillas de maíz o harina"
+        precio: 25
+      - nombre: "Guacamole Extra"
+        descripcion: "Porción adicional de guacamole"
+        precio: 65
+      - nombre: "Queso Fundido"
+        descripcion: "Queso gratinado con chorizo opcional"
+        precio: 85
+        opciones: ["Sin chorizo", "Con chorizo"]
