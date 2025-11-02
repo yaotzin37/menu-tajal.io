@@ -1,212 +1,80 @@
 ---
-layout: default
-title: Mixología
+layout: mixologia
+title: "Mixología de Autor"
+subtitle: "Cócteles Artesanales con Mezcal y Tequila"
+description: "Explora nuestra colección de cócteles únicos, creados por nuestros mixologos expertos"
 permalink: /mixologia.html
+note: "Todos nuestros cócteles son preparados al momento con ingredientes frescos y de la más alta calidad."
+responsible_message: "Disfruta con moderación. Prohibida la venta de alcohol a menores de 18 años."
 ---
 
-# Mixología de Autor
-
-<!-- 
-  Ejemplo de uso del include drink-card.html
-  Este archivo demuestra cómo iterar sobre cocteles y bebidas
-  utilizando el include reutilizable.
+<!--
+  ============================================
+  ARCHIVO: mixologia.md
+  LAYOUT: mixologia
+  ============================================
   
-  Para ampliar la personalización:
-  - Crea un archivo _data/mixologia.yml con tus cocteles
-  - Añade imágenes de cada coctel
-  - Incluye información de contenido alcohólico
-  - Agrega filtros para ordenar por tipo (clásico, signature, frozen, etc.)
+  Este archivo usa el layout especializado mixologia.html que incluye:
+  - Hero section con título y descripción
+  - Área de contenido para cócteles
+  - Mensaje de consumo responsable
+  - Notas adicionales
+  
+  Para agregar cócteles, usa el include mixologia/drink-card.html:
+  {% include mixologia/drink-card.html drink="nombre-coctel" %}
+  
+  Los datos deben estar en _data/mixologia.yml
 -->
 
-<div class="mixologia-intro">
-  <p>Descubre nuestra selección de cócteles artesanales, preparados con ingredientes premium y técnicas de mixología de autor.</p>
-</div>
+## Cócteles Clásicos
 
-<div class="drinks-container">
-  
-  {% comment %}
-    Itera sobre cada coctel definido en _data/mixologia.yml
-    Cada coctel debe tener: nombre, precio, ingredientes (array), imagen (opcional)
-  {% endcomment %}
-  
-  {% for coctel in site.data.mixologia.cocteles %}
-    
-    {% comment %}
-      Usa el include drink-card.html para mostrar cada coctel
-      Pasa todos los parámetros necesarios
-    {% endcomment %}
-    
-    {% include drink-card.html 
-       name=coctel.nombre 
-       price=coctel.precio
-       ingredients=coctel.ingredientes
-       image=coctel.imagen
-       description=coctel.descripcion
-       alcohol_content=coctel.contenido_alcoholico
-    %}
-    
+<div class="drinks-grid">
+  {% for drink_id in site.data.mixologia.clasicos %}
+    {% include mixologia/drink-card.html drink=drink_id %}
   {% endfor %}
-  
 </div>
 
-<!-- Ejemplos estáticos para demostrar el uso sin datos -->
-<div class="drinks-examples">
-  
-  <h2>Ejemplos de Cocteles</h2>
-  
-  {% comment %}
-    Puedes usar el include directamente con valores literales
-    para crear ejemplos o cocteles especiales
-  {% endcomment %}
-  
-  <!-- Ejemplo 1: Margarita Tradicional -->
-  {% assign margarita_ingredientes = "Tequila Blanco|Triple Sec|Jugo de Limón Fresco|Jarabe Simple|Sal de Mar" | split: "|" %}
-  
-  {% include drink-card.html 
-     name="Margarita Tradicional" 
-     price="$180"
-     ingredients=margarita_ingredientes
-     description="Un clásico atemporal con el balance perfecto entre dulce y ácido"
-     alcohol_content="15% Vol."
-  %}
-  
-  <!-- Ejemplo 2: Mezcal con Chapulines -->
-  {% assign mezcal_ingredientes = "Mezcal Espadin|Limón|Sal de Gusano|Chapulines Tostados|Naranja" | split: "|" %}
-  
-  {% include drink-card.html 
-     name="Mezcal con Chapulines" 
-     price="$220"
-     ingredients=mezcal_ingredientes
-     description="Experiencia oaxaqueña auténtica con mezcal artesanal y chapulines"
-     alcohol_content="40% Vol."
-  %}
-  
-  <!-- Ejemplo 3: Mojito de Jamaica -->
-  {% assign mojito_ingredientes = "Ron Blanco|Agua de Jamaica|Hierbabuena Fresca|Limón|Azucar Morena|Agua Mineral" | split: "|" %}
-  
-  {% include drink-card.html 
-     name="Mojito de Jamaica" 
-     price="$160"
-     ingredients=mojito_ingredientes
-     description="Refrescante fusión de mojito cubano con agua de jamaica mexicana"
-     alcohol_content="12% Vol."
-  %}
-  
+## Cócteles de Autor
+
+<div class="drinks-grid">
+  {% for drink_id in site.data.mixologia.autor %}
+    {% include mixologia/drink-card.html drink=drink_id %}
+  {% endfor %}
 </div>
 
-<!-- CSS Inline para mixología (mejor moverlo a un archivo CSS separado) -->
-<style>
-  .mixologia-intro {
-    max-width: 800px;
-    margin: 0 auto 3rem;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #555;
-    padding: 2rem;
-  }
+## Bebidas Sin Alcohol
+
+<div class="drinks-grid">
+  {% for drink_id in site.data.mixologia.sin-alcohol %}
+    {% include mixologia/drink-card.html drink=drink_id %}
+  {% endfor %}
+</div>
+
+<!--
+  NOTA PARA DESARROLLADORES:
   
-  .drinks-container,
-  .drinks-examples {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-  }
+  Para agregar más cócteles:
+  1. Agrégalos a _data/mixologia.yml con sus detalles completos
+  2. El include renderizará automáticamente cada cóctel con su información
+  3. Puedes crear nuevas categorías agregando secciones similares
   
-  .drinks-examples {
-    margin-top: 4rem;
-    padding-top: 4rem;
-    border-top: 2px solid #e0e0e0;
-  }
+  Ejemplo de estructura en _data/mixologia.yml:
   
-  .drinks-examples h2 {
-    grid-column: 1 / -1;
-    font-size: 2rem;
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
+  clasicos:
+    - margarita
+    - paloma
+  autor:
+    - oaxaca-old-fashioned
   
-  /* Estilos para el include drink-card.html */
-  .drink-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 12px;
-    padding: 2rem;
-    color: white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .drink-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-  }
-  
-  .drink-image img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-  }
-  
-  .drink-name {
-    font-size: 1.75rem;
-    margin-bottom: 0.75rem;
-    font-weight: bold;
-  }
-  
-  .drink-description {
-    font-size: 0.95rem;
-    opacity: 0.95;
-    margin-bottom: 1.25rem;
-    line-height: 1.5;
-  }
-  
-  .drink-ingredients {
-    background: rgba(255,255,255,0.15);
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-  }
-  
-  .ingredients-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  .ingredients-list {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-  
-  .drink-alcohol {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-  }
-  
-  .alcohol-icon {
-    font-size: 1.2rem;
-  }
-  
-  .drink-price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: right;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.3);
-  }
-  
-  .price-amount {
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-  }
-</style>
+  margarita:
+    name: "Margarita Clásica"
+    description: "Tequila blanco, triple sec y limón fresco"
+    ingredients:
+      - "50ml Tequila Blanco"
+      - "25ml Triple Sec"
+      - "25ml Jugo de limón"
+    price: "$180"
+    image: "/assets/images/margarita.jpg"
+    alcohol_content: "15%"
+    category: "Clásicos"
+-->
