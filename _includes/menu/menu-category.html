@@ -1,5 +1,4 @@
-<!-- 
-  ============================================
+<!--   ============================================
   INCLUDE: MENU-CATEGORY
   Ubicación: _includes/menu/menu-category.html
   ============================================
@@ -14,124 +13,110 @@
   {% include menu/menu-category.html category="entradas" %}
   
   ESTRUCTURA DE DATOS ESPERADA (_data/menu.yml):
-  entradas:
-    title: "Entradas"
-    items:
-      - name: "Nombre del Platillo"
-        description: "Descripción del platillo"
-        price: "$150"
-        image: "/assets/images/platillo.jpg" (opcional)
-        vegetarian: true (opcional)
-        spicy: 2 (opcional, nivel de picante 1-3)
+  categorias:
+    - nombre: "Entradas"
+      platillos:
+        - nombre: "Nombre del Platillo"
+          descripcion: "Descripción del platillo"
+          precio: 150
+          imagen: "/assets/images/platillo.jpg" (opcional)
+          tags: ["vegetariano", "picante"] (opcional)
+          extras: ["Queso", "Tocino"] (opcional)
+          opciones: ["Con pollo", "Sin cebolla"] (opcional)
 -->
 
-{% assign category_data = site.data.menu[include.category] %}
+{% comment %}
+  Buscar la categoría por nombre en el arreglo de categorías
+{% endcomment %}
+{% assign category_data = nil %}
+{% for categoria in site.data.menu.categorias %}
+  {% if categoria.nombre == include.category %}
+    {% assign category_data = categoria %}
+    {% break %}
+  {% endif %}
+{% endfor %}
 
 {% if category_data %}
-<div class="menu-category" id="{{ include.category }}">
+<div class="menu-category" id="{{ include.category | slugify }}">
   <!-- Título de la Categoría -->
   <h2 class="category-title">
-    {{ category_data.title | default: include.category | capitalize }}
+    <span class="category-icon">🍽️</span>
+    {{ category_data.nombre }}
   </h2>
   
-  <!-- Descripción de la Categoría (opcional) -->
-  {% if category_data.description %}
-    <p class="category-description">{{ category_data.description }}</p>
+  <!-- Descripción de la categoría si existe -->
+  {% if category_data.descripcion %}
+  <p class="category-description">{{ category_data.descripcion }}</p>
   {% endif %}
   
-  <!-- Grid de Platillos -->
-  <div class="menu-items-grid">
-    {% for item in category_data.items %}
-      <article class="menu-item" itemscope itemtype="https://schema.org/MenuItem">
-        <!-- Imagen del Platillo (si existe) -->
-        {% if item.image %}
-          <div class="item-image">
-            <img 
-              src="{{ item.image | relative_url }}" 
-              alt="{{ item.name }}"
-              loading="lazy"
-              itemprop="image"
-            />
-          </div>
+  <!-- Contenedor de platillos -->
+  <div class="menu-items-container">
+    {% for platillo in category_data.platillos %}
+    <div class="menu-item" data-tags="{{ platillo.tags | join: ' ' }}">
+      
+      <!-- Imagen del platillo si existe -->
+      {% if platillo.imagen %}
+      <div class="item-image">
+        <img src="{{ platillo.imagen }}" alt="{{ platillo.nombre }}" loading="lazy">
+      </div>
+      {% endif %}
+      
+      <!-- Contenido principal del platillo -->
+      <div class="item-content">
+        <div class="item-header">
+          <h3 class="item-name">{{ platillo.nombre }}</h3>
+          <span class="item-price">${{ platillo.precio }}</span>
+        </div>
+        
+        <!-- Descripción -->
+        {% if platillo.descripcion %}
+        <p class="item-description">{{ platillo.descripcion }}</p>
         {% endif %}
         
-        <!-- Contenido del Platillo -->
-        <div class="item-content">
-          <div class="item-header">
-            <h3 class="item-name" itemprop="name">{{ item.name }}</h3>
-            
-            <!-- Iconos/Badges -->
-            <div class="item-badges">
-              {% if item.vegetarian %}
-                <span class="badge badge-vegetarian" title="Vegetariano">
-                  🌱 V
-                </span>
-              {% endif %}
-              
-              {% if item.spicy %}
-                <span class="badge badge-spicy" title="Nivel de picante: {{ item.spicy }}">
-                  {% for i in (1..item.spicy) %}🌶️{% endfor %}
-                </span>
-              {% endif %}
-              
-              {% if item.popular %}
-                <span class="badge badge-popular" title="Popular">
-                  ⭐ Popular
-                </span>
-              {% endif %}
-            </div>
-          </div>
-          
-          <!-- Descripción -->
-          {% if item.description %}
-            <p class="item-description" itemprop="description">
-              {{ item.description }}
-            </p>
-          {% endif %}
-          
-          <!-- Ingredientes (opcional) -->
-          {% if item.ingredients %}
-            <p class="item-ingredients">
-              <em>{{ item.ingredients }}</em>
-            </p>
-          {% endif %}
-          
-          <!-- Precio -->
-          {% if item.price %}
-            <p class="item-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-              <span itemprop="price">{{ item.price }}</span>
-            </p>
-          {% endif %}
+        <!-- Tags/Etiquetas -->
+        {% if platillo.tags and platillo.tags.size > 0 %}
+        <div class="item-tags">
+          {% for tag in platillo.tags %}
+          <span class="tag tag-{{ tag | slugify }}">{{ tag }}</span>
+          {% endfor %}
         </div>
-      </article>
+        {% endif %}
+        
+        <!-- Opciones disponibles -->
+        {% if platillo.opciones and platillo.opciones.size > 0 %}
+        <div class="item-options">
+          <strong>Opciones:</strong>
+          <ul class="options-list">
+            {% for opcion in platillo.opciones %}
+            <li class="option-item">{{ opcion }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        
+        <!-- Extras disponibles -->
+        {% if platillo.extras and platillo.extras.size > 0 %}
+        <div class="item-extras">
+          <strong>Extras:</strong>
+          <ul class="extras-list">
+            {% for extra in platillo.extras %}
+            <li class="extra-item">{{ extra }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        
+      </div>
+      
+    </div>
     {% endfor %}
   </div>
+  
 </div>
 {% else %}
-  <!-- Mensaje de error si la categoría no existe -->
-  <p class="error-message">
-    Error: La categoría "{{ include.category }}" no existe en _data/menu.yml
-  </p>
+<!-- Mensaje de error si no se encuentra la categoría -->
+<div class="menu-category-error">
+  <p>❌ Categoría "{{ include.category }}" no encontrada en los datos del menú.</p>
+  <p><small>Verifica que el nombre coincida exactamente con alguna categoría en _data/menu.yml</small></p>
+</div>
 {% endif %}
-
-<!-- 
-  EJEMPLO DE DATOS (_data/menu.yml):
-  
-  entradas:
-    title: "Entradas"
-    description: "Para comenzar tu experiencia"
-    items:
-      - name: "Guacamole con Chapulines"
-        description: "Aguacate fresco con chapulines tostados"
-        ingredients: "Aguacate, chapulines, cebolla, cilantro, limón"
-        price: "$120"
-        image: "/assets/images/guacamole.jpg"
-        vegetarian: false
-        spicy: 1
-        popular: true
-      
-      - name: "Quesadillas de Flor de Calabaza"
-        description: "Tortillas hechas a mano con queso Oaxaca"
-        price: "$95"
-        vegetarian: true
--->
