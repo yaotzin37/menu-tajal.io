@@ -1,0 +1,82 @@
+<!-- 
+  Include reutilizable para mostrar una tarjeta de coctel/bebida
+  
+  Parámetros requeridos:
+  - include.name: Nombre del coctel
+  - include.price: Precio del coctel
+  
+  Parámetros opcionales:
+  - include.ingredients: Lista de ingredientes (array o string separado por comas)
+  - include.image: URL de la imagen del coctel
+  - include.description: Descripción breve del coctel
+  - include.alcohol_content: Contenido alcohólico (ej: "15% Vol.")
+  
+  Ejemplo de uso:
+  {% include drink-card.html 
+     name="Margarita Tradicional" 
+     ingredients="Tequila, Triple Sec, Limón, Sal"
+     price="$180"
+     image="/assets/images/margarita.jpg"
+  %}
+  
+  Para personalizar:
+  - Modifica las clases CSS para cambiar colores y diseño
+  - Añade campos como 'glass_type' (tipo de copa) o 'garnish' (guarnición)
+  - Agrega iconos para indicar nivel de alcohol o dulzura
+  - Incluye badges para etiquetas como "Signature", "Spicy", "Frozen"
+-->
+
+<article class="drink-card" itemscope itemtype="https://schema.org/MenuItem">
+  
+  <!-- Imagen del coctel (opcional) -->
+  {% if include.image %}
+    <div class="drink-image">
+      <img src="{{ include.image }}" alt="{{ include.name }}" itemprop="image" loading="lazy">
+    </div>
+  {% endif %}
+  
+  <div class="drink-content">
+    
+    <!-- Nombre del coctel -->
+    <h3 class="drink-name" itemprop="name">{{ include.name }}</h3>
+    
+    <!-- Descripción (opcional) -->
+    {% if include.description %}
+      <p class="drink-description" itemprop="description">{{ include.description }}</p>
+    {% endif %}
+    
+    <!-- Ingredientes -->
+    {% if include.ingredients %}
+      <div class="drink-ingredients">
+        <span class="ingredients-label">Ingredientes:</span>
+        <span class="ingredients-list">
+          {% if include.ingredients.first %}
+            <!-- Si ingredients es un array -->
+            {% for ingredient in include.ingredients %}
+              {{ ingredient }}{% unless forloop.last %}, {% endunless %}
+            {% endfor %}
+          {% else %}
+            <!-- Si ingredients es un string -->
+            {{ include.ingredients }}
+          {% endif %}
+        </span>
+      </div>
+    {% endif %}
+    
+    <!-- Contenido alcohólico (opcional) -->
+    {% if include.alcohol_content %}
+      <div class="drink-alcohol">
+        <span class="alcohol-icon">🍸</span>
+        <span class="alcohol-level">{{ include.alcohol_content }}</span>
+      </div>
+    {% endif %}
+    
+    <!-- Precio -->
+    <div class="drink-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+      <meta itemprop="priceCurrency" content="MXN">
+      <span class="price-amount" itemprop="price">{{ include.price }}</span>
+    </div>
+    
+  </div>
+  
+</article>
