@@ -1,64 +1,346 @@
-# Mixología Tajal
+# Mixología Tajal - Carta Completa de Bebidas
+# Documentación: Este archivo contiene cocteles, cervezas y bebidas sin alcohol
+# Campos: nombre, descripcion, precio, ingredientes, nivel_alcohol, tipo, tags, temperatura
+
 cocteles:
   - nombre: "Margarita Tajal"
     descripcion: "Tequila premium, limón fresco, triple sec y sal de gusano"
     ingredientes:
-      - "Tequila blanco"
-      - "Triple sec"
-      - "Jugo de limón"
-      - "Jarabe natural"
+      - "Tequila blanco 50ml"
+      - "Triple sec 20ml"
+      - "Jugo de limón 30ml"
+      - "Jarabe natural 15ml"
       - "Sal de gusano"
     precio: 165
+    nivel_alcohol: "medio"
     tipo: "clásico"
+    tags: ["tradicional", "cítrico"]
+    temperatura: "frío"
 
   - nombre: "Paloma Picante"
     descripcion: "Tequila reposado, toronja rosa, jalapeño y agua mineral"
     ingredientes:
-      - "Tequila reposado"
-      - "Jugo de toronja rosa"
-      - "Jalapeño"
-      - "Agua mineral"
-      - "Sal y limón"
+      - "Tequila reposado 50ml"
+      - "Jugo de toronja rosa 100ml"
+      - "Jalapeño macerado"
+      - "Agua mineral 30ml"
+      - "Sal y limón al borde"
     precio: 155
+    nivel_alcohol: "medio"
     tipo: "refrescante"
+    tags: ["picante", "frutal"]
+    temperatura: "frío"
 
   - nombre: "Mezcalini"
     descripcion: "Mezcal oaxaqueño, vermouth seco y aceituna ahumada"
     ingredientes:
-      - "Mezcal espadín"
-      - "Vermouth seco"
-      - "Bitter de naranja"
+      - "Mezcal espadín 60ml"
+      - "Vermouth seco 15ml"
+      - "Bitter de naranja 2 gotas"
       - "Aceituna ahumada"
     precio: 185
+    nivel_alcohol: "alto"
     tipo: "sofisticado"
+    tags: ["ahumado", "premium"]
+    temperatura: "frío"
 
   - nombre: "Mojito de Hierba Buena"
     descripcion: "Ron blanco, hierba buena fresca, limón y soda"
     ingredientes:
-      - "Ron blanco"
-      - "Hierba buena"
-      - "Jugo de limón"
-      - "Azúcar"
-      - "Agua mineral"
+      - "Ron blanco 50ml"
+      - "Hierba buena 10 hojas"
+      - "Jugo de limón 25ml"
+      - "Azúcar 2 cditas"
+      - "Soda 50ml"
     precio: 145
+    nivel_alcohol: "medio"
     tipo: "refrescante"
+    tags: ["fresco", "herbal"]
+    temperatura: "frío"
 
-  - nombre: "Old Fashioned de Mezcal"
-    descripcion: "Mezcal añejo, bitter de chocolate y naranja confitada"
+  - nombre: "Old Fashioned Tajal"
+    descripcion: "Whiskey bourbon, jarabe de maple, bitter y cereza"
     ingredientes:
-      - "Mezcal añejo"
-      - "Bitter de chocolate"
-      - "Jarabe de agave"
+      - "Bourbon 60ml"
+      - "Jarabe de maple 15ml"
+      - "Angostura bitter 3 gotas"
+      - "Cereza maraschino"
       - "Cáscara de naranja"
     precio: 195
-    tipo: "sofisticado"
+    nivel_alcohol: "alto"
+    tipo: "clásico"
+    tags: ["fuerte", "dulce"]
+    temperatura: "con hielo"
 
-  - nombre: "Daiquiri de Mango"
-    descripcion: "Ron blanco, mango fresco, limón y jarabe natural"
+  - nombre: "Cosmopolitan Rosa"
+    descripcion: "Vodka premium, arándano, limón y triple sec"
     ingredientes:
-      - "Ron blanco"
-      - "Mango fresco"
-      - "Jugo de limón"
-      - "Jarabe natural"
+      - "Vodka premium 50ml"
+      - "Triple sec 20ml"
+      - "Jugo de arándano 30ml"
+      - "Jugo de limón 15ml"
+    precio: 175
+    nivel_alcohol: "medio"
+    tipo: "elegante"
+    tags: ["frutal", "dulce"]
+    temperatura: "frío"
+
+  - nombre: "Mango Habanero Mule"
+    descripcion: "Vodka, puré de mango, habanero y ginger beer"
+    ingredientes:
+      - "Vodka 45ml"
+      - "Puré de mango 30ml"
+      - "Habanero macerado"
+      - "Ginger beer 100ml"
+      - "Jugo de limón 15ml"
+    precio: 165
+    nivel_alcohol: "medio"
+    tipo: "tropical"
+    tags: ["picante", "frutal", "especial"]
+    temperatura: "frío"
+
+  - nombre: "Gin Tonic Premium"
+    descripcion: "Gin artesanal, tónica premium y botanicos frescos"
+    ingredientes:
+      - "Gin premium 50ml"
+      - "Tónica premium 150ml"
+      - "Pepino"
+      - "Enebro"
+      - "Limón amarillo"
+    precio: 185
+    nivel_alcohol: "medio"
+    tipo: "clásico"
+    tags: ["botanicos", "refrescante"]
+    temperatura: "frío"
+
+  - nombre: "Negroni Ahumado"
+    descripcion: "Gin, Campari, vermouth rojo y nota ahumada"
+    ingredientes:
+      - "Gin 30ml"
+      - "Campari 30ml"
+      - "Vermouth rojo 30ml"
+      - "Mezcal 10ml"
+      - "Cáscara de naranja"
+    precio: 195
+    nivel_alcohol: "alto"
+    tipo: "sofisticado"
+    tags: ["amargo", "ahumado", "premium"]
+    temperatura: "con hielo"
+
+  - nombre: "Caipirinha de Maracuyá"
+    descripcion: "Cachaza brasileña, maracuyá fresco y azúcar"
+    ingredientes:
+      - "Cachaza 60ml"
+      - "Maracuyá 1/2 pieza"
+      - "Azúcar 2 cditas"
+      - "Limón 1/4 pieza"
     precio: 155
-    tipo: "frutal"
+    nivel_alcohol: "medio"
+    tipo: "tropical"
+    tags: ["frutal", "ácido"]
+    temperatura: "frío"
+
+cervezas:
+  - nombre: "Corona"
+    descripcion: "Cerveza ligera mexicana con limón"
+    precio: 65
+    tipo: "nacional"
+    nivel_alcohol: "bajo"
+    temperatura: "fría"
+    presentacion: "botella 355ml"
+    tags: ["ligera", "refrescante"]
+
+  - nombre: "Modelo Especial"
+    descripcion: "Cerveza premium mexicana con carácter"
+    precio: 70
+    tipo: "nacional"
+    nivel_alcohol: "medio"
+    temperatura: "fría"
+    presentacion: "botella 355ml"
+    tags: ["premium", "dorada"]
+
+  - nombre: "Tecate"
+    descripcion: "Cerveza mexicana con sal y limón"
+    precio: 60
+    tipo: "nacional"
+    nivel_alcohol: "medio"
+    temperatura: "fría"
+    presentacion: "lata 355ml"
+    tags: ["tradicional"]
+
+  - nombre: "Heineken"
+    descripcion: "Cerveza premium holandesa"
+    precio: 85
+    tipo: "importada"
+    nivel_alcohol: "medio"
+    temperatura: "fría"
+    presentacion: "botella 330ml"
+    tags: ["importada", "premium"]
+
+  - nombre: "Stella Artois"
+    descripcion: "Cerveza belga de calidad superior"
+    precio: 90
+    tipo: "importada"
+    nivel_alcohol: "medio"
+    temperatura: "fría"
+    presentacion: "botella 330ml"
+    tags: ["belga", "elegante"]
+
+  - nombre: "IPA Artesanal"
+    descripcion: "Cerveza artesanal con lúpulos aromáticos"
+    precio: 115
+    tipo: "artesanal"
+    nivel_alcohol: "alto"
+    temperatura: "fría"
+    presentacion: "botella 355ml"
+    tags: ["artesanal", "lupulada", "amarga"]
+
+  - nombre: "Wheat Beer"
+    descripcion: "Cerveza de trigo suave y cremosa"
+    precio: 105
+    tipo: "artesanal"
+    nivel_alcohol: "medio"
+    temperatura: "fría"
+    presentacion: "botella 355ml"
+    tags: ["suave", "trigo", "cremosa"]
+
+  - nombre: "Michelada Tajal"
+    descripcion: "Cerveza con jugo de tomate, especias y chile"
+    precio: 95
+    tipo: "preparada"
+    nivel_alcohol: "bajo"
+    temperatura: "fría"
+    presentacion: "vaso 500ml"
+    ingredientes:
+      - "Cerveza clara"
+      - "Jugo de tomate"
+      - "Salsa inglesa"
+      - "Salsa de soya"
+      - "Chile piquín"
+      - "Sal con chile"
+    tags: ["picante", "tradicional"]
+
+bebidas_sin_alcohol:
+  - nombre: "Agua Natural"
+    descripcion: "Agua purificada"
+    precio: 35
+    tipo: "agua"
+    temperatura: "natural"
+    presentacion: "botella 500ml"
+    tags: ["básica"]
+
+  - nombre: "Agua Mineral"
+    descripcion: "Agua mineral con gas"
+    precio: 45
+    tipo: "agua"
+    temperatura: "fría"
+    presentacion: "botella 500ml"
+    tags: ["con gas"]
+
+  - nombre: "Coca Cola"
+    descripcion: "Refresco de cola clásico"
+    precio: 50
+    tipo: "refresco"
+    temperatura: "fría"
+    presentacion: "botella 355ml"
+    tags: ["clásico"]
+
+  - nombre: "Sprite"
+    descripcion: "Refresco de limón transparente"
+    precio: 50
+    tipo: "refresco"
+    temperatura: "fría"
+    presentacion: "botella 355ml"
+    tags: ["cítrico"]
+
+  - nombre: "Naranjada Natural"
+    descripcion: "Jugo de naranja recién exprimido"
+    precio: 65
+    tipo: "jugo_natural"
+    temperatura: "natural"
+    presentacion: "vaso 250ml"
+    tags: ["natural", "vitamina C"]
+
+  - nombre: "Limonada con Chía"
+    descripcion: "Limón natural con chía y menta"
+    precio: 75
+    tipo: "especialidad"
+    temperatura: "fría"
+    presentacion: "vaso 300ml"
+    ingredientes:
+      - "Jugo de limón"
+      - "Chía"
+      - "Menta fresca"
+      - "Jarabe natural"
+      - "Agua mineral"
+    tags: ["saludable", "refrescante"]
+
+  - nombre: "Té Helado de Jamaica"
+    descripcion: "Infusión de jamaica con limón y endulzante"
+    precio: 55
+    tipo: "té"
+    temperatura: "frío"
+    presentacion: "vaso 400ml"
+    tags: ["herbal", "antioxidante"]
+
+  - nombre: "Smoothie de Mango"
+    descripcion: "Batido de mango con yogurt griego"
+    precio: 95
+    tipo: "smoothie"
+    temperatura: "frío"
+    presentacion: "vaso 350ml"
+    ingredientes:
+      - "Mango natural"
+      - "Yogurt griego"
+      - "Miel"
+      - "Hielo"
+    tags: ["cremoso", "frutal", "proteína"]
+
+  - nombre: "Café Americano"
+    descripcion: "Café espresso con agua caliente"
+    precio: 55
+    tipo: "café"
+    temperatura: "caliente"
+    presentacion: "taza 240ml"
+    tags: ["cafeína", "tradicional"]
+
+  - nombre: "Café Frappé"
+    descripcion: "Café frío con leche y crema batida"
+    precio: 85
+    tipo: "café"
+    temperatura: "frío"
+    presentacion: "vaso 350ml"
+    ingredientes:
+      - "Café espresso"
+      - "Leche"
+      - "Hielo"
+      - "Crema batida"
+      - "Jarabe de vainilla"
+    tags: ["dulce", "cremoso"]
+
+  - nombre: "Chocolate Caliente"
+    descripcion: "Chocolate artesanal con canela y marshmallows"
+    precio: 75
+    tipo: "chocolate"
+    temperatura: "caliente"
+    presentacion: "taza 300ml"
+    ingredientes:
+      - "Chocolate artesanal"
+      - "Leche entera"
+      - "Canela"
+      - "Marshmallows"
+    tags: ["reconfortante", "dulce"]
+
+  - nombre: "Horchata de Coco"
+    descripcion: "Bebida tradicional de coco con canela"
+    precio: 65
+    tipo: "tradicional"
+    temperatura: "frío"
+    presentacion: "vaso 300ml"
+    ingredientes:
+      - "Coco rallado"
+      - "Leche"
+      - "Canela"
+      - "Azúcar"
+      - "Hielo"
+    tags: ["cremoso", "tradicional", "dulce"]
