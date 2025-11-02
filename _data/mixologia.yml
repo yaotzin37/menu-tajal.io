@@ -1,7 +1,11 @@
 # Mixología Tajal - Carta Completa de Bebidas
 # Documentación: Este archivo contiene cocteles, cervezas y bebidas sin alcohol
-# Campos: nombre, descripcion, precio, ingredientes, nivel_alcohol, tipo, tags, temperatura
-
+# Campos por bebida: nombre, descripcion, precio, imagen, ingredientes, nivel_alcohol, tipo, tags, temperatura, presentacion
+# Uso del campo imagen:
+# - Debe ser una ruta relativa al sitio.
+# - Para cocteles y bebidas: assets/galeria-bebidas/archivo.jpg
+# - Nombre de archivo en kebab-case sin espacios.
+# - Alt/title se toman del nombre y descripcion en la galería.
 cocteles:
   - nombre: "Margarita Tajal"
     descripcion: "Tequila premium, limón fresco, triple sec y sal de gusano"
@@ -12,11 +16,11 @@ cocteles:
       - "Jarabe natural 15ml"
       - "Sal de gusano"
     precio: 165
+    imagen: assets/galeria-bebidas/margarita-tajal.jpg
     nivel_alcohol: "medio"
     tipo: "clásico"
     tags: ["tradicional", "cítrico"]
     temperatura: "frío"
-
   - nombre: "Paloma Picante"
     descripcion: "Tequila reposado, toronja rosa, jalapeño y agua mineral"
     ingredientes:
@@ -26,11 +30,11 @@ cocteles:
       - "Agua mineral 30ml"
       - "Sal y limón al borde"
     precio: 155
+    imagen: assets/galeria-bebidas/paloma-picante.jpg
     nivel_alcohol: "medio"
     tipo: "refrescante"
     tags: ["picante", "frutal"]
     temperatura: "frío"
-
   - nombre: "Mezcalini"
     descripcion: "Mezcal oaxaqueño, vermouth seco y aceituna ahumada"
     ingredientes:
@@ -39,11 +43,11 @@ cocteles:
       - "Bitter de naranja 2 gotas"
       - "Aceituna ahumada"
     precio: 185
+    imagen: assets/galeria-bebidas/mezcalini.jpg
     nivel_alcohol: "alto"
     tipo: "sofisticado"
     tags: ["ahumado", "premium"]
     temperatura: "frío"
-
   - nombre: "Mojito de Hierba Buena"
     descripcion: "Ron blanco, hierba buena fresca, limón y soda"
     ingredientes:
@@ -53,11 +57,11 @@ cocteles:
       - "Azúcar 2 cditas"
       - "Soda 50ml"
     precio: 145
+    imagen: assets/galeria-bebidas/mojito-hierba-buena.jpg
     nivel_alcohol: "medio"
     tipo: "refrescante"
     tags: ["fresco", "herbal"]
     temperatura: "frío"
-
   - nombre: "Old Fashioned Tajal"
     descripcion: "Whiskey bourbon, jarabe de maple, bitter y cereza"
     ingredientes:
@@ -67,11 +71,11 @@ cocteles:
       - "Cereza maraschino"
       - "Cáscara de naranja"
     precio: 195
+    imagen: assets/galeria-bebidas/old-fashioned-tajal.jpg
     nivel_alcohol: "alto"
     tipo: "clásico"
     tags: ["fuerte", "dulce"]
     temperatura: "con hielo"
-
   - nombre: "Cosmopolitan Rosa"
     descripcion: "Vodka premium, arándano, limón y triple sec"
     ingredientes:
@@ -80,11 +84,11 @@ cocteles:
       - "Jugo de arándano 30ml"
       - "Jugo de limón 15ml"
     precio: 175
+    imagen: assets/galeria-bebidas/cosmopolitan-rosa.jpg
     nivel_alcohol: "medio"
     tipo: "elegante"
     tags: ["frutal", "dulce"]
     temperatura: "frío"
-
   - nombre: "Mango Habanero Mule"
     descripcion: "Vodka, puré de mango, habanero y ginger beer"
     ingredientes:
@@ -94,11 +98,11 @@ cocteles:
       - "Ginger beer 100ml"
       - "Jugo de limón 15ml"
     precio: 165
+    imagen: assets/galeria-bebidas/mango-habanero-mule.jpg
     nivel_alcohol: "medio"
     tipo: "tropical"
     tags: ["picante", "frutal", "especial"]
     temperatura: "frío"
-
   - nombre: "Gin Tonic Premium"
     descripcion: "Gin artesanal, tónica premium y botanicos frescos"
     ingredientes:
@@ -108,11 +112,11 @@ cocteles:
       - "Enebro"
       - "Limón amarillo"
     precio: 185
+    imagen: assets/galeria-bebidas/gin-tonic-premium.jpg
     nivel_alcohol: "medio"
     tipo: "clásico"
     tags: ["botanicos", "refrescante"]
     temperatura: "frío"
-
   - nombre: "Negroni Ahumado"
     descripcion: "Gin, Campari, vermouth rojo y nota ahumada"
     ingredientes:
@@ -122,11 +126,11 @@ cocteles:
       - "Mezcal 10ml"
       - "Cáscara de naranja"
     precio: 195
+    imagen: assets/galeria-bebidas/negroni-ahumado.jpg
     nivel_alcohol: "alto"
     tipo: "sofisticado"
     tags: ["amargo", "ahumado", "premium"]
     temperatura: "con hielo"
-
   - nombre: "Caipirinha de Maracuyá"
     descripcion: "Cachaza brasileña, maracuyá fresco y azúcar"
     ingredientes:
@@ -135,78 +139,79 @@ cocteles:
       - "Azúcar 2 cditas"
       - "Limón 1/4 pieza"
     precio: 155
+    imagen: assets/galeria-bebidas/caipirinha-maracuya.jpg
     nivel_alcohol: "medio"
     tipo: "tropical"
     tags: ["frutal", "ácido"]
     temperatura: "frío"
-
 cervezas:
   - nombre: "Corona"
     descripcion: "Cerveza ligera mexicana con limón"
     precio: 65
+    imagen: assets/galeria-bebidas/corona.jpg
     tipo: "nacional"
     nivel_alcohol: "bajo"
     temperatura: "fría"
     presentacion: "botella 355ml"
     tags: ["ligera", "refrescante"]
-
   - nombre: "Modelo Especial"
     descripcion: "Cerveza premium mexicana con carácter"
     precio: 70
+    imagen: assets/galeria-bebidas/modelo-especial.jpg
     tipo: "nacional"
     nivel_alcohol: "medio"
     temperatura: "fría"
     presentacion: "botella 355ml"
     tags: ["premium", "dorada"]
-
   - nombre: "Tecate"
     descripcion: "Cerveza mexicana con sal y limón"
     precio: 60
+    imagen: assets/galeria-bebidas/tecate.jpg
     tipo: "nacional"
     nivel_alcohol: "medio"
     temperatura: "fría"
     presentacion: "lata 355ml"
     tags: ["tradicional"]
-
   - nombre: "Heineken"
     descripcion: "Cerveza premium holandesa"
     precio: 85
+    imagen: assets/galeria-bebidas/heineken.jpg
     tipo: "importada"
     nivel_alcohol: "medio"
     temperatura: "fría"
     presentacion: "botella 330ml"
     tags: ["importada", "premium"]
-
   - nombre: "Stella Artois"
     descripcion: "Cerveza belga de calidad superior"
     precio: 90
+    imagen: assets/galeria-bebidas/stella-artois.jpg
     tipo: "importada"
     nivel_alcohol: "medio"
     temperatura: "fría"
     presentacion: "botella 330ml"
     tags: ["belga", "elegante"]
-
   - nombre: "IPA Artesanal"
     descripcion: "Cerveza artesanal con lúpulos aromáticos"
     precio: 115
+    imagen: assets/galeria-bebidas/ipa-artesanal.jpg
     tipo: "artesanal"
     nivel_alcohol: "alto"
     temperatura: "fría"
     presentacion: "botella 355ml"
     tags: ["artesanal", "lupulada", "amarga"]
-
   - nombre: "Wheat Beer"
     descripcion: "Cerveza de trigo suave y cremosa"
     precio: 105
+    imagen: assets/galeria-bebidas/wheat-beer.jpg
     tipo: "artesanal"
     nivel_alcohol: "medio"
     temperatura: "fría"
     presentacion: "botella 355ml"
     tags: ["suave", "trigo", "cremosa"]
-
   - nombre: "Michelada Tajal"
     descripcion: "Cerveza con jugo de tomate, especias y chile"
     precio: 95
+    imagen: assets/galeria-bebidas/michelada-tajal.jpg
     tipo: "preparada"
     nivel_alcohol: "bajo"
     temperatura: "fría"
@@ -219,51 +224,51 @@ cervezas:
       - "Chile piquín"
       - "Sal con chile"
     tags: ["picante", "tradicional"]
-
 bebidas_sin_alcohol:
   - nombre: "Agua Natural"
     descripcion: "Agua purificada"
     precio: 35
+    imagen: assets/galeria-bebidas/agua-natural.jpg
     tipo: "agua"
     temperatura: "natural"
     presentacion: "botella 500ml"
     tags: ["básica"]
-
   - nombre: "Agua Mineral"
     descripcion: "Agua mineral con gas"
     precio: 45
+    imagen: assets/galeria-bebidas/agua-mineral.jpg
     tipo: "agua"
     temperatura: "fría"
     presentacion: "botella 500ml"
     tags: ["con gas"]
-
   - nombre: "Coca Cola"
     descripcion: "Refresco de cola clásico"
     precio: 50
+    imagen: assets/galeria-bebidas/coca-cola.jpg
     tipo: "refresco"
     temperatura: "fría"
     presentacion: "botella 355ml"
     tags: ["clásico"]
-
   - nombre: "Sprite"
     descripcion: "Refresco de limón transparente"
     precio: 50
+    imagen: assets/galeria-bebidas/sprite.jpg
     tipo: "refresco"
     temperatura: "fría"
     presentacion: "botella 355ml"
     tags: ["cítrico"]
-
   - nombre: "Naranjada Natural"
     descripcion: "Jugo de naranja recién exprimido"
     precio: 65
+    imagen: assets/galeria-bebidas/naranjada-natural.jpg
     tipo: "jugo_natural"
     temperatura: "natural"
     presentacion: "vaso 250ml"
     tags: ["natural", "vitamina C"]
-
   - nombre: "Limonada con Chía"
     descripcion: "Limón natural con chía y menta"
     precio: 75
+    imagen: assets/galeria-bebidas/limonada-con-chia.jpg
     tipo: "especialidad"
     temperatura: "fría"
     presentacion: "vaso 300ml"
@@ -274,18 +279,18 @@ bebidas_sin_alcohol:
       - "Jarabe natural"
       - "Agua mineral"
     tags: ["saludable", "refrescante"]
-
   - nombre: "Té Helado de Jamaica"
     descripcion: "Infusión de jamaica con limón y endulzante"
     precio: 55
+    imagen: assets/galeria-bebidas/te-helado-de-jamaica.jpg
     tipo: "té"
     temperatura: "frío"
     presentacion: "vaso 400ml"
     tags: ["herbal", "antioxidante"]
-
   - nombre: "Smoothie de Mango"
     descripcion: "Batido de mango con yogurt griego"
     precio: 95
+    imagen: assets/galeria-bebidas/smoothie-de-mango.jpg
     tipo: "smoothie"
     temperatura: "frío"
     presentacion: "vaso 350ml"
@@ -295,18 +300,18 @@ bebidas_sin_alcohol:
       - "Miel"
       - "Hielo"
     tags: ["cremoso", "frutal", "proteína"]
-
   - nombre: "Café Americano"
     descripcion: "Café espresso con agua caliente"
     precio: 55
+    imagen: assets/galeria-bebidas/cafe-americano.jpg
     tipo: "café"
     temperatura: "caliente"
     presentacion: "taza 240ml"
     tags: ["cafeína", "tradicional"]
-
   - nombre: "Café Frappé"
     descripcion: "Café frío con leche y crema batida"
     precio: 85
+    imagen: assets/galeria-bebidas/cafe-frappe.jpg
     tipo: "café"
     temperatura: "frío"
     presentacion: "vaso 350ml"
@@ -317,10 +322,10 @@ bebidas_sin_alcohol:
       - "Crema batida"
       - "Jarabe de vainilla"
     tags: ["dulce", "cremoso"]
-
   - nombre: "Chocolate Caliente"
     descripcion: "Chocolate artesanal con canela y marshmallows"
     precio: 75
+    imagen: assets/galeria-bebidas/chocolate-caliente.jpg
     tipo: "chocolate"
     temperatura: "caliente"
     presentacion: "taza 300ml"
@@ -330,10 +335,10 @@ bebidas_sin_alcohol:
       - "Canela"
       - "Marshmallows"
     tags: ["reconfortante", "dulce"]
-
   - nombre: "Horchata de Coco"
     descripcion: "Bebida tradicional de coco con canela"
     precio: 65
+    imagen: assets/galeria-bebidas/horchata-de-coco.jpg
     tipo: "tradicional"
     temperatura: "frío"
     presentacion: "vaso 300ml"
