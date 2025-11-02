@@ -1,0 +1,255 @@
+<!--   ============================================
+  INCLUDE: MIXOLOGY-CATEGORY
+  Ubicación: _includes/mixologia/mixology-category.html
+  ============================================
+  
+  PROPÓSITO:
+  Renderiza una categoría completa de bebidas (cocteles, cervezas, bebidas sin alcohol).
+  Utiliza el componente drink-card.html para mostrar cada bebida individualmente.
+  
+  PARÁMETROS:
+  - categoria: Nombre de la categoría ("cocteles", "cervezas", "bebidas_sin_alcohol")
+  - titulo: Título personalizado para la sección (opcional)
+  
+  USO:
+  {% include mixologia/mixology-category.html categoria="cocteles" titulo="Coctelería Artesanal" %}
+  {% include mixologia/mixology-category.html categoria="cervezas" %}
+  {% include mixologia/mixology-category.html categoria="bebidas_sin_alcohol" titulo="Sin Alcohol" %}
+  
+  ESTRUCTURA DE DATOS ESPERADA (_data/mixologia.yml):
+  cocteles:
+    - nombre: "Margarita Tajal"
+      descripcion: "..."
+      ingredientes: [...]
+      precio: 165
+      nivel_alcohol: "medio"
+      ...
+-->
+
+{% comment %}
+  Configurar títulos por defecto para cada categoría
+{% endcomment %}
+{% assign default_titles = site.data.mixologia.titulos | default: nil %}
+{% assign section_title = include.titulo %}
+{% unless section_title %}
+  {% case include.categoria %}
+    {% when 'cocteles' %}
+      {% assign section_title = 'Coctelería' %}
+    {% when 'cervezas' %}
+      {% assign section_title = 'Cervezas' %}
+    {% when 'bebidas_sin_alcohol' %}
+      {% assign section_title = 'Bebidas sin Alcohol' %}
+    {% else %}
+      {% assign section_title = include.categoria | capitalize %}
+  {% endcase %}
+{% endunless %}
+
+{% comment %}
+  Obtener los datos de la categoría especificada
+{% endcomment %}
+{% case include.categoria %}
+  {% when 'cocteles' %}
+    {% assign drinks_data = site.data.mixologia.cocteles %}
+  {% when 'cervezas' %}
+    {% assign drinks_data = site.data.mixologia.cervezas %}
+  {% when 'bebidas_sin_alcohol' %}
+    {% assign drinks_data = site.data.mixologia.bebidas_sin_alcohol %}
+  {% else %}
+    {% assign drinks_data = nil %}
+{% endcase %}
+
+{% if drinks_data and drinks_data.size > 0 %}
+<section class="mixology-category" id="{{ include.categoria | slugify }}" 
+         data-categoria="{{ include.categoria }}">
+  
+  <!-- Título de la Categoría -->
+  <header class="category-header">
+    <h2 class="category-title">
+      <span class="category-icon">
+        {% case include.categoria %}
+          {% when 'cocteles' %}🍸
+          {% when 'cervezas' %}🍺
+          {% when 'bebidas_sin_alcohol' %}🥤
+          {% else %}🍹
+        {% endcase %}
+      </span>
+      {{ section_title }}
+    </h2>
+    
+    <!-- Descripción de la categoría si existe -->
+    {% if site.data.mixologia.descripciones[include.categoria] %}
+    <p class="category-description">
+      {{ site.data.mixologia.descripciones[include.categoria] }}
+    </p>
+    {% endif %}
+    
+    <!-- Contador de bebidas -->
+    <div class="category-stats">
+      <span class="drinks-count">{{ drinks_data.size }} bebidas disponibles</span>
+    </div>
+  </header>
+  
+  <!-- Filtros rápidos (solo para cocteles) -->
+  {% if include.categoria == 'cocteles' %}
+  <div class="category-filters" data-categoria="cocteles">
+    <h3 class="filters-title">Filtrar por:</h3>
+    <div class="filters-group">
+      
+      <!-- Filtro por nivel de alcohol -->
+      <div class="filter-group">
+        <label class="filter-label">Alcohol:</label>
+        <div class="filter-options">
+          <button class="filter-btn" data-filter="nivel-alcohol" data-value="bajo">Bajo</button>
+          <button class="filter-btn" data-filter="nivel-alcohol" data-value="medio">Medio</button>
+          <button class="filter-btn" data-filter="nivel-alcohol" data-value="alto">Alto</button>
+        </div>
+      </div>
+      
+      <!-- Filtro por tipo -->
+      <div class="filter-group">
+        <label class="filter-label">Tipo:</label>
+        <div class="filter-options">
+          <button class="filter-btn" data-filter="tipo" data-value="clásico">Clásicos</button>
+          <button class="filter-btn" data-filter="tipo" data-value="refrescante">Refrescantes</button>
+          <button class="filter-btn" data-filter="tipo" data-value="sofisticado">Sofisticados</button>
+          <button class="filter-btn" data-filter="tipo" data-value="tropical">Tropicales</button>
+        </div>
+      </div>
+      
+      <!-- Botón limpiar filtros -->
+      <button class="filter-clear-btn" data-action="clear-filters">
+        <span class="clear-icon">❌</span> Limpiar
+      </button>
+      
+    </div>
+  </div>
+  {% endif %}
+  
+  <!-- Contenedor de bebidas -->
+  <div class="drinks-container drinks-container--{{ include.categoria }}" 
+       data-categoria="{{ include.categoria }}">
+    
+    {% for drink in drinks_data %}
+      {% include mixologia/drink-card.html drink=drink categoria=include.categoria %}
+    {% endfor %}
+    
+  </div>
+  
+  <!-- Mensaje cuando no hay bebidas visibles (después de filtrar) -->
+  <div class="no-drinks-message" style="display: none;">
+    <div class="no-drinks-content">
+      <span class="no-drinks-icon">🔍</span>
+      <h3>No se encontraron bebidas</h3>
+      <p>Prueba ajustando los filtros o <button class="inline-filter-clear">limpia los filtros</button> para ver todas las opciones.</p>
+    </div>
+  </div>
+  
+</section>
+
+{% else %}
+<!-- Mensaje de error si no hay datos para la categoría -->
+<section class="mixology-category-error">
+  <div class="error-content">
+    <span class="error-icon">❌</span>
+    <h3>Categoría no disponible</h3>
+    <p>No se encontraron datos para la categoría "{{ include.categoria }}" en _data/mixologia.yml</p>
+    <details class="error-details">
+      <summary>Información técnica</summary>
+      <ul>
+        <li><strong>Categoría solicitada:</strong> {{ include.categoria }}</li>
+        <li><strong>Título personalizado:</strong> {{ include.titulo | default: 'No especificado' }}</li>
+        <li><strong>Datos encontrados:</strong> {{ drinks_data.size | default: 0 }} elementos</li>
+      </ul>
+      <p><small>Verifica que la categoría exista en _data/mixologia.yml y tenga al menos una bebida definida.</small></p>
+    </details>
+  </div>
+</section>
+{% endif %}
+
+{% comment %}
+  JavaScript para funcionalidad de filtros (solo se incluye una vez)
+{% endcomment %}
+{% unless page.mixology_filters_loaded %}
+<script>
+// Funcionalidad de filtros para cócteles
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const clearButtons = document.querySelectorAll('.filter-clear-btn, .inline-filter-clear');
+  const drinkCards = document.querySelectorAll('.drink-card');
+  const noResultsMessage = document.querySelector('.no-drinks-message');
+  
+  let activeFilters = {};
+  
+  // Manejar clics en filtros
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const filterType = this.dataset.filter;
+      const filterValue = this.dataset.value;
+      
+      // Toggle filtro
+      if (activeFilters[filterType] === filterValue) {
+        delete activeFilters[filterType];
+        this.classList.remove('active');
+      } else {
+        activeFilters[filterType] = filterValue;
+        this.classList.add('active');
+        // Remover otros filtros del mismo tipo
+        filterButtons.forEach(btn => {
+          if (btn.dataset.filter === filterType && btn !== this) {
+            btn.classList.remove('active');
+          }
+        });
+      }
+      
+      applyFilters();
+    });
+  });
+  
+  // Manejar limpieza de filtros
+  clearButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      activeFilters = {};
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      applyFilters();
+    });
+  });
+  
+  // Aplicar filtros
+  function applyFilters() {
+    let visibleCount = 0;
+    
+    drinkCards.forEach(card => {
+      let shouldShow = true;
+      
+      // Verificar cada filtro activo
+      Object.entries(activeFilters).forEach(([filterType, filterValue]) => {
+        const cardValue = card.dataset[camelize(filterType)];
+        if (cardValue !== filterValue) {
+          shouldShow = false;
+        }
+      });
+      
+      if (shouldShow) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    
+    // Mostrar/ocultar mensaje de "sin resultados"
+    if (noResultsMessage) {
+      noResultsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
+  
+  // Convertir kebab-case a camelCase
+  function camelize(str) {
+    return str.replace(/-([a-z])/g, function(g) {
+      return g[1].toUpperCase();
+    });
+  }
+});
+</script>
+{% assign page.mixology_filters_loaded = true %}
+{% endunless %}
