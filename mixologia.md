@@ -6,31 +6,95 @@ permalink: /mixologia.html
 
 # Mixología de Autor
 
+<!-- 
+  Ejemplo de uso del include drink-card.html
+  Este archivo demuestra cómo iterar sobre cocteles y bebidas
+  utilizando el include reutilizable.
+  
+  Para ampliar la personalización:
+  - Crea un archivo _data/mixologia.yml con tus cocteles
+  - Añade imágenes de cada coctel
+  - Incluye información de contenido alcohólico
+  - Agrega filtros para ordenar por tipo (clásico, signature, frozen, etc.)
+-->
+
 <div class="mixologia-intro">
   <p>Descubre nuestra selección de cócteles artesanales, preparados con ingredientes premium y técnicas de mixología de autor.</p>
 </div>
 
-<div class="cocteles-container">
+<div class="drinks-container">
+  
+  {% comment %}
+    Itera sobre cada coctel definido en _data/mixologia.yml
+    Cada coctel debe tener: nombre, precio, ingredientes (array), imagen (opcional)
+  {% endcomment %}
+  
   {% for coctel in site.data.mixologia.cocteles %}
-  <article class="coctel-card" data-tipo="{{ coctel.tipo }}">
-    <div class="coctel-header">
-      <h2 class="coctel-nombre">{{ coctel.nombre }}</h2>
-      <span class="coctel-tipo">{{ coctel.tipo }}</span>
-    </div>
-    <p class="coctel-descripcion">{{ coctel.descripcion }}</p>
-    <div class="coctel-ingredientes">
-      <h4>Ingredientes:</h4>
-      <ul>
-        {% for ingrediente in coctel.ingredientes %}
-        <li>{{ ingrediente }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    <p class="coctel-precio">${{ coctel.precio }}</p>
-  </article>
+    
+    {% comment %}
+      Usa el include drink-card.html para mostrar cada coctel
+      Pasa todos los parámetros necesarios
+    {% endcomment %}
+    
+    {% include drink-card.html 
+       name=coctel.nombre 
+       price=coctel.precio
+       ingredients=coctel.ingredientes
+       image=coctel.imagen
+       description=coctel.descripcion
+       alcohol_content=coctel.contenido_alcoholico
+    %}
+    
   {% endfor %}
+  
 </div>
 
+<!-- Ejemplos estáticos para demostrar el uso sin datos -->
+<div class="drinks-examples">
+  
+  <h2>Ejemplos de Cocteles</h2>
+  
+  {% comment %}
+    Puedes usar el include directamente con valores literales
+    para crear ejemplos o cocteles especiales
+  {% endcomment %}
+  
+  <!-- Ejemplo 1: Margarita Tradicional -->
+  {% assign margarita_ingredientes = "Tequila Blanco|Triple Sec|Jugo de Limón Fresco|Jarabe Simple|Sal de Mar" | split: "|" %}
+  
+  {% include drink-card.html 
+     name="Margarita Tradicional" 
+     price="$180"
+     ingredients=margarita_ingredientes
+     description="Un clásico atemporal con el balance perfecto entre dulce y ácido"
+     alcohol_content="15% Vol."
+  %}
+  
+  <!-- Ejemplo 2: Mezcal con Chapulines -->
+  {% assign mezcal_ingredientes = "Mezcal Espadin|Limón|Sal de Gusano|Chapulines Tostados|Naranja" | split: "|" %}
+  
+  {% include drink-card.html 
+     name="Mezcal con Chapulines" 
+     price="$220"
+     ingredients=mezcal_ingredientes
+     description="Experiencia oaxaqueña auténtica con mezcal artesanal y chapulines"
+     alcohol_content="40% Vol."
+  %}
+  
+  <!-- Ejemplo 3: Mojito de Jamaica -->
+  {% assign mojito_ingredientes = "Ron Blanco|Agua de Jamaica|Hierbabuena Fresca|Limón|Azucar Morena|Agua Mineral" | split: "|" %}
+  
+  {% include drink-card.html 
+     name="Mojito de Jamaica" 
+     price="$160"
+     ingredients=mojito_ingredientes
+     description="Refrescante fusión de mojito cubano con agua de jamaica mexicana"
+     alcohol_content="12% Vol."
+  %}
+  
+</div>
+
+<!-- CSS Inline para mixología (mejor moverlo a un archivo CSS separado) -->
 <style>
   .mixologia-intro {
     max-width: 800px;
@@ -38,9 +102,11 @@ permalink: /mixologia.html
     text-align: center;
     font-size: 1.2rem;
     color: #555;
+    padding: 2rem;
   }
-
-  .cocteles-container {
+  
+  .drinks-container,
+  .drinks-examples {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
@@ -48,94 +114,99 @@ permalink: /mixologia.html
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
   }
-
-  .coctel-card {
+  
+  .drinks-examples {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 2px solid #e0e0e0;
+  }
+  
+  .drinks-examples h2 {
+    grid-column: 1 / -1;
+    font-size: 2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  /* Estilos para el include drink-card.html */
+  .drink-card {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
     border-radius: 12px;
     padding: 2rem;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     transition: transform 0.3s, box-shadow 0.3s;
   }
-
-  .coctel-card:hover {
+  
+  .drink-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
   }
-
-  .coctel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid rgba(255,255,255,0.3);
-    padding-bottom: 0.5rem;
-  }
-
-  .coctel-nombre {
-    font-size: 1.5rem;
-    margin: 0;
-  }
-
-  .coctel-tipo {
-    background: rgba(255,255,255,0.2);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-  }
-
-  .coctel-descripcion {
-    line-height: 1.6;
+  
+  .drink-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
     margin-bottom: 1.5rem;
+  }
+  
+  .drink-name {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-weight: bold;
+  }
+  
+  .drink-description {
+    font-size: 0.95rem;
     opacity: 0.95;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
   }
-
-  .coctel-ingredientes h4 {
+  
+  .drink-ingredients {
+    background: rgba(255,255,255,0.15);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .ingredients-label {
+    font-weight: bold;
+    display: block;
     margin-bottom: 0.5rem;
-    font-size: 1rem;
-    opacity: 0.9;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
-
-  .coctel-ingredientes ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 1.5rem;
+  
+  .ingredients-list {
+    font-size: 0.9rem;
+    line-height: 1.6;
   }
-
-  .coctel-ingredientes li {
-    padding: 0.3rem 0;
-    padding-left: 1.2rem;
-    position: relative;
+  
+  .drink-alcohol {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
   }
-
-  .coctel-ingredientes li:before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: rgba(255,255,255,0.7);
+  
+  .alcohol-icon {
+    font-size: 1.2rem;
   }
-
-  .coctel-precio {
+  
+  .drink-price {
     font-size: 1.5rem;
     font-weight: bold;
     text-align: right;
-    margin: 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.3);
   }
-
-  .coctel-card[data-tipo="clásico"] {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  }
-
-  .coctel-card[data-tipo="refrescante"] {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  }
-
-  .coctel-card[data-tipo="sofisticado"] {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-  }
-
-  .coctel-card[data-tipo="frutal"] {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  
+  .price-amount {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
   }
 </style>
