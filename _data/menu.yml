@@ -1,4 +1,5 @@
 # Menú de Tajal - Estructura Completa
+# Actualizado con datos originales y estructura automatizada
 # Documentación: Este archivo contiene todas las categorías del menú
 # Campos disponibles por platillo: nombre, descripcion, precio, imagen, extras, tags, opciones
 # Uso del campo imagen:
@@ -39,7 +40,6 @@ categorias:
         descripcion: "6 piezas de queso mozzarella empanizado"
         precio: 125
         imagen: assets/galeria-platillos/dedos-de-queso.jpg
-
   - nombre: "Ensaladas"
     platillos:
       - nombre: "Ensalada César"
@@ -58,7 +58,6 @@ categorias:
         precio: 175
         imagen: assets/galeria-platillos/ensalada-arugula.jpg
         tags: ["vegetariano", "gourmet"]
-
   - nombre: "Pastas"
     platillos:
       - nombre: "Fettuccine Alfredo"
@@ -79,7 +78,6 @@ categorias:
         descripcion: "Capas de pasta con carne, bechamel y queso gratinado"
         precio: 215
         imagen: assets/galeria-platillos/lasagna-de-carne.jpg
-
   - nombre: "Hamburguesas"
     platillos:
       - nombre: "Hamburguesa Clásica"
@@ -100,7 +98,6 @@ categorias:
         descripcion: "Pechuga de pollo empanizada con lechuga y mayonesa chipotle"
         precio: 165
         imagen: assets/galeria-platillos/hamburguesa-de-pollo.jpg
-
   - nombre: "Cortes"
     platillos:
       - nombre: "Rib Eye 350g"
@@ -126,7 +123,6 @@ categorias:
         imagen: assets/galeria-platillos/t-bone-400g.jpg
         opciones: ["Término: Rojo, Medio, Bien cocido"]
         tags: ["premium"]
-
   - nombre: "Platos Fuertes"
     platillos:
       - nombre: "Tacos de Rib Eye"
@@ -147,7 +143,6 @@ categorias:
         precio: 385
         imagen: assets/galeria-platillos/molcajete-mixto.jpg
         tags: ["para compartir", "recomendado"]
-
   - nombre: "Del Mar"
     platillos:
       - nombre: "Filete de Pescado a la Veracruzana"
@@ -173,7 +168,6 @@ categorias:
         descripcion: "Tres tacos de pescado empanizado con col y chipotle"
         precio: 195
         imagen: assets/galeria-platillos/tacos-de-pescado-ensenada.jpg
-
   - nombre: "Menú Infantil"
     platillos:
       - nombre: "Dedos de Pollo"
@@ -197,7 +191,6 @@ categorias:
         descripcion: "Dos hot dogs pequeños con papas"
         precio: 95
         imagen: assets/galeria-platillos/mini-hot-dogs.jpg
-
   - nombre: "Postres"
     platillos:
       - nombre: "Flan Napolitano"
