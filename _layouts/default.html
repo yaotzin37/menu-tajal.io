@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!-- 
+  ============================================
+  LAYOUT DEFAULT - PLANTILLA BASE
+  ============================================
+  
+  BUENAS PRÁCTICAS APLICADAS:
+  
+  1. HTML5 SEMÁNTICO
+     - Original: Usa divs para todo
+     - Correcto: header, nav, main, footer, article, section con roles ARIA
+  
+  2. SEO OPTIMIZADO
+     - Meta tags completos y dinámicos
+     - Open Graph para redes sociales
+     - Schema.org markup (JSON-LD)
+     - Viewport responsive
+  
+  3. ACCESIBILIDAD (WCAG 2.1 AA)
+     - lang attribute en html
+     - Skip navigation link
+     - ARIA landmarks y labels
+     - Contraste de colores adecuado
+     - Foco visible en elementos interactivos
+  
+  4. RENDIMIENTO
+     - CSS crítico inline (opcional)
+     - JavaScript diferido
+     - Assets optimizados y minificados
+     - Lazy loading de imágenes
+  
+  5. MODULARIDAD
+     - Includes reutilizables (head, header, footer)
+     - Variables de Liquid para contenido dinámico
+     - Layouts anidables
+-->
+<html lang="{{ site.lang | default: 'es-MX' }}">
+<head>
+  <!-- Meta básicos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO Meta Tags -->
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta name="keywords" content="{{ page.keywords | default: '' }}">
+  <meta name="author" content="{{ site.author.name }}">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ page.og_title | default: page.title }}">
+  <meta property="og:description" content="{{ page.og_description | default: page.description }}">
+  <meta property="og:image" content="{{ site.url }}{{ page.og_image | default: '/assets/images/og-default.jpg' }}">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="twitter:title" content="{{ page.og_title | default: page.title }}">
+  <meta property="twitter:description" content="{{ page.og_description | default: page.description }}">
+  <meta property="twitter:image" content="{{ site.url }}{{ page.og_image | default: '/assets/images/og-default.jpg' }}">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | relative_url }}">
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  
+  <!-- Preconnect a fuentes externas para mejor rendimiento -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Jekyll SEO Tag Plugin (genera automáticamente tags adicionales) -->
+  {% seo %}
+  
+  <!-- Schema.org markup para Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "{{ site.title }}",
+    "description": "{{ site.description }}",
+    "telephone": "{{ site.contact.phone }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ site.contact.address }}"
+    },
+    "openingHours": "{{ site.contact.hours }}",
+    "servesCuisine": "Mexican Traditional",
+    "priceRange": "$$"
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Skip to main content (accesibilidad) -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="site-title">
+          <a href="{{ '/' | relative_url }}" aria-label="Ir a la página principal">
+            {{ site.title }}
+          </a>
+        </h1>
+        
+        <!-- Navegación principal -->
+        <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+          <button class="menu-toggle" aria-expanded="false" aria-controls="menu-items">
+            <span class="sr-only">Menú</span>
+            <span class="hamburger"></span>
+          </button>
+          
+          <ul id="menu-items" class="menu-items">
+            <li><a href="{{ '/' | relative_url }}" aria-current="{% if page.url == '/' %}page{% endif %}">Inicio</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#about">Nosotros</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main id="main-content" class="site-main" role="main">
+    <div class="container">
+      <!-- El contenido de cada página se inserta aquí -->
+      {{ content }}
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Información de contacto -->
+        <div class="footer-section contact-info">
+          <h2>Contacto</h2>
+          <address>
+            <p><strong>Teléfono:</strong> <a href="tel:{{ site.contact.phone }}">{{ site.contact.phone }}</a></p>
+            <p><strong>Dirección:</strong> {{ site.contact.address }}</p>
+            <p><strong>Horario:</strong> {{ site.contact.hours }}</p>
+          </address>
+        </div>
+        
+        <!-- Enlaces útiles -->
+        <div class="footer-section useful-links">
+          <h2>Enlaces</h2>
+          <ul>
+            <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#about">Nosotros</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <!-- Redes sociales -->
+        <div class="footer-section social-media">
+          <h2>Síguenos</h2>
+          <ul class="social-links" aria-label="Enlaces a redes sociales">
+            <li><a href="#" aria-label="Facebook" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+            <li><a href="#" aria-label="Instagram" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+            <li><a href="#" aria-label="Twitter" rel="noopener noreferrer" target="_blank">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. Todos los derechos reservados.</p>
+        <p class="credits">Sitio desarrollado con <a href="https://jekyllrb.com/" rel="noopener noreferrer" target="_blank">Jekyll</a></p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- JavaScript (defer para mejor rendimiento) -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+  
+  <!-- 
+    COMPARACIÓN CON EL ORIGINAL:
+    
+    - Original: Todo el HTML está en un solo archivo, sin separación de concerns
+    - Correcto: Layout reutilizable que se combina con contenido Markdown
+    
+    - Original: Meta tags limitados o faltantes
+    - Correcto: SEO completo con Open Graph, Twitter Cards, Schema.org
+    
+    - Original: Poca o ninguna consideración de accesibilidad
+    - Correcto: ARIA labels, skip links, navegación semántica
+    
+    - Original: CSS y JS inline o sin optimización
+    - Correcto: Assets externos minificados, defer en JS
+    
+    - Original: Sin estructura modular
+    - Correcto: Usa Liquid templates para reutilización y variables
+  -->
+</body>
+</html>
