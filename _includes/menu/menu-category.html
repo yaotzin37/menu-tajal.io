@@ -1,0 +1,137 @@
+<!-- 
+  ============================================
+  INCLUDE: MENU-CATEGORY
+  Ubicación: _includes/menu/menu-category.html
+  ============================================
+  
+  PROPÓSITO:
+  Renderiza una categoría completa del menú con todos sus platillos.
+  
+  PARÁMETROS:
+  - category: Nombre de la categoría (debe coincidir con la clave en _data/menu.yml)
+  
+  USO:
+  {% include menu/menu-category.html category="entradas" %}
+  
+  ESTRUCTURA DE DATOS ESPERADA (_data/menu.yml):
+  entradas:
+    title: "Entradas"
+    items:
+      - name: "Nombre del Platillo"
+        description: "Descripción del platillo"
+        price: "$150"
+        image: "/assets/images/platillo.jpg" (opcional)
+        vegetarian: true (opcional)
+        spicy: 2 (opcional, nivel de picante 1-3)
+-->
+
+{% assign category_data = site.data.menu[include.category] %}
+
+{% if category_data %}
+<div class="menu-category" id="{{ include.category }}">
+  <!-- Título de la Categoría -->
+  <h2 class="category-title">
+    {{ category_data.title | default: include.category | capitalize }}
+  </h2>
+  
+  <!-- Descripción de la Categoría (opcional) -->
+  {% if category_data.description %}
+    <p class="category-description">{{ category_data.description }}</p>
+  {% endif %}
+  
+  <!-- Grid de Platillos -->
+  <div class="menu-items-grid">
+    {% for item in category_data.items %}
+      <article class="menu-item" itemscope itemtype="https://schema.org/MenuItem">
+        <!-- Imagen del Platillo (si existe) -->
+        {% if item.image %}
+          <div class="item-image">
+            <img 
+              src="{{ item.image | relative_url }}" 
+              alt="{{ item.name }}"
+              loading="lazy"
+              itemprop="image"
+            />
+          </div>
+        {% endif %}
+        
+        <!-- Contenido del Platillo -->
+        <div class="item-content">
+          <div class="item-header">
+            <h3 class="item-name" itemprop="name">{{ item.name }}</h3>
+            
+            <!-- Iconos/Badges -->
+            <div class="item-badges">
+              {% if item.vegetarian %}
+                <span class="badge badge-vegetarian" title="Vegetariano">
+                  🌱 V
+                </span>
+              {% endif %}
+              
+              {% if item.spicy %}
+                <span class="badge badge-spicy" title="Nivel de picante: {{ item.spicy }}">
+                  {% for i in (1..item.spicy) %}🌶️{% endfor %}
+                </span>
+              {% endif %}
+              
+              {% if item.popular %}
+                <span class="badge badge-popular" title="Popular">
+                  ⭐ Popular
+                </span>
+              {% endif %}
+            </div>
+          </div>
+          
+          <!-- Descripción -->
+          {% if item.description %}
+            <p class="item-description" itemprop="description">
+              {{ item.description }}
+            </p>
+          {% endif %}
+          
+          <!-- Ingredientes (opcional) -->
+          {% if item.ingredients %}
+            <p class="item-ingredients">
+              <em>{{ item.ingredients }}</em>
+            </p>
+          {% endif %}
+          
+          <!-- Precio -->
+          {% if item.price %}
+            <p class="item-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <span itemprop="price">{{ item.price }}</span>
+            </p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</div>
+{% else %}
+  <!-- Mensaje de error si la categoría no existe -->
+  <p class="error-message">
+    Error: La categoría "{{ include.category }}" no existe en _data/menu.yml
+  </p>
+{% endif %}
+
+<!-- 
+  EJEMPLO DE DATOS (_data/menu.yml):
+  
+  entradas:
+    title: "Entradas"
+    description: "Para comenzar tu experiencia"
+    items:
+      - name: "Guacamole con Chapulines"
+        description: "Aguacate fresco con chapulines tostados"
+        ingredients: "Aguacate, chapulines, cebolla, cilantro, limón"
+        price: "$120"
+        image: "/assets/images/guacamole.jpg"
+        vegetarian: false
+        spicy: 1
+        popular: true
+      
+      - name: "Quesadillas de Flor de Calabaza"
+        description: "Tortillas hechas a mano con queso Oaxaca"
+        price: "$95"
+        vegetarian: true
+-->
