@@ -1,0 +1,33 @@
+{% comment %}
+Include: _includes/galeria/gallery.html
+Uso: {% include galeria/gallery.html %}
+Renderiza una galería combinando imágenes de platillos (menu.yml) y bebidas (mixologia.yml).
+- alt: usa nombre
+- title: usa descripcion si existe
+- src: usa campo imagen
+Requisitos: cada item debe tener campo `imagen`.
+{% endcomment %}
+<div class="gallery">
+  {% assign items = site.data.menu.categorias | map: 'platillos' | compact | flatten %}
+  {% assign bebidas1 = site.data.mixologia.cocteles %}
+  {% assign bebidas2 = site.data.mixologia.cervezas %}
+  {% assign bebidas3 = site.data.mixologia.bebidas_sin_alcohol %}
+  {% assign bebidas = bebidas1 | concat: bebidas2 | concat: bebidas3 %}
+  {% assign todos = items | concat: bebidas %}
+
+  {% for item in todos %}
+    {% if item.imagen %}
+      <figure class="gallery__item">
+        <img src="{{ item.imagen | relative_url }}" alt="{{ item.nombre }}" title="{{ item.descripcion | default: item.nombre }}" loading="lazy" />
+        <figcaption class="gallery__caption">{{ item.nombre }}</figcaption>
+      </figure>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<style>
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.gallery__item{position:relative;overflow:hidden;border-radius:8px;background:#f7f7f7}
+.gallery__item img{width:100%;height:160px;object-fit:cover;display:block}
+.gallery__caption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.7));color:#fff;font-size:.85rem;padding:6px 8px}
+</style>
