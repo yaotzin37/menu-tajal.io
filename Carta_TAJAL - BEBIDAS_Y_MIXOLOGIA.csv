@@ -1,0 +1,106 @@
+CATEGORIA,SUBCATEGORIA,NOMBRE,DESCRIPCION,PRECIO/BOTELLA,PRECIO/COPA
+Coctelería,,Aperol Spritz,"El Aperol Spritz es un cóctel italiano refrescante que combina Aperol,",,$150.00
+Coctelería,,Bloody Mary,"Vodka, tomate mix, nuestro ingrediente secreto",,$150.00
+Coctelería,,Canija,bebida de baileys con un shot de expreso,,$120.00
+Coctelería,,Carajillo,La amargura del café y la dulzura especiada de Licor,,$150.00
+Coctelería,,Clericot,nuestro clericot tiene un sabor muy rico y especial,,$150.00
+Coctelería,,El Rey Abel,Especial de la casa ,,$170.00
+Coctelería,,Hierbabuena,"hierbabuena fresca, limón",,$95.00
+Coctelería,,Margarita,"sal negra, limón, tajín",,$150.00
+Coctelería,,Margarita Tajal,,,$180.00
+Coctelería,,Michelada Clara,,,$130.00
+Coctelería,,Michelada Obscura,,,$150.00
+Coctelería,,Michelada con Camarón,"camarones cocidos, limón, sal y sason Tajal",,$180.00
+Coctelería,,Mimosa,,,$130.00
+Coctelería,,Old Fashion,,,$210.00
+Coctelería,,Cuba Libre,,,$160.00
+Coctelería,,Mojito,,,$120.00
+Coctelería,,Paloma,,,$130.00
+Coctelería,,Perla Negra,,,$165.00
+Coctelería,,Piña Colada,,,$150.00
+Coctelería,,Ruso Blanco,,,$130.00
+Coctelería,,Ruso Negro,,,$150.00
+Coctelería,,Sangría,,,$150.00
+Coctelería,,Maracay,limón jarabe maracuyá teguila higo piña,,$195.00
+Coctelería,,Vampiro,,,$130.00
+Coctelería,,Maracuñita ,,,$185.00
+Coctelería,,Tequila Sonraise ,,,$180.00
+Coctelería,,Conga,,,$170.00
+Coctelería,,Bomba de Violeta ,,,$200.00
+Coctelería,,Clericot Blanco ,,,$190.00
+Coctelería,,Sangria,,,$185.00
+Coctelería,,Bloody Mary ,,,$150.00
+Coctelería,,Flor de Durazno,,,$200.00
+Coctelería,,Expresso Martini,Vodka licor de Cafe Mucho hielo,,$200.00
+Coctelería,,Manhattan ,Whisky Vermut Rojo,,$180.00
+Cervezas,Normales,Corona,,,$55.00
+Cervezas,Normales,Corona Light,,,$55.00
+Cervezas,Normales,Modelo Especial,,,$75.00
+Cervezas,Normales,Negra Modelo,,,$75.00
+Cervezas,Normales,Pacífico,,,$55.00
+Cervezas,Normales,Ultra,,,$75.00
+Cervezas,Normales,Victoria,,,$55.00
+Cervezas,Artesanales,Colimitas,,,$95.00
+Cervezas,Artesanales,Colimita Lager,,,$95.00
+Cervezas,Artesanales,Paromo,,,$95.00
+Cervezas,Artesanales,Piedra Lisa,,,$95.00
+Cervezas,Artesanales,Ticus,,,$95.00
+Licores,Tequila,30-30 Blanco,,$1200.00,$110.00
+Licores,Tequila,30-30 Reposado,,$1450.00,$130.00
+Licores,Tequila,30-30 Cristalino,,$1800.00,$150.00
+Licores,Tequila,7 Leguas Blanco,,$1800.00,$150.00
+Licores,Tequila,7 Leguas Reposado,,$1600.00,$130.00
+Licores,Tequila,Centenario Plata,,$1100.00,$115.00
+Licores,Tequila,Centenario Reposado,,$1000.00,$110.00
+Licores,Tequila,Don Julio 70,,$2800.00,$250.00
+Licores,Tequila,Don Julio Blanco,,$2850.00,$260.00
+Licores,Tequila,Don Julio Reposado,,$2280.00,$210.00
+Licores,Tequila,Herradura Blanco,,$2115.00,$210.00
+Licores,Tequila,Herradura Plata,,$1740.00,$145.00
+Licores,Tequila,Herradura Reposado,,$2160.00,$196.00
+Licores,Tequila,Herradura Ultra,,$2610.00,$240.00
+Licores,Tequila,Tradicional Plata,,$1100.00,$110.00
+Licores,Tequila,Tradicional Reposado,,$1125.00,$115.00
+Licores,Ron,Bacardi Blanco,,$980.00,$105.00
+Licores,Ron,Bacardi Mango,,$750.00,$95.00
+Licores,Ron,Habana Club,,,$120.00
+Licores,Ron,Zacapa 23,,$3500.00,$340.00
+Licores,Whisky,Chivas 12,,$2250.00,$200.00
+Licores,Whisky,Red Label,,$1650.00,$110.00
+Licores,Coñac,Martel VSOP,,$4100.00,$350.00
+Licores,Coñac,Genesis VSOP,,$3900.00,$350.00
+Licores,Ginebra,Beefeater,,,$100.00
+Licores,Ginebra,Hendricks,,$2800.00,$260.00
+Licores,Ginebra,Tanqueray,,,$140.00
+Licores,Vodka,Absolut,,$1100.00,$110.00
+Licores,Vodka,Absolut Citron,,$1220.00,$125.00
+Licores,Vodka,Absolut Mandarina,,$1200.00,$110.00
+Licores,Vodka,Absolut Raspberry,,$1200.00,$110.00
+Licores,Vodka,Grey Goose,,$1950.00,$160.00
+Licores,Mezcal,400 Conejos (Joven),,$1400.00,$115.00
+Licores,Mezcal,Agua Maldita,,$1450.00,$115.00
+Licores,Mezcal,Apaluz,,$1555.00,$115.00
+Licores,Mezcal,Monte Lobos Joven,,$1955.00,$185.00
+Licores,Otros,Baileys,,$1750.00,$130.00
+Licores,Otros,Licor 43,,,$120.00
+Sin Alcohol,Cafés,Café Americano,,,$65.00
+Sin Alcohol,Cafés,Café Capuchino,,,$65.00
+Sin Alcohol,Cafés,Café Expreso,,,$55.00
+Sin Alcohol,Aguas y Refrescos,Agua Mineral Hethe,,,$90.00
+Sin Alcohol,Aguas y Refrescos,Botella de Agua,,,$30.00
+Sin Alcohol,Aguas y Refrescos,Red Bull,,,$100.00
+Sin Alcohol,Aguas y Refrescos,Refresco (355 ml),,,$45.00
+Sin Alcohol,Aguas y Refrescos,Rusa (Mineral o Squirt),,,$60.00
+Sin Alcohol,Aguas y Refrescos,Soda Italiana,,,$90.00
+Sin Alcohol,Bebidas de la Casa,Chocomilk,,,$45.00
+Sin Alcohol,Bebidas de la Casa,Jugo de Naranja,,,$45.00
+Sin Alcohol,Bebidas de la Casa,Limonada,,,$75.00
+Sin Alcohol,Bebidas de la Casa,Limonada 1L,,,$140.00
+Sin Alcohol,Bebidas de la Casa,Jarra de Limonada,,,$190.00
+Sin Alcohol,Bebidas de la Casa,Limonada de Frutos Rojos,,,$75.00
+Sin Alcohol,Bebidas de la Casa,Naranjada,,,$75.00
+Sin Alcohol,Bebidas de la Casa,Naranjada 1L,,,$140.00
+Sin Alcohol,Bebidas de la Casa,Jarra de Naranjada,,,$190.00
+Sin Alcohol,Bebidas de la Casa,Naranjada de Maracuyá,,,$80.00
+Sin Alcohol,Bebidas de la Casa,Piñada,,,$90.00
+Sin Alcohol,Bebidas de la Casa,Tizanas,,,$65.00
