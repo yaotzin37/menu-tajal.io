@@ -1,0 +1,273 @@
+Buscando: corona
+Encontradas 5 coincidencias:
+  3: corona_1.webp
+  3: corona_clara.webp
+  1: corona.webp
+Buscando: corona_light
+Encontradas 1 coincidencias:
+  4: corona.webp
+Buscando: modelo_especial
+Encontradas 1 coincidencias:
+  4: modelo.webp
+Buscando: negra_modelo
+Encontradas 2 coincidencias:
+  1: negra_modelo.webp
+  4: modelo.webp
+Buscando: pacifico
+Encontradas 1 coincidencias:
+  1: pacifico.webp
+Buscando: ultra
+No se encontraron imágenes para: Ultra
+Buscando: victoria
+No se encontraron imágenes para: Victoria
+Buscando: colimitas
+Encontradas 2 coincidencias:
+  1: colimitas.webp
+  3: colimitas_2.webp
+Buscando: colimita_lager
+No se encontraron imágenes para: Colimita Lager
+Buscando: paromo
+No se encontraron imágenes para: Paromo
+Buscando: piedra_lisa
+Encontradas 1 coincidencias:
+  1: piedra_lisa.webp
+Buscando: ticus
+No se encontraron imágenes para: Ticus
+Buscando: aperol_spritz
+No se encontraron imágenes para: Aperol Spritz
+Buscando: bloody_mary
+No se encontraron imágenes para: Bloody Mary
+Buscando: canija
+No se encontraron imágenes para: Canija
+Buscando: carajillo
+No se encontraron imágenes para: Carajillo
+Buscando: clericot
+Encontradas 3 coincidencias:
+  3: clericot_blanco.webp
+  3: clericot  blanco.webp
+  3: jarra_de_clericot.webp
+Buscando: el_rey_abel
+Encontradas 1 coincidencias:
+  4: rey_abel.webp
+Buscando: hierbabuena
+No se encontraron imágenes para: Hierbabuena
+Buscando: margarita
+Encontradas 3 coincidencias:
+  3: margaritas.webp
+  3: margarita_tajal.webp
+  3: margarita_2.webp
+Buscando: margarita_tajal
+Encontradas 1 coincidencias:
+  1: margarita_tajal.webp
+Buscando: paloma
+Encontradas 1 coincidencias:
+  3: paloma_1.webp
+Buscando: michelada_clara
+Encontradas 2 coincidencias:
+  1: michelada_clara.webp
+  4: michelada.webp
+Buscando: michelada_obscura
+Encontradas 2 coincidencias:
+  1: michelada_obscura.webp
+  4: michelada.webp
+Buscando: michelada_con_camaron
+Encontradas 2 coincidencias:
+  3: michelada_con_camaron_2.webp
+  4: michelada.webp
+Buscando: mimosa
+Encontradas 2 coincidencias:
+  3: mimosa_1.webp
+  1: mimosa.webp
+Buscando: old_fashion
+Encontradas 1 coincidencias:
+  1: old_fashion.webp
+Buscando: cuba_libre
+No se encontraron imágenes para: Cuba Libre
+Buscando: mojito
+Encontradas 1 coincidencias:
+  1: mojito.webp
+Buscando: paloma
+Encontradas 1 coincidencias:
+  3: paloma_1.webp
+Buscando: perla_negra
+Encontradas 2 coincidencias:
+  3: perla_negra_1.webp
+  3: _perla_negra.webp
+Buscando: pina_colada
+No se encontraron imágenes para: Piña Colada
+Buscando: ruso_blanco
+No se encontraron imágenes para: Ruso Blanco
+Buscando: ruso_negro
+No se encontraron imágenes para: Ruso Negro
+Buscando: sangria
+Encontradas 4 coincidencias:
+  3: sangria_2.webp
+  3: sangria_1.webp
+  1: sangria.webp
+Buscando: maracay
+No se encontraron imágenes para: Maracay
+Buscando: vampiro
+No se encontraron imágenes para: Vampiro
+Buscando: maracunita
+No se encontraron imágenes para: Maracuñita
+Buscando: tequila_sunrise
+Encontradas 1 coincidencias:
+  1: tequila_sunrise.webp
+Buscando: conga
+No se encontraron imágenes para: Conga
+Buscando: bomba_de_violeta
+No se encontraron imágenes para: Bomba de Violeta
+Buscando: clericot_blanco
+Encontradas 1 coincidencias:
+  1: clericot_blanco.webp
+Buscando: sangria
+Encontradas 4 coincidencias:
+  3: sangria_2.webp
+  3: sangria_1.webp
+  1: sangria.webp
+Buscando: mezcalita
+Encontradas 1 coincidencias:
+  1: mezcalita.webp
+Buscando: flor_de_durazno
+Encontradas 3 coincidencias:
+  3: flor_de_durazno_1.webp
+  1: flor_de_durazno.webp
+  3: flor_de_durazno1.webp
+Buscando: expresso_martini
+No se encontraron imágenes para: Expresso Martini
+Buscando: manhattan
+Encontradas 4 coincidencias:
+  1: manhattan.webp
+  3: manhattan_3.webp
+  3: manhattan(1).webp
+Buscando: 30-30_blanco
+No se encontraron imágenes para: 30-30 Blanco
+Buscando: 30-30_reposado
+No se encontraron imágenes para: 30-30 Reposado
+Buscando: 30-30_cristalino
+No se encontraron imágenes para: 30-30 Cristalino
+Buscando: 7_leguas_blanco
+No se encontraron imágenes para: 7 Leguas Blanco
+Buscando: 7_leguas_reposado
+No se encontraron imágenes para: 7 Leguas Reposado
+Buscando: centenario_plata
+No se encontraron imágenes para: Centenario Plata
+Buscando: centenario_reposado
+No se encontraron imágenes para: Centenario Reposado
+Buscando: don_julio_70
+No se encontraron imágenes para: Don Julio 70
+Buscando: don_julio_blanco
+No se encontraron imágenes para: Don Julio Blanco
+Buscando: don_julio_reposado
+No se encontraron imágenes para: Don Julio Reposado
+Buscando: herradura_blanco
+No se encontraron imágenes para: Herradura Blanco
+Buscando: herradura_plata
+No se encontraron imágenes para: Herradura Plata
+Buscando: herradura_reposado
+No se encontraron imágenes para: Herradura Reposado
+Buscando: herradura_ultra
+No se encontraron imágenes para: Herradura Ultra
+Buscando: tradicional_plata
+No se encontraron imágenes para: Tradicional Plata
+Buscando: tradicional_reposado
+Encontradas 1 coincidencias:
+  1: Tradicional_Reposado.webp
+Buscando: bacardi_blanco
+No se encontraron imágenes para: Bacardi Blanco
+Buscando: bacardi_mango
+No se encontraron imágenes para: Bacardí Mango
+Buscando: habana_club
+No se encontraron imágenes para: Habana Club
+Buscando: zacapa_23
+Encontradas 2 coincidencias:
+  3:  Zacapa_23.webp
+  1: Zacapa_23.webp
+Buscando: chivas_12
+No se encontraron imágenes para: Chivas 12
+Buscando: red_label
+Encontradas 1 coincidencias:
+  3:  Red_Label.webp
+Buscando: martell_vsop
+No se encontraron imágenes para: Martell VSOP
+Buscando: genesis_vsop
+No se encontraron imágenes para: Genesis VSOP
+Buscando: beefeater
+No se encontraron imágenes para: Beefeater
+Buscando: hendricks
+No se encontraron imágenes para: Hendricks
+Buscando: tanqueray
+Encontradas 3 coincidencias:
+  1: Tanqueray.webp
+  3:  Tanqueray.jpg
+  3:  Tanqueray.webp
+Buscando: absolut
+No se encontraron imágenes para: Absolut
+Buscando: absolut_citron
+No se encontraron imágenes para: Absolut Citron
+Buscando: absolut_mandarina
+No se encontraron imágenes para: Absolut Mandarina
+Buscando: absolut_raspberry
+No se encontraron imágenes para: Absolut Raspberry
+Buscando: grey_goose
+Encontradas 1 coincidencias:
+  1: Grey_Goose.webp
+Buscando: 400_conejos_(joven)
+No se encontraron imágenes para: 400 Conejos (Joven)
+Buscando: agua_maldita
+No se encontraron imágenes para: Agua Maldita
+Buscando: apaluz
+No se encontraron imágenes para: Apaluz
+Buscando: monte_lobos_joven
+Encontradas 2 coincidencias:
+  1: Monte_Lobos_Joven.jpg
+  1: Monte_Lobos_Joven.webp
+Buscando: baileys
+No se encontraron imágenes para: Baileys
+Buscando: licor_43
+Encontradas 2 coincidencias:
+  1: Licor_43.jpg
+  1: Licor_43.webp
+Buscando: cafe_americano
+No se encontraron imágenes para: Café Americano
+Buscando: cafe_capuchino
+No se encontraron imágenes para: Café Capuchino
+Buscando: cafe_expreso
+No se encontraron imágenes para: Café Expreso
+Buscando: agua_mineral_hethe
+No se encontraron imágenes para: Agua Mineral Hethe
+Buscando: botella_de_agua
+No se encontraron imágenes para: Botella de Agua
+Buscando: red_bull
+No se encontraron imágenes para: Red Bull
+Buscando: refresco_(355_ml)
+No se encontraron imágenes para: Refresco (355 ml)
+Buscando: rusa_(mineral_o_squirt)
+No se encontraron imágenes para: Rusa (Mineral o Squirt)
+Buscando: soda_italiana
+No se encontraron imágenes para: Soda Italiana
+Buscando: chocomilk
+No se encontraron imágenes para: Chocomilk
+Buscando: jugo_de_naranja
+No se encontraron imágenes para: Jugo de Naranja
+Buscando: limonada
+No se encontraron imágenes para: Limonada
+Buscando: limonada_1l
+No se encontraron imágenes para: Limonada 1L
+Buscando: jarra_de_limonada
+No se encontraron imágenes para: Jarra de Limonada
+Buscando: limonada_de_frutos_rojos
+No se encontraron imágenes para: Limonada de Frutos Rojos
+Buscando: naranjada
+No se encontraron imágenes para: Naranjada
+Buscando: naranjada_1l
+No se encontraron imágenes para: Naranjada 1L
+Buscando: jarra_de_naranjada
+No se encontraron imágenes para: Jarra de Naranjada
+Buscando: naranjada_de_maracuya
+No se encontraron imágenes para: Naranjada de Maracuyá
+Buscando: pinada
+No se encontraron imágenes para: Piñada
+Buscando: tisanas
+No se encontraron imágenes para: Tisanas
+Se ha generado el archivo 'menu-mixologia.html'

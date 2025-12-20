@@ -1,0 +1,186 @@
+ID,Categoría,Nombre,Descripción,Precio,Nota,Imagen
+1,Desayunos,Chilaquiles,Totopos de maíz crujientes bañados en nuestra salsa casera,$130.00,menú-platillos,chilaquiles.webp
+2,Desayunos,Huevos al Gusto,"Mexicana, revueltos, con jamón, estrellados, omelette con salchicha o jamón",$120.00,menú-platillos,huevos_al_gusto.webp
+3,Desayunos,Hot-Cakes,3 piezas con mantequilla y miel de maple,$115.00,menú-platillos,hot-cakes.webp
+4,Desayunos,Plato de Fruta,"Papaya, melón, fresas, con miel de abeja y granola; elegir: queso cottage o yogurt natural",$120.00,menú-platillos,plato_de_fruta.webp
+5,Desayunos,Molletes Salados,"2 molletes: frijol con queso, frijol con queso y chorizo",$90.00,menú-platillos,molletes_salados.webp
+6,Desayunos,Molletes Dulces,"2 molletes: sencillo o combinado con cajeta, mermelada de fresa, leche, azúcar, canela y miel",$95.00,menú-platillos,molletes_dulces.webp
+7,Entradas y Botanas,Camarones Hawaii,Camarones empanizados con un toque crujiente de pan y coco sobre una ensalada fresca y un toque de salsa especial de la casa Tajal,$170.00,menú-platillos,camarones_hawaii.webp
+8,Entradas y Botanas,Camarones Roca,"Camarones capeados, macerados en un delicioso aderezo con un toque picosito. Creación del chef.",$180.00,menú-platillos,camarones_roca.webp
+9,Entradas y Botanas,Guacamole con Picaña,Guacamole tradicional con puntas de picaña al carbón,$250.00,menú-platillos,guacamole_con_picana.webp
+10,Entradas y Botanas,Tuétanos Tajal,3 piezas al grill con esquites y salsa de la casa,$270.00,menú-platillos,tuetanos_tajal.webp
+11,Entradas y Botanas,Tiradito de Atún,"Láminas de atún sobre ruedas de pepino, chile serrano y salsa sweet ponzu",$230.00,menú-platillos,tiradito_de_atun.webp
+12,Entradas y Botanas,Tiradito de Salmón,"Láminas de salmón sobre ruedas de pepino, chile serrano y salsa sweet ponzu",$260.00,menú-platillos,tiradito_de_salmon.webp
+13,Entradas y Botanas,Cecina,150 g horneada,$240.00,menú-platillos,cecina.webp
+14,Entradas y Botanas,Queso Fundido,"Con chorizo, champiñones o natural",$160.00,menú-platillos,queso_fundido.webp
+15,Entradas y Botanas,Papa Gratinada con Arrachera,Papa con queso gratinado y fajitas de arrachera,$180.00,menú-platillos,papa_gratinada_con_arrachera.webp
+16,Entradas y Botanas,Panela Asada,Panela asada al carbón con salsa ranchera,$120.00,menú-platillos,panela_asada.webp
+17,Entradas y Botanas,Chistorra Asada,Porción de chistorra asada al carbón marinada con salsa artesanal,$130.00,menú-platillos,chistorra_asada.webp
+18,Entradas y Botanas,Tostadas de Atún,1 tostada de atún marinado en salsa negra con flor de aguacate,$120.00,menú-platillos,tostadas_de_atun.webp
+19,Entradas y Botanas,Sopa Azteca,"Sopa de tortilla con aguacate, queso manchego y crema",$115.00,menú-platillos,sopa_azteca.webp
+20,Entradas y Botanas,Frijoles adobados,Orden de frijoles adobados con elote,$90.00,menú-platillos,frijoles.webp
+21,Entradas y Botanas,Guacamole,Dip con totopos,$90.00,menú-platillos,guacamole.webp
+22,Entradas y Botanas,Papas a la Francesa,Papas crujientes cortadas a mano servidas con salsa de la casa.,$80.00,menú-platillos,papas_a_la_francesa.webp
+23,Entradas y Botanas,Pellizcada de lengua,Porción de lengua de res cocida lentamente y sazonada al estilo Tajal,$90.00,menú-platillos,pellizcada_de_lengua.webp
+24,Entradas y Botanas,Pellizcada de queso,Queso fresco desmenuzado y ligeramente ahumado ideal para compartir.,$50.00,menú-platillos,pellizcada_de_queso.webp
+25,Fines de Semana,Menudo mini con lengua y cachete,,$170.00,menú-platillos,menudo.webp
+26,Fines de Semana,Menudo mini con pedacito,,$140.00,menú-platillos,menudo.webp
+27,Fines de Semana,Menudo mediano con lengua y cachete,,$240.00,menú-platillos,menudo.webp
+28,Fines de Semana,Menudo mediano con pedacito,,$185.00,menú-platillos,menudo.webp
+29,Fines de Semana,Menudo grande con lengua y cachete,,$230.00,menú-platillos,menudo.webp
+30,Fines de Semana,Menudo grande con pedacito,,$265.00,menú-platillos,menudo.webp
+31,Fines de Semana,Menudo extra grande con pedacito,,$225.00,menú-platillos,menudo.webp
+32,Fines de Semana,Menudo extra grande con lengua y cachete,,$295.00,menú-platillos,menudo.webp
+33,Fines de Semana,Menudo caldo mini,Caldo concentrado de menudo sin tripas perfecto para empezar el día.,$70.00,menú-platillos,caldo.webp
+34,Fines de Semana,Menudo caldo grande,Caldo abundante de menudo sin tripas servido caliente con condimentos al gusto.,$90.00,menú-platillos,caldo.webp
+35,Ensaladas,Ensalada Premium,"Mix de lechuga, espinaca, queso de cabra, nuez garapiñada y pollo con aderezo de miel mostaza",$200.00,menú-platillos,ensalada_cesar.webp
+36,Ensaladas,Ensalada Tajal,"Mix de lechuga con pollo, espinaca, arándano, panela, fresa, frutos rojos y vinagreta",$200.00,menú-platillos,michelada_tajal.webp
+37,Ensaladas,Ensalada Tex Mex,"Mix de lechuga, jitomate, elote, aguacate, cebolla morada, chips y arrachera con aderezo de chipotle",$200.00,menú-platillos,ensalada_cesar.webp
+38,Ensaladas,Ensalada César,"Mix de lechugas, crotones, queso parmesano, aderezo cesar y pollo",$180.00,menú-platillos,ensalada_cesar.webp
+39,Ensaladas,Capres,"Rebanadas de jitomate, queso fresco, albahaca, aceite de oliva y vinagre balsámico",$180.00,menú-platillos,capres.webp
+40,Pastas,Alfredo,"Pasta con crema alfredo, mantequilla y queso parmesano",$215.00,menú-platillos,
+41,Pastas,Arrabiata,"Pasta en salsa de tomate picante con ajo, chile y aceite de oliva",$215.00,menú-platillos,Arrabiata.webp
+42,Pastas,Al Pesto,Pasta con salsa pesto de albahaca fresca y queso parmesano,$215.00,menú-platillos,Al_pesto.webp
+43,Pastas,Bizarro,Pasta especial de la casa con ingredientes únicos,$215.00,menú-platillos,pasta_bizarro.webp
+44,Hamburguesas,La Consentida Tajal,"De res especial de la casa con champiñones, tocino, espinaca y queso blanco",$220.00,menú-platillos,michelada_tajal.webp
+45,Hamburguesas,Hamburguesa de Camarón,Camarones a la plancha con queso manchego,$215.00,menú-platillos,hamburguesa_de_camaron.webp
+46,Hamburguesas,Hamburguesa Tradicional,"Carne de res, queso americano y tocino",$175.00,menú-platillos,hamburguesa.webp
+47,Hamburguesas,Hamburguesa de Pollo,Pechuga de pollo y queso americano,$175.00,menú-platillos,hamburguesa_de_pollo.webp
+48,Cortes,Cowboy 400g,Con ensalada fresca y papitas al limón,$470.00,menú-platillos,cowboy.webp
+49,Cortes,Tomahawk (1 kg – 1.2kg),Con una ensalada especial de la casa,"$1,200.00",menú-platillos,tomahawk.webp
+50,Cortes,Rib-eye 350g,Con papa al gratin y ensalada,$370.00,menú-platillos,rib-eye_350g.webp
+51,Cortes,T-bone 350g,Con champiñones al ajillo y elote amarillo,$370.00,menú-platillos,t-bone.webp
+52,Cortes,Arrachera 350g,Arrachera de res marinada y asada a la parrilla servida con guarniciones al estilo Tajal.,$330.00,menú-platillos,arrachera_350g.webp
+53,Cortes,Picaña 350g,Corte premium de res jugoso y tierno asado a la parrilla con sazón Tajal.,$300.00,menú-platillos,rib-eye_350g.webp
+54,Mariscos,Pulpo Estilo Tajal,Pulpo a las brasas con puré de papa y ensalada,$420.00,menú-platillos,pulpo_estilo_tajal.webp
+55,Mariscos,Salmón 350g,Medallón de salmón con vegetales salteados,$320.00,menú-platillos,salmon.webp
+56,Mariscos,Camarones Especial Tajal,Camarones rellenos con queso manchego y aderezo de la casa,$320.00,menú-platillos,camarones_tajal.webp
+57,Mariscos,Camarones al Gusto,"Con arroz y ensalada: a la mantequilla, a la diabla, al mojo de ajo y al ajillo",$250.00,menú-platillos,camarones_hawai.webp
+58,Mariscos,Tacos Gobernador,3 tacos de camarón gratinados con aguacate,$250.00,menú-platillos,tacos_gobernador.webp
+59,Mariscos,Atún Sellado,Con costra de ajonjolí y ensalada fresca,$245.00,menú-platillos,atun.webp
+60,Mariscos,Aguachile verde,Camarón fresco en caldo de chiles verdes cebolla cilantro y limón,$220.00,menú-platillos,aguachile_verde.webp
+61,Mariscos,Aguachile Negro de Camarón (165g),"Camarón fresco en caldo de tinta de calamar con cebolla, cilantro y chile",$220.00,menú-platillos,aguachile_negro.webp
+62,Mariscos,Aguachile Rojo de Camarón (165g),"Camarón fresco en caldo de chile rojo con cebolla, cilantro y limón",$220.00,menú-platillos,Aguachile_negro_de_camarón.webp
+63,Mariscos,Torre Tajal de Atún,Atún rojo en trozos sobre aguacate,$280.00,menú-platillos,torre_tajal_de_atun.webp
+64,Menú Infantil,Hamburguesa Infantil,Con papas a la francesa,$150.00,menú-platillos,hamburguesa_infantil.webp
+65,Menú Infantil,Nuggets de Pollo,Con papas a la francesa,$130.00,menú-platillos,nuggets_de_pollo.webp
+66,Menú Infantil,Sopa de Fideo con Tocino,Sopa tradicional de fideo con trocitos de tocino,$90.00,menú-platillos,fideos_con_tocino.webp
+67,Menú Infantil,Hot Dogs,1 pieza con papas a la francesa,$80.00,menú-platillos,hot-cakes.webp
+68,Postres,Pastel,"Variedad de sabores caseros, cambia cada día.",$135.00,menú-platillos,pastel.webp
+69,Postres,Flan Napolitano,Flan Napolitano de plátano macho o de vainilla,$135.00,menú-platillos,flan_napolitano_de_vainilla.webp
+70,Postres,Pay helado,Disponible en sabores: cheesecake o limón,$135.00,menú-platillos,pay_helado_de_limon1.webp
+71,Extras,Arrachera 150g,Carne de arrachera asada,$80.00,menú-platillos,arrachera_350g.webp
+72,Extras,Pollo 150g,Pechuga de pollo a la plancha,$80.00,menú-platillos,nuggets_de_pollo.webp
+73,Extras,Camarón 110g,"Camarón fresco al gusto (mantequilla, diabla o mojo de ajo)",$100.00,menú-platillos,michelada_con_camaron_2.webp
+74,Extras,Guacamole 150g,Guacamole casero con totopos,$90.00,menú-platillos,guacamole.webp
+75,Extras,Orden de Arroz,Arroz blanco o rojo,$50.00,menú-platillos,extra_de_arroz.webp
+76,Extras,Chorizo 150 g,Chorizo asado al carbón,$50.00,menú-platillos,extra_de_chorizo.webp
+77,Extras,Panela 150g,Panela asada al carbón con chimichurri,$50.00,menú-platillos,extra_de_panela.webp
+78,Extras,Elotes (3 rebanadas),"Elote asado en rebanadas con mayonesa, queso y chile",$50.00,menú-platillos,extra_elotes.webp
+79,Extras,Frijoles 150g,Frijoles refritos o charros,$40.00,menú-platillos,frijoles.webp
+80,Coctelería,Aperol Spritz,"Cóctel italiano refrescante con Aperol, prosecco y un toque de soda, servido con rodaja de naranja.",$150.00,menú-mixología,
+81,Coctelería,Bloody Mary,"Vodka, jugo de tomate y nuestro ingrediente secreto.",$130.00,menú-mixología,
+82,Coctelería,Canija,Baileys con un shot de expresso fresco.,$120.00,menú-mixología,
+83,Coctelería,Carajillo,"La amargura del café y la dulzura especiada del licor, equilibrio perfecto.",$150.00,menú-mixología,
+84,Coctelería,Clericot,Vino blanco frutal mezclado con frutas frescas de temporada y un toque de burbuja.,$150.00,menú-mixología,clericot_blanco.webp
+85,Coctelería,El Rey Abel,Especialidad de la casa.,$170.00,menú-mixología,rey_abel.webp
+86,Coctelería,Hierbabuena,Hierbabuena fresca con limón y soda,$95.00,menú-mixología,
+87,Coctelería,Margarita,"Clásica: sal negra, limón y tajín",$150.00,menú-mixología,margaritas.webp
+88,Coctelería,Margarita Tajal,"Nuestra versión única: tequila reposado, triple seco, jugo de limón fresco y sal Tajal especial.",$180.00,menú-mixología,margarita_tajal.webp
+89,Coctelería,Paloma,Tequila toronja y soda,$130.00,menú-mixología,paloma_1.webp
+90,Coctelería,Michelada Clara,"Cerveza clara con jugo de limón, salsa Tajal, sal y especias, servida en vaso con hielo.",$130.00,menú-mixología,michelada_clara.webp
+91,Coctelería,Michelada Obscura,Cerveza obscura con mezcla picante jugo de limón y sal gourmet.,$150.00,menú-mixología,michelada_obscura.webp
+92,Coctelería,Michelada con Camarón,"Camarones cocidos, limón, sal y sazón Tajal",$180.00,menú-mixología,michelada_con_camaron_2.webp
+93,Coctelería,Mimosa,Prosecco con jugo de naranja fresco ideal para brindis matutinos.,$130.00,menú-mixología,mimosa.webp
+94,Coctelería,Old Fashion,"Whisky bourbon, azúcar y angostura, mezclado a mano y servido con hielo grande.",$210.00,menú-mixología,old_fashion.webp
+95,Coctelería,Cuba Libre,"Ron añejo, refresco de cola y jugo de limón, servido con hielo y rodaja de lima.",$160.00,menú-mixología,
+96,Coctelería,Mojito,"Ron blanco, hojas de hierbabuena fresca, lima, azúcar y soda.",$120.00,menú-mixología,mojito.webp
+97,Coctelería,Paloma,Tequila toronja y soda,$130.00,menú-mixología,paloma_1.webp
+98,Coctelería,Perla Negra,"Mezcla de vodka, licor de café y crema de leche, con un toque de chocolate.",$165.00,menú-mixología,_perla_negra.webp
+99,Coctelería,Piña Colada,"Ron blanco, crema de coco y jugo de piña, licuado con hielo.",$150.00,menú-mixología,
+100,Coctelería,Ruso Blanco,Vodka con crema de leche y jarabe de cacao blanco.,$130.00,menú-mixología,clericot_blanco.webp
+101,Coctelería,Ruso Negro,"Vodka con crema de leche y cacao oscuro, suave y delicioso.",$150.00,menú-mixología,aguachile_negro.webp
+102,Coctelería,Sangría,"Vino tinto con frutas frescas, especias y un toque de brandy.",$120.00,menú-mixología,sangria.webp
+103,Coctelería,Maracay,"Tequila, jugo de piña, jarabe de maracuyá y limón fresco.",$195.00,menú-mixología,
+104,Coctelería,Vampiro,"Tequila, jugo de tomate, salsa picante y limón. Explosión de sabor.",$130.00,menú-mixología,
+105,Coctelería,Maracuñita,"Mezcal, maracuyá, jugo de limón y un toque de especias cítricas.",$185.00,menú-mixología,
+106,Coctelería,Tequila Sunrise,"Tequila, jugo de naranja y granadina, servido en capas espectaculares.",$180.00,menú-mixología,tequila_sunrise.webp
+107,Coctelería,Conga,"Ron, jugo de piña, coco y canela, con un toque ahumado.",$170.00,menú-mixología,
+108,Coctelería,Bomba de Violeta,"Ginebra, licor de violeta, jugo de limón y burbuja, con esencia floral.",$200.00,menú-mixología,
+109,Coctelería,Clericot Blanco,Vino blanco semi-dulce con frutas tropicales y toque burbujeante.,$190.00,menú-mixología,clericot_blanco.webp
+110,Coctelería,Sangría,"Sangría envejecida con frutas frescas, vino selecto y toques cítricos.",$185.00,menú-mixología,sangria.webp
+111,Coctelería,Mezcalita,"Mezcal joven, jugo de naranja, Cointreau y limón, nuestra versión ahumada de la clásica margarita.",$175.00,menú-mixología,mezcalita.webp
+112,Coctelería,Flor de Durazno,"Ginebra, durazno, jugo de limón y agua de rosas, floral y refrescante.",$200.00,menú-mixología,flor de durazno.webp
+113,Coctelería,Expresso Martini,"Vodka, licor de café, espresso doble y mucho hielo, batido hasta lograr una crema sedosa.",$200.00,menú-mixología,martini_express_2.webp
+114,Coctelería,Manhattan,"Whisky, vermut rojo y angostura, elegante y clásico.",$180.00,menú-mixología,manhattan.webp
+115,Cervezas,Corona,,$55.00,menú-mixología,corona.webp
+116,Cervezas,Corona Light,,$55.00,menú-mixología,corona.webp
+117,Cervezas,Modelo Especial,,$75.00,menú-mixología,modelo.webp
+118,Cervezas,Negra Modelo,,$75.00,menú-mixología,negra_modelo.webp
+119,Cervezas,Pacífico,,$55.00,menú-mixología,pacifico.webp
+120,Cervezas,Ultra,,$75.00,menú-mixología,
+121,Cervezas,Victoria,,$55.00,menú-mixología,
+122,Cervezas,Colimitas,,$95.00,menú-mixología,colimitas.webp
+123,Cervezas,Colimita Lager,,$95.00,menú-mixología,
+124,Cervezas,Paromo,,$95.00,menú-mixología,
+125,Cervezas,Piedra Lisa,,$95.00,menú-mixología,piedra_lisa.webp
+126,Cervezas,Ticus,,$95.00,menú-mixología,
+127,Licores,30-30 Blanco,,$110.00,menú-mixología,clericot_blanco.webp
+128,Licores,30-30 Reposado,,$130.00,menú-mixología,Tradicional_Reposado.webp
+129,Licores,30-30 Cristalino,,$150.00,menú-mixología,
+130,Licores,7 Leguas Blanco,,$150.00,menú-mixología,clericot_blanco.webp
+131,Licores,7 Leguas Reposado,,$130.00,menú-mixología,Tradicional_Reposado.webp
+132,Licores,Centenario Plata,,$115.00,menú-mixología,
+133,Licores,Centenario Reposado,,$110.00,menú-mixología,Tradicional_Reposado.webp
+134,Licores,Don Julio 70,,$250.00,menú-mixología,
+135,Licores,Don Julio Blanco,,$260.00,menú-mixología,clericot_blanco.webp
+136,Licores,Don Julio Reposado,,$210.00,menú-mixología,Tradicional_Reposado.webp
+137,Licores,Herradura Blanco,,$210.00,menú-mixología,clericot_blanco.webp
+138,Licores,Herradura Plata,,$145.00,menú-mixología,
+139,Licores,Herradura Reposado,,$196.00,menú-mixología,Tradicional_Reposado.webp
+140,Licores,Herradura Ultra,,$240.00,menú-mixología,
+141,Licores,Tradicional Plata,,$110.00,menú-mixología,hamburgesa_tradicional.webp
+142,Licores,Tradicional Reposado,,$115.00,menú-mixología,Tradicional_Reposado.webp
+143,Licores,Bacardi Blanco,,$105.00,menú-mixología,clericot_blanco.webp
+144,Licores,Bacardí Mango,,$95.00,menú-mixología,
+145,Licores,Habana Club,,$120.00,menú-mixología,
+146,Licores,Zacapa 23,,$340.00,menú-mixología, Zacapa_23.webp
+147,Licores,Chivas 12,,$200.00,menú-mixología,
+148,Licores,Red Label,,$110.00,menú-mixología, Red_Label.webp
+149,Licores,Martell VSOP,,$350.00,menú-mixología,Martel_VSOP.webp
+150,Licores,Genesis VSOP,,$350.00,menú-mixología,Martel_VSOP.webp
+151,Licores,Beefeater,,$100.00,menú-mixología,
+152,Licores,Hendricks,,$260.00,menú-mixología,
+153,Licores,Tanqueray,,$140.00,menú-mixología,Tanqueray.webp
+154,Licores,Absolut,,$110.00,menú-mixología,
+155,Licores,Absolut Citron,,$125.00,menú-mixología,
+156,Licores,Absolut Mandarina,,$110.00,menú-mixología,
+157,Licores,Absolut Raspberry,,$110.00,menú-mixología,
+158,Licores,Grey Goose,,$160.00,menú-mixología,Grey_Goose.webp
+159,Licores,400 Conejos (Joven),,$115.00,menú-mixología,Monte_Lobos_Joven.webp
+160,Licores,Agua Maldita,,$115.00,menú-mixología,
+161,Licores,Apaluz,,$115.00,menú-mixología,
+162,Licores,Monte Lobos Joven,,$185.00,menú-mixología,Monte_Lobos_Joven.webp
+163,Licores,Baileys,,$130.00,menú-mixología,
+164,Licores,Licor 43,,$120.00,menú-mixología,Licor_43.webp
+165,Sin Alcohol,Café Americano,,$65.00,menú-mixología,
+166,Sin Alcohol,Café Capuchino,,$65.00,menú-mixología,
+167,Sin Alcohol,Café Expreso,,$55.00,menú-mixología,
+168,Sin Alcohol,Agua Mineral Hethe,,$90.00,menú-mixología,
+169,Sin Alcohol,Botella de Agua,,$30.00,menú-mixología,
+170,Sin Alcohol,Red Bull,,$100.00,menú-mixología, Red_Label.webp
+171,Sin Alcohol,Refresco (355 ml),,$45.00,menú-mixología,
+172,Sin Alcohol,Rusa (Mineral o Squirt),,$60.00,menú-mixología,
+173,Sin Alcohol,Soda Italiana,,$90.00,menú-mixología,
+174,Sin Alcohol,Chocomilk,,$45.00,menú-mixología,
+175,Sin Alcohol,Jugo de Naranja,,$45.00,menú-mixología,
+176,Sin Alcohol,Limonada,,$75.00,menú-mixología,
+177,Sin Alcohol,Limonada 1L,,$140.00,menú-mixología,
+178,Sin Alcohol,Jarra de Limonada,,$190.00,menú-mixología,jarra_de_clericot.webp
+179,Sin Alcohol,Limonada de Frutos Rojos,,$75.00,menú-mixología,
+180,Sin Alcohol,Naranjada,,$75.00,menú-mixología,
+181,Sin Alcohol,Naranjada 1L,,$140.00,menú-mixología,
+182,Sin Alcohol,Jarra de Naranjada,,$190.00,menú-mixología,jarra_de_clericot.webp
+183,Sin Alcohol,Naranjada de Maracuyá,,$80.00,menú-mixología,
+184,Sin Alcohol,Piñada,,$90.00,menú-mixología,
+185,Sin Alcohol,Tisanas,,$65.00,menú-mixología,

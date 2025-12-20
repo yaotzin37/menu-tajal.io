@@ -8,191 +8,894 @@
     <meta property="og:description" content="Descubre nuestra selección de platillos: cortes, mariscos, ensaladas, pastas y más.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tajalrestaurante.com/menu-platillos.html">
-    <meta property="og:image" content="assets/images/logo.png">
-    <link rel="icon" href="assets/images/logo.png">
+    <meta property="og:image" content="assets/images/logos/logo.webp">
+    <link rel="icon" href="assets/images/logos/logo.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">    
     <title>Carta de Tajal - Restaurante & Mixología</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
 </head>
 <body class="menu-page menu-platillos">
-    <div class="container">
-        <div class="logo">
-            <a href="index.html" title="Volver a la página de inicio">
-                <!-- Asumiendo que la imagen del logo está disponible en 'logo.png' -->
-                <img src="assets/images/logo.png" alt="Logo de Tajal">
-            </a>
+    <div class="menu-hero">
+        <video class="hero-video" autoplay loop muted playsinline preload="metadata" poster="assets/images/menu/ambiente/ambiente-1.webp">
+            <!-- El video correcto se carga via JavaScript según el tamaño de pantalla -->
+        </video>
+        <div class="menu-hero-overlay"></div>
+        <div class="menu-hero-content">
+            <img src="assets/images/logos/logo.webp" alt="Tajal Logo" class="menu-hero-logo">
+            <h1>Nuestra Carta</h1>
+            <p>Descubre nuestra selección de platillos que fusionan tradición y vanguardia</p>
         </div>
+    </div>
+    <div class="container">
         <h1>Nuestro Menú</h1>
         <p class="distinctive">Disfruta de nuestra selección de platillos preparados con los mejores ingredientes y técnicas culinarias, fusionando sabores tradicionales con toques contemporáneos.</p>
-        
-        <h2><i class="fas fa-coffee"></i>Desayunos</h2>
-        <ul>
-            <li class="has-image" data-image="assets/galeria-platillos/desayunos/chilaquiles.jpeg"><span class="item-name">Chilaquiles <i class="fas fa-camera"></i></span><span class="item-desc">Rojos o verdes, acompañados de frijoles, queso, crema y cebolla</span><span class="item-price">$130.00</span></li>
-            <li><span class="item-name">Huevos al gusto</span><span class="item-desc">Mexicana, Revueltos, Con jamón, Estrellados, Omelette con salchicha o jamón</span><span class="item-price">$120.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/desayunos/hot-cakes.jpeg"><span class="item-name">Hot-cakes <i class="fas fa-camera"></i></span><span class="item-desc">3 piezas con mantequilla, miel de maple y tocino</span><span class="item-price">$115.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/desayunos/plato_de_fruta.jpeg"><span class="item-name">Plato de fruta <i class="fas fa-camera"></i></span><span class="item-desc">Papaya, melón, fresas, con miel de abeja y granola; elegir: queso cottage o yogurt natural</span><span class="item-price">$120.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/desayunos/molletes_salados.jpeg"><span class="item-name">Molletes salados <i class="fas fa-camera"></i></span><span class="item-desc">2 molletes: frijol con queso, frijol con queso y chorizo</span><span class="item-price">$90.00</span></li>
-            <li><span class="item-name">Molletes Dulces</span><span class="item-desc">2 molletes: sencillo o combinado con cajeta, mermelada de fresa, lechera, Nutella, azúcar y canela, miel</span><span class="item-price">$95.00</span></li>
-        </ul>
 
-        <h2><i class="fas fa-pepper-hot"></i>Entradas</h2>
-        <ul>
-            <li class="chef-recommendation has-image" data-image="assets/galeria-platillos/entradas/guacamole_con_picana.webp"><span class="item-name">Guacamole con picaña <i class="fas fa-camera"></i></span><span class="item-desc">Guacamole tradicional con puntas de picaña al carbón</span><span class="item-price">$250.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/entradas/panela_asada.jpeg"><span class="item-name">Panela asada <i class="fas fa-camera"></i></span><span class="item-desc">Panela asada al carbón marinada con chimichurri</span><span class="item-price">$120.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/entradas/chistorra_asada.jpeg"><span class="item-name">Chistorra asada <i class="fas fa-camera"></i></span><span class="item-desc">Porción de chistorra asada al carbón marinada con chimichurri</span><span class="item-price">$130.00</span></li>
-            <li><span class="item-name">Tiradito de atún</span><span class="item-desc">Láminas de atún sobre ruedas de pepino, chile serrano y salsa sweet ponzu</span><span class="item-price">$230.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/entradas/cecina.jpeg"><span class="item-name">Cecina <i class="fas fa-camera"></i></span><span class="item-desc">150g horneada con guacamole tradicional</span><span class="item-price">$240.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/entradas/tostadas_de_atun.jpeg"><span class="item-name">Tostadas de atún <i class="fas fa-camera"></i></span><span class="item-desc">1 tostada de atún marinado en salsa negra con flor de aguacate</span><span class="item-price">$120.00</span></li>
-            <li><span class="item-name">Sopa Azteca</span><span class="item-desc">Sopa de tortilla con aguacate, queso manchego y crema</span><span class="item-price">$95.00</span></li>
-            <li class="chef-recommendation has-image" data-image="assets/galeria-platillos/entradas/torre_tajal_de_atun.jpeg"><span class="item-name">Torre Tajal de atún <i class="fas fa-camera"></i></span><span class="item-desc">Atún rojo en trozos sobre aguacate</span><span class="item-price">$280.00</span></li>
-            <li><span class="item-name">Queso fundido</span><span class="item-desc">Con chorizo, champiñones o natural</span><span class="item-price">$160.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/entradas/papa_gratinada_con_arrachera.jpeg"><span class="item-name">Papa gratinada con arrachera <i class="fas fa-camera"></i></span><span class="item-desc">Papa con queso gratinado y fajitas de arrachera</span><span class="item-price">$180.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/entradas/papas_a_la_francesa.jpeg"><span class="item-name">Papas a la francesa <i class="fas fa-camera"></i></span><span class="item-desc"></span><span class="item-price">$80.00</span></li>
-            <li><span class="item-name">Guacamole</span><span class="item-desc">Dip con totopos</span><span class="item-price">$90.00</span></li>
-            <li class="chef-recommendation has-image" data-image="assets/galeria-platillos/entradas/tuetanos_tajal.jpg"><span class="item-name">Tuétanos Tajal <i class="fas fa-camera"></i></span><span class="item-desc">3 piezas al grill con esquites y salsa de la casa</span><span class="item-price">$270.00</span></li>
-            <li class="chef-recommendation">
-                <span class="item-name">¡ESPECIAL DE FIN DE SEMANA!</span>
-                <span class="item-desc">Disfruta de nuestro delicioso menudo, disponible solo los sábados y domingos.</span>
-            </li>
-            <li>
-                <span class="item-name">Menudo Mini</span>
-                <span class="item-desc">c/labio-$155.00. c/lengua -$175.00. c/labio y lengua-$185.00.</span>
-            </li>
-            <li>
-                <span class="item-name">Menudo Mediano</span>
-                <span class="item-desc">c/labio-$180.00. c/lengua-$220.00. c/labio y lengua-$240.00.</span>
-            </li>
-            <li>
-                <span class="item-name">Menudo Grande</span>
-                <span class="item-desc">c/labio-$200.00. c/lengua-$235.00. c/labio y lengua-$265.00.</span>
-            </li>
-            <li>
-                <span class="item-name">Menudo Extra Grande</span>
-                <span class="item-desc">c/labio-$265.00. c/lengua-$270.00. c/labio y lengua-$320.00.</span>
-        </ul>
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="Buscar platillo...">
+        </div>
+        <div class="category-select-wrap"><select id="category-select" class="category-select" aria-label="Seleccionar categoría"><option value="">Ver todas</option><option value="desayunos">Desayunos</option><option value="entradas-y-botanas">Entradas y Botanas</option><option value="fines-de-semana">Fines de Semana</option><option value="ensaladas">Ensaladas</option><option value="pastas">Pastas</option><option value="hamburguesas">Hamburguesas</option><option value="cortes">Cortes</option><option value="mariscos">Mariscos</option><option value="menu-infantil">Menú Infantil</option><option value="postres">Postres</option><option value="extras">Extras</option></select></div><div class="category" id="cortes">
+<h2>Cortes</h2>
+<div class="menu-grid">
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/cowboy.webp" alt="Cowboy 400g" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Cowboy 400g</h2>
+    <p>Con ensalada fresca y papitas al limón</p>
+    <span class="price">$470.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/tomahawk.webp" alt="Tomahawk (1 kg – 1.2kg)" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Tomahawk (1 kg – 1.2kg)</h2>
+    <p>Con una ensalada especial de la casa</p>
+    <span class="price">$1,200.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/rib-eye_350g.webp" alt="Rib-eye 350g" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Rib-eye 350g</h2>
+    <p>Con papa al gratin y ensalada</p>
+    <span class="price">$370.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/t-bone.webp" alt="T-bone 350g" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>T-bone 350g</h2>
+    <p>Con champiñones al ajillo y elote amarillo</p>
+    <span class="price">$370.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/arrachera_350g.webp" alt="Arrachera 350g" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Arrachera 350g</h2>
+    <p>Arrachera de res marinada y asada a la parrilla servida con guarniciones al estilo Tajal.</p>
+    <span class="price">$330.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/picana_350g.png" alt="Picaña 350g" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Picaña 350g</h2>
+    <p>Corte premium de res jugoso y tierno asado a la parrilla con sazón Tajal.</p>
+    <span class="price">$300.00</span>
+  </div>
+</div>
+</div>
+</div>
+<div class="category" id="desayunos">
+<h2>Desayunos</h2>
+<div class="menu-grid">
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/chilaquiles.webp" alt="Chilaquiles" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Chilaquiles</h2>
+    <p>Totopos de maíz crujientes bañados en nuestra salsa casera</p>
+    <span class="price">$130.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/huevos_al_gusto.webp" alt="Huevos al Gusto" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Huevos al Gusto</h2>
+    <p>Mexicana, revueltos, con jamón, estrellados, omelette con salchicha o jamón</p>
+    <span class="price">$120.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/hot-cakes.webp" alt="Hot-Cakes" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Hot-Cakes</h2>
+    <p>3 piezas con mantequilla y miel de maple</p>
+    <span class="price">$115.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/plato_de_fruta.webp" alt="Plato de Fruta" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Plato de Fruta</h2>
+    <p>Papaya, melón, fresas, con miel de abeja y granola; elegir: queso cottage o yogurt natural</p>
+    <span class="price">$120.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/molletes_salados.webp" alt="Molletes Salados" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Molletes Salados</h2>
+    <p>2 molletes: frijol con queso, frijol con queso y chorizo</p>
+    <span class="price">$90.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/molletes_dulces.webp" alt="Molletes Dulces" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Molletes Dulces</h2>
+    <p>2 molletes: sencillo o combinado con cajeta, mermelada de fresa, leche, azúcar, canela y miel</p>
+    <span class="price">$95.00</span>
+  </div>
+</div>
+</div>
+</div>
+<div class="category" id="ensaladas">
+<h2>Ensaladas</h2>
+<div class="menu-grid">
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Ensalada Premium" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Ensalada Premium</h2>
+    <p>Mix de lechuga, espinaca, queso de cabra, nuez garapiñada y pollo con aderezo de miel mostaza</p>
+    <span class="price">$200.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Ensalada Tajal" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Ensalada Tajal</h2>
+    <p>Mix de lechuga con pollo, espinaca, arándano, panela, fresa, frutos rojos y vinagreta</p>
+    <span class="price">$200.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Ensalada Tex Mex" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Ensalada Tex Mex</h2>
+    <p>Mix de lechuga, jitomate, elote, aguacate, cebolla morada, chips y arrachera con aderezo de chipotle</p>
+    <span class="price">$200.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/ensalada_cesar.webp" alt="Ensalada César" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Ensalada César</h2>
+    <p>Mix de lechugas, crotones, queso parmesano, aderezo cesar y pollo</p>
+    <span class="price">$180.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/capres.webp" alt="Capres" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Capres</h2>
+    <p>Rebanadas de jitomate, queso fresco, albahaca, aceite de oliva y vinagre balsámico</p>
+    <span class="price">$180.00</span>
+  </div>
+</div>
+</div>
+</div>
+<div class="category" id="entradas-y-botanas">
+<h2>Entradas y Botanas</h2>
+<div class="menu-grid">
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/camarones_hawaii.webp" alt="Camarones Hawaii" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Camarones Hawaii</h2>
+    <p>Camarones empanizados con un toque crujiente de pan y coco sobre una ensalada fresca y un toque de salsa especial de la casa Tajal</p>
+    <span class="price">$170.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/camarones_roca.webp" alt="Camarones Roca" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Camarones Roca</h2>
+    <p>Camarones capeados, macerados en un delicioso aderezo con un toque picosito. Creación del chef.</p>
+    <span class="price">$180.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/guacamole_con_picana.webp" alt="Guacamole con Picaña" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Guacamole con Picaña</h2>
+    <p>Guacamole tradicional con puntas de picaña al carbón</p>
+    <span class="price">$250.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/tuetanos_tajal.webp" alt="Tuétanos Tajal" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Tuétanos Tajal</h2>
+    <p>3 piezas al grill con esquites y salsa de la casa</p>
+    <span class="price">$270.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/tiradito_de_atun.webp" alt="Tiradito de Atún" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Tiradito de Atún</h2>
+    <p>Láminas de atún sobre ruedas de pepino, chile serrano y salsa sweet ponzu</p>
+    <span class="price">$230.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/tiradito_de_salmon.webp" alt="Tiradito de Salmón" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Tiradito de Salmón</h2>
+    <p>Láminas de salmón sobre ruedas de pepino, chile serrano y salsa sweet ponzu</p>
+    <span class="price">$260.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/cecina.webp" alt="Cecina" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Cecina</h2>
+    <p>150 g horneada</p>
+    <span class="price">$240.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/queso_fundido.webp" alt="Queso Fundido" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Queso Fundido</h2>
+    <p>Con chorizo, champiñones o natural</p>
+    <span class="price">$160.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/papa_gratinada_con_arrachera.webp" alt="Papa Gratinada con Arrachera" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Papa Gratinada con Arrachera</h2>
+    <p>Papa con queso gratinado y fajitas de arrachera</p>
+    <span class="price">$180.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/panela_asada.webp" alt="Panela Asada" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Panela Asada</h2>
+    <p>Panela asada al carbón con salsa ranchera</p>
+    <span class="price">$120.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/chistorra_asada.webp" alt="Chistorra Asada" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Chistorra Asada</h2>
+    <p>Porción de chistorra asada al carbón marinada con salsa artesanal</p>
+    <span class="price">$130.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/tostadas_de_atun.webp" alt="Tostadas de Atún" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Tostadas de Atún</h2>
+    <p>1 tostada de atún marinado en salsa negra con flor de aguacate</p>
+    <span class="price">$120.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/sopa_azteca.webp" alt="Sopa Azteca" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Sopa Azteca</h2>
+    <p>Sopa de tortilla con aguacate, queso manchego y crema</p>
+    <span class="price">$115.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/frijoles.webp" alt="Frijoles adobados" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Frijoles adobados</h2>
+    <p>Orden de frijoles adobados con elote</p>
+    <span class="price">$90.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/guacamole.webp" alt="Guacamole" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Guacamole</h2>
+    <p>Dip con totopos</p>
+    <span class="price">$90.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/papas_a_la_francesa.webp" alt="Papas a la Francesa" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Papas a la Francesa</h2>
+    <p>Papas crujientes cortadas a mano servidas con salsa de la casa.</p>
+    <span class="price">$80.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/pellizcada_de_lengua.webp" alt="Pellizcada de lengua" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Pellizcada de lengua</h2>
+    <p>Porción de lengua de res cocida lentamente y sazonada al estilo Tajal</p>
+    <span class="price">$90.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/pellizcada_de_queso.webp" alt="Pellizcada de queso" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Pellizcada de queso</h2>
+    <p>Queso fresco desmenuzado y ligeramente ahumado ideal para compartir.</p>
+    <span class="price">$50.00</span>
+  </div>
+</div>
+</div>
+</div>
+<div class="category" id="extras">
+<h2>Extras</h2>
+<div class="menu-grid">
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Arrachera 150g" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Arrachera 150g</h2>
+    <p>Carne de arrachera asada</p>
+    <span class="price">$80.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Pollo 150g" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Pollo 150g</h2>
+    <p>Pechuga de pollo a la plancha</p>
+    <span class="price">$80.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Camarón 110g" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Camarón 110g</h2>
+    <p>Camarón fresco al gusto (mantequilla, diabla o mojo de ajo)</p>
+    <span class="price">$100.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/guacamole.webp" alt="Guacamole 150g" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Guacamole 150g</h2>
+    <p>Guacamole casero con totopos</p>
+    <span class="price">$90.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Orden de Arroz" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Orden de Arroz</h2>
+    <p>Arroz blanco o rojo</p>
+    <span class="price">$50.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Chorizo 150 g" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Chorizo 150 g</h2>
+    <p>Chorizo asado al carbón</p>
+    <span class="price">$50.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Panela 150g" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Panela 150g</h2>
+    <p>Panela asada al carbón con chimichurri</p>
+    <span class="price">$50.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Elotes (3 rebanadas)" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Elotes (3 rebanadas)</h2>
+    <p>Elote asado en rebanadas con mayonesa, queso y chile</p>
+    <span class="price">$50.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/frijoles.webp" alt="Frijoles 150g" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Frijoles 150g</h2>
+    <p>Frijoles refritos o charros</p>
+    <span class="price">$40.00</span>
+  </div>
+</div>
+</div>
+</div>
+<div class="category" id="fines-de-semana">
+<h2>Fines de Semana</h2>
+<div class="menu-grid">
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/menudo.webp" alt="Menudo mini con lengua y cachete" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Menudo mini con lengua y cachete</h2>
+    <p></p>
+    <span class="price">$170.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/menudo.webp" alt="Menudo mini con pedacito" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Menudo mini con pedacito</h2>
+    <p></p>
+    <span class="price">$140.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/menudo.webp" alt="Menudo mediano con lengua y cachete" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Menudo mediano con lengua y cachete</h2>
+    <p></p>
+    <span class="price">$240.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/menudo.webp" alt="Menudo mediano con pedacito" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Menudo mediano con pedacito</h2>
+    <p></p>
+    <span class="price">$185.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/menudo.webp" alt="Menudo grande con lengua y cachete" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Menudo grande con lengua y cachete</h2>
+    <p></p>
+    <span class="price">$230.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/menudo.webp" alt="Menudo grande con pedacito" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Menudo grande con pedacito</h2>
+    <p></p>
+    <span class="price">$265.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/menudo.webp" alt="Menudo extra grande con pedacito" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Menudo extra grande con pedacito</h2>
+    <p></p>
+    <span class="price">$225.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/menudo.webp" alt="Menudo extra grande con lengua y cachete" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Menudo extra grande con lengua y cachete</h2>
+    <p></p>
+    <span class="price">$295.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/caldo.webp" alt="Menudo caldo mini" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Menudo caldo mini</h2>
+    <p>Caldo concentrado de menudo sin tripas perfecto para empezar el día.</p>
+    <span class="price">$70.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/caldo.webp" alt="Menudo caldo grande" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Menudo caldo grande</h2>
+    <p>Caldo abundante de menudo sin tripas servido caliente con condimentos al gusto.</p>
+    <span class="price">$90.00</span>
+  </div>
+</div>
+</div>
+</div>
+<div class="category" id="hamburguesas">
+<h2>Hamburguesas</h2>
+<div class="menu-grid">
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="La Consentida Tajal" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>La Consentida Tajal</h2>
+    <p>De res especial de la casa con champiñones, tocino, espinaca y queso blanco</p>
+    <span class="price">$220.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/hamburguesa_de_camaron.webp" alt="Hamburguesa de Camarón" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Hamburguesa de Camarón</h2>
+    <p>Camarones a la plancha con queso manchego</p>
+    <span class="price">$215.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/hamburguesa.webp" alt="Hamburguesa Tradicional" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Hamburguesa Tradicional</h2>
+    <p>Carne de res, queso americano y tocino</p>
+    <span class="price">$175.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/hamburguesa_de_pollo.webp" alt="Hamburguesa de Pollo" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Hamburguesa de Pollo</h2>
+    <p>Pechuga de pollo y queso americano</p>
+    <span class="price">$175.00</span>
+  </div>
+</div>
+</div>
+</div>
+<div class="category" id="mariscos">
+<h2>Mariscos</h2>
+<div class="menu-grid">
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/pulpo_estilo_tajal.webp" alt="Pulpo Estilo Tajal" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Pulpo Estilo Tajal</h2>
+    <p>Pulpo a las brasas con puré de papa y ensalada</p>
+    <span class="price">$420.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/salmon.webp" alt="Salmón 350g" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Salmón 350g</h2>
+    <p>Medallón de salmón con vegetales salteados</p>
+    <span class="price">$320.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Camarones Especial Tajal" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Camarones Especial Tajal</h2>
+    <p>Camarones rellenos con queso manchego y aderezo de la casa</p>
+    <span class="price">$320.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Camarones al Gusto" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Camarones al Gusto</h2>
+    <p>Con arroz y ensalada: a la mantequilla, a la diabla, al mojo de ajo y al ajillo</p>
+    <span class="price">$250.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/tacos_gobernador.webp" alt="Tacos Gobernador" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Tacos Gobernador</h2>
+    <p>3 tacos de camarón gratinados con aguacate</p>
+    <span class="price">$250.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/atun.webp" alt="Atún Sellado" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Atún Sellado</h2>
+    <p>Con costra de ajonjolí y ensalada fresca</p>
+    <span class="price">$245.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/aguachile_verde.webp" alt="Aguachile verde" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Aguachile verde</h2>
+    <p>Camarón fresco en caldo de chiles verdes cebolla cilantro y limón</p>
+    <span class="price">$220.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/aguachile_negro.webp" alt="Aguachile Negro de Camarón (165g)" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Aguachile Negro de Camarón (165g)</h2>
+    <p>Camarón fresco en caldo de tinta de calamar con cebolla, cilantro y chile</p>
+    <span class="price">$220.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/aguachile_rojo.png" alt="Aguachile Rojo de Camarón (165g)" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Aguachile Rojo de Camarón (165g)</h2>
+    <p>Camarón fresco en caldo de chile rojo con cebolla, cilantro y limón</p>
+    <span class="price">$220.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/torre_tajal_de_atun.webp" alt="Torre Tajal de Atún" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Torre Tajal de Atún</h2>
+    <p>Atún rojo en trozos sobre aguacate</p>
+    <span class="price">$280.00</span>
+  </div>
+</div>
+</div>
+</div>
+<div class="category" id="menu-infantil">
+<h2>Menú Infantil</h2>
+<div class="menu-grid">
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/hamburguesa_infantil.webp" alt="Hamburguesa Infantil" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Hamburguesa Infantil</h2>
+    <p>Con papas a la francesa</p>
+    <span class="price">$150.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/nuggets_de_pollo.webp" alt="Nuggets de Pollo" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Nuggets de Pollo</h2>
+    <p>Con papas a la francesa</p>
+    <span class="price">$130.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Sopa de Fideo con Tocino" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Sopa de Fideo con Tocino</h2>
+    <p>Sopa tradicional de fideo con trocitos de tocino</p>
+    <span class="price">$90.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Hot Dogs" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Hot Dogs</h2>
+    <p>1 pieza con papas a la francesa</p>
+    <span class="price">$80.00</span>
+  </div>
+</div>
+</div>
+</div>
+<div class="category" id="pastas">
+<h2>Pastas</h2>
+<div class="menu-grid">
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/logos/logo-fallback.jpg" alt="Alfredo" loading="lazy" class="fallback-image">
+  </div>
+  <div class="card-content">
+    <h2>Alfredo</h2>
+    <p>Pasta con crema alfredo, mantequilla y queso parmesano</p>
+    <span class="price">$215.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/Arrabiata.webp" alt="Arrabiata" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Arrabiata</h2>
+    <p>Pasta en salsa de tomate picante con ajo, chile y aceite de oliva</p>
+    <span class="price">$215.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/Al_pesto.webp" alt="Al Pesto" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Al Pesto</h2>
+    <p>Pasta con salsa pesto de albahaca fresca y queso parmesano</p>
+    <span class="price">$215.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/pasta_bizarro.webp" alt="Bizarro" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Bizarro</h2>
+    <p>Pasta especial de la casa con ingredientes únicos</p>
+    <span class="price">$215.00</span>
+  </div>
+</div>
+</div>
+</div>
+<div class="category" id="postres">
+<h2>Postres</h2>
+<div class="menu-grid">
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/pastel.webp" alt="Pastel" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Pastel</h2>
+    <p>Variedad de sabores caseros, cambia cada día.</p>
+    <span class="price">$135.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/flan_napolitano_de_vainilla.webp" alt="Flan Napolitano" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Flan Napolitano</h2>
+    <p>Flan Napolitano de plátano macho o de vainilla</p>
+    <span class="price">$135.00</span>
+  </div>
+</div>
+<div class="card">
+  <div class="card-image">
+    <img src="assets/images/menu/imagenes-organizadas/pay_helado_de_limon1.webp" alt="Pay helado" loading="lazy">
+  </div>
+  <div class="card-content">
+    <h2>Pay helado</h2>
+    <p>Disponible en sabores: cheesecake o limón</p>
+    <span class="price">$135.00</span>
+  </div>
+</div>
+</div>
+</div>
 
-        <h2><i class="fas fa-calendar-weekend"></i>Menú del Fin de Semana</h2>
-        <ul>
-            <li><span class="item-name">Menudo mini con labio</span><span class="item-desc">Menudo rojo estilo tradicional con labio de res</span><span class="item-price">$155.00</span></li>
-            <li><span class="item-name">Menudo mini con lengua</span><span class="item-desc">Menudo rojo estilo tradicional con lengua de res</span><span class="item-price">$175.00</span></li>
-            <li><span class="item-name">Menudo mini con labio y lengua</span><span class="item-desc">Menudo rojo estilo tradicional con labio y lengua de res</span><span class="item-price">$185.00</span></li>
-            <li><span class="item-name">Menudo mediano con labio</span><span class="item-desc">Menudo rojo estilo tradicional con labio de res</span><span class="item-price">$180.00</span></li>
-            <li><span class="item-name">Menudo mediano con lengua</span><span class="item-desc">Menudo rojo estilo tradicional con lengua de res</span><span class="item-price">$220.00</span></li>
-            <li><span class="item-name">Menudo mediano con labio y lengua</span><span class="item-desc">Menudo rojo estilo tradicional con labio y lengua de res</span><span class="item-price">$240.00</span></li>
-            <li><span class="item-name">Menudo grande con labio</span><span class="item-desc">Menudo rojo estilo tradicional con labio de res</span><span class="item-price">$200.00</span></li>
-            <li><span class="item-name">Menudo grande con lengua</span><span class="item-desc">Menudo rojo estilo tradicional con lengua de res</span><span class="item-price">$235.00</span></li>
-            <li><span class="item-name">Menudo grande con labio y lengua</span><span class="item-desc">Menudo rojo estilo tradicional con labio y lengua de res</span><span class="item-price">$265.00</span></li>
-            <li><span class="item-name">Menudo extra grande con labio</span><span class="item-desc">Menudo rojo estilo tradicional con labio de res</span><span class="item-price">$265.00</span></li>
-            <li><span class="item-name">Menudo extra grande con lengua</span><span class="item-desc">Menudo rojo estilo tradicional con lengua de res</span><span class="item-price">$270.00</span></li>
-            <li><span class="item-name">Menudo extra grande con labio y lengua</span><span class="item-desc">Menudo rojo estilo tradicional con labio y lengua de res</span><span class="item-price">$320.00</span></li>
-        </ul>
-
-        <h2><i class="fas fa-leaf"></i>Ensaladas</h2>
-        <ul>
-            <li><span class="item-name">Ensalada César</span><span class="item-desc">Mix de lechugas, crotones, queso parmesano, aderezo César y pollo</span><span class="item-price">$180.00</span></li>
-            <li><span class="item-name">Ensalada Premium</span><span class="item-desc">Mix de lechuga, espinaca, queso de cabra, nuez garapiñada y pollo con aderezo de miel mostaza</span><span class="item-price">$200.00</span></li>
-            <li><span class="item-name">Ensalada Tajal</span><span class="item-desc">Mix de lechuga con pollo, espinaca, arándano, panela, fresa, frutos rojos y vinagreta</span><span class="item-price">$200.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/ensaladas/ensalada_texmex.jpeg"><span class="item-name">Ensalada Texmex <i class="fas fa-camera"></i></span><span class="item-desc">Mix de lechuga, jitomate, elote, aguacate, cebolla morada, chips y arrachera con aderezo de chipotle</span><span class="item-price">$200.00</span></li>
-        </ul>
-
-        <h2><i class="fas fa-bacon"></i>Pastas</h2>
-        <ul>
-            <li><span class="item-name">Alfredo</span><span class="item-desc">Pasta con crema Alfredo, mantequilla y queso parmesano</span><span class="item-price">$215.00</span></li>
-            <li><span class="item-name">Arrabiata</span><span class="item-desc">Pasta en salsa de tomate picante con ajo, chile y aceite de oliva</span><span class="item-price">$215.00</span></li>
-            <li><span class="item-name">Bizarro</span><span class="item-desc">Pasta especial de la casa con ingredientes únicos</span><span class="item-price">$215.00</span></li>
-            <li><span class="item-name">Al Pesto</span><span class="item-desc">Pasta con salsa pesto de albahaca fresca y queso parmesano</span><span class="item-price">$215.00</span></li>
-        </ul>
-        <p><strong>Extras:</strong> Camarón 110g (+$100.00) | Pollo (+$80.00)</p>
-
-        <h2><i class="fas fa-hamburger"></i>Hamburguesas</h2>
-        <ul>
-            <li class="has-image" data-image="assets/galeria-platillos/hamburguesas/hamburgesa_tradicional.jpeg"><span class="item-name">Hamburguesa tradicional <i class="fas fa-camera"></i></span><span class="item-desc">Carne de res, queso Americano y tocino</span><span class="item-price">$175.00</span></li>
-            <li class="chef-recommendation has-image" data-image="assets/galeria-platillos/hamburguesas/hamburguesa_tajal.jpg"><span class="item-name">La Consentida Tajal <i class="fas fa-camera"></i></span><span class="item-desc">de res especial de la casa con champiñones tocino espinaca y queso blanco</span><span class="item-price">$220.00</span></li>
-            <li><span class="item-name">Hamburguesa de camarón</span><span class="item-desc">Camarones a la plancha con queso manchego</span><span class="item-price">$215.00</span></li>
-            <li><span class="item-name">Hamburguesa de pollo</span><span class="item-desc">Pechuga de pollo y queso americano</span><span class="item-price">$175.00</span></li>
-        </ul>
-        <p>Todas incluyen 150g de papas, jitomate, cebolla y lechuga</p>
-
-        <h2><i class="fas fa-drumstick-bite"></i>Cortes</h2>
-        <ul>
-            <li><span class="item-name">Arrachera 350g</span><span class="item-desc">Con frijoles y guacamole</span><span class="item-price">$330.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/cortes/rib_eye.jpeg"><span class="item-name">Rib-eye 350g <i class="fas fa-camera"></i></span><span class="item-desc">Con papa al gratin y ensalada</span><span class="item-price">$370.00</span></li>
-            <li><span class="item-name">Picaña 350g</span><span class="item-desc">Con frijoles y guacamole</span><span class="item-price">$300.00</span></
-            <li><span class="item-name">Sirloin 350g</span><span class="item-desc">Con papa a las finas yerbas y ensalada</span><span class="item-price">$370.00</span></li>
-            <li><span class="item-name">New York 350g</span><span class="item-desc">Con papa a las finas yerbas y ensalada</span><span class="item-price">$370.00</span></li>
-            <li><span class="item-name">T-bone 350g</span><span class="item-desc">Con champiñones al ajillo y elote amarillo</span><span class="item-price">$370.00</span></li>
-            <li><span class="item-name">Cowboy 400g</span><span class="item-desc">Con ensalada fresca y papitas al limón</span><span class="item-price">$470.00</span></li>
-            <li class="chef-recommendation has-image" data-image="assets/galeria-platillos/cortes/tomahawk.jpg"><span class="item-name">Tomahawk (1kg–1.2kg) <i class="fas fa-camera"></i></span><span class="item-desc">Con una ensalada especial de la casa</span><span class="item-price">$1,200.00</span></li>
-        </ul>
-
-        <h2><i class="fas fa-fish"></i>Del Mar</h2>
-        <ul>
-            <li class="has-image" data-image="assets/galeria-platillos/mariscos/aguachile_verde.jpeg"><span class="item-name">Aguachile negro de camarón (165g) <i class="fas fa-camera"></i></span><span class="item-desc"></span><span class="item-price">$220.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/mariscos/aguachile_verde.jpeg"><span class="item-name">Aguachile rojo de camarón (165g) <i class="fas fa-camera"></i></span><span class="item-desc"></span><span class="item-price">$220.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/mariscos/tacos_gobernador.jpeg"><span class="item-name">Tacos gobernador <i class="fas fa-camera"></i></span><span class="item-desc">3 tacos de camarón gratinados con aguacate</span><span class="item-price">$250.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/mariscos/salmon_a_las_brasas.jpeg"><span class="item-name">Salmón a las brasas <i class="fas fa-camera"></i></span><span class="item-desc">Medallón de salmón con vegetales salteados</span><span class="item-price">$320.00</span></li>
-            <li><span class="item-name">Atún sellado</span><span class="item-desc">Con costra de ajonjolí y ensalada fresca</span><span class="item-price">$245.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/mariscos/camarones_al_ajillo.jpeg"><span class="item-name">Camarones al gusto <i class="fas fa-camera"></i></span><span class="item-desc">Con arroz y ensalada: a la mantequilla, a la diabla, al mojo de ajo</span><span class="item-price">$250.00</span></li>
-            <li class="chef-recommendation has-image" data-image="assets/galeria-platillos/mariscos/pulpo_estilo_tajal.jpeg"><span class="item-name">Pulpo estilo Tajal <i class="fas fa-camera"></i></span><span class="item-desc">Pulpo a las brasas con puré de papa y ensalada</span><span class="item-price">$420.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/mariscos/camarones_empanizados.jpeg"><span class="item-name">Especial Tajal <i class="fas fa-camera"></i></span><span class="item-desc">Camarones empanizados de la casa</span><span class="item-price">$270.00</span></li>
-        </ul>
-
-        <h2><i class="fas fa-child"></i>Menú Infantil</h2>
-        <ul>
-            <li class="has-image" data-image="assets/galeria-platillos/infantil/nuggets_de_pollo.jpeg"><span class="item-name">Nuggets de pollo <i class="fas fa-camera"></i></span><span class="item-desc">Con papas a la francesa</span><span class="item-price">$130.00</span></li>
-            <li><span class="item-name">Hot dogs</span><span class="item-desc">1 pieza con papas a la francesa</span><span class="item-price">$80.00</span></li>
-            <li class="has-image" data-image="assets/galeria-platillos/infantil/hamburguesa_infantil.jpeg"><span class="item-name">Hamburguesa infantil <i class="fas fa-camera"></i></span><span class="item-desc">Con papas a la francesa</span><span class="item-price">$150.00</span></li>
-            <li><span class="item-name">Sopa de fideo con tocino</span><span class="item-desc"></span><span class="item-price">$90.00</span></li>
-        </ul>
-
-        <h2><i class="fas fa-ice-cream"></i>Postres</h2>
-        <ul>
-            <li><span class="item-name">Tarta de chocolate</span><span class="item-desc"></span><span class="item-price">$135.00</span></li>
-            <li><span class="item-name">Cheesecake de fresa</span><span class="item-desc"></span><span class="item-price">$135.00</span></li>
-            <li><span class="item-name">Pastel blueberry</span><span class="item-desc"></span><span class="item-price">$135.00</span></li>
-            <li><span class="item-name">Cheesecake de zarzamora</span><span class="item-desc"></span><span class="item-price">$135.00</span></li>
-        </ul>
-
-        <h2><i class="fas fa-plus-square"></i>Extras</h2>
-        <ul>
-            <li><span class="item-name">Arrachera 150g</span><span class="item-desc"></span><span class="item-price">$80.00</span></li>
-            <li><span class="item-name">Pollo 150g</span><span class="item-desc"></span><span class="item-price">$80.00</span></li>
-            <li><span class="item-name">Camarón 110g</span><span class="item-desc"></span><span class="item-price">$100.00</span></li>
-            <li><span class="item-name">Guacamole 150g</span><span class="item-desc"></span><span class="item-price">$90.00</span></li>
-            <li><span class="item-name">Chorizo 150g</span><span class="item-desc"></span><span class="item-price">$50.00</span></li>
-            <li><span class="item-name">Frijoles 150g</span><span class="item-desc"></span><span class="item-price">$40.00</span></li>
-            <li><span class="item-name">Elotes (3 rebanadas)</span><span class="item-desc"></span><span class="item-price">$50.00</span></li>
-            <li><span class="item-name">Panela 150g</span><span class="item-desc"></span><span class="item-price">$50.00</span></li>
-            <li><span class="item-name">Orden de arroz</span><span class="item-desc"></span><span class="item-price">$50.00</span></li>
-        </ul>
     </div>
     <div class="back-to-home">
-        <button id="theme-toggle" class="btn" aria-label="Activar modo claro"><i class="fas fa-sun"></i></button>
+        <button id="theme-toggle" class="btn" aria-label="Activar modo oscuro"><i class="fas fa-moon"></i></button>
         <a href="index.html" class="btn"><i class="fas fa-home"></i> Volver al Inicio</a>
     </div>
 
     <a id="back-to-top-btn" class="back-to-top-btn" title="Volver Arriba" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></a>
 
-    <!-- Modal para mostrar platillos -->
-    <div id="dish-modal" class="dish-modal">
-        <span class="dish-modal-close">&times;</span>
-        <div class="dish-modal-content">
-            <div class="dish-modal-image">
-                <img id="dish-modal-img" src="" alt="">
-            </div>
-            <div class="dish-modal-info">
-                <h3 id="dish-modal-title"></h3>
-                <p id="dish-modal-desc"></p>
-                <span id="dish-modal-price"></span>
-            </div>
-        </div>
-    </div>
-
     <!-- Botones flotantes de navegación -->
     <div class="floating-nav">
+        <a href="index.html" class="floating-btn" title="Volver al Inicio">
+            <i class="fas fa-home"></i>
+        </a>
         <a href="menu-platillos.html" class="floating-btn active" title="Carta de Platillos">
             <i class="fas fa-utensils"></i>
         </a>
@@ -201,6 +904,6 @@
         </a>
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>

@@ -8,58 +8,75 @@
     <meta property="og:description" content="Disfruta de cortes, mariscos frescos y mixología de autor.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tajalrestaurante.com/">
-    <meta property="og:image" content="assets/images/logo.png">
+    <meta property="og:image" content="assets/images/logos/logo.webp">
     <title>Tajal - Restaurante & Mixología</title>
-    <link rel="icon" href="assets/images/logo.png">
+    <link rel="icon" href="assets/images/logos/logo.webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+    <!-- Header Fijo que se oculta -->
+    <header class="main-header" id="main-header">
+        <div class="logo">
+            <a href="index.html" class="logo-link">
+                <img src="assets/images/favicon_io_encabezado/apple-touch-icon.png" alt="Logo" class="logo-icon">
+            </a>
+        </div>
+        <div class="nav-buttons">
+            <a href="menu-platillos.html" class="nav-btn"><i class="fas fa-utensils"></i> Carta de Platillos</a>
+            <a href="menu-mixologia.html" class="nav-btn"><i class="fas fa-martini-glass-citrus"></i> Mixología</a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section Libre -->
     <section class="hero">
-        <video class="hero-video-desktop" autoplay loop muted playsinline poster="assets/images/logo.webp">
-            <source src="assets/video/hero-video-desktop.mp4" type="video/mp4">
+        <video class="hero-video-desktop" autoplay loop muted poster="assets/images/logos/logo.webp">
+            <source src="assets/video/hero_index.mp4" type="video/mp4">
             Tu navegador no soporta el video.
         </video>
-        <video class="hero-video-mobile" autoplay loop muted playsinline poster="assets/images/logo.webp">
-            <source src="assets/video/hero-video-mobile.mp4" type="video/mp4">
+        <video class="hero-video-mobile" autoplay loop muted poster="assets/images/logos/logo.webp">
+            <source src="assets/video/mobile_hero_menu.mp4" type="video/mp4">
             Tu navegador no soporta el video.
         </video>
     
         <div class="overlay"></div>
-        <div class="content">
-            
-            <div class="buttons">
-                <a href="menu-platillos.html" class="btn"><i class="fas fa-utensils"></i> Ver Carta de Platillos</a>
-                <a href="menu-mixologia.html" class="btn"><i class="fas fa-martini-glass-citrus"></i> Ver Servicios de Mixología</a>
-            </div>
+        <div class="hero-content">
+            <img src="assets/images/logos/logo.webp" alt="Tajal Logo" class="hero-logo">
+            <p>Restaurante & Mixología</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
     <section class="search-section">
-        <h2><i class="fas fa-search"></i> Buscador de Menú</h2>
-        <p class="search-subtitle">Encuentra platillos, bebidas y productos de nuestra carta</p>
+        <div class="container">
+            <h2><i class="fas fa-search"></i> Buscador de Menú</h2>
+            <p class="search-subtitle">Encuentra platillos, bebidas y productos de nuestra carta</p>
 
-        <div class="search-container">
-            <div class="search-input-wrapper">
-                <input type="text" id="search-input" placeholder="Buscar por nombre, categoría o descripción... (ej: hamburguesa, margarita, entrada)" class="search-input">
-                <button id="search-btn" class="search-button">
-                    <i class="fas fa-search"></i> Buscar
-                </button>
-            </div>
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" placeholder="¿Qué se te antoja hoy? (ej: hamburguesa, margarita...)" class="search-input">
+                </div>
 
-            <div class="search-filters">
-                <button class="filter-btn active" data-filter="todos">Todos</button>
-                <button class="filter-btn" data-filter="platillo">Platillos</button>
-                <button class="filter-btn" data-filter="bebida">Bebidas</button>
-            </div>
+                <div class="search-filters">
+                    <button class="filter-btn active" data-filter="todos">Todos</button>
+                    <button class="filter-btn" data-filter="platillo">Platillos</button>
+                    <button class="filter-btn" data-filter="bebida">Bebidas</button>
+                </div>
 
-            <div class="search-stats" id="search-stats"></div>
+                <div class="search-stats" id="search-stats"></div>
 
-            <div class="search-results" id="search-results">
-                <!-- Los resultados aparecerán aquí -->
+                <div class="search-results" id="search-results">
+                    <!-- Los resultados aparecerán aquí -->
+                </div>
             </div>
         </div>
     </section>
@@ -81,6 +98,8 @@
             </div>
         </div>
     </div>
+
+
 
     <footer class="site-footer">
         <div class="footer-container">
@@ -107,12 +126,10 @@
                     <a href="#" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="theme-switcher">
-                <button id="theme-toggle" class="btn" aria-label="Activar modo claro"><i class="fas fa-sun"></i></button>
-            </div>
-            <p>&copy; 2024 Tajal - Restaurante & Mixología. Todos los derechos reservados.</p>
         </div>
-    </div>
+        <p>&copy; 2024 Tajal - Restaurante & Mixología. Todos los derechos reservados.</p>
+    </footer>
 
-    <script src="js/search.js"></script>
-    <script src="js/main.js"></script>
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>

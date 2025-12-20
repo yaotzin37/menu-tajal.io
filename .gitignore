@@ -1,38 +1,32 @@
-# Ignore files and directories that should not be committed to Git.
-#
-# For more information, see https://git-scm.com/docs/gitignore
+# Ignorar dependencias
+node_modules/
 
-# Dependencies
-/node_modules
-/bower_components
+# Ignorar archivos del sistema
+.DS_Store
+*.swp
+*.swo
+*~
 
-# Build output
-/dist
-/build
-/out
+# Ignorar archivos temporales de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 
-# Log files
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Ignorar entornos virtuales
+venv/
+env/
+ENV/
 
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# IDE/Editor directories
+# Ignorar archivos de configuración del editor
 .vscode/
 .idea/
-*.sublime-project
-*.sublime-workspace
+*.sublime-*
 
-# OS-generated files
-.DS_Store
-Thumbs.db
+# Ignorar archivos de log
+*.log
 
-# Temporary files
-.tmp/
+# Ignorar archivos de respaldo
+*.bak
+*.backup

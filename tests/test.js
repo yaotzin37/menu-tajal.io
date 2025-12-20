@@ -6,14 +6,19 @@ const html = `
   <html>
     <body>
       <div class="gallery-container">
-        <!-- Original Items -->
-        <div class="gallery-item" data-video-src="assets/video/Video.mp4">
-          <img src="placeholder.png" alt="Video">
+        <!-- Original Items with current paths -->
+        <div class="gallery-item" onclick="openLightbox('assets/images/menu/cortes/tomahawk.webp')">
+          <img src="assets/images/menu/cortes/tomahawk.webp" alt="Tomahawk">
         </div>
-        <div class="gallery-item"><img src="assets/galeria-platillos/cortes/rib_eye.jpeg" alt="Rib-eye"></div>
-        <div class="gallery-item"><img src="assets/galeria-platillos/cocteles/coctel-1.jpg" alt="Coctel"></div>
-        <div class="gallery-item"><img src="assets/galeria-platillos/ambiente/ambiente-1.jpg" alt="Ambiente"></div>
-        <div class="gallery-item"><img src="assets/galeria-platillos/cortes/tomahawk.jpg" alt="Tomahawk"></div>
+        <div class="gallery-item" onclick="openLightbox('assets/images/menu/mariscos/pulpo_estilo_tajal.webp')">
+          <img src="assets/images/menu/mariscos/pulpo_estilo_tajal.webp" alt="Pulpo">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('assets/images/menu/mixologia/violet_bomb.webp')">
+          <img src="assets/images/menu/mixologia/violet_bomb.webp" alt="Coctel">
+        </div>
+        <div class="gallery-item" onclick="openLightbox('assets/images/menu/mixologia/mezcalita.webp')">
+          <img src="assets/images/menu/mixologia/mezcalita.webp" alt="Mezcalita">
+        </div>
       </div>
       <div id="lightbox" style="display: none;">
         <img id="lightbox-img" src="">
@@ -61,7 +66,8 @@ function setupGallery() {
     const clone = item.cloneNode(true);
     galleryContainer.appendChild(clone);
   });
-  imageItems = Array.from(document.querySelectorAll('.gallery-item')).filter(item => item.querySelector('img') && !item.hasAttribute('data-video-src'));
+  // All items have images now, no need to filter out videos
+  imageItems = Array.from(document.querySelectorAll('.gallery-item'));
 }
 
 function showImage(index) {
@@ -77,7 +83,7 @@ function showImage(index) {
 test('Gallery should initialize correctly and duplicate items', () => {
   setupGallery();
   const totalItems = document.querySelectorAll('.gallery-item').length;
-  assert(totalItems === 10, `Expected 10 items after duplication, but found ${totalItems}`);
+  assert(totalItems === 8, `Expected 8 items after duplication (4 original + 4 clones), but found ${totalItems}`);
   assert(imageItems.length === 8, `Expected 8 image items (4 originals + 4 clones), but found ${imageItems.length}`);
 });
 
