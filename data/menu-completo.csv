@@ -6,7 +6,6 @@ ID,Categoría,Nombre,Descripción,Precio,Nota
 5,Desayunos,Molletes Salados,"2 molletes: frijol con queso, frijol con queso y chorizo",$90.00,menú-platillos
 6,Desayunos,Molletes Dulces,"2 molletes: sencillo o combinado con cajeta, mermelada de fresa, leche, azúcar, canela y miel",$95.00,menú-platillos
 7,Entradas y Botanas,Camarones Hawaii,Camarones empanizados con un toque crujiente de pan y coco sobre una ensalada fresca y un toque de salsa especial de la casa Tajal,$170.00,menú-platillos
-8,Entradas y Botanas,Camarones Roca,"Camarones capeados, macerados en un delicioso aderezo con un toque picosito. Creación del chef.",$180.00,menú-platillos
 9,Entradas y Botanas,Guacamole con Picaña,Guacamole tradicional con puntas de picaña al carbón,$250.00,menú-platillos
 10,Entradas y Botanas,Tuétanos Tajal,3 piezas al grill con esquites y salsa de la casa,$270.00,menú-platillos
 11,Entradas y Botanas,Tiradito de Atún,"Láminas de atún sobre ruedas de pepino, chile serrano y salsa sweet ponzu",$230.00,menú-platillos
@@ -183,4 +182,5 @@ ID,Categoría,Nombre,Descripción,Precio,Nota
 182,Sin Alcohol,Jarra de Naranjada,,$190.00,menú-mixología
 183,Sin Alcohol,Naranjada de Maracuyá,,$80.00,menú-mixología
 184,Sin Alcohol,Piñada,,$90.00,menú-mixología
+
 185,Sin Alcohol,Tisanas,,$65.00,menú-mixología
